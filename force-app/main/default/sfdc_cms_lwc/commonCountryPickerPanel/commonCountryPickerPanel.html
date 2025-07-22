@@ -1,0 +1,26 @@
+<template lwc:render-mode="light">
+    <div
+        class="slds-panel slds-panel_docked slds-panel_docked-right slds-is-open"
+        onkeydown={handleKeyDown}
+        data-automation="countryPickerPanelContainer"
+        aria-hidden="false">
+        <div class="slds-panel__header">
+            <div class="slds-panel__header-actions">
+                <lightning-button-icon
+                    class="close-button"
+                    icon-name="utility:close"
+                    size="large"
+                    data-automation="countryPickerPanelCloseButton"
+                    alternative-text={labels.closeButtonText}
+                    variant="bare"
+                    onclick={handleClose}></lightning-button-icon>
+            </div>
+            <h2 class="heading-title slds-text-heading_large slds-text-align_center">{headingLabelText}</h2>
+        </div>
+        <div class="slds-panel__body">
+            <site-common-country-picker-grid
+                locales={locales}
+                style={gridStyles}></site-common-country-picker-grid>
+        </div>
+    </div>
+</template>

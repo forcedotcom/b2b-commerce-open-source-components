@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <figure class="slds-align_absolute-center">
+        <button
+            if:true={selectable}
+            onclick={handleImageClicked}
+            class="image-container">
+            <experience-picture
+                alternative-text={alternativeText}
+                url={resolvedUrl}
+                data-automation="product-image"
+                images={images}
+                loading={loading}></experience-picture>
+        </button>
+        <experience-picture
+            if:false={selectable}
+            alternative-text={alternativeText}
+            url={url}
+            data-automation="product-image"
+            images={images}
+            loading={loading}></experience-picture>
+    </figure>
+</template>

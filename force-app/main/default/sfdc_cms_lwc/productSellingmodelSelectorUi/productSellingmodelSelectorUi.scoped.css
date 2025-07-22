@@ -1,0 +1,25 @@
+.sellingmodelcontainer {
+    border: var(--dxp-s-form-element-width-border) solid
+        var(--com-c-product-selling-model-border-color, var(--dxp-g-neutral-2));
+    border-radius: var(--com-c-product-selling-model-border-radius, var(--dxp-s-form-element-radius-border));
+    box-shadow: none;
+}
+.sellingmodel-info {
+    padding-left: 0.5rem;
+}
+.border_top {
+    border-top: var(--dxp-s-form-element-width-border) solid
+        var(--com-c-product-selling-model-border-color, var(--dxp-s-form-element-radius-border));
+}
+.border_none {
+    border-width: 0rem;
+}
+.border_none .sellingmodel-info {
+    padding: 0rem;
+}
+@media (min-width: 64.0625em) {
+    .subscriptions {
+        width: 50%;
+        display: block;
+    }
+}

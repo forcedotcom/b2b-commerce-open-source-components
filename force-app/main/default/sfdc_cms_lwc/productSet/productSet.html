@@ -1,0 +1,30 @@
+<template lwc:render-mode="light">
+    <template if:true={isProductSet}>
+        <template if:true={isProductSetLoaded}>
+            <site-product-set-ui
+                product-set={productSet}
+                unavailable-price-label={unavailablePriceLabel}
+                pricing-type={pricingType}
+                show-tax-indication={showTaxIndication}
+                tax-included-label={taxIncludedLabel}
+                show-add-all-to-cart-button={showAddAllToCartButton}
+                onaddalltocart={handleAddAllToCart}
+                show-product-image={showProductImage}
+                show-product-description={showProductDescription}
+                quantity-selector-label={quantitySelectorLabel}
+                minimum-value-guide-text={minimumValueGuideText}
+                maximum-value-guide-text={maximumValueGuideText}
+                increment-value-guide-text={incrementValueGuideText}
+                product-set-inventories={_childProductInventories}
+                out-of-stock-text={outOfStockText}
+                style={priceStyles}>
+                <span slot="lifeTimeLabel"><slot name="lifeTimeLabel"></slot></span>
+                <span slot="subscriptionLabel"><slot name="subscriptionLabel"></slot></span>
+            </site-product-set-ui>
+        </template>
+
+        <template if:false={isProductSetLoaded}>
+            <site-product-stencil></site-product-stencil>
+        </template>
+    </template>
+</template>

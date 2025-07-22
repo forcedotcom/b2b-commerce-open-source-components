@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <site-common-button-ui
+        variant={variant}
+        size={size}
+        width={width}
+        style={buttonStyle}
+        class={customButtonClasses}
+        onclick={handleButtonClick}
+        disabled={disabled}>
+        <div
+            lwc:if={cartTotal}
+            class="label-with-total">
+            <div class="label slds-p-right_x-small slds-text-align_left">{content}</div>
+            <site-common-formatted-price
+                value={cartTotal}
+                currency-code={currencyCode}
+                display-currency-as="symbol"></site-common-formatted-price>
+        </div>
+        <div lwc:else>{content}</div>
+    </site-common-button-ui>
+</template>

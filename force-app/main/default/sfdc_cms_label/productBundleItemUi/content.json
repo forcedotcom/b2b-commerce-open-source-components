@@ -1,0 +1,28 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productBundleItemUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "childCostsExtraText",
+        "value": "Additional Cost"
+      },
+      {
+        "name": "childIsIncludedAddOnText",
+        "value": "Included Add-on"
+      },
+      {
+        "name": "childIsOptionalAddOnText",
+        "value": "Optional Add-on"
+      },
+      {
+        "name": "childIsRequiredText",
+        "value": "Required"
+      },
+      {
+        "name": "noExtraCostText",
+        "value": "No Additional Cost"
+      }
+    ]
+  }
+}

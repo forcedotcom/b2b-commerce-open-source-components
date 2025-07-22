@@ -1,0 +1,525 @@
+:host {
+    display: flex;
+    --com-c-action-button-primary-color: var(
+        --com-c-button-primary-color,
+        var(
+            --com-c-button-color,
+            var(
+                --sds-c-button-brand-text-color,
+                var(--slds-c-button-brand-text-color, var(--dxp-s-button-color-contrast, var(--dxp-g-brand-contrast)))
+            )
+        )
+    );
+    --com-c-action-button-primary-color-hover: var(
+        --com-c-button-primary-color-hover,
+        var(
+            --com-c-button-color-hover,
+            var(
+                --sds-c-button-brand-text-color-hover,
+                var(
+                    --slds-c-button-brand-text-color-hover,
+                    var(--dxp-s-button-color-hover-contrast, var(--dxp-g-brand-contrast-1))
+                )
+            )
+        )
+    );
+    --com-c-action-button-primary-color-focus: var(
+        --com-c-button-primary-color-focus,
+        var(
+            --com-c-button-color-focus,
+            var(
+                --sds-c-button-brand-text-color-hover,
+                var(
+                    --slds-c-button-brand-text-color-hover,
+                    var(--dxp-s-button-color-focus-contrast, var(--dxp-g-brand-contrast-1))
+                )
+            )
+        )
+    );
+    --com-c-action-button-primary-color-active: var(
+        --com-c-button-primary-color-active,
+        var(
+            --com-c-button-color-active,
+            var(
+                --sds-c-button-brand-text-color-active,
+                var(
+                    --slds-c-button-brand-text-color-active,
+                    var(--dxp-s-button-color-active-contrast, var(--dxp-g-brand-contrast-1))
+                )
+            )
+        )
+    );
+    --com-c-action-button-primary-color-disabled: var(
+        --com-c-button-primary-color-disabled,
+        var(--com-c-button-color-disabled, var(--dxp-s-button-color-contrast, var(--dxp-g-brand-contrast)))
+    );
+    --com-c-action-button-secondary-color: var(
+        --com-c-button-secondary-color,
+        var(
+            --com-c-button-color,
+            var(
+                --slds-c-button-text-color,
+                var(--sds-c-button-text-color, var(--dxp-s-secondary-button-text-color, var(--dxp-g-brand)))
+            )
+        )
+    );
+    --com-c-action-button-secondary-color-hover: var(
+        --com-c-button-secondary-color-hover,
+        var(
+            --com-c-button-color-hover,
+            var(
+                --slds-c-button-text-color-hover,
+                var(
+                    --sds-c-button-text-color-hover,
+                    var(--dxp-s-secondary-button-text-color-hover, var(--dxp-g-brand-contrast-1))
+                )
+            )
+        )
+    );
+    --com-c-action-button-secondary-color-focus: var(
+        --com-c-button-secondary-color-focus,
+        var(
+            --com-c-button-color-focus,
+            var(
+                --slds-c-button-text-color-hover,
+                var(
+                    --sds-c-button-text-color-hover,
+                    var(--dxp-s-secondary-button-text-color-focus, var(--dxp-g-brand-contrast-1))
+                )
+            )
+        )
+    );
+    --com-c-action-button-secondary-color-active: var(
+        --com-c-button-secondary-color-active,
+        var(
+            --com-c-button-color-active,
+            var(
+                --sds-c-button-text-color-active,
+                var(--slds-c-button-text-color-active, var(--dxp-s-button-color-active, var(--dxp-g-brand-1)))
+            )
+        )
+    );
+    --com-c-action-button-secondary-color-disabled: var(
+        --com-c-button-secondary-color-disabled,
+        var(--com-c-button-color-disabled, var(--dxp-g-neutral-1))
+    );
+    --com-c-action-button-tertiary-color: var(
+        --com-c-button-tertiary-color,
+        var(--com-c-button-color, var(--dxp-s-tertiary-button-text-color, var(--dxp-g-brand)))
+    );
+    --com-c-action-button-tertiary-color-hover: var(
+        --com-c-button-tertiary-color-hover,
+        var(--com-c-button-color-hover, var(--dxp-s-tertiary-button-text-color-hover, var(--dxp-g-brand)))
+    );
+    --com-c-action-button-tertiary-color-focus: var(
+        --com-c-button-tertiary-color-focus,
+        var(--com-c-button-color-focus, var(--dxp-s-tertiary-button-text-color-focus, var(--dxp-g-brand)))
+    );
+    --com-c-action-button-tertiary-color-active: var(
+        --com-c-button-tertiary-color-active,
+        var(--com-c-button-color-active, var(--dxp-s-button-color-active, var(--dxp-g-brand-1)))
+    );
+    --com-c-action-button-tertiary-color-disabled: var(
+        --com-c-button-tertiary-color-disabled,
+        var(--com-c-button-color-disabled, var(--dxp-g-neutral-1))
+    );
+}
+.slds-button {
+    --slds-c-icon-color-foreground: var(--com-c-button-color, var(--dxp-s-button-color, var(--dxp-g-default)));
+    background: var(--com-c-button-color-background, transparent) none;
+    border-color: var(--com-c-button-color-border, transparent);
+    border-radius: var(--com-c-button-radius-border, var(--dxp-s-button-radius-border));
+    color: var(--com-c-button-color, var(--dxp-s-button-color, var(--dxp-g-default)));
+    display: var(--com-c-button-display, inline-flex);
+}
+.slds-button:hover:enabled {
+    --slds-c-icon-color-foreground: var(
+        --com-c-button-color-hover,
+        var(--dxp-s-button-color-hover, var(--dxp-g-brand-1))
+    );
+    color: var(--com-c-button-color-hover, var(--dxp-s-button-color-hover, var(--dxp-g-brand-1)));
+}
+.slds-button:focus:enabled {
+    --slds-c-icon-color-foreground: var(
+        --com-c-button-color-hover,
+        var(--dxp-s-button-color-hover, var(--dxp-g-brand-1))
+    );
+    color: var(--com-c-button-color-focus, var(--dxp-s-button-color-focus, var(--dxp-g-brand-1)));
+}
+.slds-button:active:enabled {
+    color: var(--com-c-button-color-active, var(--dxp-s-button-color-active, var(--dxp-g-brand-1)));
+}
+.slds-button[disabled],
+.slds-button:disabled {
+    --slds-c-icon-color-foreground: var(--com-c-button-color-disabled, var(--dxp-g-neutral-1));
+    background-color: var(--com-c-button-color-background-disabled, transparent);
+    border-color: var(--com-c-button-color-border-disabled, transparent);
+    color: var(--com-c-button-color-disabled, var(--dxp-g-neutral-1));
+    cursor: default;
+}
+.slds-button.slds-button_stretch {
+    display: var(--com-c-button-display, flex);
+}
+.slds-button.slds-align_absolute-center:not(.slds-button_stretch) {
+    margin: inherit;
+}
+.slds-button.slds-float_left {
+    justify-content: flex-start;
+}
+.slds-button.slds-float_right {
+    justify-content: flex-end;
+}
+.slds-button.slds-button_brand {
+    background-color: var(
+        --com-c-button-primary-color-background,
+        var(
+            --com-c-button-color-background,
+            var(
+                --sds-c-button-brand-color-background,
+                var(--slds-c-button-brand-color-background, var(--dxp-s-button-color, var(--dxp-g-brand)))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-primary-color-border,
+        var(
+            --com-c-button-color-border,
+            var(
+                --sds-c-button-brand-color-border,
+                var(--slds-c-button-brand-color-border, var(--dxp-s-button-border-color, var(--dxp-g-brand)))
+            )
+        )
+    );
+    color: var(--com-c-action-button-primary-color);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-primary-color);
+    transition: var(--com-c-button-primary-transition, var(--dxp-c-button-brand-transition));
+}
+.slds-button.slds-button_brand:hover:enabled {
+    background-color: var(
+        --com-c-button-primary-color-background-hover,
+        var(
+            --com-c-button-color-background-hover,
+            var(
+                --sds-c-button-brand-color-background-hover,
+                var(--slds-c-button-brand-color-background-hover, var(--dxp-s-button-color-hover, var(--dxp-g-brand-1)))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-primary-color-border-hover,
+        var(
+            --com-c-button-color-border-hover,
+            var(
+                --sds-c-button-brand-color-border-hover,
+                var(
+                    --slds-c-button-brand-color-border-hover,
+                    var(--dxp-s-button-border-color-hover, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-primary-color-hover);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-primary-color-hover);
+}
+.slds-button.slds-button_brand:focus:enabled {
+    background-color: var(
+        --com-c-button-primary-color-background-focus,
+        var(
+            --com-c-button-color-background-focus,
+            var(
+                --sds-c-button-brand-color-background-hover,
+                var(--slds-c-button-brand-color-background-focus, var(--dxp-s-button-color-focus, var(--dxp-g-brand-1)))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-primary-color-border-focus,
+        var(
+            --com-c-button-color-border-focus,
+            var(
+                --sds-c-button-brand-color-border-hover,
+                var(
+                    --slds-c-button-brand-color-border-hover,
+                    var(--dxp-s-button-border-color-focus, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-primary-color-focus);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-primary-color-focus);
+}
+.slds-button.slds-button_brand:active:enabled {
+    background-color: var(
+        --com-c-button-primary-color-background-active,
+        var(
+            --com-c-button-color-background-active,
+            var(
+                --sds-c-button-brand-color-background-active,
+                var(
+                    --slds-c-button-brand-color-background-active,
+                    var(--dxp-s-button-color-active, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-primary-color-border-active,
+        var(
+            --com-c-button-color-border-active,
+            var(
+                --sds-c-button-brand-color-border-active,
+                var(--slds-c-button-brand-color-border-active, var(--dxp-s-button-color-active, var(--dxp-g-brand-1)))
+            )
+        )
+    );
+    color: var(--com-c-action-button-primary-color-active);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-primary-color-active);
+}
+.slds-button.slds-button_brand[disabled],
+.slds-button.slds-button_brand:disabled {
+    background-color: var(
+        --com-c-button-primary-color-background-disabled,
+        var(--com-c-button-color-background-disabled, var(--dxp-g-neutral-1))
+    );
+    border-color: var(
+        --com-c-button-primary-color-border-disabled,
+        var(--com-c-button-color-border-disabled, var(--dxp-g-neutral-1))
+    );
+    color: var(--com-c-action-button-primary-color-disabled);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-primary-color-disabled);
+}
+.slds-button.slds-button_outline-brand {
+    background-color: var(
+        --com-c-button-secondary-color-background,
+        var(
+            --com-c-button-color-background,
+            var(
+                --sds-c-button-outline-brand-color-background,
+                var(
+                    --slds-c-button-outline-brand-color-background,
+                    var(--dxp-s-secondary-button-color, var(--dxp-g-root))
+                )
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-secondary-color-border,
+        var(
+            --com-c-button-color-border,
+            var(
+                --sds-c-button-outline-brand-color-border,
+                var(
+                    --slds-c-button-outline-brand-color-border,
+                    var(--dxp-s-secondary-button-border-color, var(--dxp-g-brand))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-secondary-color);
+    transition: var(--com-c-button-secondary-transition, var(--dxp-c-button-outline-brand-transition));
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-secondary-color);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-secondary-color);
+}
+.slds-button.slds-button_outline-brand:hover:enabled {
+    background-color: var(
+        --com-c-button-secondary-color-background-hover,
+        var(
+            --com-c-button-color-background-hover,
+            var(
+                --sds-c-button-outline-brand-color-background-hover,
+                var(
+                    --slds-c-button-outline-brand-color-background-hover,
+                    var(--dxp-s-secondary-button-color-hover, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-secondary-color-border-hover,
+        var(
+            --com-c-button-color-border-hover,
+            var(
+                --sds-c-button-outline-brand-color-border-hover,
+                var(
+                    --slds-c-button-outline-brand-color-border-hover,
+                    var(--dxp-s-secondary-button-border-color-hover, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-secondary-color-hover);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-secondary-color-hover);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-secondary-color-hover);
+}
+.slds-button.slds-button_outline-brand:focus:enabled {
+    background-color: var(
+        --com-c-button-secondary-color-background-focus,
+        var(
+            --com-c-button-color-background-focus,
+            var(
+                --sds-c-button-outline-brand-color-background-hover,
+                var(
+                    --slds-c-button-outline-brand-color-background-hover,
+                    var(--dxp-s-secondary-button-color-focus, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-secondary-color-border-focus,
+        var(
+            --com-c-button-color-border-focus,
+            var(
+                --sds-c-button-outline-brand-color-border-hover,
+                var(
+                    --slds-c-button-outline-brand-color-border-hover,
+                    var(--dxp-s-secondary-button-border-color-focus, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-secondary-color-focus);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-secondary-color-focus);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-secondary-color-focus);
+}
+.slds-button.slds-button_outline-brand:active:enabled {
+    background-color: var(
+        --com-c-button-secondary-color-background-active,
+        var(
+            --com-c-button-color-background-active,
+            var(
+                --sds-c-button-outline-brand-color-background-active,
+                var(--slds-c-button-outline-brand-color-background-active, var(--dxp-g-root-1))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-secondary-color-border-active,
+        var(
+            --com-c-button-color-border-active,
+            var(
+                --sds-c-button-outline-brand-color-border-active,
+                var(
+                    --slds-c-button-outline-brand-color-border-active,
+                    var(--dxp-s-button-color-active, var(--dxp-g-brand-1))
+                )
+            )
+        )
+    );
+    color: var(--com-c-action-button-secondary-color-active);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-secondary-color-active);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-secondary-color-active);
+}
+.slds-button.slds-button_outline-brand[disabled],
+.slds-button.slds-button_outline-brand:disabled {
+    background-color: var(
+        --com-c-button-secondary-color-background-disabled,
+        var(--com-c-button-color-background-disabled, transparent)
+    );
+    border-color: var(
+        --com-c-button-secondary-color-border-disabled,
+        var(--com-c-button-color-border-disabled, var(--dxp-g-neutral-1))
+    );
+    color: var(--com-c-action-button-secondary-color-disabled);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-secondary-color-disabled);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-secondary-color-disabled);
+}
+.slds-button.slds-button_neutral {
+    text-decoration: underline;
+    background-color: var(
+        --com-c-button-tertiary-color-background,
+        var(
+            --com-c-button-color-background,
+            var(
+                --sds-c-button-neutral-color-background,
+                var(--dxp-s-tertiary-button-color, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-tertiary-color-border,
+        var(
+            --com-c-button-color-border,
+            var(
+                --sds-c-button-neutral-color-border,
+                var(--dxp-s-tertiary-button-border-color, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    color: var(--com-c-action-button-tertiary-color);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-tertiary-color);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-tertiary-color);
+}
+.slds-button.slds-button_neutral:hover:enabled {
+    background-color: var(
+        --com-c-button-tertiary-color-background-hover,
+        var(
+            --com-c-button-color-background-hover,
+            var(
+                --sds-c-button-neutral-color-background-hover,
+                var(--dxp-s-tertiary-button-color-hover, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-tertiary-color-border-hover,
+        var(
+            --com-c-button-color-border-hover,
+            var(
+                --sds-c-button-neutral-color-border-hover,
+                var(--dxp-s-tertiary-button-border-color-hover, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    color: var(--com-c-action-button-tertiary-color-hover);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-tertiary-color-hover);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-tertiary-color-hover);
+}
+.slds-button.slds-button_neutral:focus:enabled {
+    background-color: var(
+        --com-c-button-tertiary-color-background-focus,
+        var(
+            --com-c-button-color-background-focus,
+            var(
+                --sds-c-button-neutral-color-background-hover,
+                var(--dxp-s-tertiary-button-color-focus, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    border-color: var(
+        --com-c-button-tertiary-color-border-focus,
+        var(
+            --com-c-button-color-border-focus,
+            var(
+                --sds-c-button-neutral-color-border-hover,
+                var(--dxp-s-tertiary-button-border-color-focus, var(--dxp-g-brand-contrast))
+            )
+        )
+    );
+    color: var(--com-c-action-button-tertiary-color-focus);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-tertiary-color-focus);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-tertiary-color-focus);
+}
+.slds-button.slds-button_neutral:active:enabled {
+    color: var(--com-c-action-button-tertiary-color-active);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-tertiary-color-active);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-tertiary-color-active);
+}
+.slds-button.slds-button_neutral[disabled],
+.slds-button.slds-button_neutral:disabled {
+    color: var(--com-c-action-button-tertiary-color-disabled);
+    --slds-c-icon-color-foreground: var(--com-c-action-button-tertiary-color-disabled);
+    --slds-c-icon-color-foreground-default: var(--com-c-action-button-tertiary-color-disabled);
+}
+.slds-button.dxp-button-small {
+    border-radius: var(
+        --com-c-button-small-radius-border,
+        var(--com-c-button-radius-border, var(--sds-c-button-radius-border, var(--dxp-s-button-small-radius-border)))
+    );
+}
+.slds-button.dxp-button-large {
+    border-radius: var(
+        --com-c-button-large-radius-border,
+        var(--com-c-button-radius-border, var(--sds-c-button-radius-border, var(--dxp-s-button-large-radius-border)))
+    );
+}

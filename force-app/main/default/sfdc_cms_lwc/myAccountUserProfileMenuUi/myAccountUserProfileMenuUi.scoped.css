@@ -1,0 +1,200 @@
+button .icon-color,
+a .icon-color {
+    --sds-c-icon-color-foreground-default: var(
+        --com-c-my-account-user-profile-icon-color,
+        var(--dxp-s-button-color, var(--dxp-g-brand))
+    );
+}
+button:hover .icon-color,
+button:focus .icon-color,
+a:hover .icon-color,
+a:focus .icon-color {
+    --sds-c-icon-color-foreground-default: var(
+        --com-c-my-account-user-profile-icon-hover-color,
+        var(--dxp-s-button-color-hover, var(--dxp-g-brand-1))
+    );
+}
+.login-link {
+    display: inline-flex;
+}
+.login-link:focus-visible {
+    outline: 2px solid
+        var(--com-c-my-account-user-profile-icon-hover-color, var(--dxp-s-button-color-focus, var(--dxp-g-brand-1)));
+    outline-offset: 2px;
+}
+.login-text {
+    font-size: small;
+    margin: auto;
+    font-weight: var(--com-c-my-account-user-profile-login-link-font-weight);
+    font-style: var(--com-c-my-account-user-profile-login-link-font-style);
+    text-decoration: var(--com-c-my-account-user-profile-login-link-text-decoration);
+    color: var(--com-c-my-account-user-profile-login-link-color, var(--dxp-s-link-text-color));
+    padding: 0.2rem;
+}
+.login-text:hover,
+.login-text:focus {
+    color: var(--com-c-my-account-user-profile-login-link-hover-color, var(--dxp-s-link-text-color-hover));
+}
+.menu-nubbin {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: inherit;
+    top: -0.5rem;
+    margin-inline-start: -0.5rem;
+    margin-inline-end: -0.5rem;
+    box-shadow: rgba(0, 0, 0, 0.16) -1px -1px 0px 0px;
+}
+.menu-nubbin.mobile-visible {
+    display: none;
+}
+.menu-nubbin.tablet-visible,
+.menu-nubbin.desktop-visible {
+    right: 1.25rem;
+}
+.dropdown-ctn {
+    background-color: var(--dxp-g-root);
+    position: fixed;
+}
+.menu-button {
+    background-color: transparent;
+    border: none;
+}
+.menu-button:hover,
+.menu-button:focus-visible {
+    outline: 2px solid
+        var(--com-c-my-account-user-profile-icon-hover-color, var(--dxp-s-button-color-focus, var(--dxp-g-brand-1)));
+}
+button {
+    padding: var(--com-c-my-account-user-profile-icon-padding);
+}
+.menu-trigger {
+    color: var(--com-c-my-account-user-profile-login-link-color, var(--dxp-s-link-text-color));
+    max-width: 5rem;
+    border-color: var(--dxp-g-neutral);
+    flex-basis: auto;
+    overflow: hidden;
+    padding: 0.25rem;
+    display: grid;
+}
+.menu-trigger:hover,
+.menu-trigger:focus {
+    color: var(--com-c-my-account-user-profile-login-link-hover-color, var(--dxp-s-link-text-color-hover));
+}
+.menu-trigger-p {
+    font-size: 0.75rem;
+}
+.profile-menu-item {
+    color: inherit;
+    background-color: transparent;
+}
+a.profile-menu-item {
+    color: var(--dxp-g-root-contrast);
+    background-color: var(--dxp-g-root);
+}
+a.profile-menu-item:hover,
+a.profile-menu-item:focus,
+a.profile-menu-item_hover {
+    color: var(--dxp-g-root-contrast);
+    background-color: var(--dxp-g-root);
+}
+.slds-dropdown__list a.menu-item {
+    color: var(--dxp-g-root-contrast);
+    text-decoration: none;
+}
+.slds-dropdown__list a.menu-item_hover {
+    color: var(--dxp-g-root-contrast);
+}
+.slds-dropdown__list a.menu-item-bg-hover-color {
+    background-color: var(--dxp-g-root-1);
+}
+.menu-trigger-ctn {
+    flex-direction: row-reverse;
+}
+.menu-trigger-ctn .menu-trigger-p {
+    color: var(--dxp-s-anchor-text-color);
+    text-shadow: 0 0 0.25rem var(--dxp-s-anchor-text-color);
+    text-align: left;
+}
+.menu-trigger-ctn .menu-trigger-p:hover {
+    color: var(--dxp-s-anchor-text-color-hover);
+}
+.company-name-max-width {
+    max-width: 6.8rem;
+}
+.guest-login-max-width {
+    max-width: 5rem;
+}
+.user-profile-menu-list li:nth-last-child(2) {
+    border-bottom: 1px solid #e5e5e5;
+    max-width: none;
+    width: 100vw;
+}
+li.company-name:nth-child(2) {
+    margin-top: -1.563rem;
+    font-weight: bold;
+}
+@media only screen and (max-width: 47.9375em) {
+    .company-name-max-width {
+        max-width: 1.8rem;
+    }
+    .menu-trigger-icon {
+        margin: 0;
+    }
+    .dropdown-ctn {
+        max-width: none;
+        width: 95vw;
+        position: fixed;
+        box-sizing: inherit;
+        margin: 0;
+        inset-inline-start: 2.5vw;
+        padding: 0;
+    }
+    .profile-menu-item,
+    .profile-menu-item_hover {
+        font-size: 1rem;
+        text-align: left;
+        line-height: 3.125rem;
+        padding: 0;
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 1.25rem;
+    }
+    .menu-nubbin.mobile-visible {
+        display: block;
+        inset-inline-start: 50%;
+    }
+    .login-text {
+        display: none;
+    }
+    .menu-nubbin.tablet-visible,
+    .menu-nubbin.desktop-visible {
+        display: none;
+    }
+}
+.menu_ul {
+    max-height: 80vh;
+}
+@media only screen and (min-width: 63.9375em) and (max-width: 102em) {
+    .guest-login-max-width {
+        max-width: 5.5vw;
+    }
+    .menu-trigger {
+        padding: 0;
+    }
+}
+@media only screen and (min-width: 47.9375em) and (max-width: 63.9375em) {
+    .profile-menu-item,
+    .profile-menu-item_hover {
+        font-size: 1rem;
+        text-align: left;
+        line-height: 3.125rem;
+        padding: 0;
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 1.25rem;
+    }
+    .company-name-max-width {
+        max-width: 1.8rem;
+    }
+}

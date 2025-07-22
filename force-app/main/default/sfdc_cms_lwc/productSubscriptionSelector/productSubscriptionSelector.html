@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <lightning-combobox
+        if:true={_displaySubscriptionTypeOptions}
+        name="subscriptionType"
+        label={_subscriptionTypeLabel}
+        value={_activeSubscriptionType}
+        options={_subscriptionTypeOptions}
+        read-only={readOnly}
+        onchange={handleProductSellingTypeChange}></lightning-combobox>
+    <lightning-combobox
+        if:true={_displaySubscriptionDetailOptions}
+        name="subscriptionDetail"
+        label={_subscriptionDetailLabel}
+        value={_activeSubscriptionDetail}
+        options={_activeSubscriptionDetailOptions}
+        read-only={readOnly}
+        onchange={handleProductSellingSubTypeChange}></lightning-combobox>
+    <p
+        class="slds-p-bottom_x-small subscription-selector-text"
+        if:true={_displaySubscriptionDetailOptionsText}>
+        {_activeSubscriptionDetailOptionsText}
+    </p>
+</template>

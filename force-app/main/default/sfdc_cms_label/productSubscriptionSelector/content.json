@@ -1,0 +1,56 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productSubscriptionSelector",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "monthly",
+        "value": "Monthly"
+      },
+      {
+        "name": "yearly",
+        "value": "Yearly"
+      },
+      {
+        "name": "month",
+        "value": "Month"
+      },
+      {
+        "name": "year",
+        "value": "Year"
+      },
+      {
+        "name": "months",
+        "value": "Months"
+      },
+      {
+        "name": "years",
+        "value": "Years"
+      },
+      {
+        "name": "evergreen",
+        "value": "Auto-Renew"
+      },
+      {
+        "name": "subscriptionDetailOptionLabel",
+        "value": "{optionName}, {price}/{priceTermUnit}"
+      },
+      {
+        "name": "termDefinedSubscriptionTypeOptionLabel",
+        "value": "Set Subscription Period ({frequency})"
+      },
+      {
+        "name": "termDefinedSubscriptionDetailOptionLabel",
+        "value": "Ends in {subscriptionTerm} {subscriptionTermTermUnit}, {price}/{priceTermUnit}"
+      },
+      {
+        "name": "subscriptionType",
+        "value": "Subscription Type"
+      },
+      {
+        "name": "subscriptionDetail",
+        "value": "Subscription Detail"
+      }
+    ]
+  }
+}

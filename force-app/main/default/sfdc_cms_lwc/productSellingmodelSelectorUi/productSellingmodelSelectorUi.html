@@ -1,0 +1,68 @@
+<template lwc:render-mode="light">
+    <div class="slds-grid slds-grid_vertical">
+        <fieldset
+            class={_sellingModelContainerCSSClass}
+            aria-label={_productName}>
+            <div
+                if:true={_oneTimeExist}
+                class={_lifeTimeSellingModelCSSClasses}>
+                <div
+                    if:true={_displayAllOptions}
+                    class="slds-radio">
+                    <input
+                        type="radio"
+                        id={_oneTimeRadioButtonId}
+                        value="oneTime"
+                        name={_radioButtonGroupName}
+                        checked={_oneTimeActive}
+                        onchange={handlePurchaseOptionChange} />
+                    <label
+                        class="slds-radio__label"
+                        for={_oneTimeRadioButtonId}>
+                        <span class="slds-radio_faux"></span>
+                        <slot name="lifeTimeLabel"></slot>
+                    </label>
+                </div>
+                <div class={_sellingModelDetailsCSSClasses}>
+                    <template if:false={_displayAllOptions}><slot name="lifeTimeLabel"></slot></template>
+                    <template if:true={_hasOneTimeDescription}><slot name="oneTimeDescription"></slot></template>
+                    <slot name="lifeTimePrice"></slot>
+                </div>
+            </div>
+
+            <div
+                if:true={_subscriptionsExist}
+                class={_subscriptionSellingModelCSSClasses}>
+                <div
+                    if:true={_displayAllOptions}
+                    class="slds-radio">
+                    <input
+                        type="radio"
+                        id={_subscribeRadioButtonId}
+                        value="subscription"
+                        name={_radioButtonGroupName}
+                        checked={_subscriptionActive}
+                        onchange={handlePurchaseOptionChange} />
+                    <label
+                        class="slds-radio__label"
+                        for={_subscribeRadioButtonId}>
+                        <span class="slds-radio_faux"></span>
+                        <slot name="subscriptionLabel"></slot>
+                    </label>
+                </div>
+                <div class={_sellingModelDetailsCSSClasses}>
+                    <template if:false={_displayAllOptions}><slot name="subscriptionLabel"></slot></template>
+                    <site-product-subscription-selector
+                        class="subscriptions"
+                        product-selling-models={_productSellingModels}
+                        currency={_currency}
+                        read-only={_oneTimeActive}
+                        selected-subscription={_selectedSubscription}
+                        onsubscriptionchanged={handleSubscriptionSelectorChange}></site-product-subscription-selector>
+                    <template if:true={_subscriptionActive}><slot name="selectedSubscriptionPrice"></slot></template>
+                    <template if:true={_hasSubscribeDescription}><slot name="subscribeDescription"></slot></template>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+</template>

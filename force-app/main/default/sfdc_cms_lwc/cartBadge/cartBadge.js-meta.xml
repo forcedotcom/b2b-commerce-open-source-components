@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Cart Badge</masterLabel>
+  <description>Shows a clickable icon that takes the customer to their cart.</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="showCount" type="Boolean" label="Show number of items in cart"></property>
+      <property name="countType" translatable="false" type="String" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount" label="Show total items or number or unique items"></property>
+      <property name="showMiniCartProperties" type="Boolean" default="true"></property>
+      <property name="showMiniCart" type="Boolean" default="true" label="Enable Mini Cart" description="Enables a sliding mini cart that showcases cart items."></property>
+      <property name="headerText" translatable="true" type="String" default="My Cart" label="Header Text"></property>
+      <property name="checkoutButtonText" translatable="true" type="String" default="Checkout" label="Checkout Button Text"></property>
+      <property name="checkoutButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Checkout Button Size"></property>
+      <property name="showContinueShoppingButton" type="Boolean" default="true" label="Show continue shopping button"></property>
+      <property name="continueShoppingButtonText" translatable="true" type="String" default="Continue Shopping" label="Button Text"></property>
+      <property name="continueShoppingButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="showExpressCheckoutButton" type="Boolean" default="false" label="Show express checkout button"></property>
+      <property name="useManualCapture" type="Boolean" default="true" label="Use manual capture"></property>
+      <property name="paymentMethodSetId" type="String" default="" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource" label="Payment Method Set Key" description="Shows only the first applicable payment method in the minicart. The payment method shown is based on the device and browser settings of the customer. Find the key on the Merchant Account related list page."></property>
+      <property name="showViewCartButton" type="Boolean" default="true" label="Show view cart button"></property>
+      <property name="viewCartButtonText" translatable="true" type="String" default="View Cart" label="Button Text"></property>
+      <property name="viewCartButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="showRecommendation" type="Boolean" default="false" label="Show product recommendations"></property>
+      <property name="recommendationHeaderText" translatable="true" type="String" default="You May Also Like" label="Header Text"></property>
+      <property name="recommendationPriceDisplayType" type="String" default="displayAllPrices" datasource="java://siteforce.customComponent.datasource.MiniCartRecommendationPriceDisplayOptionsDataSource" label="Price Display"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="showCount"></designLayoutProperty>
+            <designLayoutProperty name="countType" cbVisibleIf="showCount=true"></designLayoutProperty>
+            <designLayoutProperty name="showMiniCartProperties" cbVisibleIf="showMiniCartProperties=show"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Mini Cart" cbVisibleIf="showMiniCartProperties=true">
+          <designLayoutItems>
+            <designLayoutProperty name="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="headerText" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="checkoutButtonText" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="checkoutButtonSize" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="showContinueShoppingButton" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="continueShoppingButtonText" cbVisibleIf="showMiniCart;showContinueShoppingButton"></designLayoutProperty>
+            <designLayoutProperty name="continueShoppingButtonSize" cbVisibleIf="showMiniCart;showContinueShoppingButton"></designLayoutProperty>
+            <designLayoutProperty name="showExpressCheckoutButton" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="paymentMethodSetId" cbVisibleIf="showMiniCart;showExpressCheckoutButton"></designLayoutProperty>
+            <designLayoutProperty name="useManualCapture" cbVisibleIf="showMiniCart;showExpressCheckoutButton"></designLayoutProperty>
+            <designLayoutProperty name="showViewCartButton" cbVisibleIf="showMiniCart"></designLayoutProperty>
+            <designLayoutProperty name="viewCartButtonText" cbVisibleIf="showMiniCart;showViewCartButton"></designLayoutProperty>
+            <designLayoutProperty name="viewCartButtonSize" cbVisibleIf="showMiniCart;showViewCartButton"></designLayoutProperty>
+            <designLayoutProperty name="showRecommendation"></designLayoutProperty>
+            <designLayoutProperty name="recommendationHeaderText" cbVisibleIf="showRecommendation"></designLayoutProperty>
+            <designLayoutProperty name="recommendationPriceDisplayType" cbVisibleIf="showRecommendation"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

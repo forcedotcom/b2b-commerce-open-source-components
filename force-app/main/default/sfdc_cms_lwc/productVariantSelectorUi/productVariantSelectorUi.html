@@ -1,0 +1,36 @@
+<template lwc:render-mode="light">
+    <slot name="heading"></slot>
+    <template
+        for:each={formattedAttributeFields}
+        for:item="field"
+        for:index="index">
+        <site-product-variant-swatchcontainer
+            lwc:if={field.isColorSwatch}
+            attribute-api-name={field.apiName}
+            attribute-name={field.label}
+            enable-mobile-horizontal-scrolling
+            key={field.apiName}
+            options={field.options}
+            assistive-out-of-stock-text={assistiveOutOfStockText}
+            onvariantattributeoptionchanged={handleVariantAttributeOptionChanged}></site-product-variant-swatchcontainer>
+        <site-product-variant-pillcontainer
+            lwc:if={field.isPill}
+            attribute-api-name={field.apiName}
+            attribute-name={field.label}
+            enable-mobile-horizontal-scrolling
+            key={field.apiName}
+            options={field.options}
+            assistive-out-of-stock-text={assistiveOutOfStockText}
+            onvariantattributeoptionchanged={handleVariantAttributeOptionChanged}></site-product-variant-pillcontainer>
+        <lightning-combobox
+            lwc:if={field.isDropDown}
+            key={field.apiName}
+            data-field-name={field.apiName}
+            label={field.label}
+            name={field.apiName}
+            value={field.value}
+            options={field.options}
+            data-index={index}
+            onchange={handleChange}></lightning-combobox>
+    </template>
+</template>

@@ -1,0 +1,26 @@
+div {
+    display: flex;
+}
+site-common-button-ui {
+    flex-grow: 1;
+    height: 2.5rem;
+    width: max-content;
+    margin-right: var(--dxp-g-spacing-small);
+}
+site-common-quantity-selector {
+    margin-right: var(--dxp-g-spacing-small);
+}
+@media only screen and (max-width: 48em) {
+    div {
+        flex-direction: column;
+        align-items: center;
+    }
+    site-common-quantity-selector {
+        margin-bottom: var(--dxp-g-spacing-medium, 1rem);
+    }
+    site-common-button-ui {
+        align-self: stretch;
+        width: auto;
+        justify-content: center;
+    }
+}

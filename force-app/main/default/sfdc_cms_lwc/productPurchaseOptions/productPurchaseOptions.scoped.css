@@ -1,0 +1,22 @@
+.quantity-list-action {
+    display: flex;
+}
+.quantity-list-action > site-common-button-ui {
+    height: 2.5rem;
+    width: max-content;
+    margin-right: var(--dxp-g-spacing-small);
+}
+@media only screen and (max-width: 48em) {
+    .quantity-rule {
+        margin: auto;
+        text-align: center;
+    }
+    .quantity-list-action {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    site-product-add-quantity:not(:last-child) {
+        margin-right: 0;
+    }
+}

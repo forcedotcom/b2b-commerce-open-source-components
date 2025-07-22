@@ -1,0 +1,137 @@
+<template lwc:render-mode="light">
+    <table if:true={isPriceAvailable}>
+        <tbody>
+            <tr
+                aria-live="assertive"
+                aria-atomic="true"
+                class={mainPriceStyles}>
+                <td>
+                    <span class="slds-m-right_xx-small slds-align-middle slds-show--inline-block text-word-break">
+                        <span
+                            if:true={hasMainPriceLabel}
+                            class="main-price-label slds-text-heading_small slds-p-right_x-small">
+                            {mainPriceLabel}
+                        </span>
+                        <lightning-formatted-number
+                            if:false={_displaySubscriptionPrice}
+                            class="main-price price-label"
+                            value={mainPrice}
+                            currency-code={currencyCode}
+                            currency-display-as="symbol"
+                            maximum-fraction-digits="20"
+                            format-style="currency"
+                            data-automation="productPricingMainPrice"></lightning-formatted-number>
+                        <span
+                            if:true={_displaySubscriptionPrice}
+                            class="main-price price-label">
+                            {subscriptionMainPrice}
+                        </span>
+                    </span>
+
+                    <span class="slds-m-right_xx-small">
+                        <span
+                            if:true={hasStrikethroughPriceLabel}
+                            class="strikethrough-price-label slds-text-heading_small slds-p-right_x-small slds-p-left_x-small">
+                            {strikethroughPriceLabel}
+                        </span>
+                        <span
+                            class="text-word-break"
+                            lwc:if={displayStrikethroughPrice}>
+                            <span
+                                if:true={displayAssistiveText}
+                                class="slds-assistive-text">
+                                {previousPriceAssistiveText}
+                            </span>
+                            <lightning-formatted-number
+                                if:false={_displaySubscriptionPrice}
+                                class="strikethrough-price price-label"
+                                value={strikethroughPrice}
+                                currency-code={currencyCode}
+                                currency-display-as="symbol"
+                                maximum-fraction-digits="20"
+                                format-style="currency"
+                                data-automation="productPricingStrikePrice"></lightning-formatted-number>
+                            <span
+                                if:true={_displaySubscriptionPrice}
+                                class="strikethrough-price price-label">
+                                {subscriptionStrikethroughPrice}
+                            </span>
+                        </span>
+                    </span>
+                    <span
+                        lwc:if={isPromotionsThresholdExceeded}
+                        class="slds-m-right_xx-small combined-promotional-message text-word-break">
+                        <lightning-formatted-rich-text value={combinedPromotionMessage}></lightning-formatted-rich-text>
+                    </span>
+                </td>
+            </tr>
+            <tr
+                lwc:if={displayFinalPrice}
+                aria-live="assertive"
+                aria-atomic="true">
+                <td class="text-word-break">
+                    <lightning-formatted-number
+                        class="final-price price-label"
+                        value={finalPrice}
+                        currency-code={currencyCode}
+                        currency-display-as="symbol"
+                        maximum-fraction-digits="20"
+                        format-style="currency"
+                        data-automation="productPricingFinalPrice"></lightning-formatted-number>
+                    <span
+                        if:true={hasFinalPriceLabel}
+                        class="final-price-label slds-text-heading_small slds-p-left_x-small">
+                        {finalPriceLabel}
+                    </span>
+                </td>
+            </tr>
+            <template
+                lwc:if={displayPromotionalMessage}
+                for:each={promotionalMessages}
+                for:item="message">
+                <tr
+                    class="promotional-message"
+                    aria-live="assertive"
+                    aria-atomic="true"
+                    key={message}>
+                    <td class="text-word-break">
+                        <lightning-formatted-rich-text value={message}></lightning-formatted-rich-text>
+                    </td>
+                </tr>
+            </template>
+            <tr
+                lwc:if={hasLowestUnitPrice}
+                class="lowest-unit-price"
+                aria-live="assertive"
+                aria-atomic="true">
+                <td>
+                    <span class="text-word-break">
+                        <span
+                            if:true={hasLowestUnitPriceLabel}
+                            class="lowest-price-label slds-text-heading_small slds-p-right_x-small">
+                            {lowestUnitPriceLabel}
+                        </span>
+                        <lightning-formatted-number
+                            class="lowest-price price-label"
+                            value={lowestUnitPrice}
+                            currency-code={currencyCode}
+                            currency-display-as="symbol"
+                            maximum-fraction-digits="20"
+                            format-style="currency"
+                            data-automation="productPricingLowestPrice"></lightning-formatted-number>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div
+        class="tax-container"
+        if:true={taxInfoVisible}>
+        <p class="tax-info-label">{taxIncludedLabel}</p>
+    </div>
+    <div
+        if:false={isPriceAvailable}
+        class="price-unavailable">
+        {unavailablePriceLabel}
+    </div>
+</template>

@@ -1,0 +1,12 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productVariantSwatchcontainer",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "keyValueSeparator",
+        "value": ":"
+      }
+    ]
+  }
+}

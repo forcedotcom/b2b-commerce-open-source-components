@@ -1,0 +1,28 @@
+.color-swatch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.4rem;
+}
+.mobile-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto visible;
+    overscroll-behavior-x: none;
+    width: inherit;
+    scroll-padding: 1rem;
+    scroll-snap-type: x;
+    touch-action: manipulation;
+}
+.selected-variant {
+    display: var(--com-c-product-variant-swatch-title-display);
+}
+.swatch-item:nth-child(3) {
+    display: var(--com-c-product-variant-swatch-third-color-display, flex);
+}
+.swatch-item:nth-child(4) {
+    display: var(--com-c-product-variant-swatch-fourth-color-display, flex);
+}
+.swatch-item:nth-child(5) {
+    display: var(--com-c-product-variant-swatch-fifth-color-display, flex);
+}

@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productWishlist",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "alternativeSpinnerText",
+        "value": "Loading"
+      },
+      {
+        "name": "addToCartError",
+        "value": "We couldn’t add Product \"{productName}\" to cart. Try again."
+      },
+      {
+        "name": "removeError",
+        "value": "We couldn’t remove Product \"{productName}\" from My List. Try again later."
+      }
+    ]
+  }
+}

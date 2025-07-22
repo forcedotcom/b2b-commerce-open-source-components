@@ -1,0 +1,39 @@
+<template lwc:render-mode="light">
+    <div class="panel-element">
+        <div class="slds-panel slds-size_full slds-panel_docked slds-panel_docked-left slds-panel_drawer slds-is-open">
+            <div class="panel-content">
+                <div class="panel-header slds-panel__header">
+                    <h2
+                        data-automation="panelHeading"
+                        class="slds-panel__header-title slds-text-heading_large slds-truncate">
+                        <slot name="panelHeading"></slot>
+                    </h2>
+                    <div class="slds-panel__header-actions">
+                        <button
+                            class="slds-button slds-button_icon slds-button_icon-large slds-panel__close"
+                            aria-label={closeButtonAriaLabel}
+                            onclick={handleClose}>
+                            <svg
+                                class="slds-button__icon"
+                                aria-hidden="true">
+                                <use xlink:href={fetchIcon}></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div
+                    class="slds-panel__body"
+                    style={panelBodyStyles}
+                    data-automation="panelBody">
+                    <slot name="panelBody"></slot>
+                </div>
+            </div>
+            <div
+                lwc:ref="panelFooter"
+                class="panel_footer"
+                data-automation="panelFooter">
+                <slot name="panelFooter"></slot>
+            </div>
+        </div>
+    </div>
+</template>

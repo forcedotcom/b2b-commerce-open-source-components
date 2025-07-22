@@ -1,0 +1,20 @@
+<template lwc:render-mode="light">
+    <template
+        for:each={formattedLocales}
+        for:item="locale">
+        <button
+            key={locale.locale}
+            class="slds-button locale"
+            data-locale={locale.locale}
+            onclick={handleLocaleClick}>
+            <span class="locale-flag">{locale.flag}  </span>
+            <span class="locale-country">
+                {locale.localeLabel}
+                <span class="locale-currency">
+                    <span class="locale-currency-separator"> - </span>
+                    {locale.currencyCode}
+                </span>
+            </span>
+        </button>
+    </template>
+</template>

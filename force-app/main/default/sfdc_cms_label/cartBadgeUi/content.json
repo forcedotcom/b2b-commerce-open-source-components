@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartBadgeUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "itemsInCart",
+      "value" : "Cart: {0} items"
+    }, {
+      "name" : "itemInCart",
+      "value" : "Cart: 1 item"
+    }, {
+      "name" : "productTypesInCart",
+      "value" : "Cart: {0} product types"
+    }, {
+      "name" : "productTypeInCart",
+      "value" : "Cart: 1 product type"
+    }, {
+      "name" : "emptyCart",
+      "value" : "Cart: empty"
+    }, {
+      "name" : "preserveGuestCartErrorTitle",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "preserveGuestCartErrorMessage",
+      "value" : "{0} items are no longer in your cart. Review your cart and re-add items if necessary."
+    } ]
+  },
+  "urlName" : "cartbadgeui"
+}

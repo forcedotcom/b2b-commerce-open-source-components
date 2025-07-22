@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <site-search-combobox
+        term={searchTerm}
+        items={searchSuggestionItems}
+        input-placeholder-text={placeholderText}
+        custom-styles={customStyles}
+        show-search-button={showSearchButton}
+        show-advanced-search={showAdvancedSearch}
+        show-highlightning="true"
+        onsearchtermchange={handleTermChange}
+        onsearchrequest={handleSearch}
+        onsearchlistopenrequest={handleTermChange}
+        onsearchoptionselection={handleOptionSelection}
+        onfocusin={handleTermChange}
+        onfocusout={handleClearSearchInput}></site-search-combobox>
+</template>

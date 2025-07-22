@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Search Input</masterLabel>
+  <description>Add a product search field to a page.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="placeholderText" type="String" translatable="true" default="Enter keyword" label="Search Prompt"></property>
+      <property name="borderRadius" type="Integer" default="0" min="0" max="50" label="Border Radius (0px - 50px)"></property>
+      <property name="textColor" type="Color" label="Search Term Text Color"></property>
+      <property name="backgroundColor" type="Color" label="Search Box Background Color"></property>
+      <property name="iconColor" type="Color" label="Search Icon Color"></property>
+      <property name="borderColor" type="Color" label="Border Color"></property>
+      <property name="placeholderTextColor" type="Color" label="Search Prompt Text Color"></property>
+      <property name="showSearchButton" type="Boolean" default="true" label="Show search button"></property>
+      <property name="buttonBackgroundColor" type="Color" label="Button Background Color"></property>
+      <property name="buttonBackgroundHoverColor" type="Color" label="Button Background Hover Color"></property>
+      <property name="showSearchSuggestionsSetup" type="Boolean" default="true" label="Show search suggestions"></property>
+      <property name="suggestionsTextColor" type="Color" label="Text Color"></property>
+      <property name="suggestionsTextHoverColor" type="Color" label="Text Hover Color"></property>
+      <property name="suggestionsBackgroundColor" type="Color" label="Background Color"></property>
+      <property name="suggestionsBackgroundHoverColor" type="Color" label="Background Hover Color"></property>
+      <property name="suggestionsDividerColor" type="Color" label="Divider Color"></property>
+      <designLayout>
+        <designSection name="Place Holder Text">
+          <designLayoutItems>
+            <designLayoutProperty name="placeholderText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Design">
+          <designLayoutItems>
+            <designLayoutProperty name="borderRadius"></designLayoutProperty>
+            <designLayoutProperty name="textColor"></designLayoutProperty>
+            <designLayoutProperty name="backgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="iconColor"></designLayoutProperty>
+            <designLayoutProperty name="borderColor"></designLayoutProperty>
+            <designLayoutProperty name="placeholderTextColor"></designLayoutProperty>
+            <designLayoutProperty name="showSearchButton"></designLayoutProperty>
+            <designLayoutProperty name="buttonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="buttonBackgroundHoverColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Search Suggestions">
+          <designLayoutItems>
+            <designLayoutProperty name="showSearchSuggestionsSetup"></designLayoutProperty>
+            <designLayoutProperty name="suggestionsTextColor" cbVisibleIf="showSearchSuggestionsSetup"></designLayoutProperty>
+            <designLayoutProperty name="suggestionsTextHoverColor" cbVisibleIf="showSearchSuggestionsSetup"></designLayoutProperty>
+            <designLayoutProperty name="suggestionsBackgroundColor" cbVisibleIf="showSearchSuggestionsSetup"></designLayoutProperty>
+            <designLayoutProperty name="suggestionsBackgroundHoverColor" cbVisibleIf="showSearchSuggestionsSetup"></designLayoutProperty>
+            <designLayoutProperty name="suggestionsDividerColor" cbVisibleIf="showSearchSuggestionsSetup"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

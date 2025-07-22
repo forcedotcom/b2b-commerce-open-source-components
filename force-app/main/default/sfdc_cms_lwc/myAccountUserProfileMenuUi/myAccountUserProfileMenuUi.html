@@ -1,0 +1,111 @@
+<template lwc:render-mode="light">
+    <div
+        if:true={isLoggedIn}
+        class={menuContainerClasses}
+        onkeydown={handleKeyDownOnMenu}
+        onfocusout={handleFocusOutOnMenu}
+        tabindex="-1">
+        <button
+            lwc:ref="menuButton"
+            class="slds-no-space menu-button"
+            onclick={handleMenuTriggerClick}
+            aria-haspopup="true"
+            aria-label={userProfileMenuButtonAltText}
+            aria-expanded={_state.isMenuExpanded}>
+            <span class={menuTriggerContainerClasses}>
+                <span
+                    if:true={showNameInTrigger}
+                    class="slds-media__body slds-show_large menu-trigger">
+                    <span class={menuTriggerUserNameClasses}>{userName}</span>
+                    <span
+                        if:true={includeCompanyName}
+                        class="menu-trigger-p slds-text-align_right slds-truncate slds-text-title_bold">
+                        {companyName}
+                    </span>
+                </span>
+                <span>
+                    <lightning-icon
+                        src={iconSrc}
+                        alternative-text={userProfileMenuButtonAltText}
+                        size="small"
+                        class="icon-color slds-icon-text-default"></lightning-icon>
+                </span>
+            </span>
+        </button>
+
+        <div
+            if:true={showMenu}
+            class={menuDropDownContainerClasses}
+            style={dropDownTopAndRightStyleString}>
+            <span
+                class="menu-nubbin mobile-visible"
+                aria-hidden="true"
+                style={nubbinStyleString}></span>
+            <span
+                class="menu-nubbin desktop-visible tablet-visible"
+                aria-hidden="true"></span>
+            <ul
+                class="slds-dropdown__list user-profile-menu-list menu_ul slds-scrollable_y"
+                role="menu">
+                <template
+                    for:each={styleUserDetailsForMobileAndTablet}
+                    for:item="item"
+                    if:true={showNameInTrigger}>
+                    <li
+                        key={item.id}
+                        class="slds-dropdown__item slds-hide_large company-name">
+                        <p class={item.classes}>
+                            <span
+                                class="slds-truncate"
+                                title={item.label}>
+                                {item.label}
+                            </span>
+                        </p>
+                    </li>
+                </template>
+                <template
+                    for:each={styleMappedMenuItems}
+                    for:item="item">
+                    <li
+                        key={item.id}
+                        class="slds-dropdown__item"
+                        role="menuitem">
+                        <a
+                            href={item.hrefValue}
+                            class={item.classes}
+                            onclick={handleMenuItemClick}
+                            onmouseenter={handleFocusOrHoverOnMenuItem}
+                            tabindex="-1"
+                            data-id={item.id}>
+                            <span
+                                class="slds-truncate"
+                                title={item.label}>
+                                {item.label}
+                            </span>
+                        </a>
+                    </li>
+                </template>
+            </ul>
+        </div>
+    </div>
+    <a
+        if:false={isLoggedIn}
+        href={_loginPageUrl}
+        role="button"
+        onclick={handleLoginButtonClick}
+        class="login-link"
+        data-automation="login-link"
+        style={cssCustomStyleForLoginLink}>
+        <div class={loginLinkClasses}>
+            <p
+                class="slds-truncate login-text"
+                style={loginLinkStyle}>
+                {loginButtonText}
+            </p>
+            <lightning-icon
+                src={iconSrc}
+                size="small"
+                class="icon-color slds-icon-text-default"></lightning-icon>
+        </div>
+    </a>
+</template>

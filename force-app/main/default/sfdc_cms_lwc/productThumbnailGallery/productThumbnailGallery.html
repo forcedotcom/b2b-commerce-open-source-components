@@ -1,0 +1,124 @@
+<template lwc:render-mode="light">
+    <div
+        class={thumbnailGalleryClasses}
+        lwc:ref="container"
+        data-automation="thumbnailGalleryContainer">
+        <div
+            lwc:if={showThumbnails}
+            class="thumbnail-container">
+            <div class="paging-indicator paging-indicator-prev">
+                <button
+                    lwc:if={showPrevPageIndicator}
+                    onclick={handlePrevClick}>
+                    <lightning-icon
+                        icon-name={prevPageIndicatorIcon}
+                        alternative-text={prevPageIndicatorAltTextString}
+                        size="x-small"
+                        title={prevPageIndicatorAltTextString}></lightning-icon>
+                </button>
+            </div>
+            <div
+                class="thumbnail-carousel"
+                lwc:ref="thumbnailCarousel"
+                onscroll={handleThumbnailScroll}>
+                <ul role="tablist">
+                    <template
+                        for:each={displayedThumbnailMedia}
+                        for:item="media">
+                        <li key={media.id}>
+                            <button
+                                class="slds-button thumbnail-carousel-image"
+                                role="tab"
+                                tabindex="0"
+                                onclick={handleImageSelected}
+                                onmouseenter={handleThumbnailMouseEnter}
+                                data-index={media.index}
+                                aria-selected={media.isSelected}>
+                                <experience-picture
+                                    lwc:if={media.isImage}
+                                    alternative-text={media.alternativeText}
+                                    url={media.smallUrl}
+                                    images={media.images}></experience-picture>
+                                <experience-video-thumbnail
+                                    lwc:if={media.isVideo}
+                                    url={media.videoUrl}
+                                    alternative-text={media.alternativeText}></experience-video-thumbnail>
+                            </button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+            <div class="paging-indicator paging-indicator-next">
+                <button
+                    lwc:if={showNextPageIndicator}
+                    onclick={handleNextClick}>
+                    <lightning-icon
+                        icon-name={nextPageIndicatorIcon}
+                        alternative-text={nextPageIndicatorAltTextString}
+                        size="x-small"
+                        title={nextPageIndicatorAltTextString}></lightning-icon>
+                </button>
+            </div>
+        </div>
+        <div
+            class="hero-container"
+            data-automation="thumbnailGalleryMainImageContainer">
+            <div
+                lwc:if={isSelectedMediaImage}
+                class="zoom-hero-container"
+                onmouseleave={handleZoomLensMouseLeave}
+                onmousemove={handleZoomLensMouseMove}
+                onkeydown={handleZoomLensKeyDown}
+                tabindex="0"
+                lwc:ref="zoomHeroContainer">
+                <div
+                    class="zoom-lens"
+                    lwc:ref="zoomLens"></div>
+                <div
+                    class="image-container"
+                    lwc:ref="imageContainer"
+                    data-automation="thumbnailGalleryMainImage"
+                    onmouseenter={handleImageContainerMouseEnter}>
+                    <experience-picture
+                        class="product-image"
+                        alternative-text={altText}
+                        url={resolvedUrl}
+                        images={imageSrcs}></experience-picture>
+                    <div
+                        lwc:if={showPlaceholder}
+                        class="default-image-text dxp-text-heading-medium">
+                        {noProductImageText}
+                    </div>
+                </div>
+            </div>
+            <div
+                lwc:if={isSelectedMediaVideo}
+                class="image-container"
+                lwc:ref="imageContainer"
+                data-automation="thumbnailGalleryMainImage">
+                <experience-video
+                    url={resolvedVideoUrl}
+                    controls
+                    alternative-text={altText}></experience-video>
+            </div>
+        </div>
+        <!--
+            It's important that this is hidden via LWC instead of CSS.
+            We want to avoid loading this image until a user has interacted
+            with the zoom function.
+        -->
+        <div
+            class="zoomed-image-container"
+            lwc:if={isZoomVisible}
+            lwc:ref="zoomedImage"
+            data-automation="thumbnailGalleryZoomedImageContainer">
+            <div class="zoomed-image">
+                <experience-picture
+                    lwc:ref="zoomedPicture"
+                    alternative-text={altText}
+                    data-automation="thumbnailGalleryZoomedImage"
+                    url={resolvedUrl}></experience-picture>
+            </div>
+        </div>
+    </div>
+</template>

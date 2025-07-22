@@ -1,0 +1,23 @@
+:host {
+    --dxp-c-s-indicator-type: flex;
+}
+experience-slider experience-picture,
+experience-slider experience-video {
+    all: initial;
+    object-fit: var(--com-c-image-object-fit, contain);
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+experience-slider [data-slider='slide'] {
+    aspect-ratio: var(--com-c-image-aspect-ratio, 1);
+    position: relative;
+}
+.default-image-text {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+}

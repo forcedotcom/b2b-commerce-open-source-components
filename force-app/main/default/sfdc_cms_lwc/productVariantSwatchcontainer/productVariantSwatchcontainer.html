@@ -1,0 +1,79 @@
+<template lwc:render-mode="light">
+    <div class="variant-container slds-p-bottom_small">
+        <template if:false={hideTitle}>
+            <div
+                class="selected-variant slds-p-bottom_xx-small"
+                role="status"
+                aria-live="polite">
+                {attributeName}{keyValueSeparator} {label}
+            </div>
+        </template>
+        <div lwc:if={enableMobileHorizontalScrolling}>
+            <experience-responsive size="s">
+                <div
+                    class="color-swatch mobile-horizontal slds-p-around_xx-small"
+                    data-automation="productVariantColorSwatches"
+                    role="radiogroup"
+                    aria-label={attributeName}>
+                    <template
+                        for:each={options}
+                        for:item="option">
+                        <site-product-variant-swatchitem
+                            key={option.value}
+                            value={option.value}
+                            label={option.label}
+                            hex-color-value={option.hexCode}
+                            selected={option.selected}
+                            is-out-of-stock={option.isOutOfStock}
+                            assistive-out-of-stock-text={assistiveOutOfStockText}
+                            enable-horizontal-scrolling={enableMobileHorizontalScrolling}
+                            onswatchclick={handleSwatchClick}></site-product-variant-swatchitem>
+                    </template>
+                </div>
+            </experience-responsive>
+            <experience-responsive size="m,l">
+                <div
+                    class="color-swatch"
+                    data-automation="productVariantColorSwatches"
+                    role="radiogroup"
+                    aria-label={attributeName}>
+                    <template
+                        for:each={options}
+                        for:item="option">
+                        <site-product-variant-swatchitem
+                            key={option.value}
+                            value={option.value}
+                            label={option.label}
+                            hex-color-value={option.hexCode}
+                            selected={option.selected}
+                            is-out-of-stock={option.isOutOfStock}
+                            assistive-out-of-stock-text={assistiveOutOfStockText}
+                            onswatchclick={handleSwatchClick}></site-product-variant-swatchitem>
+                    </template>
+                </div>
+            </experience-responsive>
+        </div>
+        <div lwc:else>
+            <div
+                class="color-swatch slds-m-vertical_xx-small"
+                data-automation="color-swatches"
+                role="radiogroup"
+                aria-label={attributeName}>
+                <template
+                    for:each={options}
+                    for:item="option">
+                    <site-product-variant-swatchitem
+                        class="swatch-item"
+                        key={option.value}
+                        value={option.value}
+                        label={option.label}
+                        hex-color-value={option.hexCode}
+                        selected={option.selected}
+                        is-out-of-stock={option.isOutOfStock}
+                        assistive-out-of-stock-text={assistiveOutOfStockText}
+                        onswatchclick={handleSwatchClick}></site-product-variant-swatchitem>
+                </template>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,88 @@
+.frequently-bought-together-item {
+    align-items: var(--com-c-product-frequently-bought-together-card-content-alignment, center);
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: center;
+}
+.frequently-bought-together-item__image-wrapper {
+    margin: 0 auto;
+    mix-blend-mode: multiply;
+}
+.frequently-bought-together-item__name {
+    flex-wrap: wrap;
+}
+.slds-assistive-text + .original-price {
+    text-decoration: line-through;
+    padding-left: var(--dxp-g-spacing-xxsmall);
+}
+.negotiated-price {
+    color: var(--com-c-product-frequently-bought-together-item-sale-price-label-color, var(--dxp-g-root-contrast));
+    font-size: var(--com-c-product-frequently-bought-together-item-sale-price-font-size, var(--dxp-g-font-size-5));
+    font-style: var(--com-c-product-frequently-bought-together-item-sale-price-font-style);
+    font-weight: var(--com-c-product-frequently-bought-together-item-sale-price-font-weight);
+    text-decoration: var(--com-c-product-frequently-bought-together-item-sale-price-text-decoration);
+}
+.original-price {
+    color: var(--com-c-product-frequently-bought-together-item-original-price-label-color, var(--dxp-g-root-contrast));
+    font-size: var(--com-c-product-frequently-bought-together-item-original-price-font-size, var(--dxp-g-font-size-5));
+    font-style: var(--com-c-product-frequently-bought-together-item-original-price-font-style);
+    font-weight: var(--com-c-product-frequently-bought-together-item-original-price-font-weight);
+    text-decoration: var(--com-c-product-frequently-bought-together-item-original-price-text-decoration);
+}
+.frequently-bought-together-item__controls {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.frequently-bought-together-item__input {
+    display: flex;
+    align-items: baseline;
+}
+.frequently-bought-together-item__checkbox_mobile {
+    display: none;
+}
+@media (max-width: 47.9375em) {
+    .frequently-bought-together-item {
+        flex-direction: row;
+        align-items: start;
+    }
+    .frequently-bought-together-item__name {
+        text-align: left;
+        margin-left: var(--dxp-g-spacing-medium);
+    }
+    .frequently-bought-together-item__controls {
+        align-items: start;
+    }
+    .frequently-bought-together-item__input lightning-input {
+        position: absolute;
+        left: 0;
+    }
+    .frequently-bought-together-item__image {
+        margin-left: var(--dxp-g-spacing-xlarge);
+    }
+    .frequently-bought-together-item__image-wrapper {
+        height: 80px;
+        width: 80px;
+    }
+}
+@media (min-width: 48em) {
+    .frequently-bought-together-item__controls lightning-badge {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    .frequently-bought-together-item__image {
+        width: var(--com-c-product-frequently-bought-together-item-width);
+        height: var(--com-c-product-frequently-bought-together-item-height);
+    }
+    .frequently-bought-together-item__name {
+        margin-top: var(--dxp-g-spacing-small);
+        width: var(--com-c-product-frequently-bought-together-item-width);
+        display: flex;
+        flex-direction: column;
+        align-items: var(--com-c-product-frequently-bought-together-card-content-alignment, center);
+    }
+}

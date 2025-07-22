@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "productVariantAttributesDisplay",
+  "contentBody" : { },
+  "urlName" : "productvariantattributesdisplay"
+}

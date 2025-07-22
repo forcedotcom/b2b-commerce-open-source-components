@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Pricing Details</masterLabel>
+  <description>Display product pricing information</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Pricing Type" name="pricingType" type="String" default="2_TIER" datasource="java://siteforce.customComponent.datasource.PricingTypeDataSource"></property>
+      <property label="Lowest Price (Negotiated) - Text Color" name="slot1PriceTextColor" type="Color"></property>
+      <property label="Lowest Price (Negotiated) - Label" name="slot1PriceLabel" type="String" default="" translatable="true"></property>
+      <property label="Strikethrough (Original Listing) Price - Text Color" name="slot2PriceTextColor" type="Color" default="rgb(112, 114, 117, 1)"></property>
+      <property label="Strikethrough (Original Listing) Price - Label" name="slot2PriceLabel" type="String" default="" translatable="true"></property>
+      <property label="Final Price Text Color" name="slot3PriceTextColor" type="Color" default="rgb(13, 130, 93, 1)"></property>
+      <property label="Final Price Text Size" name="slot3PriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Final Price Label" name="slot3PriceLabel" type="String" translatable="true" description="Final price without a promotion will display next to the strikethrough price. Final price with a promotion will display below the MSRP and strikethrough prices."></property>
+      <property label="Promotional Message Text Color" name="promotionalMessageTextColor" type="Color"></property>
+      <property label="Promotional Message Text Size" name="promotionalMessageTextSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Unavailable Price Label" name="unavailablePriceLabel" type="String" default="Price Unavailable" translatable="true"></property>
+      <property label="Show Tax Indication" name="showTaxIndication" type="Boolean" default="true" description="Provide tax information to your shoppers"></property>
+      <property label="Tax Label" name="taxIncludedLabel" type="String" default="Tax Included" translatable="true"></property>
+      <property label="Tax Label Color" name="taxLabelColor" type="Color"></property>
+      <property label="Tax Label Size" name="taxLabelSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Last Lowest Price Label" name="lastLowestPriceLabel" type="String" default="Last Lowest Price:" translatable="true"></property>
+      <property label="Last Lowest Price Label Size" name="lastLowestPriceLabelSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Last Lowest Price Label Color" name="lastLowestPriceLabelColor" type="Color" default="rgb(112, 114, 117)"></property>
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Product Pricing Data Binding" name="productPricing" type="String" default="{!Product.Pricing}"></property>
+      <property label="Product Tax Data Binding" name="productTax" type="String" default="{!Product.Tax}"></property>
+      <property label="Product Variant Data Binding" name="productVariant" type="String" default="{!Product.SelectedVariant}"></property>
+      <property label="Promotional Pricing Data Binding" name="promotionalPricing" type="String" default="{!Product.PromotionalPricing}"></property>
+      <property label="Product Subscription Selection Data Binding" name="selectedProductSellingModel" type="String" default="{!Product.SelectedProductSellingModel}"></property>
+      <property label="Product Selling Model Price Type" name="productSellingModelPriceType" type="String" default=""></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="pricingType"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="slot1">
+          <designLayoutItems>
+            <designLayoutProperty name="slot1PriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="slot1PriceLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="slot2">
+          <designLayoutItems>
+            <designLayoutProperty name="slot2PriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="slot2PriceLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="slot3">
+          <designLayoutItems>
+            <designLayoutProperty name="slot3PriceTextSize"></designLayoutProperty>
+            <designLayoutProperty name="slot3PriceLabel"></designLayoutProperty>
+            <designLayoutProperty name="slot3PriceTextColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="details">
+          <designLayoutItems>
+            <designLayoutProperty name="promotionalMessageTextColor"></designLayoutProperty>
+            <designLayoutProperty name="promotionalMessageTextSize"></designLayoutProperty>
+            <designLayoutProperty name="unavailablePriceLabel"></designLayoutProperty>
+            <designLayoutProperty name="showTaxIndication"></designLayoutProperty>
+            <designLayoutProperty name="taxIncludedLabel"></designLayoutProperty>
+            <designLayoutProperty name="taxLabelColor"></designLayoutProperty>
+            <designLayoutProperty name="taxLabelSize"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabel"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabelSize"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabelColor"></designLayoutProperty>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="productPricing"></designLayoutProperty>
+            <designLayoutProperty name="productTax"></designLayoutProperty>
+            <designLayoutProperty name="productVariant"></designLayoutProperty>
+            <designLayoutProperty name="promotionalPricing"></designLayoutProperty>
+            <designLayoutProperty name="selectedProductSellingModel"></designLayoutProperty>
+            <designLayoutProperty name="productSellingModelPriceType"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

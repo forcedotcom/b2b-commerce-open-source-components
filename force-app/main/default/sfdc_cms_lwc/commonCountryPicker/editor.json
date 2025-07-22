@@ -1,0 +1,49 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "commerce_builder:countryPickerV2",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceMarketsDataProvider",
+                        "sfdcExpressionKey": "Markets",
+                        "type": "dataProvider",
+                        "attributes": {}
+                    }
+                ],
+                "attributes": {
+                    "pickerButtonStyle": "secondary",
+                    "pickerButtonSize": "standard",
+                    "pickerButtonAlignment": "right",
+                    "pickerButtonLabelText": "",
+                    "markets": "{!Markets.Items}",
+                    "languages": "{!Markets.Languages}",
+                    "countries": "{!Markets.Countries}",
+                    "dxpStyle": {
+                        "padding": {
+                            "bottom": "16px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "16px"
+                        }
+                    }
+                },
+                "mobileAttributes": {
+                    "pickerButtonAlignment": "left",
+                    "dxpStyle": {
+                        "padding": {
+                            "bottom": "8px",
+                            "left": "0px",
+                            "right": "0px",
+                            "top": "8px"
+                        }
+                    }
+                },
+                "tabletAttributes": {
+                    "pickerButtonAlignment": "left"
+                }
+            }
+        }
+    ]
+}

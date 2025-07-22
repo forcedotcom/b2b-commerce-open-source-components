@@ -1,0 +1,34 @@
+<template lwc:render-mode="light">
+    <site-cart-badge-ui
+        lwc:if={_showBadge}
+        show-count={showCount}
+        count-type={_countType}
+        icon-link-color={iconLinkColor}
+        icon-link-hover-color={iconLinkHoverColor}
+        onopen={handleOpenMiniCart}
+        badge-items-count={badgeItemsCount}
+        total-cart-count={_totalCartCount}
+        show-mini-cart={_miniCartEnabled}
+        display-mini-cart={displayMiniCart}></site-cart-badge-ui>
+
+    <template if:true={displayMiniCart}>
+        <site-cart-minicartpanel
+            onclose={handleCloseMiniCart}
+            header-text={_headerText}
+            total-cart-count={_totalCartCount}
+            checkout-button-text={_checkoutButtonText}
+            checkout-button-size={checkoutButtonSize}
+            show-continue-shopping-button={showContinueShoppingButton}
+            continue-shopping-button-text={_continueShoppingButtonText}
+            continue-shopping-button-size={continueShoppingButtonSize}
+            show-express-checkout-button={showExpressCheckoutButton}
+            express-checkout-pms-id={paymentMethodSetId}
+            express-checkout-use-manual-capture={useManualCapture}
+            show-view-cart-button={showViewCartButton}
+            view-cart-button-text={_viewCartButtonText}
+            view-cart-button-size={viewCartButtonSize}
+            recommendation-header-text={recommendationHeaderText}
+            recommendation-price-display-type={recommendationPriceDisplayType}
+            show-recommendation={showRecommendation}></site-cart-minicartpanel>
+    </template>
+</template>

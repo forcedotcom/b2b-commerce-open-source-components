@@ -1,0 +1,78 @@
+.input-container {
+    display: flex;
+    height: var(--dxp-g-spacing-xlarge);
+    --b2b-search-color-text-placeholder: var(--dxp-g-neutral-3);
+}
+input {
+    border: none;
+    flex-grow: 2;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: var(--dxp-g-root-contrast);
+}
+.search-input-without-button {
+    padding: var(--dxp-g-spacing-small) var(--dxp-g-spacing-none) var(--dxp-g-spacing-small) var(--dxp-g-spacing-xlarge);
+}
+.search-input-with-button {
+    padding: var(--dxp-g-spacing-small) var(--dxp-g-spacing-none) var(--dxp-g-spacing-small) var(--dxp-g-spacing-small);
+    background-color: var(--dxp-g-root);
+}
+input::placeholder {
+    color: var(--b2b-search-color-text-placeholder);
+}
+.input-search-button {
+    position: inherit;
+    height: var(--dxp-g-spacing-xlarge);
+    border-left-width: var(--dxp-g-spacing-none);
+    border-top-left-radius: var(--dxp-g-spacing-none);
+    border-bottom-left-radius: var(--dxp-g-spacing-none);
+}
+.input-search-button:focus {
+    box-shadow: 0 0 2px var(--dxp-g-brand-1);
+}
+.input-search-button svg {
+    height: var(--dxp-g-spacing-xlarge);
+    fill: var(--dxp-g-brand-contrast);
+    border-top-left-radius: var(--dxp-g-spacing-none);
+    border-bottom-left-radius: var(--dxp-g-spacing-none);
+}
+.input-wrapper {
+    display: flex;
+    flex-grow: 1;
+    border: var(--dxp-s-form-element-width-border, 1px) solid var(--dxp-g-brand);
+    width: 100%;
+    background-color: var(--dxp-g-root);
+}
+.input-wrapper svg {
+    height: var(--dxp-g-spacing-medium);
+    flex-grow: 2;
+    fill: var(--b2b-search-color-text-placeholder);
+}
+.input-wrapper.active {
+    border: var(--dxp-s-form-element-width-border, 1px) solid var(--dxp-g-brand);
+    box-shadow: 0 0 2px var(--dxp-g-brand-1);
+}
+.input-icon-container {
+    display: flex;
+    padding: var(--dxp-g-spacing-none) var(--dxp-g-spacing-xsmall);
+}
+.input-clear-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.input-clear-button:active {
+    outline: none;
+}
+.input-clear-button {
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: var(--dxp-g-spacing-none) var(--dxp-g-spacing-none);
+    height: 100%;
+}
+.input-spinner-container {
+    position: relative;
+    padding: var(--dxp-g-spacing-none) var(--dxp-g-spacing-medium);
+}

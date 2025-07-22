@@ -1,0 +1,88 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "cartItem",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "pricePerItem",
+        "value": "{0}/item"
+      },
+      {
+        "name": "pricePerItemAssistiveText",
+        "value": "Price per item: {0}"
+      },
+      {
+        "name": "removeButtonText",
+        "value": "Delete"
+      },
+      {
+        "name": "removeItemAssistiveText",
+        "value": "Delete {name}"
+      },
+      {
+        "name": "itemNameQuantityText",
+        "value": "{name} ({count})"
+      },
+      {
+        "name": "evergreenMonthlySubscriptionTypeText",
+        "value": "Monthly Subscription"
+      },
+      {
+        "name": "evergreenAnnualSubscriptionTypeText",
+        "value": "Annual Subscription"
+      },
+      {
+        "name": "termDefinedMonthlySubscriptionTypeText",
+        "value": "{subscriptionTerm} month subscription"
+      },
+      {
+        "name": "termDefinedAnnualSubscriptionTypeText",
+        "value": "{subscriptionTerm} year subscription"
+      },
+      {
+        "name": "originalPriceAssistiveText",
+        "value": "Original price (crossed out): {originalPrice}"
+      },
+      {
+        "name": "originalPricePerMonthSubscriptionText",
+        "value": "{originalPrice}/month"
+      },
+      {
+        "name": "originalPricePerYearSubscriptionText",
+        "value": "{originalPrice}/year"
+      },
+      {
+        "name": "originalPricePerMonthSubscriptionAssistiveText",
+        "value": "Original price with subscription term unit (crossed out): {originalPrice}/month"
+      },
+      {
+        "name": "originalPricePerYearSubscriptionAssistiveText",
+        "value": "Original price with subscription term unit (crossed out): {originalPrice}/year"
+      },
+      {
+        "name": "actualPriceAssistiveText",
+        "value": "Actual price: {actualPrice}"
+      },
+      {
+        "name": "actualPricePerMonthSubscriptionText",
+        "value": "{actualPrice}/month"
+      },
+      {
+        "name": "actualPricePerYearSubscriptionText",
+        "value": "{actualPrice}/year"
+      },
+      {
+        "name": "actualPricePerMonthSubscriptionAssistiveText",
+        "value": "Actual price based on the subscription term unit: {actualPrice}/month"
+      },
+      {
+        "name": "actualPricePerYearSubscriptionAssistiveText",
+        "value": "Actual price based on the subscription term unit: {actualPrice}/year"
+      },
+      {
+        "name": "bundleChildProductCount",
+        "value": "{count} products included"
+      }
+    ]
+  }
+}

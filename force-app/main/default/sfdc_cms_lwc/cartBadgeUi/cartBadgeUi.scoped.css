@@ -1,0 +1,37 @@
+:host {
+    padding: var(--com-c-unified-cart-badge-padding);
+}
+a svg,
+button svg {
+    --sds-c-icon-color-foreground-default: var(
+        --com-c-unified-cart-badge-link-color,
+        var(--dxp-s-button-color, var(--dxp-g-brand))
+    );
+}
+a:focus-visible {
+    outline: 2px auto var(--dxp-c-link-color-outline-focus, var(--dxp-s-button-color-focus, var(--dxp-g-brand-1)));
+}
+a:hover svg,
+a:focus svg,
+button:hover svg,
+button:focus svg {
+    --sds-c-icon-color-foreground-default: var(
+        --com-c-unified-cart-badge-link-color-hover,
+        var(--dxp-s-button-color-hover, var(--dxp-g-brand-1))
+    );
+}
+button.slds-button_icon {
+    border: none;
+    padding: 0;
+    background: none;
+}
+button.slds-button_icon:hover,
+button.slds-button_icon:focus {
+    background: none;
+}
+.slds-notification-badge {
+    background: var(--lwc-colorBackgroundNotificationBadge, rgb(234, 0, 30));
+}
+.show-notification {
+    opacity: 1;
+}

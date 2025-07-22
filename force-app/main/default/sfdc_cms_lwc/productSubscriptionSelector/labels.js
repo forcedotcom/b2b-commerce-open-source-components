@@ -1,0 +1,13 @@
+import monthly from '@salesforce/label/site.productSubscriptionSelector.monthly';
+import yearly from '@salesforce/label/site.productSubscriptionSelector.yearly';
+import month from '@salesforce/label/site.productSubscriptionSelector.month';
+import year from '@salesforce/label/site.productSubscriptionSelector.year';
+import months from '@salesforce/label/site.productSubscriptionSelector.months';
+import years from '@salesforce/label/site.productSubscriptionSelector.years';
+import evergreen from '@salesforce/label/site.productSubscriptionSelector.evergreen';
+import subscriptionDetailOptionLabel from '@salesforce/label/site.productSubscriptionSelector.subscriptionDetailOptionLabel';
+import termDefinedSubscriptionTypeOptionLabel from '@salesforce/label/site.productSubscriptionSelector.termDefinedSubscriptionTypeOptionLabel';
+import termDefinedSubscriptionDetailOptionLabel from '@salesforce/label/site.productSubscriptionSelector.termDefinedSubscriptionDetailOptionLabel';
+import subscriptionType from '@salesforce/label/site.productSubscriptionSelector.subscriptionType';
+import subscriptionDetail from '@salesforce/label/site.productSubscriptionSelector.subscriptionDetail';
+export { monthly, yearly, month, year, months, years, evergreen, subscriptionDetailOptionLabel, termDefinedSubscriptionTypeOptionLabel, termDefinedSubscriptionDetailOptionLabel, subscriptionType, subscriptionDetail };

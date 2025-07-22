@@ -1,0 +1,18 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myAccountUserProfileMenu",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceNavigationMenuDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "NavMenu",
+                        "attributes": {}
+                    }
+                ]
+            }
+        }
+    ]
+}

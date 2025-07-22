@@ -1,0 +1,24 @@
+.add-entry-button {
+    text-decoration: underline;
+    color: var(--com-c-order-quick-order-add-entry-button-text-color, var(--dxp-s-link-text-color));
+}
+.add-entry-button:hover:enabled {
+    color: var(--com-c-order-quick-order-add-entry-button-text-hover-color, var(--dxp-s-link-text-color-hover));
+}
+.add-to-cart-button {
+    --com-c-product-details-product-add-to-cart-button-display: block;
+}
+.product {
+    display: flex;
+    align-items: flex-start;
+    flex: 1;
+}
+.quantity {
+    display: flex;
+    align-items: center;
+    margin-right: var(--dxp-g-spacing-xlarge);
+    padding: 0 var(--dxp-g-spacing-medium, 1rem);
+}
+.label-headings {
+    padding-bottom: var(--dxp-g-spacing-medium);
+}

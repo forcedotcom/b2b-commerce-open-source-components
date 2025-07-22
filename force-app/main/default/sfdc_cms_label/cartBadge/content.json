@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartBadge",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "maximumCount",
+      "value" : "{maximumCount}+"
+    }, {
+      "name" : "successfullyAddedToCartPopupMessage",
+      "value" : "Added to cart"
+    }, {
+      "name" : "headerText",
+      "value" : "My Cart"
+    }, {
+      "name" : "checkoutButtonText",
+      "value" : "Checkout"
+    }, {
+      "name" : "continueShoppingButtonText",
+      "value" : "Continue Shopping"
+    }, {
+      "name" : "viewCartButtonText",
+      "value" : "View Cart"
+    } ]
+  },
+  "urlName" : "cartbadge"
+}

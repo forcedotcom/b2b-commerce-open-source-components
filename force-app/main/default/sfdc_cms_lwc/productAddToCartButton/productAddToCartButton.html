@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <button
+        aria-label={ariaLabel}
+        class={customButtonClasses}
+        disabled={disabled}
+        lwc:ref="button">
+        <lightning-icon
+            lwc:if={hasIcon}
+            icon-name={iconName}
+            class="slds-p-right_small"
+            variant="inverse"
+            size="small"></lightning-icon>
+
+        {text}
+    </button>
+</template>

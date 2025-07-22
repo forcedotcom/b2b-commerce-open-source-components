@@ -1,0 +1,36 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "commonCountryPickerConfirmationModal",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "continueChangeCountryText",
+        "value": "Yes, Continue"
+      },
+      {
+        "name": "cancelChangeCountryText",
+        "value": "No, Cancel"
+      },
+      {
+        "name": "continueChangeCountryAriaLabel",
+        "value": "Yes, Continue"
+      },
+      {
+        "name": "cancelChangeCountryTextAriaLabel",
+        "value": "No, Cancel"
+      },
+      {
+        "name": "modalHeadingLabel",
+        "value": "You're Changing Currency"
+      },
+      {
+        "name": "confirmationModalText1",
+        "value": "Some products may no longer be available, and prices may vary."
+      },
+      {
+        "name": "confirmationModalText2",
+        "value": "Your cart will also be cleared, would you like to continue?"
+      }
+    ]
+  }
+}

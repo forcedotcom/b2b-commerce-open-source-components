@@ -1,0 +1,25 @@
+<template lwc:render-mode="light">
+    <experience-responsive size="m-">
+        <site-product-thumbnail-gallery
+            style={_customStyles}
+            media={media}
+            thumbnail-placement={thumbnailPlacement}
+            prev-page-indicator-alt-text={labels.previousAssistiveText}
+            next-page-indicator-alt-text={labels.nextAssistiveText}
+            image-border-color={imageBorderColor}
+            hover-thumbnail-border-color={hoverThumbnailBorderColor}
+            select-on-hover={selectOnHover}
+            selected-thumbnail-border-color={selectedThumbnailBorderColor}
+            show-placeholder={showPlaceHolderText}
+            no-product-image-text={noProductImageTextString}
+            disable-zoom={isZoomDisabled}></site-product-thumbnail-gallery>
+    </experience-responsive>
+    <experience-responsive size="s">
+        <site-product-media-slider
+            style={_customStyles}
+            media={media}
+            no-product-image-text={noProductImageTextString}
+            show-placeholder={showPlaceHolderText}
+            indicators-color={mobileIndicatorsColor}></site-product-media-slider>
+    </experience-responsive>
+</template>

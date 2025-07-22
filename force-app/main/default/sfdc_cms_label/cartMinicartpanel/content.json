@@ -1,0 +1,24 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "cartMinicartpanel",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "emptyMiniCart",
+        "value": "No products in the cart."
+      },
+      {
+        "name": "defaultErrorMessageForMiniCart",
+        "value": "We couldn't load your cart preview. Try again and if the issue persists, contact customer support."
+      },
+      {
+        "name": "addError",
+        "value": "We couldn't load your cart preview. Try again and if the issue persists, contact customer support."
+      },
+      {
+        "name": "removeError",
+        "value": "We couldn’t remove Product \"{productName}\" from My List. Try again later."
+      }
+    ]
+  }
+}

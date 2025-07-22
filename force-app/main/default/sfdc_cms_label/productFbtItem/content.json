@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productFbtItem",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "strikethroughAssistiveText",
+        "value": "(crossed out)"
+      },
+      {
+        "name": "mainProduct",
+        "value": "This Product"
+      },
+      {
+        "name": "units",
+        "value": "({0}) units"
+      }
+    ]
+  }
+}

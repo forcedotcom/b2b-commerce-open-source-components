@@ -1,0 +1,12 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productWishlistShortcutUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "wishlistPageAssistiveText",
+        "value": "My List"
+      }
+    ]
+  }
+}

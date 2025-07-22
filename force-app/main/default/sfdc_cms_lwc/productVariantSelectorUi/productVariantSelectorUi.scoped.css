@@ -1,0 +1,35 @@
+:host {
+    display: block;
+}
+.slds-form-element:first-of-type {
+    margin-top: var(--dxp-g-spacing-xsmall);
+}
+.slds-form-element:not(:last-child) {
+    margin-bottom: var(--dxp-g-spacing-xxsmall);
+}
+lightning-combobox::part(dropdown) {
+    --slds-c-dropdown-font-family: var(--dxp-s-form-element-text-font-family, var(--dxp-s-body-font-family));
+    --slds-c-dropdown-font-size: var(
+        --dxp-c-input-text-font-size,
+        var(--dxp-s-form-element-text-font-size, var(--dxp-s-body-font-size))
+    );
+    --slds-c-dropdown-font-weight: var(--dxp-s-form-element-text-font-weight, var(--dxp-s-body-font-weight));
+    --slds-c-dropdown-font-style: var(--dxp-s-form-element-text-font-style, var(--dxp-s-body-font-style));
+    --slds-c-dropdown-font-decoration: var(--dxp-s-form-element-text-text-decoration);
+    --slds-c-dropdown-font-lineheight: var(--dxp-s-form-element-text-line-height, var(--dxp-s-body-line-height));
+    --slds-c-dropdown-letter-spacing: var(--dxp-s-form-element-text-letter-spacing, var(--dxp-s-body-letter-spacing));
+    --slds-g-shadow-inset-focus-1: 0 0 0 2px var(--dxp-g-root) inset, 0 0 0 3px var(--dxp-g-brand) inset;
+    --slds-c-dropdown-color: var(--dxp-s-dropdown-text-color, var(--dxp-g-root-contrast));
+    --slds-c-listbox-option-color-background-hover: var(--dxp-s-dropdown-color-background-hover, var(--dxp-g-neutral));
+    --slds-c-listbox-option-color-hover: var(--dxp-s-dropdown-text-color-hover, var(--dxp-g-neutral-contrast));
+    --slds-c-listbox-option-color-background-focus: var(--dxp-s-dropdown-color-background-hover, var(--dxp-g-neutral));
+    --slds-c-listbox-option-color-focus: var(--dxp-s-dropdown-text-color-hover, var(--dxp-g-neutral-contrast));
+    --slds-c-listbox-option-color: var(--dxp-s-dropdown-text-color, var(--dxp-g-root-contrast));
+    --slds-c-listbox-option-color-background: var(--dxp-s-dropdown-color-background, var(--dxp-g-root));
+}
+@media only screen and (min-width: 48.0625em) {
+    lightning-combobox {
+        max-width: 18.75rem;
+        min-width: 9.375rem;
+    }
+}

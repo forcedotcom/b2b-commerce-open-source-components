@@ -1,0 +1,84 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "orderQuickOrder",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "defaultErrorMessage",
+        "value": "An unexpected error occurred. Try again later."
+      },
+      {
+        "name": "successfullyAddedItemsToCart",
+        "value": "Items added to cart."
+      },
+      {
+        "name": "successfullyAddedToCartPopupMessage",
+        "value": "Added to cart"
+      },
+      {
+        "name": "productNameAndSkuText",
+        "value": "{name} (SKU {sku})"
+      },
+      {
+        "name": "productNameAndSkuTextWithCommaSeperator",
+        "value": "{name} (SKU {sku}),"
+      },
+      {
+        "name": "productNameText",
+        "value": "{name}"
+      },
+      {
+        "name": "productNameTextWithCommaSeperator",
+        "value": "{name},"
+      },
+      {
+        "name": "partiallyAddedItemsToastNotificationHeaderText",
+        "value": "Some items are no longer available"
+      },
+      {
+        "name": "partiallyAddedItemsToastNotificationBodyText",
+        "value": "{0} are unavailable. Remaining items added to cart."
+      },
+      {
+        "name": "partiallyAddedItemToastNotificationBodyText",
+        "value": "{0} is unavailable. Remaining items added to cart."
+      },
+      {
+        "name": "failedItemsToastNotificationHeaderText",
+        "value": "These items are no longer available."
+      },
+      {
+        "name": "failedItemsToastNotificationBodyText",
+        "value": "{0} are unavailable."
+      },
+      {
+        "name": "failedItemToastNotificationBodyText",
+        "value": "{0} is unavailable."
+      },
+      {
+        "name": "webstoreNotFoundErrorMessage",
+        "value": "You don't have access to this store."
+      },
+      {
+        "name": "effectiveAccountNotFoundErrorMessage",
+        "value": "You don't have permission to add this items to a cart."
+      },
+      {
+        "name": "invalidInputErrorMessage",
+        "value": "We can't add quick order entries to this cart. Try again later."
+      },
+      {
+        "name": "insufficientAccessErrorMessage",
+        "value": "You don't own this cart. Try again with a cart that you own."
+      },
+      {
+        "name": "tooManyRecordsLimitErrorMessage",
+        "value": "You reached your limit of items per cart. Delete some list items and try again."
+      },
+      {
+        "name": "notFoundErrorMessage",
+        "value": "We can't find the cart. Try again with a different cart."
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+figure,
+button {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+button {
+    display: block;
+}
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.image-container {
+    padding: var(--dxp-g-spacing-none);
+    border: 0;
+    background-color: transparent;
+}
+figure {
+    aspect-ratio: 1/1;
+}
+experience-picture {
+    object-fit: contain;
+    display: flex;
+    max-height: 100%;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}

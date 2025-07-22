@@ -1,0 +1,37 @@
+:host {
+    display: var(--com-c-product-details-product-add-to-cart-button-display, inline-flex);
+}
+button {
+    flex-grow: 1;
+    background-color: var(
+        --com-c-product-details-product-add-to-cart-button-background-color,
+        var(--dxp-s-button-color, var(--dxp-g-brand))
+    );
+    border-color: var(
+        --com-c-product-details-product-add-to-cart-button-border-color,
+        var(--dxp-s-button-border-color, var(--dxp-g-brand))
+    );
+    border-radius: var(
+        --com-c-product-details-product-add-to-cart-button-border-radius,
+        var(--dxp-s-button-radius-border)
+    );
+    color: var(
+        --com-c-product-details-product-add-to-cart-button-text-color,
+        var(--dxp-s-button-color-contrast, var(--dxp-g-brand-contrast))
+    );
+}
+button:hover:enabled {
+    background-color: var(
+        --com-c-product-details-product-add-to-cart-button-background-hover-color,
+        var(--dxp-s-button-color-hover, var(--dxp-g-brand-1))
+    );
+    color: var(
+        --com-c-product-details-product-add-to-cart-button-text-hover-color,
+        var(--dxp-s-button-color-hover-contrast, var(--dxp-g-brand-contrast-1))
+    );
+}
+button:active:enabled {
+    background-color: var(--dxp-s-button-color-active, var(--dxp-g-brand));
+    border-color: var(--dxp-s-button-color-active, var(--dxp-g-brand));
+    color: var(--dxp-s-button-color-active-contrast, var(--dxp-g-brand-1));
+}

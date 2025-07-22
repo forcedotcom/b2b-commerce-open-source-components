@@ -1,0 +1,36 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productAddToCartUtils",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "insufficientAccessErrorMessage",
+        "value": "You don’t have permission to complete this action."
+      },
+      {
+        "name": "addItemToCartIncrementalPurchaseQuantityLimitErrorMessage",
+        "value": "Always purchase this product in set increments. Check product increments."
+      },
+      {
+        "name": "addItemToCartMaximumPurchaseQuantityLimitErrorMessage",
+        "value": "This product has a maximum purchase limit. Check quantity limits."
+      },
+      {
+        "name": "addItemToCartMaximumCartSizeErrorMessage",
+        "value": "Your cart is full."
+      },
+      {
+        "name": "addItemToCartMinimumPurchaseQuantityLimitErrorMessage",
+        "value": "This product has a minimum purchase limit. Check quantity limits."
+      },
+      {
+        "name": "genericAddToCartErrorMessage",
+        "value": "An unexpected error occurred. Try again later."
+      },
+      {
+        "name": "externalServiceExceptionErrorMessage",
+        "value": "Something went wrong with the external service. Ask your Salesforce admin for help."
+      }
+    ]
+  }
+}

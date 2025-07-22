@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "myAccountSwitcherList",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "errorDescription",
+        "value": "Try again or contact your system admin."
+      },
+      {
+        "name": "errorHeading",
+        "value": "We couldn't load your accounts."
+      },
+      {
+        "name": "spinnerAltText",
+        "value": "Loading Accounts"
+      }
+    ]
+  }
+}

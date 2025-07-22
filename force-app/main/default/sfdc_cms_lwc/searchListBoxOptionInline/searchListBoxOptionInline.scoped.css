@@ -1,0 +1,15 @@
+.option-inline-container {
+    display: flex;
+    align-items: center;
+    padding: var(--lwc-spacingXSmall, 0.5rem) var(--lwc-spacingMedium, 1rem);
+    max-height: var(--lwc-spacingXLarge, 2rem);
+}
+.option-inline-icon {
+    margin-right: var(--lwc-spacingXSmall, 0.5rem);
+}
+.option-inline-text {
+    display: flex;
+    max-width: 100%;
+    text-align: left;
+    color: var(--lwc-colorTextDefault, var(--dxp-g-root-contrast));
+}

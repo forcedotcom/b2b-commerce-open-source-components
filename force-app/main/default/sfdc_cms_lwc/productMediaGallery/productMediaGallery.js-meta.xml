@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Product Media Gallery</masterLabel>
+  <description>Displays product images and media in a gallery format with magnify support.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="productMediaGroups" type="String" default="{!Product.Details.mediaGroups}" label="Data Binding"></property>
+      <property name="thumbnailPlacement" type="String" default="left" datasource="java://siteforce.customComponent.datasource.ThumbnailPlacementDataSource" label="Thumbnail Placement"></property>
+      <property name="imageSize" type="String" default="contain" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource" label="Fit"></property>
+      <property name="imageAspectRatio" type="String" default="1"></property>
+      <property name="imageBorderColor" type="Color" default="rgba(0, 0, 0, 0)" label="Border Color"></property>
+      <property name="selectOnHover" type="Boolean" default="true" label="Select Media on Thumbnail Hover"></property>
+      <property name="hoverThumbnailBorderColor" type="Color" default="#1C1C1C" label="Hover Thumbnail Border Color"></property>
+      <property name="selectedThumbnailBorderColor" type="Color" default="#1C1C1C" label="Selected Thumbnail Border Color"></property>
+      <property name="mobileIndicatorsColor" type="Color" label="Mobile Indicators Color"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="productMediaGroups"></designLayoutProperty>
+            <designLayoutProperty name="thumbnailPlacement"></designLayoutProperty>
+            <designLayoutProperty name="imageSize"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
+            <designLayoutProperty name="imageBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="selectOnHover"></designLayoutProperty>
+            <designLayoutProperty name="hoverThumbnailBorderColor" cbVisibleIf="selectOnHover=false"></designLayoutProperty>
+            <designLayoutProperty name="selectedThumbnailBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="mobileIndicatorsColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

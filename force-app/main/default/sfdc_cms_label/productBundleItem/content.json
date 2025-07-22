@@ -1,0 +1,16 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productBundleItem",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "variantAttributeFieldWithCommaSeparator",
+        "value": "{variantAttributeField},"
+      },
+      {
+        "name": "attributeNameWithColonSeparator",
+        "value": "{attributeName}:"
+      }
+    ]
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productFrequentlyBoughtTogetherUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "totalPrice",
+        "value": "Total Price:"
+      },
+      {
+        "name": "addIconText",
+        "value": "And"
+      },
+      {
+        "name": "equalIconText",
+        "value": "Equal"
+      }
+    ]
+  }
+}

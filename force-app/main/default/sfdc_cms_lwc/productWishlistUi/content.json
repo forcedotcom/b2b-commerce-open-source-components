@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "productWishlistUi",
+  "contentBody" : { },
+  "urlName" : "productwishlistui"
+}

@@ -1,0 +1,12 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productSetUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "addAllToCartButtonText",
+        "value": "Add All to Cart"
+      }
+    ]
+  }
+}

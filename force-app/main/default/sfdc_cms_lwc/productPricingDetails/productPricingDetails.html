@@ -1,0 +1,20 @@
+<template lwc:render-mode="light">
+    <site-product-pricing-details-ui
+        if:true={displayPricing}
+        main-price-label={mainPriceLabel}
+        strikethrough-price-label={strikethroughPriceLabel}
+        final-price-label={finalPriceLabel}
+        unavailable-price-label={unavailablePriceLabel}
+        pricing-type={pricingType}
+        lowest-unit-price-label={lastLowestPriceLabel}
+        show-tax-indication={showTaxIndication}
+        tax-included-label={taxIncludedLabel}
+        tax-locale-type={taxLocaleType}
+        tax-rate={taxRatePercentage}
+        product-pricing={productPricing}
+        promotional-pricing={promotionalPricing}
+        selected-product-selling-model={selectedProductSellingModel}
+        life-time-product-selling-model-price={_oneTimeProductSellingModelPrice}
+        price-type={productSellingModelPriceType}
+        style={priceStyles}></site-product-pricing-details-ui>
+</template>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Country Selector</masterLabel>
+  <description>Your store &amp;apos; s market configuration determines which countries are shown to your customers. You can view
+        any changes made by clicking preview.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="sort" type="String" default="country" datasource="java://siteforce.customComponent.datasource.CountryPickerDataSource" label="Sort By"></property>
+      <property name="languageDisplayType" type="String" datasource="java://siteforce.customComponent.datasource.CountryPickerLanguageDisplayDataSource" default="short" label="Select Language Display Type" description="Use either the full language name or abbreviation."></property>
+      <property name="headingLabelText" type="String" translatable="true" default="Select Your Location" label="Heading Text"></property>
+      <property name="countryTextColor" type="Color" label="Country Text Color"></property>
+      <property name="countryHoverTextColor" type="Color" label="Country Hover Text Color"></property>
+      <property name="countryTextAlignment" type="String" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource" default="left" label="Country Text Alignment"></property>
+      <property name="backgroundColor" type="Color" label="Background Color"></property>
+      <property name="pickerButtonAlignment" type="String" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource" screenResponsive="true" exposedTo="css" label="Select Button Alignment"></property>
+      <property name="pickerButtonStyle" type="String" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" label="Select Button Style"></property>
+      <property name="pickerButtonSize" type="String" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Select Button Size"></property>
+      <property name="pickerButtonLabelText" type="String" translatable="true" default="" label="Select Button Label Text" description="The country and language are always displayed in the button."></property>
+      <property name="showGlobeIcon" type="Boolean" default="true" label="Show Globe Icon"></property>
+      <property name="markets" type="String" default="{!Markets.Items}"></property>
+      <property name="languages" type="String" default="{!Markets.Languages}"></property>
+      <property name="countries" type="String" default="{!Markets.Countries}"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="sort"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Customer Display">
+          <designLayoutItems>
+            <designLayoutProperty name="languageDisplayType"></designLayoutProperty>
+            <designLayoutProperty name="headingLabelText"></designLayoutProperty>
+            <designLayoutProperty name="countryTextColor"></designLayoutProperty>
+            <designLayoutProperty name="countryHoverTextColor"></designLayoutProperty>
+            <designLayoutProperty name="countryTextAlignment"></designLayoutProperty>
+            <designLayoutProperty name="backgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="markets" cbVisibleIf="pickerButtonAlignment=true"></designLayoutProperty>
+            <designLayoutProperty name="languages" cbVisibleIf="pickerButtonAlignment=true"></designLayoutProperty>
+            <designLayoutProperty name="countries" cbVisibleIf="pickerButtonAlignment=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Selector Button Display">
+          <designLayoutItems>
+            <designLayoutProperty name="pickerButtonStyle"></designLayoutProperty>
+            <designLayoutProperty name="pickerButtonSize"></designLayoutProperty>
+            <designLayoutProperty name="pickerButtonAlignment"></designLayoutProperty>
+            <designLayoutProperty name="pickerButtonLabelText"></designLayoutProperty>
+            <designLayoutProperty name="showGlobeIcon"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

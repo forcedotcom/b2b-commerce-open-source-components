@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "commonNumberInput",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "decrementAltText",
+        "value": "Decrement quantity"
+      },
+      {
+        "name": "incrementAltText",
+        "value": "Increase quantity"
+      },
+      {
+        "name": "inputAriaLabel",
+        "value": "Enter a value to change your quantity"
+      }
+    ]
+  }
+}

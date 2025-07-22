@@ -1,0 +1,32 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "orderQuickOrderItem",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "searchInputAriaLabel",
+        "value": "Enter SKU"
+      },
+      {
+        "name": "removeButtonAssistiveTextWithNoEntry",
+        "value": "Remove Entry"
+      },
+      {
+        "name": "removeButtonAssistiveTextWithValidEntry",
+        "value": "Remove {name} entry"
+      },
+      {
+        "name": "defaultSearchErrorMessage",
+        "value": "We couldn't fetch the search results. Try again later."
+      },
+      {
+        "name": "skuIsUnavailableInlineErrorMessage",
+        "value": "We couldn't find that SKU. Enter a valid SKU and try again."
+      },
+      {
+        "name": "subscriptionProductSkuIsNotAvailableInlineErrorMessage",
+        "value": "You can’t add a subscription through a quick order."
+      }
+    ]
+  }
+}

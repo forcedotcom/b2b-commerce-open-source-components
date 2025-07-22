@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productPricingDetailsUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "subscriptionPrice",
+        "value": "{price}/{priceTermUnit}"
+      },
+      {
+        "name": "combinedPromotionText",
+        "value": "{promotionAdjustment}% off"
+      },
+      {
+        "name": "previousPriceAssistiveText",
+        "value": "Previous Price was"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+<template lwc:render-mode="light">
+    <site-my-account-user-profile-menu-ui
+        lwc:if={sessionContextLoaded}
+        is-logged-in={isLoggedInUser}
+        company-name={_accountName}
+        icon-style={iconStyle}
+        include-company-name={includeCompanyName}
+        login-button-text={loginLinkText}
+        login-link-text-color={loginLinkTextColor}
+        login-link-text-decoration={loginLinkTextDecoration}
+        login-link-text-hover-color={loginLinkTextHoverColor}
+        login-text-alignment={loginTextTextOrientation}
+        menu-items={userProfileMenuItems}
+        onuserlogin={handleUserLogin}
+        onnavigatetopage={handleNavigateToPage}
+        show-name-in-trigger={showNameInTrigger}
+        text-alignment={menuNameTextOrientation}
+        user-name={firstName}></site-my-account-user-profile-menu-ui>
+</template>

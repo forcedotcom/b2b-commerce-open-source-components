@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Product Detail Purchase Options</masterLabel>
+  <description>Display quantity selector and Add to Cart button</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Product Variant Selection Data Binding" name="productVariant" type="String" default="{!Product.SelectedVariant}"></property>
+      <property label="Product Inventory Data Binding" name="productInventory" type="String" default="{!Product.Inventory}"></property>
+      <property label="Product Subscription Selection Data Binding" name="selectedProductSellingModel" type="String" default="{!Product.SelectedProductSellingModel}"></property>
+      <property label="Product Pricing Data Binding" name="productPricing" type="String" default="{!Product.Pricing}"></property>
+      <property name="errors" label="Product Errors" type="String" default="{!Product.errors}"></property>
+      <property label="Add to Cart Button Background Color" name="addToCartButtonBackgroundColor" type="Color"></property>
+      <property label="Add to Cart Button Background Hover Color" name="addToCartButtonBackgroundHoverColor" type="Color"></property>
+      <property label="Add to Cart Button Border Color" name="addToCartButtonBorderColor" type="Color"></property>
+      <property label="Add to Cart Button Border Radius" name="addToCartButtonBorderRadius" type="Integer" min="0" max="50" default="0"></property>
+      <property label="Add to Cart Button Text" name="addToCartButtonText" type="String" translatable="true" default="Add To Cart"></property>
+      <property label="Add to Cart Button Text Color" name="addToCartButtonTextColor" type="Color"></property>
+      <property label="Add to Cart Button Text Hover Color" name="addToCartButtonTextHoverColor" type="Color"></property>
+      <property label="Add to Cart Button Processing Text" name="addToCartButtonProcessingText" type="String" default="Adding..." translatable="true"></property>
+      <property label="Out of Stock Text" name="outOfStockText" type="String" default="Out of Stock" translatable="true"></property>
+      <property label="Button Text" name="addToListButtonText" type="String" translatable="true" default="Add To List"></property>
+      <property label="Show Button" name="showAddToListButton" type="Boolean" default="true"></property>
+      <property label="Button Text Color" name="addToListButtonTextColor" type="Color"></property>
+      <property label="Button Hover Color" name="addToListButtonTextHoverColor" type="Color"></property>
+      <property label="Button Background Color" name="addToListButtonBackgroundColor" type="Color"></property>
+      <property label="Button Background Hover Color" name="addToListButtonBackgroundHoverColor" type="Color"></property>
+      <property label="Button Border Color" name="addToListButtonBorderColor" type="Color"></property>
+      <property label="Button Border Radius" name="addToListButtonBorderRadius" type="Integer" min="0" max="50" default="0"></property>
+      <property label="Quantity Selector Label" name="quantitySelectorLabel" type="String" translatable="true" default="QTY"></property>
+      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy {0} to start”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy up to {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Sold in increments of {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <designLayout>
+        <designSection name="Add to Cart Button">
+          <designLayoutItems>
+            <designLayoutProperty name="addToCartButtonText"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonTextColor"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonTextHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonProcessingText"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonBackgroundHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="outOfStockText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Add to List Button">
+          <designLayoutItems>
+            <designLayoutProperty name="showAddToListButton"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonText"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonTextColor"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonTextHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonBackgroundHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="addToListButtonBorderRadius"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="minimumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="quantitySelectorLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="productPricing"></designLayoutProperty>
+            <designLayoutProperty name="productVariant"></designLayoutProperty>
+            <designLayoutProperty name="productInventory"></designLayoutProperty>
+            <designLayoutProperty name="selectedProductSellingModel"></designLayoutProperty>
+            <designLayoutProperty name="errors"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

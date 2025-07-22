@@ -1,0 +1,86 @@
+<template lwc:render-mode="light">
+    <div
+        data-automation="product-bundle-item"
+        class="product-bundle-item slds-p-vertical_medium">
+        <div class="product-bundle-item__image-wrapper slds-m-right_medium">
+            <figure class="product-bundle-item__image">
+                <template lwc:if={isNavigable}>
+                    <a
+                        href={itemUrl}
+                        title={productName}
+                        onclick={handleImageClicked}
+                        aria-label={productName}>
+                        <experience-picture
+                            aria-label={productName}
+                            alternative-text={imageAltText}
+                            url={imageUrl}
+                            images={images}></experience-picture>
+                    </a>
+                </template>
+                <template lwc:else>
+                    <experience-picture
+                        aria-label={productName}
+                        alternative-text={imageAltText}
+                        url={imageUrl}
+                        images={images}></experience-picture>
+                </template>
+            </figure>
+        </div>
+        <div class="product-bundle-item__details-wrapper">
+            <p class="slds-text-title_bold product-bundle-item__name">
+                <lightning-formatted-rich-text value={productName}></lightning-formatted-rich-text>
+            </p>
+            <p
+                class="product-bundle-item__details variant-attribute-text slds-var-p-top_xx-small"
+                if:false={isVariantAttributesFieldEmpty}>
+                <lightning-formatted-rich-text value={variantAttributesField}></lightning-formatted-rich-text>
+            </p>
+            <p
+                class="product-bundle-item__details quantity-label-text slds-var-p-top_xx-small"
+                if:false={hideQuantity}>
+                <lightning-formatted-rich-text value={quantityTextWithColon}></lightning-formatted-rich-text>
+                <lightning-formatted-number value={quantity}></lightning-formatted-number>
+            </p>
+            <p
+                class="product-bundle-item__details slds-var-p-top_xx-small"
+                if:false={hideComponentGroupName}>
+                <lightning-formatted-rich-text value={componentGroupName}></lightning-formatted-rich-text>
+            </p>
+            <p
+                class="product-bundle-item__details slds-var-p-top_xx-small"
+                if:false={hideChildParentRelationshipText}>
+                <lightning-formatted-rich-text value={childParentRelationshipText}></lightning-formatted-rich-text>
+            </p>
+            <p
+                class="product-bundle-item__details slds-var-p-top_xx-small"
+                if:false={hidePricingText}>
+                <lightning-formatted-rich-text value={pricingText}></lightning-formatted-rich-text>
+            </p>
+            <template lwc:if={showFields}>
+                <ul>
+                    <template
+                        lwc:if={productFieldsData}
+                        for:each={productFieldsData}
+                        for:item="field">
+                        <li
+                            key={field.id}
+                            class="slds-var-p-top_xx-small">
+                            <span class="slds-grid slds-wrap">
+                                <p
+                                    class="slds-rich-text-editor__output slds-p-right_xx-small"
+                                    if:true={field.label}>
+                                    {field.label}
+                                </p>
+                                <site-common-field
+                                    title={field.label}
+                                    currency-code={currencyCode}
+                                    type={field.type}
+                                    value={field.value}></site-common-field>
+                            </span>
+                        </li>
+                    </template>
+                </ul>
+            </template>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,29 @@
+:host {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    z-index: 100000;
+}
+.slds-panel {
+    width: 50vw;
+    background: var(--com-c-country-picker-panel-background, var(--dxp-g-root));
+}
+.slds-panel__header {
+    border-bottom: none;
+    flex-direction: column;
+    align-items: stretch;
+}
+.slds-panel__header-actions {
+    align-self: flex-end;
+    margin: var(--dxp-g-spacing-medium) var(--dxp-g-spacing-medium) 0 var(--dxp-g-spacing-medium);
+}
+.heading-title {
+    padding: var(--com-c-country-picker-panel-vertical-padding, 0)
+        var(--com-c-country-picker-panel-horizontal-padding, var(--dxp-g-spacing-xxlarge));
+}
+@media only screen and (max-width: 64em) {
+    .slds-panel {
+        width: 100vw;
+    }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "commonQuantitySelector",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "rangeOverflow",
+        "value": "Enter a value between {min} and {max} in increments of {step}."
+      },
+      {
+        "name": "rangeUnderflow",
+        "value": "Enter a value between {min} and {max} in increments of {step}."
+      },
+      {
+        "name": "stepMismatch",
+        "value": "Enter a value between {min} and {max} in increments of {step}."
+      },
+      {
+        "name": "patternMismatch",
+        "value": "Enter a valid number."
+      },
+      {
+        "name": "outOfStock",
+        "value": "Out of stock"
+      }
+    ]
+  }
+}

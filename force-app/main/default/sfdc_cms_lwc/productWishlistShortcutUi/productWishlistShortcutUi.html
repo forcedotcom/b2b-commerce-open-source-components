@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <a
+        href={iconUrl}
+        onclick={handleIconClick}
+        title={iconAssistiveText}>
+        <span class="slds-icon_container icon-container">
+            <svg
+                tabindex="-1"
+                class="slds-icon slds-icon-text-default slds-icon_small slds-global-actions__notifications slds-global-actions__item-action"
+                aria-hidden="true"
+                aria-live="assertive"
+                aria-atomic="true">
+                <use xlink:href={iconTypeHref}></use>
+            </svg>
+            <span class="slds-assistive-text">{iconAssistiveText}</span>
+        </span>
+    </a>
+</template>

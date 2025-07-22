@@ -1,0 +1,12 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "commonCountryPickerPanel",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "closeButtonAssistiveText",
+        "value": "Close dialog"
+      }
+    ]
+  }
+}

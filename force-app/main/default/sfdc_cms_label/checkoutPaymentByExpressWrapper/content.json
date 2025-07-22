@@ -1,0 +1,64 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "checkoutPaymentByExpressWrapper",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "paymentProcessing",
+        "value": "Payment Processing"
+      },
+      {
+        "name": "paymentCancelMessage",
+        "value": "Your attempted payment was canceled. You have not been charged and your order has not been placed."
+      },
+      {
+        "name": "productAmountTitle",
+        "value": "Order Value"
+      },
+      {
+        "name": "taxTitle",
+        "value": "Tax"
+      },
+      {
+        "name": "shippingTitle",
+        "value": "Shipping"
+      },
+      {
+        "name": "missingPaymentMethodSetKeyTitle",
+        "value": "Add a Payment Method Set"
+      },
+      {
+        "name": "missingPaymentMethodSetKeyDescription",
+        "value": "Group accepted payment methods that will be available to buyers during store checkout."
+      },
+      {
+        "name": "salesforcePaymentsNotLicensedTitle",
+        "value": "Salesforce Payments Not Licensed"
+      },
+      {
+        "name": "salesforcePaymentsNotLicensedDescription",
+        "value": "Please purchase Salesforce Payments License to use this component."
+      },
+      {
+        "name": "defaultComponentErrorTitle",
+        "value": "Salesforce Payments Error"
+      },
+      {
+        "name": "defaultComponentErrorDescription",
+        "value": "Please contact your administrator for additional details."
+      },
+      {
+        "name": "expressButtonsTitle",
+        "value": "Express Payments"
+      },
+      {
+        "name": "shippingMethodsMessage",
+        "value": "Getting shipping methods…"
+      },
+      {
+        "name": "finalAmountTitle",
+        "value": "Total"
+      }
+    ]
+  }
+}

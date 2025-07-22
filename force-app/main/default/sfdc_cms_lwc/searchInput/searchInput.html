@@ -1,0 +1,26 @@
+<template lwc:render-mode="light">
+    <site-search-input-ui
+        search-term={normalizedSearchTerm}
+        show-advanced-search={_showAdvancedSearch}
+        border-radius={_borderRadius}
+        text-color={_textColor}
+        background-color={_backgroundColor}
+        icon-color={_iconColor}
+        border-color={_borderColor}
+        placeholder-text={_placeholderText}
+        placeholder-text-color={_placeholderTextColor}
+        button-background-color={_buttonBackgroundColor}
+        button-background-hover-color={_buttonBackgroundHoverColor}
+        show-search-button={_showSearchButton}
+        show-search-suggestions-setup={_showSearchSuggestionsSetup}
+        suggestions-text-color={_suggestionsTextColor}
+        suggestions-text-hover-color={_suggestionsTextHoverColor}
+        suggestions-background-color={_suggestionsBackgroundColor}
+        suggestions-background-hover-color={_suggestionsBackgroundHoverColor}
+        suggestions-divider-color={_suggestionsDividerColor}
+        search-suggestion-items={_searchSuggestionItems}
+        onsearchtermchange={handleTermChange}
+        onsearchrequest={handleSearch}
+        onsearchoptionselection={handleOptionSelection}
+        onblur={handleTermChange}></site-search-input-ui>
+</template>

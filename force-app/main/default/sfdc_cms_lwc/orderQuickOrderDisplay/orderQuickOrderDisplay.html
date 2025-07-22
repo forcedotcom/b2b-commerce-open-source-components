@@ -1,0 +1,54 @@
+<template lwc:render-mode="light">
+    <!-- header label -->
+    <div class="label-headings">
+        <slot name="header"></slot>
+    </div>
+    <!-- product and quantity heading labels -->
+    <div class="slds-grid label-headings">
+        <section class="product">
+            <slot name="productHeader"></slot>
+        </section>
+        <section class="quantity">
+            <slot name="quantityHeader"></slot>
+        </section>
+    </div>
+    <!-- quick order item -->
+    <template if:true={displayEntries}>
+        <template
+            for:each={displayEntries}
+            for:item="entry">
+            <site-order-quick-order-item
+                key={entry.id}
+                item={entry}
+                add-to-cart-in-progress={addToCartInProgress}
+                minimum-value-guide-text={minimumValueGuideText}
+                maximum-value-guide-text={maximumValueGuideText}
+                increment-value-guide-text={incrementValueGuideText}
+                search-input-place-holder-text={searchInputPlaceHolderText}
+                sku-label-text={skuLabelText}
+                class="slds-p-top_small"></site-order-quick-order-item>
+        </template>
+    </template>
+    <!-- entry button -->
+    <div class="slds-p-top_small">
+        <button
+            aria-label={labels.addEntryButtonAriaLabel}
+            disabled={isEntryButtonDisabled}
+            name="entryButton"
+            onclick={handleEntryButtonClick}
+            class={customAddEntryButtonClasses}>
+            {addEntryButtonText}
+        </button>
+    </div>
+    <!-- add to cart button -->
+    <div class="slds-p-top_xx-large">
+        <site-product-add-to-cart-button
+            disabled={isAddToCartDisabled}
+            class="add-to-cart-button"
+            text={addToCartButtonText}
+            onclick={handleAddToCartButtonClick}
+            variant="primary"
+            width="stretch"
+            aria-label={labels.addToCartButtonAriaLabel}></site-product-add-to-cart-button>
+    </div>
+</template>

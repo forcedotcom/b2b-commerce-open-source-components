@@ -1,0 +1,12 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "commonPanel",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "closeButtonAriaLabel",
+        "value": "Mini cart close: commerce store"
+      }
+    ]
+  }
+}

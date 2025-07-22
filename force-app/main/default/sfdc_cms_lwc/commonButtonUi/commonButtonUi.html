@@ -1,0 +1,9 @@
+<template lwc:render-mode="light">
+    <button
+        lwc:ref="actionButton"
+        aria-label={assistiveText}
+        class={buttonClasses}
+        disabled={disabled}>
+        <slot></slot>
+    </button>
+</template>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Product Set</masterLabel>
+  <description>Create sets of related products</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Id" name="productId" type="String" default="{!Route.recordId}"></property>
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Product Currency Binding" name="currencyIsoCode" type="String" default="{!Product.Pricing.currencyIsoCode}"></property>
+      <property label="Pricing Type" name="pricingType" type="String" datasource="java://siteforce.customComponent.datasource.PricingTypeDataSource" default="2_TIER"></property>
+      <property label="Lowest Price (Negotiated) - Text Color" name="slot1PriceTextColor" type="Color"></property>
+      <property label="Lowest Price (Negotiated) - Text Size" name="slot1PriceTextSize" type="String" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" default="large"></property>
+      <property label="Strikethrough (Original Listing) - Text Color" name="slot2PriceTextColor" type="Color" default="rgb(112, 114, 117, 1)"></property>
+      <property label="Final Price - Text Color" name="slot3PriceTextColor" type="Color" default="rgb(13, 130, 93, 1)"></property>
+      <property label="Final Price - Text Size" name="slot3PriceTextSize" type="String" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" default="medium"></property>
+      <property label="Promotional Message Text Color" name="promotionalMessageTextColor" type="Color"></property>
+      <property label="Promotional Message Text Size" name="promotionalMessageTextSize" type="String" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" default="small"></property>
+      <property label="Unavailable Price Label" name="unavailablePriceLabel" type="String" default="Price Unavailable" translatable="true"></property>
+      <property label="Show Tax Indication" name="showTaxIndication" type="Boolean" default="true" description="Provide tax information to your shoppers"></property>
+      <property label="Tax Label" name="taxIncludedLabel" type="String" default="Tax Included" translatable="true"></property>
+      <property label="Tax Label Color" name="taxLabelColor" type="Color"></property>
+      <property label="Tax Label Size" name="taxLabelSize" type="String" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" default="small"></property>
+      <property label="Last Lowest Price Label Size" name="lastLowestPriceLabelSize" type="String" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" default="small"></property>
+      <property label="Last Lowest Price Label Color" name="lastLowestPriceLabelColor" type="Color" default="rgb(112, 114, 117, 1)"></property>
+      <property label="Last Lowest Price Label" name="lastLowestPriceLabel" type="String" default="Last Lowest Price:" translatable="true"></property>
+      <property label="Show Add All to Cart" name="showAddAllToCartButton" type="Boolean" default="true"></property>
+      <property label="Out of Stock Text" name="outOfStockText" type="String" default="Out of Stock" translatable="true"></property>
+      <property label="Show Product Image" name="showProductImage" type="Boolean" default="true"></property>
+      <property label="Show Product Description" name="showProductDescription" type="Boolean" default="true"></property>
+      <property label="Quantity Selector Label" name="quantitySelectorLabel" type="String" translatable="true" default=""></property>
+      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy {0} to start”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy up to {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Sold in increments of {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="pricingType"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Lowest Price (Negotiated)">
+          <designLayoutItems>
+            <designLayoutProperty name="slot1PriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="slot1PriceTextSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Strikethrough (Original Listing)">
+          <designLayoutItems>
+            <designLayoutProperty name="slot2PriceTextColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Final Price">
+          <designLayoutItems>
+            <designLayoutProperty name="slot3PriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="slot3PriceTextSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Details">
+          <designLayoutItems>
+            <designLayoutProperty name="promotionalMessageTextColor"></designLayoutProperty>
+            <designLayoutProperty name="promotionalMessageTextSize"></designLayoutProperty>
+            <designLayoutProperty name="showTaxIndication"></designLayoutProperty>
+            <designLayoutProperty name="taxIncludedLabel"></designLayoutProperty>
+            <designLayoutProperty name="taxLabelColor"></designLayoutProperty>
+            <designLayoutProperty name="taxLabelSize"></designLayoutProperty>
+            <designLayoutProperty name="unavailablePriceLabel"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabelSize"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabelColor"></designLayoutProperty>
+            <designLayoutProperty name="lastLowestPriceLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Content">
+          <designLayoutItems>
+            <designLayoutProperty name="productId"></designLayoutProperty>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="currencyIsoCode"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Header">
+          <designLayoutItems>
+            <designLayoutProperty name="showAddAllToCartButton"></designLayoutProperty>
+            <designLayoutProperty name="outOfStockText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Products">
+          <designLayoutItems>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="showProductDescription"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="minimumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="quantitySelectorLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,54 @@
+:host {
+    width: 33%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100vh;
+    z-index: 1;
+    --com-c-product-card-name-font-size-mobile: var(--dxp-s-text-heading-small-font-size, 1rem);
+    --com-c-product-card-name-font-weight: var(--dxp-c-strong-text-weight);
+    --com-c-product-card-align-product-info-items: flex-start;
+}
+@media (max-width: 64em) {
+    :host {
+        width: 30em;
+    }
+}
+@media (max-width: 48.063em) {
+    :host {
+        width: 100%;
+    }
+    :host .panel-footer {
+        padding-left: var(--slds-g-spacing-7, 1.75rem);
+        padding-right: var(--slds-g-spacing-7, 1.75rem);
+    }
+}
+.modal-container {
+    height: 100%;
+}
+.slds-popover_prompt {
+    height: 100%;
+    width: 100%;
+    z-index: 9001;
+}
+site-common-button-ui {
+    padding-top: 1rem;
+}
+.panel-footer {
+    padding-left: var(--slds-g-spacing-5, 1.25rem);
+    padding-right: var(--slds-g-spacing-5, 1.25rem);
+}
+.divider {
+    margin: 12px 8px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+.custom-text-block {
+    color: var(--dxp-s-link-text-color, inherit);
+    padding: 0;
+    text-align: center;
+    margin: 0;
+    font-weight: normal;
+}

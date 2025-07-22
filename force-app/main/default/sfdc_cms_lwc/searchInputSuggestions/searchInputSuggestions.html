@@ -1,0 +1,85 @@
+<template lwc:render-mode="light">
+    <div
+        class="input-container"
+        style={_customCSSProperties}>
+        <div
+            class={inputWrapperClass}
+            style={searchInputStyle}>
+            <svg
+                if:false={showSearchButton}
+                class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default"
+                aria-hidden="true">
+                <use href={searchIconPath}></use>
+            </svg>
+            <label class="slds-assistive-text">{i18n.search}</label>
+            <input
+                aria-autocomplete="list"
+                aria-describedby={i18n.searchInputAriaDescribedby}
+                autocomplete="off"
+                onblur={handleInputBlur}
+                onclick={handleInputClick}
+                onfocus={handleInputFocus}
+                oninput={handleInputChange}
+                onsearch={handleSearchButtonClick}
+                placeholder={inputPlaceholderText}
+                type="search"
+                role="combobox"
+                value={_normalizedText}
+                maxlength="255"
+                style={searchInputStyle}
+                class={searchInputClass} />
+            <div class="input-icon-container">
+                <template if:true={showActivityIndicator}>
+                    <div class="input-spinner-container">
+                        <div
+                            role="status"
+                            class="slds-spinner slds-spinner_brand slds-spinner_x-small">
+                            <span class="slds-assistive-text">{i18n.loading}</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </template>
+                <template if:true={_showClearButton}>
+                    <div class="input-clear-button-container">
+                        <button
+                            class="input-clear-button slds-button"
+                            onclick={handleClearClick}
+                            onkeydown={handleClearButtonKeyDown}
+                            data-automation="clear-button">
+                            <span class="slds-assistive-text">{i18n.clear}</span>
+                            <lightning-icon
+                                icon-name="utility:clear"
+                                size="xx-small"></lightning-icon>
+                        </button>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <template if:true={showSearchButton}>
+            <div>
+                <button
+                    type="submit"
+                    data-automation="search-button"
+                    class="input-search-button slds-button slds-button_brand"
+                    onclick={handleSearchButtonClick}
+                    onkeydown={handleSearchButtonKeyDown}
+                    style={searchButtonStyle}
+                    onblur={handleSearchButtonBlur}
+                    onfocus={handleSearchButtonFocus}
+                    onmouseenter={handleSearchButtonMouseEnter}
+                    onmouseleave={handleSearchButtonMouseLeave}>
+                    <svg
+                        class="slds-icon slds-icon-text-default slds-icon_x-small search-icon"
+                        style={searchIconStyles}
+                        focusable="false"
+                        data-key="search"
+                        aria-hidden="true">
+                        <use href={searchIconPath}></use>
+                    </svg>
+                    <span class="slds-assistive-text">{i18n.search}</span>
+                </button>
+            </div>
+        </template>
+    </div>
+</template>

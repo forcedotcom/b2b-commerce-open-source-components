@@ -1,0 +1,49 @@
+<template lwc:render-mode="light">
+    <experience-slider
+        data-automation="mediaSlider"
+        layout="slider"
+        component-name="Commerce Media Slider"
+        collection={collection}
+        active-item-index={activeItemIndex}
+        onchangeactiveitemindex={handleChangeActiveItemIndex}
+        s-primary-navigation={resolvedPrimaryNavigation}
+        m-primary-navigation={resolvedPrimaryNavigation}
+        l-primary-navigation={resolvedPrimaryNavigation}
+        show-indicators={showIndicators}
+        show-icon={showIcon}
+        indicator-color={indicatorsColor}>
+        <template
+            for:each={collection}
+            for:item="item"
+            for:index="index">
+            <div
+                data-slider="slide"
+                data-slide-index={index}
+                role="tabpanel"
+                aria-roledescription="slide"
+                aria-label={item.slideTitle}
+                aria-selected={item.isActive}
+                key={item.key}
+                slot="items">
+                <template lwc:if={item.data.isVideo}>
+                    <experience-video
+                        url={item.data.resolvedUrl}
+                        controls
+                        alternative-text={item.data.alternativeText}></experience-video>
+                </template>
+                <template lwc:else>
+                    <experience-picture
+                        alternative-text={item.data.alternativeText}
+                        url={item.data.resolvedUrl}
+                        images={item.data.images}
+                        disable-drag></experience-picture>
+                </template>
+                <div
+                    lwc:if={showPlaceholder}
+                    class="default-image-text dxp-text-heading-small">
+                    {noProductImageText}
+                </div>
+            </div>
+        </template>
+    </experience-slider>
+</template>

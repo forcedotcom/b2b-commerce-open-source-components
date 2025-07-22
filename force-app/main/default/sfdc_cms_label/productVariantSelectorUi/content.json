@@ -1,0 +1,20 @@
+{
+  "type": "sfdc_cms__label",
+  "title": "productVariantSelectorUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "required",
+        "value": "required"
+      },
+      {
+        "name": "productVariantSelectorPlaceholderText",
+        "value": "Select..."
+      },
+      {
+        "name": "productVariantDefaultOutOfStockText",
+        "value": "(Out of Stock)"
+      }
+    ]
+  }
+}

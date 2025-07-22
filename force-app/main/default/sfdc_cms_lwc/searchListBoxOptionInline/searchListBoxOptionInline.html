@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <div
+        if:true={item}
+        class="option-inline-container">
+        <template if:true={item.iconName}>
+            <lightning-icon
+                class="option-inline-icon"
+                alternative-text={item.iconAlternativeText}
+                icon-name={item.iconName}
+                size="x-small"></lightning-icon>
+        </template>
+        <template if:true={item.text}>
+            <div class="option-inline-text">
+                <lightning-formatted-rich-text
+                    disable-linkify
+                    class="slds-truncate"
+                    value={_displayText}
+                    title={_tooltipText}></lightning-formatted-rich-text>
+            </div>
+        </template>
+    </div>
+</template>

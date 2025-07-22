@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Profile Menu</masterLabel>
+  <description>Menu with options for individual users.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Log In" name="loginLinkText" type="String" default="Log In" translatable="true" description="The login link isn&apos;t previewed and appears only to guest users."></property>
+      <property label="Link Orientation" name="loginLinkTextOrientation" type="String" default="leftOfIcon" datasource="java://siteforce.customComponent.datasource.UserProfileTextOrientationDataSource"></property>
+      <property label="LoginLink Text Decoration" name="loginLinkTextDecoration" type="TextDecoration"></property>
+      <property label="Menu Style for Authenticated Users" name="menuStyle" type="String" default="iconAndName" datasource="java://siteforce.customComponent.datasource.UserProfileMenuStyleDataSource" description="Select a user menu style."></property>
+      <property label="Include Company Name" name="includeCompanyName" default="false" type="Boolean"></property>
+      <property label="Icon Style" name="iconStyle" default="userIcon" type="String" datasource="java://siteforce.customComponent.datasource.UserProfileIconStyleDataSource"></property>
+      <property label="Text Orientation" name="userNameTextOrientation" type="String" default="leftOfIcon" datasource="java://siteforce.customComponent.datasource.UserProfileTextOrientationDataSource"></property>
+      <property type="String" name="navigationMenuData" default="{!NavMenu.MenuItems}" label="Navigation Menu Data" description="These menu item types aren&apos;t shown on this menu: Data Source, Event, Global Action, Menu Label, Navigational Topic."></property>
+      <property label="Log Out" name="logOutLabel" type="String" default="Log Out" translatable="true"></property>
+      <designLayout>
+        <designSection name="Guest User Options">
+          <designLayoutItems>
+            <designLayoutProperty name="loginLinkText"></designLayoutProperty>
+            <designLayoutProperty name="loginLinkTextOrientation"></designLayoutProperty>
+            <designLayoutProperty name="loginLinkTextDecoration"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Authenticated User Options">
+          <designLayoutItems>
+            <designLayoutProperty name="menuStyle"></designLayoutProperty>
+            <designLayoutProperty name="iconStyle"></designLayoutProperty>
+            <designLayoutProperty name="includeCompanyName" cbVisibleIf="menuStyle=iconAndName"></designLayoutProperty>
+            <designLayoutProperty name="userNameTextOrientation" cbVisibleIf="menuStyle=iconAndName"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Authenticated User Menu">
+          <designLayoutItems>
+            <designLayoutProperty name="navigationMenuData"></designLayoutProperty>
+            <designLayoutProperty name="logOutLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

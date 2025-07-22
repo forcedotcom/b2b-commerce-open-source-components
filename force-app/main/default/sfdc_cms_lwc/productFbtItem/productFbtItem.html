@@ -1,0 +1,71 @@
+<template lwc:render-mode="light">
+    <div class="frequently-bought-together-item">
+        <div class="frequently-bought-together-item__image slds-p-around_medium">
+            <site-product-gallery-image
+                selectable
+                class="frequently-bought-together-item__image-wrapper"
+                onselected={handleProductDetailNavigation}
+                if:true={isProductImageVisible}
+                url={product.defaultImage.url}
+                alternative-text={product.defaultImage.alternateText}></site-product-gallery-image>
+        </div>
+
+        <div class="frequently-bought-together-item__name">
+            <h3 title={product.name}>
+                <a
+                    onclick={handleProductDetailNavigation}
+                    tabindex="0">
+                    <span class="ellipsis">{product.name}</span>
+                    <span class="slds-assistive-text">{product.name}</span>
+                    <span
+                        if:true={showQuantityText}
+                        class="slds-m-left_xxx-small"
+                        data-quantity-unit>
+                        {quantityUnitLabel}
+                    </span>
+                </a>
+                <site-product-variant-attributes-display
+                    if:true={showProductVariants}
+                    attributes={variationAttributes}></site-product-variant-attributes-display>
+            </h3>
+
+            <div class="frequently-bought-together-item__controls">
+                <span class="frequently-bought-together-item__input">
+                    <lightning-input
+                        type="checkbox"
+                        data-product-id={product.id}
+                        onchange={handleToggleCheckbox}
+                        label={product.name}
+                        variant="label-hidden"
+                        disabled={product.isDisabled}
+                        checked={product.isChecked}></lightning-input>
+                    <span>
+                        <lightning-formatted-number
+                            if:true={showSalePrice}
+                            class="negotiated-price"
+                            value={negotiatedPrice}
+                            maximum-fraction-digits="20"
+                            currency-code={currencyCode}
+                            format-style="currency"></lightning-formatted-number>
+                        <span
+                            if:true={displayAssistiveText}
+                            class="slds-assistive-text">
+                            {strikethroughAssistiveText}
+                        </span>
+                        <lightning-formatted-number
+                            if:true={showOriginalPrice}
+                            class="original-price"
+                            value={originalPrice}
+                            maximum-fraction-digits="20"
+                            currency-code={currencyCode}
+                            format-style="currency"></lightning-formatted-number>
+                    </span>
+                </span>
+                <lightning-badge
+                    class="slds-m-left_xx-small"
+                    if:true={product.isMainProduct}
+                    label={mainProductText}></lightning-badge>
+            </div>
+        </div>
+    </div>
+</template>
