@@ -5,24 +5,27 @@ This repository provides the source code for selected components from the B2B Co
 ## Prerequisites 🗒️
 * Enable the ExperienceBundle Metadata API for Digital Experiences.
   * This is typically enabled by default; to verify the setting, login to your org and go to **Setup** → **Digital Experiences**. Under “Digital Experiences”, go to Settings and then select the checkbox “Enable ExperienceBundle Metadata API”. <img width="1547" height="910" alt="Screenshot 2025-06-04 at 11 59 38 AM" src="https://github.com/user-attachments/assets/0243481b-e50a-403b-a228-b8761b88be4d" />
+
 * Install SF CLI (a.k.a. SFDX) locally
+
+* 
 
 ## Steps to use Open Code Components
 
 1. Go to your sfdx project and in case not already created, then please create a new SFDX project and connect it to your SF org using the sfdx auth command, like this:
 
    ```console 
-   sfdx force:auth:web:login -r "ORG-BASE-URL" -a "alias"
+   sf org login web --alias "alias" --instance-url "ORG-BASE-URL"
    ```
 
 2. After this, execute the below command to retrieve all the digital experiences:
    ```console
-   sfdx force:source:retrieve -m DigitalExperienceBundle -o "alias"
+   sf project retrieve start --metadata DigitalExperienceBundle --target-org "alias"
    ```
   > [!TIP]
   > If this command does not work from your terminal:
   > ```console
-  > sf project retrieve start -m DigitalExperienceBundle -o TestingOrg
+  > sf project retrieve start -m DigitalExperienceBundle -o "alias"
   > ```
 
 3. Next, navigate to the specific storefront where you want to deploy the Open Code Component. Within the storefront’s folder structure (typically under `digitalExperiences`), you’ll find directories named `sfdc_cms__lwc` and `sfdc_cms__label`. These same folders are also present in this repository. To incorporate the Open Code component(s), simply copy the components (along with their dependencies) from the corresponding `sfdc_cms__lwc` and `sfdc_cms__label` folders in this repo into the matching folders in your target storefront. 
