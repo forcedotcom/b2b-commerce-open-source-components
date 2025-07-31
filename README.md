@@ -31,6 +31,14 @@ This repository provides the source code for selected components from the B2B Co
 3. Next, navigate to the specific storefront where you want to deploy the Open Code Component. Within the storefront’s folder structure (typically under `digitalExperiences`), you’ll find directories named `sfdc_cms__lwc` and `sfdc_cms__label`. In case, these folders are not present then please create these 2 folders under site/<your -storefront> folder. These same `sfdc_cms__lwc` and `sfdc_cms__label` folders are also present in this git repository. To incorporate the Open Code component(s), simply copy the components (along with their dependencies) from the corresponding `sfdc_cms__lwc` and `sfdc_cms__label` folders in this repo into the matching folders in your target storefront. 
 
 4. Proceed with making the necessary enhancements to the component as per your requirements. Once the changes are complete, use the following command to deploy the updated components to your storefront:
+
+In case you are deploying for the first time and want to deploy all the components (including all the dependent components and their respective labels) then use this command ::
+
+```console
+   sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>  --target-org <org_alias_name>
+   ```
+Or if you want to deploy only one updated component, then please use the below command ::
+
    ```console
    sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>/sfdc_cms__lwc/<name_of_component>  --target-org <org_alias_name>
    ```
