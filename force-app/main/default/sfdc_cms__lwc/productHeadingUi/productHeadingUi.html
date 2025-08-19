@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <slot name="heading"></slot>
+    <template
+        if:true={showAdditionalFields}
+        for:each={_displayableFields}
+        for:item="field">
+        <div
+            key={field.id}
+            class="slds-grid slds-p-top_x-small">
+            <p
+                class="slds-m-right_xx-small"
+                if:true={field.label}>
+                {field.label}{keyValueSeparator}
+            </p>
+            <site-common-field
+                value={field.value}
+                type={field.type}
+                currency-code={currencyCode}></site-common-field>
+        </div>
+    </template>
+</template>

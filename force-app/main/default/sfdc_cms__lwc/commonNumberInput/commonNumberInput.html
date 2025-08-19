@@ -1,0 +1,67 @@
+<template lwc:render-mode="light">
+    <div class="slds-grid slds-grid_vertical-align-center slds-nowrap">
+        <template if:false={hideLabel}>
+            <label
+                for={randomId}
+                class="slds-m-right_x-small">
+                {fieldLabel}
+            </label>
+        </template>
+        <span
+            class={spanClasses}
+            role="group"
+            aria-label={fieldLabel}>
+            <template if:false={hideButtons}>
+                <button
+                    aria-label={i18n.decrementAltText}
+                    class="common-number-input__decrement-button slds-button slds-button_neutral slds-p-horizontal_xx-small slds-p-vertical_x-small"
+                    onclick={decrement}
+                    disabled={isDecrementButtonDisabled}>
+                    <lightning-icon
+                        class="common-number-input__button-icon"
+                        src={dashIconPath}
+                        size="x-small"
+                        alternative-text={i18n.decrementAltText}></lightning-icon>
+                </button>
+            </template>
+
+            <input
+                id={randomId}
+                class="slds-input common-number-input__input"
+                style={inputStyles}
+                type="text"
+                inputmode="decimal"
+                onchange={handleInputChange}
+                pattern={pattern}
+                value={formattedValue}
+                aria-label={labelOrAriaLabel}
+                aria-describedby={ariaDescribedByLabel}
+                aria-invalid={isInvalid}
+                aria-live="polite"
+                disabled={disabled}
+                lwc:ref="displayedInput" />
+
+            <template if:false={hideButtons}>
+                <button
+                    aria-label={i18n.incrementAltText}
+                    class="common-number-input__increment-button slds-button slds-button_neutral slds-p-horizontal_xx-small slds-p-vertical_x-small"
+                    onclick={increment}
+                    disabled={isIncrementButtonDisabled}>
+                    <lightning-icon
+                        class="common-number-input__button-icon"
+                        src={addIconPath}
+                        size="x-small"
+                        alternative-text={i18n.incrementAltText}></lightning-icon>
+                </button>
+            </template>
+        </span>
+    </div>
+    <input
+        class="hidden-input"
+        type="number"
+        min={minOrDefault}
+        max={maxOrDefault}
+        step={step}
+        aria-hidden="true"
+        lwc:ref="hiddenInput" />
+</template>

@@ -1,0 +1,115 @@
+<template lwc:render-mode="light">
+    <div class="product-set-item__image">
+        <figure>
+            <template lwc:if={itemUrl}>
+                <a
+                    href={itemUrl}
+                    title={productName}
+                    onclick={handleImageSelected}
+                    aria-label={productName}>
+                    <experience-picture
+                        if:true={isProductImageVisible}
+                        aria-label={productName}
+                        alternative-text={imageAltText}
+                        url={imageUrl}
+                        images={productImage}></experience-picture>
+                </a>
+            </template>
+            <template lwc:else>
+                <experience-picture
+                    if:true={isProductImageVisible}
+                    aria-label={productName}
+                    alternative-text={imageAltText}
+                    url={imageUrl}
+                    images={productImage}></experience-picture>
+            </template>
+        </figure>
+    </div>
+    <div class="product-set-item__contents slds-p-left_x-small">
+        <div class="product-set-item__contents_price">
+            <site-product-heading-ui
+                class="product-set-item__heading"
+                fields={productFieldsData}
+                show-additional-fields
+                currency-code={currencyCode}></site-product-heading-ui>
+            <site-product-pricing-details-ui
+                lwc:if={displayPricing}
+                class="slds-p-vertical_x-small pricing-section"
+                unavailable-price-label={unavailablePriceLabel}
+                pricing-type={pricingType}
+                show-tax-indication={showTaxIndication}
+                tax-included-label={taxIncludedLabel}
+                tax-locale-type={taxLocaleType}
+                tax-rate={taxRate}
+                product-pricing={productPricing}
+                promotional-pricing={promotionalPricing}></site-product-pricing-details-ui>
+            <div
+                lwc:if={shouldReserveSpace}
+                class="reserved-pricing-space"></div>
+        </div>
+        <site-product-variant-selector-ui
+            if:true={isDisplayable}
+            class="slds-p-vertical_small"
+            product={product}
+            onvariantselected={handleVariantChanged}></site-product-variant-selector-ui>
+        <div
+            class="product-set-item__actions slds-p-top_x-small"
+            if:false={isProductSet}>
+            <site-product-add-quantity
+                button-text={addToCartButtonLabel}
+                quantity={quantity}
+                button-variant="primary"
+                disabled={isAddToCartDisabled}
+                onvaluechanged={handleQuantityChanged}
+                onvaliditychanged={handleValidityChanged}
+                quantity-selector-label={quantitySelectorLabel}
+                quantity-rule={quantityRule}
+                minimum-text={minimumValueGuideText}
+                maximum-text={maximumValueGuideText}
+                increment-text={incrementValueGuideText}
+                is-out-of-stock={isOutOfStock}
+                out-of-stock-text={outOfStockText}
+                onaddproducttocart={handleAddProductToCart}
+                available-quantity={availableQuantity}></site-product-add-quantity>
+        </div>
+        <site-product-sellingmodel-selector-ui
+            if:true={_displayProductSellingOptions}
+            product={product}
+            product-pricing={productPricing}
+            selected-product-selling-model={selectedProductSellingModel}
+            onsubscriptionchanged={handleSubscriptionchanged}>
+            <span slot="lifeTimeLabel"><slot name="lifeTimeLabel"></slot></span>
+            <div slot="lifeTimePrice">
+                <site-product-pricing-details-ui
+                    class="slds-p-vertical_small"
+                    unavailable-price-label={unavailablePriceLabel}
+                    pricing-type={pricingType}
+                    lowest-unit-price-label={lowestUnitPriceLabel}
+                    show-tax-indication={showTaxIndication}
+                    tax-included-label={taxIncludedLabel}
+                    tax-locale-type={taxLocaleType}
+                    tax-rate={taxRate}
+                    product-pricing={productPricing}
+                    promotional-pricing={promotionalPricing}
+                    price-type="OneTimeSellingModelPrice"
+                    selected-product-selling-model={selectedProductSellingModel}
+                    life-time-product-selling-model-price={_oneTimeProductSellingModelPrice}></site-product-pricing-details-ui>
+            </div>
+            <span slot="subscriptionLabel"><slot name="subscriptionLabel"></slot></span>
+            <div slot="selectedSubscriptionPrice">
+                <site-product-pricing-details-ui
+                    class="slds-p-vertical_small"
+                    unavailable-price-label={unavailablePriceLabel}
+                    pricing-type={pricingType}
+                    show-tax-indication={showTaxIndication}
+                    tax-included-label={taxIncludedLabel}
+                    tax-locale-type={taxLocaleType}
+                    tax-rate={taxRate}
+                    product-pricing={productPricing}
+                    price-type="ActiveSellingModelPrice"
+                    promotional-pricing={promotionalPricing}
+                    selected-product-selling-model={selectedProductSellingModel}></site-product-pricing-details-ui>
+            </div>
+        </site-product-sellingmodel-selector-ui>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+:host,
+.product-set-item__actions {
+    display: flex;
+    flex-direction: row;
+}
+.product-set-item__actions {
+    align-items: baseline;
+}
+.product-set-item__contents,
+.product-set-item__description {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.product-set-item__image {
+    max-width: 80px;
+    max-height: 80px;
+}
+span {
+    display: inline-block;
+}
+.product-set-item__contents_price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.reserved-pricing-space,
+.pricing-section {
+    min-height: 3rem;
+}

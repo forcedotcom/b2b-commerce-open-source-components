@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <div
+        data-automation="productVariantPillButton"
+        class={pillClass}
+        onclick={handleClick}
+        onkeydown={handleKeyDown}
+        role="radio"
+        aria-checked={selected}
+        tabindex="0"
+        aria-label={optionName}>
+        {optionName}
+        <span
+            lwc:if={isOutOfStock}
+            class="slds-assistive-text">
+            {assistiveOutOfStockTextValue}
+        </span>
+    </div>
+</template>

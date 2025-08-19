@@ -1,0 +1,33 @@
+.stencil-item-container {
+    margin-bottom: var(--slds-g-sizing-6, 1.25rem);
+    border: var(--dxp-s-form-element-width-border) solid var(--dxp-g-neutral, #f3f2f2);
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+}
+.stencil-item {
+    height: var(--dxp-g-font-size-5, 1rem);
+    margin-top: var(--slds-g-sizing-6, 1.25rem);
+    margin-bottom: var(--slds-g-sizing-6, 1.25rem);
+    background-color: var(--dxp-g-neutral, #f3f2f2);
+    display: inline-block;
+}
+.line {
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+}
+.stencil-item-container:nth-child(odd) > div {
+    width: 15%;
+    margin-left: 5%;
+}
+.stencil-item-container:nth-child(even) > div {
+    width: 30%;
+    margin-left: 5%;
+}
+@media (min-width: 47.9375em) {
+    .stencil-item-container:nth-child(n + 6) {
+        height: 0rem;
+        margin-bottom: 0rem;
+        border-color: var(--dxp-g-root);
+    }
+    .stencil-item-container:nth-child(n + 6) > div {
+        height: 0rem;
+    }
+}

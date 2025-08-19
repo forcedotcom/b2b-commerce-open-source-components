@@ -1,0 +1,72 @@
+<template lwc:render-mode="light">
+    <div class="contents">
+        <div if:true={showProductDetails}>
+            <div
+                if:true={displayProductName}
+                class="product-name slds-p-bottom_xx-small">
+                {displayProductName}
+            </div>
+            <lightning-formatted-rich-text
+                if:true={showSkuLabel}
+                value={generatedSkuLabel}
+                class="product-sku"></lightning-formatted-rich-text>
+            <site-product-variant-attributes-display attributes={variants}></site-product-variant-attributes-display>
+        </div>
+        <div
+            if:false={showProductDetails}
+            class={searchStyleClasses}>
+            <label
+                class="slds-form-element__label slds-no-flex slds-assistive-text"
+                for={randomId}>
+                {labels.searchInputAriaLabel}
+            </label>
+            <div class="slds-form-element__control slds-grow">
+                <input
+                    tabindex="0"
+                    class="slds-input search-input slds-has-error"
+                    type="text"
+                    id={randomId}
+                    value={searchTerm}
+                    oninput={handleSearchValueChanged}
+                    placeholder={searchInputPlaceHolderText}
+                    onkeyup={handleSearchKeyup}
+                    onblur={handleBlur}
+                    disabled={isSearchDisabled}
+                    aria-describedby="quick-order-error"
+                    lwc:ref="searchInput" />
+            </div>
+        </div>
+        <div
+            if:true={notifications}
+            id="quick-order-error"
+            class="notifications slds-text-color_error"
+            role="alert"
+            aria-live="assertive">
+            {notifications}
+        </div>
+    </div>
+    <div class="actions">
+        <site-common-quantity-selector
+            hide-buttons
+            hide-label
+            hide-notifications
+            minimum={purchaseQuantityRuleMin}
+            maximum={purchaseQuantityRuleMax}
+            step={purchaseQuantityRuleStep}
+            minimum-value-guide-text={minimumValueGuideText}
+            maximum-value-guide-text={maximumValueGuideText}
+            step-value-guide-text={incrementValueGuideText}
+            value={quantity}
+            onvaluechanged={handleValueChanged}
+            onvaliditychanged={handleValidityChanged}
+            disabled={isQuantitySelectorDisabled}></site-common-quantity-selector>
+        <lightning-button-icon
+            if:false={addToCartInProgress}
+            icon-name="utility:close"
+            variant="bare"
+            onclick={handleRemoveItem}
+            alternative-text={removeButtonAssistiveText}
+            name={removeButtonAssistiveText}
+            class="remove-button"></lightning-button-icon>
+    </div>
+</template>

@@ -1,0 +1,197 @@
+<template lwc:render-mode="light">
+    <div class={containerClasses}>
+        <!-- Image -->
+        <div class="item-image">
+            <figure lwc:if={showProductImage}>
+                <div
+                    lwc:if={removeProductLinks}
+                    tabindex="-1">
+                    <experience-picture
+                        alternative-text={imgAltText}
+                        images={images}
+                        url={thumbnailImageUrl}></experience-picture>
+                </div>
+                <a
+                    lwc:else
+                    tabindex="-1"
+                    href={_productUrl}
+                    onclick={handleProductNameClick}>
+                    <experience-picture
+                        alternative-text={imgAltText}
+                        images={images}
+                        url={thumbnailImageUrl}></experience-picture>
+                </a>
+            </figure>
+        </div>
+        <!-- Name -->
+        <div class="item-name">
+            <div
+                lwc:if={removeProductLinks}
+                class="description-name-label">
+                <div lwc:if={item}>
+                    <template lwc:if={htmlProductNameGate}>
+                        <h2>
+                            <template lwc:if={showCountInName}>
+                                <lightning-formatted-rich-text
+                                    value={itemNameQuantityText}></lightning-formatted-rich-text>
+                            </template>
+                            <template lwc:else>
+                                <lightning-formatted-rich-text
+                                    value={sanitizedProductName}></lightning-formatted-rich-text>
+                            </template>
+                        </h2>
+                    </template>
+                    <template lwc:else>
+                        <template if:true={showCountInName}>
+                            <p class="custom-text-block">{itemNameQuantityText}</p>
+                        </template>
+                        <template if:false={showCountInName}>
+                            <p class="custom-text-block">{sanitizedProductName}</p>
+                        </template>
+                    </template>
+                </div>
+            </div>
+            <a
+                lwc:else
+                class="description-name-label"
+                href={_productUrl}
+                onclick={handleProductNameClick}>
+                <div lwc:if={item}>
+                    <template lwc:if={htmlProductNameGate}>
+                        <div class="description-name-label-text">
+                            <lightning-formatted-rich-text
+                                lwc:if={showCountInName}
+                                value={itemNameQuantityText}></lightning-formatted-rich-text>
+                            <lightning-formatted-rich-text
+                                lwc:else
+                                value={sanitizedProductName}></lightning-formatted-rich-text>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <template if:true={showCountInName}>
+                            <p class="custom-text-block">{itemNameQuantityText}</p>
+                        </template>
+                        <template if:false={showCountInName}>
+                            <p class="custom-text-block">{sanitizedProductName}</p>
+                        </template>
+                    </template>
+                </div>
+            </a>
+            <lightning-formatted-rich-text
+                lwc:if={bonusProductPromotionLabel}
+                class="promotion-label"
+                value={bonusProductPromotionLabel}></lightning-formatted-rich-text>
+        </div>
+        <!-- Details, pills, and quantity selector -->
+        <div class="item-details-pills-qty">
+            <!-- Details-->
+            <div
+                class="bundle-details"
+                lwc:if={_isBundleCartItem}>
+                <lightning-formatted-rich-text
+                    class="bundle-child-product-count"
+                    value={_bundleProductCountText}></lightning-formatted-rich-text>
+            </div>
+            <lightning-formatted-rich-text
+                lwc:if={displaySku}
+                class="product-sku"
+                value={generatedSkuLabel}></lightning-formatted-rich-text>
+            <template
+                for:each={_productFieldMapping}
+                for:item="fieldMapping">
+                <div
+                    class="product-fields slds-m-bottom_xx-small"
+                    key={fieldMapping.name}>
+                    <lightning-formatted-rich-text value={fieldMapping.label}></lightning-formatted-rich-text>
+                    <site-common-field
+                        currency-code={currencyIsoCode}
+                        type={fieldMapping.type}
+                        value={fieldMapping.value}></site-common-field>
+                </div>
+            </template>
+            <site-product-variant-attributes-display
+                lwc:if={displayProductVariants}
+                attributes={productVariants}
+                format="newline"></site-product-variant-attributes-display>
+            <!-- Pills -->
+            <div
+                lwc:if={_showPills}
+                class="item-pills">
+                <site-common-pill
+                    lwc:if={_showSubscriptions}
+                    label-text={_subscriptionText}></site-common-pill>
+                <site-common-pill
+                    lwc:if={_showPromotions}
+                    label-text={_promotionsAppliedSavingsButtonText}
+                    class="promotion_pill"></site-common-pill>
+            </div>
+            <!-- Qty Selector -->
+            <site-common-quantity-selector
+                lwc:if={_showQuantitySelector}
+                class="item_actions_quantity slds-m-top_xx-small"
+                value={quantity}
+                minimum={minimum}
+                maximum={maximum}
+                step={step}
+                minimum-value-guide-text={minimumValueGuideText}
+                maximum-value-guide-text={maximumValueGuideText}
+                step-value-guide-text={incrementValueGuideText}
+                label={quantitySelectorLabel}
+                hide-label={_hideQuantitySelectorLabel}
+                onvaliditychanged={handleValidityChanged}
+                onvaluechanged={handleValueChanged}
+                custom-error-message={errorMessage}
+                disabled={disableQuantitySelector}></site-common-quantity-selector>
+        </div>
+        <!-- Price per unit -->
+        <div
+            lwc:if={showPricePerUnit}
+            class="item-unit-price">
+            <div class="unitPrice">
+                <span class="slds-assistive-text">{pricePerItemAssistiveText}</span>
+                <span>{pricePerItemText}</span>
+            </div>
+        </div>
+        <!-- Original & actual prices -->
+        <div class="item-prices">
+            <div
+                lwc:if={showTotalPrices}
+                class="item_details_currency">
+                <div
+                    lwc:if={_showOriginalPrice}
+                    class="originalPrice">
+                    <span class="slds-assistive-text">{originalPriceAssistiveText}</span>
+                    <span>{originalPriceText}</span>
+                </div>
+                <div
+                    lwc:if={showActualPrice}
+                    class="actualPrice">
+                    <div
+                        lwc:if={_hasSubscription}
+                        class="subscriptionPrice">
+                        <span class="slds-assistive-text">{subscriptionPriceAssistiveText}</span>
+                        <div>
+                            <span>{subscriptionPriceText}</span>
+                            <span>{subscriptionTimeUnitText}</span>
+                        </div>
+                    </div>
+                    <div lwc:else>
+                        <span class="slds-assistive-text">{actualPriceAssistiveText}</span>
+                        <span>{actualPriceText}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Delete button -->
+        <div class="item-delete">
+            <site-common-button-ui
+                lwc:if={showRemoveItem}
+                title={removeButtonAssistiveText}
+                assistive-text={removeButtonAssistiveText}
+                onclick={handleDeleteItem}
+                variant="tertiary">
+                {removeButtonText}
+            </site-common-button-ui>
+        </div>
+    </div>
+</template>

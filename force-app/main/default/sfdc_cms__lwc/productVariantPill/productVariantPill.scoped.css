@@ -1,0 +1,52 @@
+.pill {
+    border-radius: var(--com-c-site-product-variant-pill-border-radius, var(--dxp-s-form-element-radius-border, 5px));
+    border: var(--dxp-s-form-element-width-border) solid;
+    border-color: var(--com-c-site-product-variant-pill-border-color, var(--dxp-g-neutral-2, #b9c0c8));
+    background-color: var(--com-c-site-product-variant-pill-background-color, var(--dxp-g-root));
+    cursor: pointer;
+    color: var(--com-c-site-product-variant-pill-text-color);
+    position: relative;
+    overflow: hidden;
+}
+.selected {
+    box-shadow:
+        0 0 0 2px var(--dxp-g-root),
+        0 0 0 3px
+            var(
+                --com-c-site-product-variant-pill-border-selected-color,
+                var(--dxp-s-form-checkbox-color-border, #1c1c1c)
+            );
+}
+.pill:hover {
+    box-shadow:
+        0 0 0 2px var(--dxp-g-root),
+        0 0 0 3px
+            var(--com-c-site-product-variant-pill-border-hover-color, var(--dxp-s-button-border-color-hover, #b9c0c8));
+}
+.pill:focus {
+    box-shadow:
+        0 0 0 2px var(--dxp-g-root),
+        0 0 0 4px var(--dxp-s-button-border-color-focus, #1c1c1c);
+    outline: none;
+}
+.out-of-stock.pill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(
+        to right top,
+        transparent calc(50% - 1px),
+        #1c1c1c 50%,
+        transparent calc(50% + 1px)
+    );
+}
+:host {
+    display: flex;
+    flex-shrink: 0;
+    position: relative;
+    scroll-snap-align: start;
+}

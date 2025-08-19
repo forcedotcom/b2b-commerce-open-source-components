@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <site-checkout-payment-by-express
+        lwc:ref="checkoutPaymentByExpress"
+        guest-checkout-enabled={guestCheckoutEnabled}
+        payment-method-set-id={paymentMethodSetId}
+        button-shape="pill"
+        section-label="Express Checkout"
+        button-size={buttonSize}
+        is-logged-in={isLoggedIn}
+        cart-summary={cartSummary}
+        express-mode={expressMode}
+        use-manual-capture={useManualCapture}
+        inventory-configuration={inventoryConfiguration}
+        raw-internationalization-data={_rawInternationalizationData}
+        default-currency={defaultCurrency}
+        effective-account-id={effectiveAccountId}
+        webstore-id={webstoreId}
+        labels={_paymentByExpressLabels}
+        maximum-button-count={_maximumButtonCount}
+        onexpressbuttonclick={handleExpressButtonClick}></site-checkout-payment-by-express>
+</template>

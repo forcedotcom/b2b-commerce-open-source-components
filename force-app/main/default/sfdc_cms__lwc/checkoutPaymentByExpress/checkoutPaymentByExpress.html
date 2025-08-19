@@ -1,0 +1,36 @@
+<template lwc:render-mode="light">
+    <lightning-spinner
+        if:true={_showPaymentProcessingSpinner}
+        variant="brand"
+        class="slds-align_absolute-center slds-m-around_large"
+        alternate-text={_paymentProcessingLabel}></lightning-spinner>
+    <template if:true={canExpressCheckout}>
+        <div lwc:if={paymentMethodSetId}>
+            <!--Express payment methods currently don't need a return url-->
+            <experience-payment-by-express-container
+                labels={labels}
+                amount={total}
+                section-label={_sectionLabel}
+                button-shape={_buttonShape}
+                button-size={buttonSize}
+                shipping-address-required={_shippingAddressRequired}
+                email-address-required={_emailAddressRequired}
+                phone-number-required={_phoneNumberRequired}
+                shipping-updates={_expressShippingUpdates}
+                currency={defaultCurrency}
+                use-manual-capture={useManualCapture}
+                payment-method-set-id={paymentMethodSetId}
+                source-object-id={_cartId}
+                onpaymentbuttonclick={handleExpressButtonClick}
+                onpaymentshippingratechanged={handleShippingRateChange}
+                onpaymentshippingaddresschanged={handleShippingAddressChange}
+                onpaymentbuttonbeforeapprove={handleExpressButtonBeforeApproval}
+                onpaymentapproved={handlePaymentApproval}
+                onexpresspaymentcancelled={handlePaymentCancellation}
+                payment-initiation-source={_paymentInitiationSource}
+                maximum-button-count={maximumButtonCount}
+                express-mode={expressMode}
+                deferred-incurrence></experience-payment-by-express-container>
+        </div>
+    </template>
+</template>

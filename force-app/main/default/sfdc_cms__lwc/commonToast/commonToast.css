@@ -1,0 +1,80 @@
+:host {
+    --dxp-s-button-padding-block-start: 0;
+    --dxp-s-button-padding-block-end: 0;
+    --dxp-s-button-font-size: 1rem;
+}
+.fix-notify_toast_animation,
+:host([data-render-mode='shadow']) .fix-notify_toast_animation {
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.fix-notify_toast_animation.closing,
+:host([data-render-mode='shadow']) .fix-notify_toast_animation.closing {
+    animation-name: fadeOut;
+    animation-duration: 0.4s;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.fix-slds-notify--mobile,
+:host([data-render-mode='shadow']) .fix-slds-notify--mobile {
+    padding: 0.5rem 1rem 0.75rem;
+    min-width: 90%;
+    width: 90%;
+}
+.fix-slds-notify--mobile.slds-notify_toast h2,
+:host([data-render-mode='shadow']) .fix-slds-notify--mobile.slds-notify_toast h2 {
+    font-size: 1rem;
+    font-weight: 300;
+}
+.fix-slds-notify--mobile .slds-notify__close,
+:host([data-render-mode='shadow']) .fix-slds-notify--mobile .slds-notify__close {
+    top: 0.5rem;
+}
+:host([data-render-mode='shadow']) {
+    --dxp-g-destructive-contrast: black;
+    --dxp-g-destructive: white;
+}
+lightning-icon[title='custom-toast-icon'] {
+    margin-right: 6px;
+}
+.slds-notify_toast,
+.slds-notify--toast {
+    background-color: var(--com-c-toast-background-color, #ffffff);
+    color: var(--com-c-toast-text-color, #212121);
+    border-color: var(--com-c-toast-border-color, var(--dxp-g-neutral));
+    box-shadow: 0px 8px 12px -2px var(--com-c-toast-box-shadow, #18181829);
+}
+.slds-notify .slds-text-heading_small {
+    --dxp-s-body-font-size: var(--com-c-toast-font-size, 1rem);
+}
+.slds-list--inline,
+.slds-list_inline {
+    align-items: center;
+}
+lightning-icon[icon-name='utility:info'] {
+    --dxp-g-neutral-contrast: var(--com-c-toast-color-info);
+}
+lightning-icon[icon-name='utility:warning'] {
+    --dxp-g-neutral-contrast: var(--com-c-toast-color-warning);
+}
+svg[class*='custom-icon'] {
+    overflow: visible;
+}
+.slds-button__icon {
+    width: var(--dxp-s-button-font-size, var(--dxp-g-font-size-3));
+    height: var(--dxp-s-button-font-size, var(--dxp-g-font-size-3));
+}

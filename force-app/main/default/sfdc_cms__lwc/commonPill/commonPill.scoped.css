@@ -1,0 +1,13 @@
+:host {
+    --slds-c-pill-color-background: var(--com-c-pill-background-color, var(--dxp-g-root-1));
+    --slds-c-pill-color-border: var(--com-c-pill-border-color, var(--dxp-g-root-1));
+    --slds-c-pill-radius-border: var(--com-c-pill-border-radius, var(--dxp-s-form-element-radius-border));
+    overflow: hidden;
+}
+:hover {
+    --slds-c-pill-color-background: var(--com-c-pill-background-color, var(--dxp-g-root-1));
+}
+.slds-pill__label {
+    color: var(--com-c-pill-text-color, --dxp-g-root-contrast);
+    font-size: var(--com-c-pill-font-size, var(--dxp-g-font-size-3));
+}

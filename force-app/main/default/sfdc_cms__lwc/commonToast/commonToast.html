@@ -1,0 +1,70 @@
+<template>
+    <site-common-focus-trap-manager
+        focus-id="site-common-toast-focus-trap"
+        focus-trap-active>
+        <div
+            class="slds-notify_container slds-is-relative"
+            part="toast">
+            <div
+                class={toastClass}
+                role="status"
+                onanimationend={handleAnimationEnd}
+                onfocusin={handleFocusIn}
+                onfocusout={handleFocusOut}>
+                <div
+                    class="slds-list--inline"
+                    data-content
+                    tabindex="0">
+                    <slot>
+                        <template lwc:if={isCustomVariant}>
+                            <svg
+                                class="slds-icon slds-icon_small slds-m-right_small slds-align-top slds-no-flex custom-icon"
+                                aria-label={getIconAltText}>
+                                <use xlink:href={getIconName}></use>
+                            </svg>
+                        </template>
+                        <template lwc:else>
+                            <lightning-icon
+                                class="slds-m-right_small slds-no-flex slds-align-top"
+                                icon-name={getIconName}
+                                size="small"
+                                variant="inverse"
+                                alternative-text={getIconAltText}></lightning-icon>
+                        </template>
+                    </slot>
+                    <div class="slds-notify__content">
+                        <h2 class="slds-text-heading_small">
+                            <slot>
+                                <template if:true={hasLabelLink}>
+                                    <lightning-formatted-rich-text value={label}></lightning-formatted-rich-text>
+                                </template>
+                                <template if:false={hasLabelLink}>{label}</template>
+                            </slot>
+                        </h2>
+                        <template if:false={isSmallerBrowserWidth}>
+                            <div class="slds-m-bottom_xxx-small">
+                                <slot name="message">
+                                    <template if:true={hasMessageLink}>
+                                        <lightning-formatted-rich-text value={message}></lightning-formatted-rich-text>
+                                    </template>
+                                    <template if:false={hasMessageLink}>{message}</template>
+                                </slot>
+                            </div>
+                        </template>
+                        <template if:true={assistiveText}>
+                            <span class="slds-assistive-text">{assistiveText}</span>
+                        </template>
+                    </div>
+                    <div class={closeIconContainerClass}>
+                        <lightning-button-icon
+                            onclick={handleCloseClick}
+                            icon-name="utility:close"
+                            size="large"
+                            variant="bare-inverse"
+                            title={closeButtonTitleText}></lightning-button-icon>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </site-common-focus-trap-manager>
+</template>
