@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "commonFormatterCurrency",
+  "contentBody" : { },
+  "urlName" : "commonformattercurrency"
+}
