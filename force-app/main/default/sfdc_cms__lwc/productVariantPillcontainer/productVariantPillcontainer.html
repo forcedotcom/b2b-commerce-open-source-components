@@ -1,0 +1,50 @@
+<template lwc:render-mode="light">
+    <div class="variant-container slds-p-bottom_small">
+        <div
+            class="selected-variant slds-p-bottom_xx-small"
+            role="status"
+            aria-live="polite">
+            {attributeName}{keyValueSeparator} {label}
+        </div>
+        <experience-responsive size="s">
+            <div
+                class="pill-container mobile-horizontal slds-p-around_xx-small"
+                role="radiogroup"
+                aria-label={attributeName}>
+                <template
+                    for:each={options}
+                    for:item="option">
+                    <site-product-variant-pill
+                        class="pill"
+                        key={option.value}
+                        option-id={option.value}
+                        option-name={option.label}
+                        selected={option.selected}
+                        is-out-of-stock={option.isOutOfStock}
+                        assistive-out-of-stock-text={assistiveOutOfStockText}
+                        onpillclick={handlePillClick}></site-product-variant-pill>
+                </template>
+            </div>
+        </experience-responsive>
+        <experience-responsive size="m,l">
+            <div
+                class="pill-container"
+                role="radiogroup"
+                aria-label={attributeName}>
+                <template
+                    for:each={options}
+                    for:item="option">
+                    <site-product-variant-pill
+                        class="pill"
+                        key={option.value}
+                        option-id={option.value}
+                        option-name={option.label}
+                        selected={option.selected}
+                        is-out-of-stock={option.isOutOfStock}
+                        assistive-out-of-stock-text={assistiveOutOfStockText}
+                        onpillclick={handlePillClick}></site-product-variant-pill>
+                </template>
+            </div>
+        </experience-responsive>
+    </div>
+</template>

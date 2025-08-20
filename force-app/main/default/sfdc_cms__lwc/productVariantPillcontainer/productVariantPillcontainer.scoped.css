@@ -1,0 +1,15 @@
+.pill-container {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+.mobile-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: auto visible;
+    overscroll-behavior-x: none;
+    width: inherit;
+    scroll-padding: 1rem;
+    scroll-snap-type: x;
+    touch-action: manipulation;
+}

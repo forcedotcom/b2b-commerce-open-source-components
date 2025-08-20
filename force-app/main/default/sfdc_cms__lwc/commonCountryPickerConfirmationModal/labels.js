@@ -1,0 +1,8 @@
+import continueChangeCountryText from '@salesforce/label/site.commonCountryPickerConfirmationModal.continueChangeCountryText';
+import cancelChangeCountryText from '@salesforce/label/site.commonCountryPickerConfirmationModal.cancelChangeCountryText';
+import continueChangeCountryAriaLabel from '@salesforce/label/site.commonCountryPickerConfirmationModal.continueChangeCountryAriaLabel';
+import cancelChangeCountryTextAriaLabel from '@salesforce/label/site.commonCountryPickerConfirmationModal.cancelChangeCountryTextAriaLabel';
+import modalHeadingLabel from '@salesforce/label/site.commonCountryPickerConfirmationModal.modalHeadingLabel';
+import confirmationModalText1 from '@salesforce/label/site.commonCountryPickerConfirmationModal.confirmationModalText1';
+import confirmationModalText2 from '@salesforce/label/site.commonCountryPickerConfirmationModal.confirmationModalText2';
+export { continueChangeCountryText, cancelChangeCountryText, continueChangeCountryAriaLabel, cancelChangeCountryTextAriaLabel, modalHeadingLabel, confirmationModalText1, confirmationModalText2 };

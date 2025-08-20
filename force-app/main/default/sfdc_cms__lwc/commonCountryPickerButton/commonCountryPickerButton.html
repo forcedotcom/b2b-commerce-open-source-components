@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <div class={alignmentClasses}>
+        <span class={customPickerClasses}>
+            <site-common-button-ui
+                onclick={handleClick}
+                variant={variant}
+                size={size}
+                data-automation="countryPickerButton"
+                disabled={disabled}>
+                <span class="button-content">
+                    <lightning-icon
+                        if:true={showGlobeIcon}
+                        class={customIconClasses}
+                        size={customIconSize}
+                        src={iconPath}></lightning-icon>
+                    {buttonLabelText}
+                </span>
+            </site-common-button-ui>
+        </span>
+    </div>
+</template>

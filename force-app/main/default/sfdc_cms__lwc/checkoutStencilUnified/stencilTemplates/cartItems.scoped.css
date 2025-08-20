@@ -1,0 +1,40 @@
+.stencil-item-container {
+    height: 9.625rem;
+    display: flex;
+}
+.stencil-item {
+    background-color: var(--dxp-g-neutral, #f3f2f2);
+    display: inline-block;
+}
+.icon {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 0%;
+}
+.line {
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+    width: 6.25rem;
+    height: 0.875rem;
+    margin: var(----dxp-g-spacing-xxsmall, 0.25rem) 0 var(----dxp-g-spacing-xxsmall, 0.25rem) 0rem;
+}
+.line-method {
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+    display: flex;
+    flex-direction: column;
+}
+.stencil-item-end {
+    float: right;
+}
+.details {
+    flex-grow: 2;
+}
+.price {
+    width: 3.625rem;
+    align-self: flex-end;
+}
+.name {
+    width: 7.188rem;
+}
+.delete {
+    width: 5.5rem;
+}

@@ -1,0 +1,25 @@
+ul {
+    color: var(--lwc-colorTextActionLabel, var(--dxp-g-root-contrast-1));
+    background-color: var(--lwc-colorBackground, var(--dxp-g-root));
+    position: absolute;
+    z-index: 7000;
+    width: 100%;
+    box-shadow: var(--lwc-shadowDropDown, 0 2px 3px 0 rgba(0, 0, 0, 0.16));
+    border-style: solid;
+    border-color: var(--lwc-colorBorderBrand, var(--dxp-g-brand));
+    border-width: var(--lwc-borderWidthThin, 1px);
+    border-top-width: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+li:last-child {
+    border-bottom-width: 0;
+}
+li {
+    border-bottom-style: solid;
+    border-bottom-width: var(--lwc-borderWidthThin, 1px);
+    background-color: var(--lwc-colorBackgroundAlt, var(--dxp-g-root));
+}
+li:hover {
+    background-color: var(--dxp-g-root-1, #f3f3f3);
+}

@@ -1,0 +1,20 @@
+button {
+    border-radius: var(--com-c-commerce-button-border-radius, var(--dxp-s-button-radius-border));
+}
+.modalPrimaryText {
+    color: var(--com-c-commerce-primary-modal-text-color, var(--dxp-g-root-contrast));
+}
+button.slds-button_brand {
+    color: var(--com-c-commerce-secondary-modal-text-color, var(--dxp-g-root));
+    border-color: var(--com-c-commerce-primary-button-border-color, var(--dxp-s-button-color));
+    background-color: var(--com-c-commerce-primary-button-background-color, var(--dxp-s-button-color));
+}
+button.slds-button_outline-brand {
+    color: var(--com-c-commerce-primary-modal-text-color, var(--dxp-s-button-color));
+    border-color: var(--com-c-commerce-secondary-button-border-color, var(--dxp-s-button-color));
+    background-color: var(--com-c-commerce-secondary-button-background-color, var(--dxp-g-root));
+}
+button:hover:enabled {
+    background-color: var(--com-commerce-button-background-hover-color, var(--dxp-s-button-color-hover));
+    color: var(--com-c-commerce-button-text-hover-color, var(--dxp-s-button-color-hover-contrast));
+}

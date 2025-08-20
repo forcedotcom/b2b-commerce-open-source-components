@@ -1,0 +1,31 @@
+:host {
+    display: flex;
+    align-items: flex-start;
+    --com-c-common-number-input-border-radius: var(--dxp-s-form-element-radius-border);
+    --com-c-variant-attribute-font-size: var(--dxp-g-font-size-4);
+}
+.product-name {
+    font-weight: var(--dxp-c-strong-text-weight);
+}
+.slds-input {
+    height: 2.5rem;
+}
+.contents {
+    flex: 1;
+}
+.actions {
+    display: flex;
+}
+site-common-quantity-selector {
+    padding: 0 var(--dxp-g-spacing-medium, 1rem);
+}
+.product-sku {
+    font-size: var(--dxp-g-font-size-4);
+}
+.remove-button {
+    align-self: center;
+    --slds-c-icon-color-foreground: var(--dxp-s-button-color);
+}
+.remove-button:hover {
+    --dxp-g-neutral-3: var(--dxp-s-button-color-hover);
+}

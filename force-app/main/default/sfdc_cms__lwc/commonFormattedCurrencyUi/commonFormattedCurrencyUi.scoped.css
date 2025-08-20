@@ -1,0 +1,36 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: var(--com-c-formatted-currency-text-color);
+    text-align: var(--dxp-c-l-text-align, var(--com-c-formatted-currency-text-align));
+    background-color: var(--com-c-formatted-currency-background-color, transparent);
+    font-weight: var(--com-c-formatted-currency-font-weight);
+    font-style: var(--com-c-formatted-currency-font-style);
+    text-decoration: var(--com-c-formatted-currency-text-decoration);
+}
+@media only screen and (max-width: 64em) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        text-align: var(--dxp-c-m-text-align, var(--com-c-formatted-currency-text-align));
+    }
+}
+@media only screen and (max-width: 47.9375em) {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p {
+        text-align: var(--dxp-c-s-text-align, var(--com-c-formatted-currency-text-align));
+    }
+}

@@ -1,0 +1,89 @@
+:host {
+    --com-c-common-number-input-width: var(--dxp-c-number-input-width, 5.5rem);
+    --com-c-common-number-input-height: var(--dxp-c-number-input-height, 2.5rem);
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+label {
+    white-space: nowrap;
+}
+span {
+    border-radius: var(--com-c-common-number-input-border-radius, var(--dxp-s-button-radius-border, 0));
+    --sds-c-button-neutral-color-border: var(--com-c-input-border-color, var(--dxp-g-neutral-3));
+    --dxp-c-input-width-border: var(--com-c-common-number-input-width-border, 1px);
+    --sds-c-input-color-border: var(--com-c-input-border-color, var(--dxp-g-neutral-3));
+    --slds-c-icon-color-foreground-default: var(--com-c-input-border-color, var(--dxp-g-neutral-3));
+}
+span.error .common-number-input__input,
+span.error .common-number-input__decrement-button,
+span.error .common-number-input__increment-button {
+    border-color: var(--dxp-g-destructive);
+}
+.common-number-input__input {
+    width: var(--com-c-common-number-input-width);
+    min-height: var(--com-c-common-number-input-height);
+    outline: 0;
+    border-radius: var(--dxp-s-button-radius-border);
+    text-align: center;
+}
+.common-number-input__decrement-button {
+    border-right: none;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+}
+.common-number-input__increment-button {
+    border-left: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+.common-number-input__button-icon {
+    --slds-c-icon-color-foreground: var(
+        --com-c-common-number-input-icon-color-foreground-default,
+        var(--dxp-g-root-contrast)
+    );
+}
+.common-number-input__increment-button:focus,
+.common-number-input__decrement-button:focus,
+.common-number-input__input:focus {
+    --sds-c-input-color-border-focus: var(--com-c-input-border-color, var(--dxp-g-brand));
+    --slds-c-input-shadow: var(--com-c-common-number-input-shadow, none);
+    --sds-c-button-shadow-focus: var(--com-c-common-number-input-shadow, none);
+}
+.common-number-input__increment-button:focus-visible,
+.common-number-input__decrement-button:focus-visible,
+.common-number-input__input:focus-visible {
+    outline: 2px solid var(--sds-c-input-color-border-focus);
+    outline-offset: 1px;
+}
+button[disabled] .common-number-input__button-icon {
+    --sds-c-icon-color-foreground-default: var(--dxp-g-neutral);
+}
+.hidden-input {
+    display: none;
+}
+.common-number-input__decrement-button,
+.common-number-input__increment-button {
+    --sds-c-button-neutral-color-background: var(--com-c-common-number-input-color-background, transparent);
+}
+.common-number-input__decrement-button:hover,
+.common-number-input__increment-button:hover,
+.common-number-input__decrement-button:focus,
+.common-number-input__increment-button:focus {
+    --sds-c-button-neutral-color-background-hover: var(--com-c-common-number-input-color-background-hover, transparent);
+    --slds-c-icon-color-foreground-default: var(--com-c-input-border-color-disabled, var(--dxp-g-neutral-2));
+}
+.common-number-input__decrement-button:disabled,
+.common-number-input__increment-button:disabled {
+    background-color: var(--com-c-common-number-input-color-background, transparent);
+    --slds-c-icon-color-foreground-default: var(--com-c-button-icon-color-disabled, var(--dxp-g-neutral-1));
+}

@@ -1,0 +1,24 @@
+<template lwc:render-mode="light">
+    <ul
+        if:true={items.length}
+        role="listbox"
+        style={listBoxContainerStyles}>
+        <template
+            for:each={items}
+            for:item="item">
+            <li
+                key={item.id}
+                data-id={item.id}
+                aria-selected={item.highlight}
+                role="option"
+                class="slds-truncate"
+                style={listBoxItemStyles}>
+                <site-search-list-box-option
+                    custom-styles={customStyles}
+                    item={item}
+                    key={item.id}
+                    onselect={handleOptionSelection}></site-search-list-box-option>
+            </li>
+        </template>
+    </ul>
+</template>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Currency Formatter</masterLabel>
+  <description>Format a value as a currency.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderable</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="value" type="String" default="0" label="Value"></property>
+      <property name="displayAs" type="String" default="symbol" label="Display Type" datasource="java://siteforce.customComponent.datasource.CurrencyDisplayTypeDataSource"></property>
+      <property name="textDisplayInfo" type="TextStyle" default="{}" label="Text Style"></property>
+      <property name="backgroundColor" type="Color" default="" label="Background Color"></property>
+      <property name="textAlign" type="TextAlignment" default="left" screenResponsive="true" exposedTo="css" label="Text Alignment"></property>
+      <property name="textColor" type="Color" label="Color"></property>
+      <property name="textDecoration" type="TextDecoration" default="{}" label="Emphasis" description="Text emphasis is in addition to any decoration or styling set by the site&amp;amp;apos;s overall theme, set in Builder &amp;amp;gt; Theme &amp;amp;gt; Text."></property>
+      <property name="paddingVertical" type="String" default="none" label="Vertical Padding" datasource="java://siteforce.customComponent.datasource.DxpSpacingSizeDataSource"></property>
+      <property name="paddingHorizontal" type="String" default="none" label="Horizontal Padding" datasource="java://siteforce.customComponent.datasource.DxpSpacingSizeDataSource"></property>
+      <property name="currencyCode" label="Currency Code" type="String"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="value"></designLayoutProperty>
+            <designLayoutProperty name="currencyCode"></designLayoutProperty>
+            <designLayoutProperty name="displayAs"></designLayoutProperty>
+            <designLayoutProperty name="backgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="textAlign"></designLayoutProperty>
+            <designLayoutProperty name="textDisplayInfo"></designLayoutProperty>
+            <designLayoutProperty name="textColor"></designLayoutProperty>
+            <designLayoutProperty name="textDecoration"></designLayoutProperty>
+            <designLayoutProperty name="paddingVertical"></designLayoutProperty>
+            <designLayoutProperty name="paddingHorizontal"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

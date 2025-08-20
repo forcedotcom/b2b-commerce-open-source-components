@@ -1,0 +1,14 @@
+<template lwc:render-mode="light">
+    <div
+        onmousedown={handleClick}
+        onmouseenter={handleMouseEnter}
+        onmouseleave={handleMouseLeave}
+        style={optionStyles}>
+        <template if:true={_isOptionInline}>
+            <site-search-list-box-option-inline
+                custom-styles={customStyles}
+                is-hovered={isHovered}
+                item={item}></site-search-list-box-option-inline>
+        </template>
+    </div>
+</template>
