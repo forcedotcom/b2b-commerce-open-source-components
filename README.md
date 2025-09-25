@@ -45,7 +45,7 @@ After the prerequisites are completed, follow these steps to use open source com
    ```console
    sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>  --target-org <org_alias_name>
    ```
-   Or If you’re deploying a single updated component, use this command:
+   If you’re deploying a single updated component, use this command:
 
    ```console
    sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>/sfdc_cms__lwc/<name_of_component>  --target-org <org_alias_name>
