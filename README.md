@@ -1,11 +1,13 @@
-# OPEN SOURCE COMPONENTS (B2B Commerce)
+# B2B Commerce Open Source Components
 
 This repository provides the source code for selected storefront components of B2B Commerce. 
 This readme outlines the prerequisites and steps to customize and deploy the open source components in your storefront. These components provide the source code for selected elements, allowing you to extend and enhance them to meet your specific storefront needs.
 
-Before you begin, complete these prerequisites:
 
 ## Prerequisites 🗒️
+
+Before you begin, complete these prerequisites:
+
 * Enable ExperienceBundle Metadata API for Digital Experiences.
   * This is typically enabled by default; to verify the setting, login to your org and go to **Setup** → **Digital Experiences**. Under Settings, ensure that the checkbox Enable ExperienceBundle Metadata API is selected. <img width="1547" height="910" alt="Screenshot 2025-06-04 at 11 59 38 AM" src="https://github.com/user-attachments/assets/0243481b-e50a-403b-a228-b8761b88be4d" />
 
@@ -13,7 +15,7 @@ Before you begin, complete these prerequisites:
 
 After the prerequisites are completed, follow these steps to use open source components.
 
-## Steps to use Open Source Components
+## Prepare and Deploy Open Source Components
 
 1. **Connect SFDX project to your org**: If you don't have an SFDX project, create one. Then connect the project to your Salesforce org by running this command on your Terminal:
 
