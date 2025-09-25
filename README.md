@@ -35,17 +35,17 @@ After the prerequisites are completed, follow these steps to use open source com
 
 3. **Copy open source components**: Navigate to the storefront where you want to deploy the component. Within the storefront’s folder, you’ll find directories named sfdc_cms__lwc and sfdc_cms__label, typically under digitalExperiences. These folders are also present in the open-source-components GitHub repository. 
 
-Copy the components along with their dependencies from the corresponding sfdc_cms__lwc and sfdc_cms__label folders in the GitHub repository, to the matching folders in your target storefront.
+   Copy the components along with their dependencies from the corresponding sfdc_cms__lwc and sfdc_cms__label folders in the GitHub repository, to the matching folders in your target storefront.
 
 
 4. **Enhance and deploy components**: Modify the code of the component as per your requirements. Once the changes are complete, use one of the following commands to deploy the updated components to your storefront.
 
-If you’re deploying the components for the first time and want to deploy all the components, run this command:
+   If you’re deploying the components for the first time and want to deploy all the components, run this command:
 
-```console
+   ```console
    sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>  --target-org <org_alias_name>
    ```
-Or If you’re deploying a single updated component, use this command:
+   Or If you’re deploying a single updated component, use this command:
 
    ```console
    sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>/sfdc_cms__lwc/<name_of_component>  --target-org <org_alias_name>
