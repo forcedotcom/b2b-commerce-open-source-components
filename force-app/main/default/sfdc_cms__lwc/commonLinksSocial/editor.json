@@ -1,0 +1,20 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:commonLinksSocial",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceNavigationMenuDataProvider",
+                        "sfdcExpressionKey": "NavMenu",
+                        "type": "dataProvider",
+                        "attributes": {
+                            "includeImageUrl": true
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

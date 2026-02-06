@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Promotions</masterLabel>
+  <description>Show a coupon field and a list of promotions applied to the cart.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Default</target>
+    <target>lightningCommunity__Page</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Cart Data Binding" name="cartDetails" type="String" default="{!Cart.Details}"></property>
+      <property label="Cart Promotions Binding" name="cartPromotions" type="String" default="{!Cart.Promotions}"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="cartDetails" cbVisibleIf="cartDetails=false"></designLayoutProperty>
+            <designLayoutProperty name="cartPromotions" cbVisibleIf="cartPromotions=false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

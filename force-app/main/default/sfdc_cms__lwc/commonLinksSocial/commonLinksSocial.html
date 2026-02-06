@@ -1,0 +1,30 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={hasItems}
+        class={containerClass}>
+        <template
+            for:each={items}
+            for:item="item">
+            <a
+                key={item.id}
+                rel="nofollow noopener noreferrer"
+                onclick={handleItemClick}
+                href={item.actionValue}>
+                <template lwc:if={item.useIcon}>
+                    <svg
+                        class="social-icon slds-icon"
+                        aria-hidden="true">
+                        <use href={item.imageUrl}></use>
+                    </svg>
+                    <span class="slds-assistive-text">{item.label}</span>
+                </template>
+                <template lwc:else>
+                    <img
+                        src={item.imageUrl}
+                        title={item.label}
+                        class="social-icon" />
+                </template>
+            </a>
+        </template>
+    </div>
+</template>

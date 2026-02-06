@@ -1,0 +1,10 @@
+import FirstNameLabel from '@salesforce/label/site.checkoutInputAddress.firstNameLabel';
+import LastNameLabel from '@salesforce/label/site.checkoutInputAddress.lastNameLabel';
+import CompanyNameLabel from '@salesforce/label/site.checkoutInputAddress.companyNameLabel';
+import AddressLineOneLabel from '@salesforce/label/site.checkoutInputAddress.addressLineOneLabel';
+import AddressLineTwoLabel from '@salesforce/label/site.checkoutInputAddress.addressLineTwoLabel';
+import CityLabel from '@salesforce/label/site.checkoutInputAddress.cityLabel';
+import PostalCodeLabel from '@salesforce/label/site.checkoutInputAddress.postalCodeLabel';
+import ProvinceLabel from '@salesforce/label/site.checkoutInputAddress.provinceLabel';
+import CountryLabel from '@salesforce/label/site.checkoutInputAddress.countryLabel';
+export { FirstNameLabel, LastNameLabel, CompanyNameLabel, AddressLineOneLabel, AddressLineTwoLabel, CityLabel, PostalCodeLabel, ProvinceLabel, CountryLabel };

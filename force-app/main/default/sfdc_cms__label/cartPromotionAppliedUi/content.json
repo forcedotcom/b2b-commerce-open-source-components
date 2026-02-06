@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartPromotionAppliedUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "popoverCloseAssistiveText",
+      "value" : "Close Applied Promotion Details"
+    } ]
+  },
+  "urlName" : "cartpromotionappliedui"
+}

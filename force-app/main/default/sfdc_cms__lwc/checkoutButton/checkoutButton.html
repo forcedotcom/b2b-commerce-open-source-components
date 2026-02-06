@@ -1,0 +1,33 @@
+<template lwc:render-mode="light">
+    <experience-responsive size="m-">
+        <site-checkout-button-ui
+            lwc:if={hasProducts}
+            cart-id={cartId}
+            cart-total={mediumCartTotal}
+            can-checkout={canCheckout}
+            managed-checkout-version={_managedCheckoutVersion}
+            currency-code={currencyCode}
+            text={text}
+            variant={variant}
+            size={size}
+            width={width}
+            alignment={alignment}
+            disabled={isDisabled}
+            button-style={buttonStyle}></site-checkout-button-ui>
+    </experience-responsive>
+    <experience-responsive size="s">
+        <site-checkout-button-ui
+            lwc:if={hasProducts}
+            cart-id={cartId}
+            cart-total={smallCartTotal}
+            can-checkout={canCheckout}
+            currency-code={currencyCode}
+            text={text}
+            variant={variant}
+            size={size}
+            width={width}
+            alignment={alignment}
+            disabled={isDisabled}
+            button-style={buttonStyle}></site-checkout-button-ui>
+    </experience-responsive>
+</template>

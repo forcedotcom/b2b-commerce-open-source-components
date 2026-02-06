@@ -1,0 +1,24 @@
+:host {
+    height: 100%;
+}
+@media only screen and (min-width: 64.0625em) {
+    .content-column {
+        position: sticky;
+        top: 9.0625rem;
+        z-index: 1;
+    }
+    .reduced-height {
+        height: 98%;
+    }
+}
+@media only screen and (max-width: 64em) {
+    .content-bottom {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        left: 0;
+        padding: var(--dxp-g-spacing-small);
+        background: var(--dxp-g-root);
+        z-index: 1;
+    }
+}

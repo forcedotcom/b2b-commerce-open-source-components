@@ -1,0 +1,17 @@
+.navigationCtn {
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--com-c-navigation-menu-container-background-color_wide);
+}
+@media only screen and (max-width: 47.9375em) {
+    .navigationCtn {
+        min-height: unset;
+        padding-left: var(--dxp-g-spacing-small);
+        padding-right: var(--dxp-g-spacing-small);
+    }
+}
+@media only screen and (min-width: 48em) {
+    .welcomeMessageCtn {
+        padding-left: var(--dxp-g-spacing-xlarge);
+    }
+}

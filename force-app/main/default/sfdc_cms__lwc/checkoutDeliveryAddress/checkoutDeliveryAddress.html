@@ -1,0 +1,160 @@
+<template lwc:render-mode="light">
+    <!-- stencil and summary mode here, else use stateful container -->
+    <template lwc:if={_showStencil}>
+        <site-checkout-stencil
+            data-shipping-stencil
+            stencil-type={_stencilType}
+            item-count={_shippingStencilItemCount}></site-checkout-stencil>
+    </template>
+
+    <template lwc:if={_showSummary}>
+        <div data-shipping-summary>
+            <div lwc:if={showSummaryAddress}>
+                <div>{address.name}</div>
+                <div lwc:if={addressHasCompanyName}>{address.companyName}</div>
+                <lightning-formatted-address
+                    street={address.street}
+                    city={address.city}
+                    country={countryLabel}
+                    province={stateLabel}
+                    postal-code={address.postalCode}
+                    disabled
+                    locale={customLocale}></lightning-formatted-address>
+                <div
+                    lwc:if={formattedPhoneNumber}
+                    data-summary-phone>
+                    {formattedPhoneNumber}
+                </div>
+            </div>
+            <div lwc:else>{shippingMultipleLocationsSummaryLabel}</div>
+        </div>
+    </template>
+
+    <template lwc:if={_showEdit}>
+        <site-common-scoped-notification
+            lwc:if={showScopedNotification}
+            type="info"
+            body-text={scopedNotificationLabel}
+            class="slds-p-vertical_x-small"></site-common-scoped-notification>
+        <!-- TODO: break this into at least 3 controls: address list, button group, address edit -->
+        <div
+            name="shipping-address"
+            data-shipping-edit>
+            <!-- ------------------------------------------------- -->
+            <!-- The list of existing authenticated user addresses -->
+            <!-- ------------------------------------------------- -->
+            <template lwc:if={_showAddressList}>
+                <div class="slds-p-bottom_small">
+                    <site-checkout-address-visual-picker
+                        lwc:ref="shippingAddressList"
+                        data-shipping-radio-group
+                        disabled={_readOnly}
+                        options={_addresses}
+                        name="shippingAddresses"
+                        value={_selectedAddressId}
+                        edit-address-label={editAddressLabel}
+                        disable-edit={_disableEditAddressButton}
+                        raw-internationalization-data={_rawInternationalizationData}
+                        onchangeaddressoption={handleAddressOptionChange}
+                        oneditaddress={handleEditAddress}></site-checkout-address-visual-picker>
+                    <site-common-action-link
+                        lwc:if={showSplitShip}
+                        disabled={disableSplitShip}
+                        assistive-text={splitShipLinkLabel}
+                        href
+                        onclick={handleShipToMultipleLocations}>
+                        {splitShipLinkLabel}
+                    </site-common-action-link>
+                </div>
+            </template>
+
+            <template lwc:if={_showButtons}>
+                <div class="buttons-flex buttons">
+                    <!-- Show more existing addresses in list above -->
+                    <template lwc:if={_shouldShowShowMoreAddressesButton}>
+                        <button
+                            class="slds-button"
+                            data-show-more-addresses
+                            disabled={_readOnly}
+                            type="button"
+                            role="button"
+                            onclick={handleShowMoreAddressesClicked}>
+                            {showMoreButtonLabel}
+                        </button>
+                    </template>
+
+                    <!-- Create a new address button -->
+                    <template lwc:if={_shouldShowNewAddressButton}>
+                        <button
+                            class="slds-button slds-button_neutral"
+                            data-add-new-address
+                            data-automation={newAddressButtonLabel}
+                            disabled={_readOnly}
+                            type="button"
+                            role="button"
+                            onclick={handleNewAddressButtonClicked}>
+                            {newAddressButtonLabel}
+                        </button>
+                    </template>
+                </div>
+            </template>
+            <!-- ---------------------------------------------------- -->
+            <!-- New address form with first, last and address -->
+            <!-- ---------------------------------------------------- -->
+            <template lwc:if={_showAddressForm}>
+                <div class="slds-p-bottom_small">
+                    <site-checkout-input-address
+                        lwc:ref="shippingAddressForm"
+                        data-shipping-input-address
+                        show-address-lookup={_showAddressLookup}
+                        disabled={_readOnly}
+                        component-header-edit-address-label={componentHeaderEditAddressLabel}
+                        show-person-name={_showPersonName}
+                        show-company-name={showCompanyName}
+                        show-phone-number={showPhoneNumber}
+                        phone-number-required={phoneNumberRequired}
+                        phone-number-label={phoneNumberLabel}
+                        show-default-address={_shouldShowNewAddressButton}
+                        make-default-address-label={makeDefaultAddressLabel}
+                        readonly-default-address={_readonlyDefaultAddress}
+                        address={address}
+                        default-country={_defaultCountry}
+                        raw-internationalization-data={_rawInternationalizationData}
+                        raw-internationalization-data-phone={_rawInternationalizationDataPhone}
+                        onaddresschanged={handleAddressChanged}
+                        onaddressdirty={handleAddressDirty}
+                        skip-phone-number-validation-enabled={_skipPhoneNumberValidationEnabled}></site-checkout-input-address>
+                    <site-common-action-link
+                        lwc:if={showSplitShip}
+                        disabled={disableSplitShip}
+                        assistive-text={splitShipLinkLabel}
+                        href
+                        onclick={handleShipToMultipleLocations}
+                        class="link-width">
+                        {splitShipLinkLabel}
+                    </site-common-action-link>
+                </div>
+            </template>
+        </div>
+    </template>
+    <div
+        lwc:if={displaySpinner}
+        class="cart-spinner slds-spinner_container"
+        role="status"
+        size="large"
+        variant="brand">
+        <div part="backdrop"></div>
+        <div
+            class="slds-spinner slds-spinner_brand slds-spinner_large"
+            role="status"
+            part="spinner">
+            <span class="slds-assistive-text">alt text</span>
+            <div
+                part="dot-a"
+                class="slds-spinner__dot-a"></div>
+            <div
+                part="dot-b"
+                class="slds-spinner__dot-b"></div>
+        </div>
+    </div>
+</template>

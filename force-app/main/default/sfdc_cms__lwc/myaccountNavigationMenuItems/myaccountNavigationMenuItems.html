@@ -1,0 +1,64 @@
+<template lwc:render-mode="light">
+    <div lwc:if={showMenuItems}>
+        <div class="slds-form-element mobile">
+            <label
+                class="slds-form-element__label slds-assistive-text"
+                for="nav-menu-select">
+                {_labels.mobileDropdownLabel}
+            </label>
+            <div class="slds-form-element__control">
+                <div class="slds-select_container">
+                    <select
+                        class="slds-select"
+                        id="nav-menu-select"
+                        onchange={handleMenuItemChange}>
+                        <option
+                            value
+                            hidden></option>
+                        <template
+                            for:each={menuItems}
+                            for:item="item">
+                            <option
+                                key={item.id}
+                                value={item.id}
+                                selected
+                                lwc:if={item.selected}>
+                                {item.label}
+                            </option>
+                            <option
+                                key={item.id}
+                                value={item.id}
+                                lwc:else>
+                                {item.label}
+                            </option>
+                        </template>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <nav
+            class="slds-nav-vertical my-account-nav-menu desktop"
+            aria-label={_labels.desktopNavMenuAriaLabel}>
+            <div class="slds-nav-vertical__section">
+                <ul>
+                    <template
+                        for:each={menuItems}
+                        for:item="item">
+                        <li
+                            class={item.listItemCssClasses}
+                            key={item.id}>
+                            <a
+                                href={item.actionValue}
+                                class={item.linkCssClasses}
+                                aria-current={item.selected}
+                                data-item-id={item.id}
+                                onclick={handleMenuItemClicked}>
+                                {item.label}
+                            </a>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</template>

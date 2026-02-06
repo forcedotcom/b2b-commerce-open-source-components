@@ -1,0 +1,19 @@
+<template lwc:render-mode="light">
+    <div style={applyCouponCssStyles}>
+        <site-cart-apply-coupon-ui
+            oncouponapply={handleApplyCoupon}
+            onentercoupon={handleApplyCoupon}
+            onvaluechanged={handleInputChange}
+            show-reveal-button={showRevealButton}
+            disable-apply-coupon-button={disableApplyCouponButton}
+            apply-coupon-button-text={computedApplyCouponButtonText}
+            coupon-input-text={couponInputValue}
+            coupon-input-placeholder-text={couponInputPlaceholderText}
+            error-message={errorMessage}
+            lwc:ref="applyCoupon">
+            <div slot="revealButton">
+                <slot name="revealButton"></slot>
+            </div>
+        </site-cart-apply-coupon-ui>
+    </div>
+</template>

@@ -1,0 +1,17 @@
+<template lwc:render-mode="light">
+    <div class="slds-var-m-bottom_x-large centered-content box-padding">
+        <span>
+            <svg
+                class="slds-icon slds-icon_large slds-m-bottom_medium"
+                aria-hidden="true">
+                <use xlink:href={iconPath}></use>
+            </svg>
+        </span>
+        <span>
+            <slot name="title"></slot>
+        </span>
+    </div>
+    <div>
+        <slot name="description"></slot>
+    </div>
+</template>

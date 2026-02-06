@@ -1,0 +1,13 @@
+<template lwc:render-mode="light">
+    <site-product-variant-selector-ui
+        if:true={isDisplayable}
+        product={product}
+        out-of-stock-text={outOfStockText}
+        assistive-out-of-stock-text={assistiveOutOfStockText}
+        style={productVariantStyleString}
+        onvariantselected={handleVariantOptionChanged}>
+        <div slot="heading">
+            <slot name="heading"></slot>
+        </div>
+    </site-product-variant-selector-ui>
+</template>

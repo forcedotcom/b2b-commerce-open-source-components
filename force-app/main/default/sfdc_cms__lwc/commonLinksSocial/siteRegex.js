@@ -1,0 +1,16 @@
+export const facebookRegex = /(facebook|fb)\.(com|me)/gi;
+export const facebookMessengerRegex = /m\.me/gi;
+export const instagramRegex = /(instagram.com|instagr.am|instagr.com)/gi;
+export const linkedInRegex = /linkedin\.\w+/gi;
+export const mediumRegex = /medium\.\w+/gi;
+export const pinterestRegex = /pinterest\.\w+/gi;
+export const redditRegex = /reddit\.com/gi;
+export const tumblrRegex = /tumblr\.com/gi;
+export const twitterRegex = /(twitter|twttr|x)\.com/gi;
+export const vimeoRegex = /vimeo\.com/gi;
+export const whatsappRegex = /wa\.me/gi;
+export const youtubeRegex = /youtu(?:be\.com|\.be)/gi;
+export const flickrRegex = /flickr\.com/gi;
+export const snapchatRegex = /snapchat\.com/gi;
+export const tiktokRegex = /tiktok\.com/gi;
+export const wechatRegex = /wechat\.com/gi;

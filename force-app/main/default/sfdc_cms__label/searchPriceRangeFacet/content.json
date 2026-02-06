@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchPriceRangeFacet",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "priceRangeMinLimit",
+      "value" : "Min: {0}"
+    }, {
+      "name" : "priceRangeMaxLimit",
+      "value" : "Max: {0}"
+    }, {
+      "name" : "priceRangeMinLimitError",
+      "value" : "Enter a min value that's below the max limit of {0} and try again"
+    }, {
+      "name" : "priceRangeMaxLimitError",
+      "value" : "Enter a max value that's above the min limit of {0} and try again"
+    }, {
+      "name" : "priceRangeMinPriceError",
+      "value" : "Enter a min value that's below the max value and try again"
+    }, {
+      "name" : "priceRangeMaxPriceError",
+      "value" : "Enter a max value that's above the min value and try again"
+    }, {
+      "name" : "priceRangeApplyButtonText",
+      "value" : "Apply"
+    } ]
+  },
+  "urlName" : "searchpricerangefacet"
+}

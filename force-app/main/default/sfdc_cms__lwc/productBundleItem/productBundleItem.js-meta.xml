@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Bundle Item</masterLabel>
+  <description>Shows an individual product in a product bundle.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Quantity Text" name="quantityText" type="String" default="Qty"></property>
+      <property label="Hide quantity when quantity is 1" name="hideQuantityWhenItsOne" type="Boolean" default="false"></property>
+      <property label="Fields" name="productDetailSummaryFieldMapping" type="ProductFieldMapping" default="[]" translatable="true"></property>
+      <property name="item" type="String" default="{!Item.data}"></property>
+      <property label="Parent Product Details" name="parentProductDetails" type="String"></property>
+      <property label="Dynamic Attributes Text" name="dynamicAttributesAvailableText" type="String" default="{0} Configurable Attributes" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="quantityText"></designLayoutProperty>
+            <designLayoutProperty name="hideQuantityWhenItsOne"></designLayoutProperty>
+            <designLayoutProperty name="productDetailSummaryFieldMapping"></designLayoutProperty>
+            <designLayoutProperty name="item"></designLayoutProperty>
+            <designLayoutProperty name="parentProductDetails"></designLayoutProperty>
+            <designLayoutProperty name="dynamicAttributesAvailableText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

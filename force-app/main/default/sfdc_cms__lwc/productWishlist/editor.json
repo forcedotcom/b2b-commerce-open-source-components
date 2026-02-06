@@ -1,0 +1,63 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:productWishlist",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "itemsBody",
+                        "title": "itemsBody",
+                        "type": "region",
+                        "children": [
+                            {
+                                "attributes": {
+                                    "autoScrollToMostRecent": false,
+                                    "borderRadius": 0,
+                                    "borderWidth": 0,
+                                    "numberOfColumns": 4,
+                                    "showPagination": false,
+                                    "width": 100,
+                                    "horizontalAlignment": "center",
+                                    "itemSpacing": "xx-small",
+                                    "isFixedRowHeight": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "sfdcRepeaterItem",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "attributes": {
+                                                    "item": "{!Item}",
+                                                    "showAddToCartButton": true,
+                                                    "addToCartButtonStyle": "tertiary",
+                                                    "addToCartButtonSize": "standard"
+                                                },
+                                                "definition": "commerce_builder:productCard",
+                                                "type": "component"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "definition": "dxp_content_layout:grid",
+                                "type": "component",
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__expressionDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "Item",
+                                        "attributes": {
+                                            "listSource": "{!Wishlists.Details.page.items}"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

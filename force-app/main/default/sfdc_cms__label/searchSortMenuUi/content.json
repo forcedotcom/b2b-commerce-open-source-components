@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchSortMenuUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "sort",
+      "value" : "Sort"
+    }, {
+      "name" : "sortByAltText",
+      "value" : "sort option selected"
+    } ]
+  },
+  "urlName" : "searchsortmenuui"
+}

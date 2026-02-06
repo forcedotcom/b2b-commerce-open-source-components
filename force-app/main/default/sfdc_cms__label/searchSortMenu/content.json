@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchSortMenu",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "sortAndFilter",
+      "value" : "+ Sort &amp; Filter"
+    }, {
+      "name" : "sortAndFilterPanelAriaLabel",
+      "value" : "Open sort and filter panel"
+    } ]
+  },
+  "urlName" : "searchsortmenu"
+}

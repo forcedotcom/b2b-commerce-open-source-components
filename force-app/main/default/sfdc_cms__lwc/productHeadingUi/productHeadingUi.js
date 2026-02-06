@@ -7,6 +7,8 @@ export default class ProductHeadingUi extends LightningElement {
   @api
   showAdditionalFields = false;
   @api
+  dynamicAttributesAvailableText;
+  @api
   fields;
   get _displayableFields() {
     return (this.fields || []).map((field, index) => ({
@@ -16,5 +18,8 @@ export default class ProductHeadingUi extends LightningElement {
   }
   get keyValueSeparator() {
     return Labels.keyValueSeparator;
+  }
+  get hideDynamicAttributesAvailableText() {
+    return !this.dynamicAttributesAvailableText;
   }
 }

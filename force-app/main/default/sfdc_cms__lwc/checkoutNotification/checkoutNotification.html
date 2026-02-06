@@ -1,0 +1,96 @@
+<template lwc:render-mode="light">
+    <!-- a11y checkout API busy indicator -->
+    <template lwc:if={a11yLoadingIndicator}>
+        <span
+            class="slds-assistive-text"
+            role="status"
+            aria-live="polite">
+            <span lwc:if={isLoading}>{labels.alternativeSpinnerText}</span>
+        </span>
+
+        <!-- hidden ekg variable container -->
+        <span
+            data-ekg={}
+            aria-hidden="true"></span>
+    </template>
+
+    <!-- sighted busy indicator               -->
+    <!-- positioned absolute relative to us   -->
+    <!-- TODO: maybe fix to a viewport corner -->
+    <span
+        lwc:if={visibleLoadingIndicator}
+        class="loading-position">
+        <div
+            lwc:if={isLoading}
+            class="loading-holder">
+            <lightning-spinner
+                class="visible-loading-indicator"
+                alternative-text={labels.alternativeSpinnerText}
+                size="small"></lightning-spinner>
+        </div>
+    </span>
+
+    <template lwc:if={showError}>
+        <!-- error with cart redirect "modal"-->
+        <div lwc:if={showReturnToCart}>
+            <site-common-focus-trap-manager
+                focus-id="return-cart-button"
+                no-focus-next-on-disable
+                focus-trap-active={showReturnToCart}>
+                <section
+                    role="dialog"
+                    tabindex="-1"
+                    aria-modal="true"
+                    aria-labelledby="modal-heading-01"
+                    class="slds-modal slds-fade-in-open">
+                    <div class="slds-modal__container">
+                        <div class="checkout-notification-header slds-modal__header">
+                            <h4
+                                id="modal-heading-01"
+                                class="slds-modal__title slds-hyphenate"
+                                tabindex="-1">
+                                {_errorLabels.header}
+                            </h4>
+                        </div>
+                        <div
+                            class="slds-text-align_center slds-modal__content slds-var-p-around_medium"
+                            id="modal-content-id-1">
+                            <div class="slds-var-p-around_x-large checkout-notification-content">
+                                <lightning-icon
+                                    class="slds-var-p-bottom_medium"
+                                    icon-name="utility:clear"
+                                    variant="error"
+                                    size="small"></lightning-icon>
+                                <p>{_errorLabels.body}</p>
+                            </div>
+                        </div>
+                        <div class="checkout-notification-footer slds-modal__footer">
+                            <site-common-button-ui
+                                id="return-cart-button"
+                                class="checkout-notification-button"
+                                title={_errorLabels.returnToCart}
+                                assistive-text={_errorLabels.returnToCart}
+                                onclick={handleClose}
+                                size="small"
+                                alignment="right"
+                                variant="primary">
+                                {_errorLabels.returnToCart}
+                            </site-common-button-ui>
+                        </div>
+                    </div>
+                </section>
+                <div
+                    class="slds-backdrop slds-backdrop_open"
+                    role="presentation"></div>
+            </site-common-focus-trap-manager>
+        </div>
+        <!-- regular notification error -->
+        <site-common-scoped-notification
+            lwc:else
+            type="error"
+            header-text={_errorLabels.header}
+            body-text={_errorLabels.body}>
+            <div slot="details"></div>
+        </site-common-scoped-notification>
+    </template>
+</template>

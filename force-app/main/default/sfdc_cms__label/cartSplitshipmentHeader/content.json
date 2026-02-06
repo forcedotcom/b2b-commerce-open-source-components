@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartSplitshipmentHeader",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "genericApiErrorMessage",
+      "value" : "Something went wrong. Try again or contact customer support for help."
+    }, {
+      "name" : "emptyDefaultDeliveryGroupErrorMessage",
+      "value" : "The default delivery group must contain at least one item."
+    }, {
+      "name" : "shipToOneAddressModalMessage",
+      "value" : "You'll return to the checkout page and any additional items added will move to your default shipment. If you're logged in, new addresses are saved to your account."
+    }, {
+      "name" : "cancelMergeShipments",
+      "value" : "Stay On Page"
+    }, {
+      "name" : "shipToOneAddress",
+      "value" : "Ship to One Address"
+    }, {
+      "name" : "shipToOneAddressModalTitle",
+      "value" : "Ship to one address?"
+    } ]
+  },
+  "urlName" : "cartsplitshipmentheader"
+}

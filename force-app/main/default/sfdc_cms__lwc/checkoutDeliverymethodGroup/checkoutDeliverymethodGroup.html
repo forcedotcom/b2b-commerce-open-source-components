@@ -1,0 +1,66 @@
+<template lwc:render-mode="light">
+    <div
+        data-split-ship-method
+        class="slds-card slds-card__header slds-p-vertical_x-small no-shadow">
+        <div class="slds-media__body">
+            <p class="slds-card__header-title">{_shipmentName}</p>
+            <p
+                lwc:if={isDigitalDeliveryGroup}
+                class="slds-card__body">
+                {_buyerEmailText}
+            </p>
+            <p
+                lwc:else
+                class="slds-card__body">
+                {_fullNameAddress}
+            </p>
+        </div>
+        <div
+            lwc:if={_showDeliveryShippingOptions}
+            class="slds-p-top_x-small">
+            <site-checkout-deliverymethod-options
+                checkout-details={checkoutDetails}
+                delivery-group={deliveryGroup}
+                shipping-methods-enabled={shippingMethodsEnabled}></site-checkout-deliverymethod-options>
+        </div>
+
+        <!-- cart items per delivery group -->
+        <div lwc:if={_cartItems}>
+            <h4
+                class="heading"
+                tabindex="0"
+                role="button"
+                onclick={handleClick}>
+                <span class="title">{shipmentCartItemsHeaderText}</span>
+                <span class="expand-icon">
+                    <lightning-icon
+                        icon-name={expanderIconName}
+                        size="x-small"
+                        variant="bare"></lightning-icon>
+                </span>
+            </h4>
+            <div
+                class={expandableShipmentCartStyles}
+                data-automation="cartitems">
+                <site-cart-items-ui
+                    items={_cartItems}
+                    currency-iso-code={_currencyIsoCode}
+                    oncartshowmore={handleCartShowMore}
+                    show-count-in-name={showCountInName}
+                    show-total-prices={showTotalPrices}
+                    show-actual-price={showActualPrice}
+                    show-original-price={showOriginalPrice}
+                    show-product-image={showProductImage}
+                    remove-product-links={showActualPrice}
+                    hide-quantity-selector={hideQuantitySelector}
+                    pagination-type={paginationType}>
+                    <section
+                        slot="showMore"
+                        data-automation="showMore">
+                        {showMoreLabel}
+                    </section>
+                </site-cart-items-ui>
+            </div>
+        </div>
+    </div>
+</template>

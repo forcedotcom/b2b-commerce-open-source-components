@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutMultiCountryPhoneField",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "phonePrefixLabel",
+      "value" : "Phone Number Country Prefix Code"
+    }, {
+      "name" : "PhoneMessageWhenPatternMismatchLabel",
+      "value" : "Enter a valid phone number without the '+' character and country code."
+    } ]
+  },
+  "urlName" : "checkoutmulticountryphonefield"
+}

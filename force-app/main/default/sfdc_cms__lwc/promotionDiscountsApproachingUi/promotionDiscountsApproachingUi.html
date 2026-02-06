@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <template if:true={hasDiscountsApproaching}>
+        <div class="slds-p-vertical_small">
+            <template
+                for:each={discountsApproaching}
+                for:item="discountApproaching">
+                <div
+                    key={discountApproaching}
+                    class="slds-media slds-media_center slds-m-vertical_x-small">
+                    <div class="slds-media__figure">
+                        <lightning-icon
+                            icon-name="utility:info"
+                            size="small"></lightning-icon>
+                    </div>
+                    <div class="slds-media__body">
+                        <p>{discountApproaching}</p>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

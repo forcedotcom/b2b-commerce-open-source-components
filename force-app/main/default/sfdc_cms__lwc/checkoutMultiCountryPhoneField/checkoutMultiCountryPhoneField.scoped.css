@@ -1,0 +1,4 @@
+.slds-dropdown {
+    -webkit-transform: translateX(-3em);
+    transform: translateX(-3em);
+}

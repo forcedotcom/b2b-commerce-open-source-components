@@ -1,0 +1,161 @@
+<template lwc:render-mode="light">
+    <template lwc:if={items}>
+        <ul
+            class={listClasses}
+            style={customStyles}>
+            <template
+                for:each={items}
+                for:item="item">
+                <li
+                    key={item.id}
+                    class={item.cssClasses}
+                    data-id={item.id}
+                    data-parent-id={parentId}
+                    onmouseenter={handleMouseEnter}
+                    onmouseleave={handleMouseLeave}>
+                    <template lwc:if={item.isClickable}>
+                        <template lwc:if={item.isExternal}>
+                            <h1 lwc:if={isH1}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h1>
+                            <h2 lwc:if={isH2}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h2>
+                            <h3 lwc:if={isH3}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h3>
+                            <h4 lwc:if={isH4}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h4>
+                            <h5 lwc:if={isH5}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h5>
+                            <h6 lwc:if={isH6}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h6>
+                            <p lwc:if={isBody}>
+                                <a
+                                    rel="nofollow noopener noreferrer"
+                                    target="_blank"
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </p>
+                        </template>
+                        <template lwc:else>
+                            <h1 lwc:if={isH1}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h1>
+                            <h2 lwc:if={isH2}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h2>
+                            <h3 lwc:if={isH3}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h3>
+                            <h4 lwc:if={isH4}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h4>
+                            <h5 lwc:if={isH5}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h5>
+                            <h6 lwc:if={isH6}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </h6>
+                            <p lwc:if={isBody}>
+                                <a
+                                    onclick={handleClick}
+                                    href={item.actionValue}>
+                                    {item.label}
+                                </a>
+                            </p>
+                        </template>
+                    </template>
+                    <template lwc:else>
+                        <h1 lwc:if={isH1}>{item.label}</h1>
+                        <h2 lwc:if={isH2}>{item.label}</h2>
+                        <h3 lwc:if={isH3}>{item.label}</h3>
+                        <h4 lwc:if={isH4}>{item.label}</h4>
+                        <h5 lwc:if={isH5}>{item.label}</h5>
+                        <h6 lwc:if={isH6}>{item.label}</h6>
+                        <p lwc:if={isBody}>{item.label}</p>
+                    </template>
+                    <template lwc:if={item.subMenu.length}>
+                        <site-common-links-list-ui
+                            key={item.id}
+                            parent-id={item.id}
+                            items={item.subMenu}
+                            orientation={orientation}
+                            depth={depthChildren}
+                            max-depth={maxDepthChildren}
+                            mark-active={markActive}
+                            onitemclick={handleChildClick}
+                            line-item-padding={lineItemPadding}
+                            text-node-tag={textNodeTag}
+                            link-color={linkColor}
+                            link-hover-color={linkHoverColor}
+                            link-text-align={linkTextAlign}
+                            link-text-weight={linkTextWeight}
+                            link-text-style={linkTextStyle}
+                            link-text-decoration={linkTextDecoration}
+                            link-text-font-size={linkTextFontSize}
+                            link-text-font-family={linkTextFontFamily}></site-common-links-list-ui>
+                    </template>
+                </li>
+            </template>
+        </ul>
+    </template>
+</template>

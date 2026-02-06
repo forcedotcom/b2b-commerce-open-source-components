@@ -1,0 +1,29 @@
+<template lwc:render-mode="light">
+    <div
+        if:true={_showQuickOrder}
+        style={quickOrderCustomCssStyles}>
+        <site-order-quick-order-display
+            add-to-cart-button-text={_computedAddToCartButtonText}
+            add-to-cart-in-progress={_addToCartHandlingAlreadyInProgress}
+            add-entry-button-text={addEntryButtonText}
+            maximum-number-of-entries={getMaximumEntryLength}
+            display-entries={displayEntries}
+            sku-label-text={skuLabelText}
+            search-input-place-holder-text={searchInputPlaceHolderText}
+            minimum-value-guide-text={minimumValueGuideText}
+            maximum-value-guide-text={maximumValueGuideText}
+            increment-value-guide-text={incrementValueGuideText}
+            onadditemstocart={handleAddToCart}
+            onupdateentries={handleUpdateQuickOrderEntries}>
+            <section slot="header">
+                <slot name="header"></slot>
+            </section>
+            <section slot="productHeader">
+                <slot name="productHeader"></slot>
+            </section>
+            <section slot="quantityHeader">
+                <slot name="quantityHeader"></slot>
+            </section>
+        </site-order-quick-order-display>
+    </div>
+</template>

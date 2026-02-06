@@ -1,0 +1,10 @@
+.promotion-information {
+    display: flex;
+    align-items: center;
+}
+.discount-amount {
+    margin-left: auto;
+}
+.terms-and-conditions {
+    width: max-content;
+}

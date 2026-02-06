@@ -27,9 +27,16 @@
             </figure>
         </div>
         <div class="product-bundle-item__details-wrapper">
-            <p class="slds-text-title_bold product-bundle-item__name">
-                <lightning-formatted-rich-text value={productName}></lightning-formatted-rich-text>
+            <p>
+                <lightning-formatted-rich-text
+                    class="slds-text-title_bold product-bundle-item__name"
+                    value={productName}></lightning-formatted-rich-text>
+                <lightning-formatted-rich-text
+                    class="slds-var-p-left_xx-small slds-text-title"
+                    if:false={hideChildParentRelationshipText}
+                    value={childParentRelationshipText}></lightning-formatted-rich-text>
             </p>
+
             <p
                 class="product-bundle-item__details variant-attribute-text slds-var-p-top_xx-small"
                 if:false={isVariantAttributesFieldEmpty}>
@@ -47,9 +54,9 @@
                 <lightning-formatted-rich-text value={componentGroupName}></lightning-formatted-rich-text>
             </p>
             <p
-                class="product-bundle-item__details slds-var-p-top_xx-small"
-                if:false={hideChildParentRelationshipText}>
-                <lightning-formatted-rich-text value={childParentRelationshipText}></lightning-formatted-rich-text>
+                class="product-bundle-item__details attributes-available-text slds-var-p-top_xx-small"
+                if:false={hideDynamicAttributesAvailableText}>
+                <lightning-formatted-rich-text value={dynamicAttributesAvailableText}></lightning-formatted-rich-text>
             </p>
             <p
                 class="product-bundle-item__details slds-var-p-top_xx-small"
@@ -64,7 +71,7 @@
                         for:item="field">
                         <li
                             key={field.id}
-                            class="slds-var-p-top_xx-small">
+                            class="slds-var-p-top_xx-small product-bundle-item__details">
                             <span class="slds-grid slds-wrap">
                                 <p
                                     class="slds-rich-text-editor__output slds-p-right_xx-small"

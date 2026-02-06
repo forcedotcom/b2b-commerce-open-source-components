@@ -5,7 +5,7 @@ import canDisplayOriginalPrice from 'site/cartEvaluatePriceOriginal';
 import currencyFormatter from 'site/commonFormatterCurrency';
 import { getPriceLabel, getProductCountNameLabel, getProductLabel, getTermDefinedSubscriptionLabel, getBundleChildProductCountLabel } from './labelGenerators';
 import { changeSign } from './transformers';
-import { DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, PRODUCT_DETAIL_FIELDS, CART_UPDATE_STATUS_EVENT, UPDATE_QUANTITY_DEBOUNCE } from './constants';
+import { MODIFY_ITEM_EVENT, DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, PRODUCT_DETAIL_FIELDS, CART_UPDATE_STATUS_EVENT, UPDATE_QUANTITY_DEBOUNCE } from './constants';
 import { Labels } from './labels';
 import { NavigationContext, generateUrl } from 'lightning/navigation';
 import { resolve as resourceResolver } from 'experience/resourceResolver';
@@ -34,6 +34,14 @@ export default class CartItem extends LightningElement {
   currencyIsoCode;
   @api
   showRemoveItem = false;
+  _showModifyItem = false;
+  @api
+  get showModifyItem() {
+    return this._showModifyItem;
+  }
+  set showModifyItem(value) {
+    this._showModifyItem = value;
+  }
   @api
   disableQuantitySelector = false;
   @api
@@ -85,12 +93,13 @@ export default class CartItem extends LightningElement {
     return this._htmlProductNameGate;
   }
   get containerClasses() {
+    const actionButtonPresent = this.showRemoveItem || this.showModifyItem;
     if (!this.showProductImage) {
-      return this.showRemoveItem ? 'container no-image' : 'container no-image-no-delete';
+      return actionButtonPresent ? 'container no-image' : 'container no-image-no-actions';
     } else if (this.showSmallLayout) {
-      return this.showRemoveItem ? `container image-small` : `container image-small-no-delete`;
+      return actionButtonPresent ? `container image-small` : `container image-small-no-actions`;
     }
-    return this.showRemoveItem ? `container image` : `container image-no-delete`;
+    return actionButtonPresent ? `container image` : `container image-no-actions`;
   }
   get _hideQuantitySelectorLabel() {
     return !this.showQuantitySelectorLabel;
@@ -162,6 +171,13 @@ export default class CartItem extends LightningElement {
   }
   get imgAltText() {
     return this.item?.ProductDetails?.thumbnailImage?.alternateText || '';
+  }
+  handleModifyItem() {
+    this.dispatchEvent(new CustomEvent(MODIFY_ITEM_EVENT, {
+      detail: this.item?.id,
+      bubbles: true,
+      composed: true
+    }));
   }
   handleDeleteItem() {
     this.clearDebounce();
@@ -297,6 +313,12 @@ export default class CartItem extends LightningElement {
   }
   get removeButtonAssistiveText() {
     return getProductLabel(Labels.removeItemAssistiveText, this.item?.ProductDetails.name, '{name}');
+  }
+  get modifyButtonAssistiveText() {
+    return getProductLabel(Labels.modifyItemAssistiveText, this.item?.ProductDetails.name, '{name}');
+  }
+  get modifyButtonText() {
+    return Labels.modifyButtonText;
   }
   get sanitizedProductName() {
     const label = this.item?.ProductDetails.name ?? '';

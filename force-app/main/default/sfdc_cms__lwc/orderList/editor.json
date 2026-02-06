@@ -1,0 +1,82 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderList",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "orderListRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "small",
+                                    "listType": "unformatted",
+                                    "showPagination": true,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "commerce_builder:orderSummary",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "orderNumberLabel",
+                                                        "title": "orderNumberLabel",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Order Number: ",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "orderNumber",
+                                                        "title": "orderNumber",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "{!OrderSummary.orderNumber}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commerceOrderListDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "OrderSummary",
+                                        "attributes": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

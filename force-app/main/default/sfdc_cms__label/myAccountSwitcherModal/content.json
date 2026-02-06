@@ -1,24 +1,20 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "myAccountSwitcherModal",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "description",
-        "value": "Switch between your accounts"
-      },
-      {
-        "name": "headerLabel",
-        "value": "Switch Accounts?"
-      },
-      {
-        "name": "cancelActionLabel",
-        "value": "Cancel"
-      },
-      {
-        "name": "tryAgainActionLabel",
-        "value": "Try Again"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountSwitcherModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "description",
+      "value" : "Switch between your accounts"
+    }, {
+      "name" : "headerLabel",
+      "value" : "Switch Accounts?"
+    }, {
+      "name" : "cancelActionLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "tryAgainActionLabel",
+      "value" : "Try Again"
+    } ]
+  },
+  "urlName" : "myaccountswitchermodal"
 }

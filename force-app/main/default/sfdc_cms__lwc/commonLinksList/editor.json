@@ -1,0 +1,18 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:commonLinksList",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceNavigationMenuDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "NavMenu",
+                        "attributes": {}
+                    }
+                ]
+            }
+        }
+    ]
+}

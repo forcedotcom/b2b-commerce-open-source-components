@@ -1,0 +1,12 @@
+:host {
+    display: block;
+}
+.align-left {
+    justify-content: left;
+}
+.align-center {
+    justify-content: center;
+}
+.align-right {
+    justify-content: right;
+}

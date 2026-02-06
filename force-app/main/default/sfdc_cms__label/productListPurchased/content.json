@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productListPurchased",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "alternativeSpinnerText",
+      "value" : "Loading"
+    }, {
+      "name" : "errorHeading",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Try again, and if the issue persists, contact us for help."
+    } ]
+  },
+  "urlName" : "productlistpurchased"
+}

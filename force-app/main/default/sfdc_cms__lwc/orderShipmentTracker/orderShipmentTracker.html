@@ -1,0 +1,11 @@
+<template lwc:render-mode="light">
+    <site-order-shipment-tracker-ui
+        lwc:if={showTracker}
+        statuses={orderStatuses}
+        current-status={orderStatus}
+        icon-base-path={iconBasePath}
+        style={trackerCustomCssStyles}></site-order-shipment-tracker-ui>
+    <template lwc:if={showStatusText}>
+        <slot name="orderStatus"></slot>
+    </template>
+</template>

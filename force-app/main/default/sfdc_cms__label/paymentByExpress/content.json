@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentByExpress",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "paymentProcessing",
+      "value" : "Payment Processing"
+    }, {
+      "name" : "paymentCancelMessage",
+      "value" : "Your attempted payment was canceled. You have not been charged and your order has not been placed."
+    }, {
+      "name" : "productAmountTitle",
+      "value" : "Order Value"
+    }, {
+      "name" : "taxTitle",
+      "value" : "Tax"
+    }, {
+      "name" : "shippingTitle",
+      "value" : "Shipping"
+    }, {
+      "name" : "paymentErrorTitle",
+      "value" : "Payment Failed"
+    }, {
+      "name" : "paymentErrorMessage",
+      "value" : "A problem occurred while processing your payment. Please try again."
+    } ]
+  },
+  "urlName" : "paymentbyexpress"
+}

@@ -1,0 +1,119 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:productSubscriptions",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "subscriptionsRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "none",
+                                    "listType": "unformatted",
+                                    "showPagination": true,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "commerce_builder:subscriptionItem",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "showBorder": true,
+                                                    "borderColor": "#DDDDDD",
+                                                    "borderWeight": 1
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "subscriptionProductImage",
+                                                        "title": "Product Image",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:image",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "imageInfo": "{\"imageInfoV1\":{\"url\":\"{!Subscription.product.image.url}\",\"altText\":\"\",\"contentKey\":\"\",\"contentType\":\"\"}}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "subscriptionProductName",
+                                                        "title": "Product Name",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "paddingHorizontal": "none",
+                                                                    "paddingVertical": "none",
+                                                                    "text": "{!Subscription.product.name}",
+                                                                    "textAlign": "left",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "subscriptionProductQuantity",
+                                                        "title": "Product Quantity",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "paddingHorizontal": "none",
+                                                                    "paddingVertical": "none",
+                                                                    "text": "(qty {!Subscription.quantity})",
+                                                                    "textAlign": "left",
+                                                                    "textDecoration": "{\"bold\": false}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "subscriptionInformation",
+                                                        "title": "Subscription Information",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:subscriptionInformation",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commerceSubscriptionsDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "Subscription",
+                                        "attributes": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

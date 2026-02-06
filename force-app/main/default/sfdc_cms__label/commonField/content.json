@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "commonField",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "yesAssistiveText",
-        "value": "Yes"
-      },
-      {
-        "name": "noAssistiveText",
-        "value": "No"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "commonField",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "yesAssistiveText",
+      "value" : "Yes"
+    }, {
+      "name" : "noAssistiveText",
+      "value" : "No"
+    } ]
+  },
+  "urlName" : "commonfield"
 }

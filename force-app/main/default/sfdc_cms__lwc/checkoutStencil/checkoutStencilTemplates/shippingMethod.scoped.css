@@ -1,0 +1,23 @@
+.stencil-item-container {
+    margin-bottom: var(--slds-g-sizing-6, 1.25rem);
+    border: var(--dxp-s-form-element-width-border) solid var(--dxp-g-neutral, #f3f2f2);
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+}
+.stencil-item {
+    display: inline-block;
+    height: var(--dxp-g-font-size-5, 1rem);
+    margin: var(--dxp-g-spacing-xlarge, 2rem);
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+    background-color: var(--dxp-g-neutral, #f3f2f2);
+}
+.icon {
+    width: var(--dxp-g-font-size-5, 1rem);
+    border-radius: 50%;
+}
+.line-method {
+    width: 15%;
+    margin-left: 0rem;
+}
+.stencil-item-end {
+    width: 5%;
+}

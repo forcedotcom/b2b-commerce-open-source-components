@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <site-cart-splitshipment-header-ui>
+        <div
+            slot="splitShipmentTitle"
+            data-automation="splitShipmentTitle">
+            <slot name="splitShipmentTitle"></slot>
+        </div>
+        <div
+            slot="saveAndCheckoutButton"
+            onclick={handleSaveAndCheckout}
+            data-automation="saveAndCheckoutButton">
+            <slot name="saveAndCheckoutButton"></slot>
+        </div>
+        <div
+            slot="shipToOneAddressButton"
+            onclick={handleShipToOneAddress}
+            data-automation="shipToOneAddressButton">
+            <slot name="shipToOneAddressButton"></slot>
+        </div>
+    </site-cart-splitshipment-header-ui>
+</template>

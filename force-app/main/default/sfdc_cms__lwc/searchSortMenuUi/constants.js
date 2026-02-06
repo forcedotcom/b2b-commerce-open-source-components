@@ -1,0 +1,1 @@
+export const EVENT_SORT_ORDER_CHANGED = 'searchsort';

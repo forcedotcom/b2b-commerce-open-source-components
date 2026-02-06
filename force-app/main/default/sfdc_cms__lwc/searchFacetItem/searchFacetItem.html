@@ -1,0 +1,28 @@
+<template lwc:render-mode="light">
+    <lightning-input
+        lwc:ref="lightningInput"
+        class="search-filter-checkbox"
+        label={displayLabel}
+        variant="label-hidden"
+        type={type}
+        checked={value.checked}
+        onchange={handleFacetValueToggle}
+        onkeyup={handleKeyPress}
+        data-id={value.id}
+        data-checked={value.checked}
+        data-displayname={displayLabel}></lightning-input>
+    <!-- Note: Adding the label outside since the lightning-input label is
+        not truncating based on its container. The screen reader still picks
+        the internal label for accessibility, so we are adding a span with title
+        for every other scenarios. -->
+    <span
+        class="slds-form-element__label slds-truncate facet-item-name"
+        data-automation={displayLabel}
+        aria-hidden="true">
+        <span
+            lwc:if={hasColorSwatch}
+            class="swatch-fill"
+            style={colorSwatchStyles}></span>
+        {displayLabel}
+    </span>
+</template>

@@ -1,0 +1,26 @@
+.slds-theme_error .slds-media__body h2 {
+    font-weight: var(--dxp-c-text-block-font-weight);
+}
+
+/* existing SLDS text class sets color to black */
+.slds-theme_error .slds-media__body h2,
+.slds-theme_error .slds-media__body p {
+    color: var(--dxp-g-root);
+}
+
+.slds-theme_error .variant-color {
+    --sds-c-icon-color-foreground: var(--dxp-g-root);
+}
+
+:host {
+    display: block;
+}
+
+.notification-container {
+    align-items: center;
+    border-radius: 0.5rem;
+}
+
+p.slds-text-body_small {
+    font-size: var(--dxp-g-font-size-4);
+}

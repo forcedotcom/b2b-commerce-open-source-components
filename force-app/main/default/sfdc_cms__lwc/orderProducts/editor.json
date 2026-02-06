@@ -1,0 +1,125 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderProducts",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "orderProductsInfoRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "none",
+                                    "listType": "unformatted",
+                                    "showPagination": false,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "commerce_builder:orderDeliveryGroup",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "shippingGroupFieldMapping": "[{\"entity\": \"OrderDeliveryMethod\",\"name\": \"Name\",\"label\": \"Name\",\"type\": \"Text(255)\",\"expression\": \"{!Order.OrderDeliveryMethod.Name}\"},{\"entity\": \"OrderDeliveryGroupSummary\",\"name\": \"TotalLineAmount\",\"label\": \"Shipping Subtotal\",\"type\": \"Currency(16, 2)\",\"expression\": \"{!Order.OrderDeliveryGroupSummary.TotalLineAmount}\"}]"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "orderItemsRepeater",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_content_layout:list",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "itemSpacing": "none",
+                                                                    "listType": "unformatted",
+                                                                    "showPagination": true,
+                                                                    "autoScrollToMostRecent": true
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "name": "sfdcRepeaterItem",
+                                                                        "title": "Repeater",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "commerce_builder:orderLineItem",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "productUnavailableMessage": "",
+                                                                                    "productFieldMapping": "[{\"entity\":\"OrderItemSummary\",\"name\":\"StockKeepingUnit\",\"label\":\"Product Sku\",\"type\":\"Text(255)\",\"expression\":\"{!Order.OrderItemSummary.StockKeepingUnit}\"},{\"entity\":\"OrderItemSummary\",\"name\":\"Quantity\",\"label\":\"Quantity\",\"type\":\"Number(18, 0)\",\"expression\":\"{!Order.OrderItemSummary.Quantity}\"}]",
+                                                                                    "childProductFieldMapping": "[{\"entity\":\"OrderItemSummary\",\"name\":\"StockKeepingUnit\",\"label\":\"Product Sku\",\"type\":\"Text(255)\",\"expression\":\"{!Order.OrderItemSummary.StockKeepingUnit}\"},{\"entity\":\"OrderItemSummary\",\"name\":\"Quantity\",\"label\":\"Quantity\",\"type\":\"Number(18, 0)\",\"expression\":\"{!Order.OrderItemSummary.Quantity}\"}]",
+                                                                                    "showChildProductImage": true,
+                                                                                    "bundleExpandCollapseLabel": "{0} Products Included"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "name": "pagination",
+                                                                        "title": "pagination",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "dxp_content_layout:paginator2",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "variant": "showmore",
+                                                                                    "paginatorAttributes": "{\"nested\":{\"componentName\":\"dxp_content_layout:paginatorShowMore\",\"attributes\":{\"label\":\"Show More\",\"textDecoration\":\"{}\",\"buttonStyle\":\"secondary\",\"size\":\"standard\",\"width\":\"standard\",\"verticalPadding\":\"none\",\"horizontalAlignment\":\"center\"}}}",
+                                                                                    "dxpStyle": {
+                                                                                        "margin": {
+                                                                                            "bottom": "1.5rem",
+                                                                                            "left": "0rem",
+                                                                                            "right": "0rem",
+                                                                                            "top": "0rem"
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "dataProviders": [
+                                                                    {
+                                                                        "definition": "sfdc_cms__commerceOrderLineItemsDataProvider",
+                                                                        "type": "dataProvider",
+                                                                        "sfdcExpressionKey": "OrderLineItem",
+                                                                        "attributes": {
+                                                                            "lineItems": "{!OrderDeliveryGroup.lineItems}"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commerceOrderDeliveryGroupsDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "OrderDeliveryGroup",
+                                        "attributes": {
+                                            "deliveryGroups": "{!Order.DeliveryGroups}"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

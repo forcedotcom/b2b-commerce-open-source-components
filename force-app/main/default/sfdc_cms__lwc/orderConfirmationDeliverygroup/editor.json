@@ -1,0 +1,91 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationDeliverygroup",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "header",
+                        "title": "Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!DeliveryGroup.fields.Name.text}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "giftingHeader",
+                        "title": "Gifting Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Gifting",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "deliveryItems",
+                        "title": "Items",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "commerce_builder:orderConfirmationItems",
+                                "type": "component",
+                                "attributes": {
+                                    "viewBundleDetailLabel": "View Bundle"
+                                },
+                                "children": [
+                                    {
+                                        "name": "header",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Items Ordered",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                                    "textDecoration": "{\"bold\": true}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "showMore",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Show more",
+                                                    "textAlign": "center",
+                                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\", \"headingTag\": \"p\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

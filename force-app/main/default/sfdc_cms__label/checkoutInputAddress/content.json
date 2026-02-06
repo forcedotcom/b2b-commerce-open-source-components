@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutInputAddress",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "firstNameLabel",
+      "value" : "First Name"
+    }, {
+      "name" : "lastNameLabel",
+      "value" : "Last Name"
+    }, {
+      "name" : "companyNameLabel",
+      "value" : "Company Name"
+    }, {
+      "name" : "addressLineOneLabel",
+      "value" : "Address 1"
+    }, {
+      "name" : "addressLineTwoLabel",
+      "value" : "Address 2"
+    }, {
+      "name" : "cityLabel",
+      "value" : "City"
+    }, {
+      "name" : "postalCodeLabel",
+      "value" : "ZIP/Postal Code"
+    }, {
+      "name" : "provinceLabel",
+      "value" : "State/Province"
+    }, {
+      "name" : "countryLabel",
+      "value" : "Country"
+    } ]
+  },
+  "urlName" : "checkoutinputaddress"
+}

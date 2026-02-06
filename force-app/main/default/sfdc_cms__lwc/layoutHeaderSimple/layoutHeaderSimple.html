@@ -1,0 +1,20 @@
+<template lwc:render-mode="light">
+    <header style={_customStyles}>
+        <div class="header-content">
+            <div class="header-start">
+                <div class="header-logo">
+                    <slot name="storeLogo"></slot>
+                </div>
+            </div>
+            <div
+                class="header-end"
+                data-automation="headerEnd">
+                <div class="header-badge-icons">
+                    <div class="header-badge-icons-flex">
+                        <slot name="icons"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</template>

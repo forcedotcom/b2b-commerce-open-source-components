@@ -1,24 +1,20 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "searchInputSuggestions",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "clear",
-        "value": "Clear"
-      },
-      {
-        "name": "loading",
-        "value": "Loading"
-      },
-      {
-        "name": "search",
-        "value": "Search"
-      },
-      {
-        "name": "searchInputAriaDescribedby",
-        "value": "Enter search input. After you start typing, use the arrow keys to navigate previously entered searches."
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "searchInputSuggestions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "clear",
+      "value" : "Clear"
+    }, {
+      "name" : "loading",
+      "value" : "Loading"
+    }, {
+      "name" : "search",
+      "value" : "Search"
+    }, {
+      "name" : "searchInputAriaDescribedby",
+      "value" : "Enter search input. After you start typing, use the arrow keys to navigate previously entered searches."
+    } ]
+  },
+  "urlName" : "searchinputsuggestions"
 }

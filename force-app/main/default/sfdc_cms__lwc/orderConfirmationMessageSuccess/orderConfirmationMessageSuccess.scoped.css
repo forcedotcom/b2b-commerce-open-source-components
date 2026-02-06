@@ -1,0 +1,16 @@
+.centered-content {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--com-c-order-confirmation-message-bg-color, rgba(242, 245, 249, 1));
+    border-radius: var(--com-c-order-confirmation-message-border-radius, 1rem);
+}
+.box-padding {
+    padding: 3rem;
+}
+@media only screen and (max-width: 47.9375em) {
+    .box-padding {
+        padding: 2rem 1.5rem 2rem 1.5rem;
+    }
+}

@@ -1,0 +1,39 @@
+<template lwc:render-mode="light">
+    <div style={cartItemsStyles}>
+        <site-cart-items-ui
+            items={items}
+            pagination={pagination}
+            currency-iso-code={_currencyIsoCode}
+            show-remove-item={showRemoveItem}
+            show-modify-item={showModifyItem}
+            show-product-image={showProductImage}
+            show-product-variants={showProductVariants}
+            show-price-per-unit={showPricePerUnit}
+            show-total-prices={showTotalPrices}
+            show-original-price={showOriginalPrice}
+            show-actual-price={showActualPrice}
+            hide-quantity-selector={hideQuantitySelector}
+            show-quantity-selector-label={showQuantitySelectorLabel}
+            quantity-selector-label={quantitySelectorLabel}
+            show-count-in-name={showCountInName}
+            remove-product-links={removeProductLinks}
+            show-sku={showSku}
+            sku-label={skuLabel}
+            minimum-value-guide-text={minimumValueGuideText}
+            maximum-value-guide-text={maximumValueGuideText}
+            increment-value-guide-text={incrementValueGuideText}
+            show-promotions={showPromotions}
+            promotions-applied-savings-button-text={promotionsAppliedSavingsButtonText}
+            product-field-mapping={productFieldMappingValue}
+            oncartshowmore={handleCartShowMore}
+            ondeletecartitem={handleDeleteCartItem}
+            onupdatecartitem={handleUpdateCartItem}
+            onnavigatetoproduct={handleProductNavigation}
+            oncartgotopage={handleCartGoToPage}
+            pagination-type={paginationTypeValue}>
+            <section slot="showMore">
+                <slot name="showMore"></slot>
+            </section>
+        </site-cart-items-ui>
+    </div>
+</template>

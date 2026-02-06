@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderList",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "errorHeading",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Please try again, or contact us for assistance."
+    } ]
+  },
+  "urlName" : "orderlist"
+}

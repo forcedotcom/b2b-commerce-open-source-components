@@ -1,0 +1,18 @@
+.container {
+    gap: 0 1.5rem;
+}
+.column {
+    flex: 1;
+    max-width: 15rem;
+}
+dl dd.value:last-child {
+    padding-bottom: 0;
+}
+@media only screen and (max-width: 47.9375em) {
+    .container {
+        flex-direction: column;
+    }
+    .column {
+        max-width: 90%;
+    }
+}

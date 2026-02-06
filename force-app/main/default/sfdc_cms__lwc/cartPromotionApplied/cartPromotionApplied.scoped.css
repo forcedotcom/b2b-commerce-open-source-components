@@ -1,0 +1,9 @@
+.promotion-container {
+    border-radius: var(--com-c-cart-applied-promotion-border-radius, 0);
+    background-color: var(--com-c-cart-applied-promotion-background-color, var(--dxp-g-root));
+}
+site-cart-promotion-applied-ui site-common-pill {
+    border-radius: var(--com-c-pill-border-radius, 8px);
+    border-color: var(--com-c-pill-border-color, transparent);
+    color: var(--com-c-pill-text-color, var(--dxp-g-brand-contrast));
+}

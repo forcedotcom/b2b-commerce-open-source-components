@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Shipping Address</masterLabel>
+  <description>Manage and select delivery addresses during checkout process.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutAddresses" label="Address Binding Expression" type="String" default="{!Checkout.Addresses}"></property>
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}"></property>
+      <property name="cartDetails" label="Cart Binding Expression" type="String" default="{!Checkout.CartDetails}"></property>
+      <property name="summaryModeEnabled" label="Show the customer&apos;s default address only." type="Boolean" default="true"></property>
+      <property name="shippingAddressLimit" label="Initial Number of Addresses Shown" type="String" datasource="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20" default="6"></property>
+      <property name="shippingAddressLimitIncrease" label="Additional Addresses Displayed" type="String" datasource="1,2,3,4,5,6,7,8,9,10" default="6"></property>
+      <property name="editAddressLabel" label="Edit Address Label" type="String" default="Edit Address" translatable="true"></property>
+      <property name="newAddressButtonLabel" label="New Address Button Label" type="String" default="New Address" translatable="true"></property>
+      <property name="showMoreButtonLabel" label="Show More Button Label" type="String" default="Show More" translatable="true"></property>
+      <property name="componentHeaderEditAddressLabel" label="Edit Address Heading" type="String" default="Edit Address" translatable="true"></property>
+      <property name="showCompanyName" label="Show Company Name Field" type="Boolean" default="false"></property>
+      <property name="showPhoneNumber" label="Show Shipping Phone Number Field" type="Boolean" default="false"></property>
+      <property name="phoneNumberRequired" label="Make Shipping Phone Number Field Required" type="Boolean" default="false"></property>
+      <property name="splitShipLinkLabel" label="Split Ship Link Label" type="String" default="Ship to Multiple Addresses" translatable="true"></property>
+      <property name="makeDefaultAddressLabel" label="Default Address Checkbox Label" type="String" default="Make this my default address" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="summaryModeEnabled"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Address List">
+          <designLayoutItems>
+            <designLayoutProperty name="shippingAddressLimit"></designLayoutProperty>
+            <designLayoutProperty name="shippingAddressLimitIncrease"></designLayoutProperty>
+            <designLayoutProperty name="editAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="newAddressButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="showMoreButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="componentHeaderEditAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="showCompanyName"></designLayoutProperty>
+            <designLayoutProperty name="showPhoneNumber"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberRequired" cbVisibleIf="showPhoneNumber"></designLayoutProperty>
+            <designLayoutProperty name="splitShipLinkLabel"></designLayoutProperty>
+            <designLayoutProperty name="makeDefaultAddressLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutAddresses"></designLayoutProperty>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

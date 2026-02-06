@@ -1,0 +1,44 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutErrorHandler",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "genericErrorHeader",
+      "value" : "Something went wrong."
+    }, {
+      "name" : "unknownErrorBody",
+      "value" : "Try again later."
+    }, {
+      "name" : "noDeliveryAddressesBody",
+      "value" : "We couldn’t proceed with checkout because there’s no saved shipping address and you don’t have the necessary buyer permissions to add one."
+    }, {
+      "name" : "noDeliveryMethodsErrorLabel",
+      "value" : "Sorry, we can't deliver this item to the selected address. Change the items in your cart or update the delivery address. For more help, contact customer support."
+    }, {
+      "name" : "insufficientInventoryBody",
+      "value" : "Some items are unavailable or out of stock."
+    }, {
+      "name" : "insufficientInventoryHeader",
+      "value" : "Not enough inventory"
+    }, {
+      "name" : "invalidContactPhoneBody",
+      "value" : "Enter a valid phone number. Select your country code in the dropdown and enter your phone number in the field."
+    }, {
+      "name" : "fatalErrorBody",
+      "value" : "We couldn't proceed with checkout. Return to the cart and try again."
+    }, {
+      "name" : "returnToCart",
+      "value" : "Return to cart"
+    }, {
+      "name" : "returnToCheckout",
+      "value" : "Back to Checkout"
+    }, {
+      "name" : "paymentErrorBody",
+      "value" : "Check your payment information and try again."
+    }, {
+      "name" : "paymentErrorHeader",
+      "value" : "Unable to Process Payment"
+    } ]
+  },
+  "urlName" : "checkouterrorhandler"
+}

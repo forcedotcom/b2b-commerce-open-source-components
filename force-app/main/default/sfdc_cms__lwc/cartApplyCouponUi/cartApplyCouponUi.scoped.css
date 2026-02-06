@@ -1,0 +1,23 @@
+.coupon-input-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--dxp-g-spacing-small);
+    margin-bottom: var(--dxp-g-spacing-xsmall);
+}
+div.coupon-input-container {
+    flex-grow: 1;
+}
+lightning-input.slds-form-element.coupon-code-input {
+    width: 100%;
+    margin: 0;
+    padding-bottom: 0;
+    --sds-c-input-color-background: var(--com-c-cart-text-input-background-color);
+    --sds-c-input-color-background-focus: var(--com-c-cart-text-input-background-color);
+    --sds-c-input-text-color: var(--com-c-cart-text-input-font-color);
+    --sds-c-input-text-color-focus: var(--com-c-cart-text-input-font-color);
+}
+p.error {
+    --sds-c-input-color-border-focus: var(--dxp-g-destructive);
+    overflow-wrap: anywhere;
+}

@@ -1,0 +1,14 @@
+<template lwc:render-mode="light">
+    <experience-video
+        lwc:if={url}
+        alternative-text={alternativeText}
+        url={url}
+        autoplay={autoplay}
+        loop={loop}
+        mute={mute}
+        controls={controls}></experience-video>
+    <img
+        lwc:else
+        src={placeholder}
+        alt={videoPlaceholderAltText} />
+</template>

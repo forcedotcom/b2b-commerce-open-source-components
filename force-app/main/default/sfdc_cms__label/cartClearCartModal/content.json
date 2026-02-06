@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartClearCartModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "clearCartConfirmationHeader",
+      "value" : "Remove all items from your cart?"
+    }, {
+      "name" : "cancelClearCart",
+      "value" : "Cancel"
+    }, {
+      "name" : "confirmClearCart",
+      "value" : "Clear Cart"
+    } ]
+  },
+  "urlName" : "cartclearcartmodal"
+}

@@ -1,0 +1,62 @@
+<template lwc:render-mode="light">
+    <div
+        class="container"
+        aria-expanded={isMobileExpanded}>
+        <!-- Mobile headings -->
+        <!-- Checkout heading here -->
+        <div
+            slot="checkoutmobileheading"
+            data-automation="checkoutmobileheading">
+            <slot name="checkoutmobileheading"></slot>
+        </div>
+
+        <!-- Collapsed in mobile -->
+        <!-- class="expandable-summary show/hide" -->
+        <div class={expandableSummaryClasses}>
+            <h3
+                class="summary-mobile-heading"
+                tabindex="0"
+                role="button"
+                onclick={handleClick}
+                onkeydown={handleKeyDown}>
+                <span class="title">{expandableSummaryHeading}</span>
+
+                <span class="mobile-expand-button">
+                    <lightning-icon
+                        icon-name={mobileExpanderName}
+                        size="x-small"
+                        variant="bare"></lightning-icon>
+                </span>
+            </h3>
+
+            <!-- Cart Summary here with expand/collapse in mobile -->
+            <div
+                slot="summary"
+                data-automation="summary">
+                <slot name="summary"></slot>
+            </div>
+
+            <h3
+                lwc:if={_hideCartItemsTitle}
+                class="cart-item-title"
+                onclick={handleExpandableCartItemsClick}
+                aria-expanded={_showCartItemsExpanded}>
+                <span>{_expandableCartItemsTitle}</span>
+                <span class="cartitems-expand-button">
+                    <lightning-icon
+                        icon-name={expanderIconName}
+                        size="x-small"
+                        variant="bare"></lightning-icon>
+                </span>
+            </h3>
+
+            <!-- cart items slot -->
+            <div
+                lwc:if={showCartItemsInfo}
+                slot="cartitems"
+                class={cartItemsClasses}>
+                <slot name="cartitems"></slot>
+            </div>
+        </div>
+    </div>
+</template>

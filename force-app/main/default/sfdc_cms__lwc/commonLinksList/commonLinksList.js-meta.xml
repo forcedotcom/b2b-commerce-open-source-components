@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Link List</masterLabel>
+  <description>Displays a customizable list of links for navigation purposes.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property type="String" name="maxDepth" datasource="1,2" default="1" label="Max Depth"></property>
+      <property type="String" name="navigationMenuData" default="{!NavMenu.MenuItems}" label="Navigation Menu Data"></property>
+      <property type="Color" name="linkColor" label="Link Color"></property>
+      <property type="Color" name="linkHoverColor" label="Link Hover Color"></property>
+      <property name="textAlign" type="TextAlignment" default="left" screenResponsive="true" exposedTo="css" label="Text Alignment"></property>
+      <property name="textDisplayInfo" type="TextStyle" default="{}" label="Text Style"></property>
+      <property name="textDecoration" type="TextDecoration" default="{}" label="Emphasis"></property>
+      <property name="linkSpacing" type="String" default="none" label="Link Spacing" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="maxDepth"></designLayoutProperty>
+            <designLayoutProperty name="navigationMenuData"></designLayoutProperty>
+            <designLayoutProperty name="linkColor"></designLayoutProperty>
+            <designLayoutProperty name="linkHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="textAlign"></designLayoutProperty>
+            <designLayoutProperty name="textDisplayInfo"></designLayoutProperty>
+            <designLayoutProperty name="textDecoration"></designLayoutProperty>
+            <designLayoutProperty name="linkSpacing"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

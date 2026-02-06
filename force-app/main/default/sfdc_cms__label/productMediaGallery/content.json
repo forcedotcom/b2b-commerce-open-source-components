@@ -1,20 +1,17 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "productMediaGallery",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "previousAssistiveText",
-        "value": "Previous"
-      },
-      {
-        "name": "nextAssistiveText",
-        "value": "Next"
-      },
-      {
-        "name": "noProductImageText",
-        "value": "Add images and videos to help customers visualize the product."
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "productMediaGallery",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "previousAssistiveText",
+      "value" : "Previous"
+    }, {
+      "name" : "nextAssistiveText",
+      "value" : "Next"
+    }, {
+      "name" : "noProductImageText",
+      "value" : "Add images and videos to help customers visualize the product."
+    } ]
+  },
+  "urlName" : "productmediagallery"
 }

@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchFiltersPanelSection",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "toggleFilterExpandedAssistiveText",
+      "value" : "Toggle filter, expanded"
+    }, {
+      "name" : "toggleFilterCollapsedAssistiveText",
+      "value" : "Toggle filter, collapsed"
+    } ]
+  },
+  "urlName" : "searchfilterspanelsection"
+}

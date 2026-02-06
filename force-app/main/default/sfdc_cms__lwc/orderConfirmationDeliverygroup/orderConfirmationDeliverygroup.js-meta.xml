@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Shipping Details</masterLabel>
+  <description>Shows the shipping details of the order.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="deliveryGroup" label="Delivery Group Expression" type="String" default="{!DeliveryGroup}"></property>
+      <property name="ownerInfo" label="Owner Details Expression" type="String" default="{!Order.Owner}"></property>
+      <property name="companyNameLabel" label="Company Name Label" type="String" default="Company Name" translatable="true"></property>
+      <property name="shippingAddressLabel" label="Shipping Address Label" type="String" default="Shipping Address" translatable="true"></property>
+      <property name="phoneNumberLabel" label="Phone Number Label" type="String" default="Phone Number" translatable="true"></property>
+      <property name="shippingMethodLabel" label="Shipping Method Label" type="String" default="Shipping Method" translatable="true"></property>
+      <property name="shippingChargesLabel" label="Shipping Charges Label" type="String" default="Shipping Charges" translatable="true"></property>
+      <property name="deliveryTimelineLabel" label="Delivery Timeline Label" type="String" default="Arriving" translatable="true"></property>
+      <property name="emailAddressLabel" label="Email Address Label" type="String" default="Email ID" translatable="true"></property>
+      <property name="giftOrderLabel" label="Gift Order Field Label" type="String" default="This is a gift" translatable="true"></property>
+      <property name="giftMessageLabel" label="Gift Message Field Label" type="String" default="Gift Message" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="deliveryGroup"></designLayoutProperty>
+            <designLayoutProperty name="ownerInfo"></designLayoutProperty>
+            <designLayoutProperty name="companyNameLabel"></designLayoutProperty>
+            <designLayoutProperty name="shippingAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberLabel"></designLayoutProperty>
+            <designLayoutProperty name="shippingMethodLabel"></designLayoutProperty>
+            <designLayoutProperty name="shippingChargesLabel"></designLayoutProperty>
+            <designLayoutProperty name="deliveryTimelineLabel"></designLayoutProperty>
+            <designLayoutProperty name="emailAddressLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Gifting Details">
+          <designLayoutItems>
+            <designLayoutProperty name="giftOrderLabel"></designLayoutProperty>
+            <designLayoutProperty name="giftMessageLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

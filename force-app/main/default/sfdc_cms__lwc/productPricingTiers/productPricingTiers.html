@@ -1,0 +1,11 @@
+<template lwc:render-mode="light">
+    <site-product-pricing-tiers-ui
+        if:true={showTiers}
+        quantity-row-label={quantityRowLabel}
+        discount-row-label={discountRowLabel}
+        product-pricing={productPricing}
+        class="slds-scrollable_x pricing-tiers"
+        style={productPricingTiersCustomStyles}>
+        <div slot="title"><slot name="title"></slot></div>
+    </site-product-pricing-tiers-ui>
+</template>

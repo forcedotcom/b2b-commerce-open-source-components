@@ -1,0 +1,14 @@
+:host {
+    --com-c-pill-font-size: var(--com-c-promotions-summary-pill-font-size, var(--dxp-s-body-small-font-size, 0.75rem));
+    --com-c-pill-background-color: var(--com-c-promotions-summary-pill-bg-color, rgb(217, 223, 231));
+    --com-c-pill-border-color: var(--com-c-promotions-summary-pill-border-color, rgb(217, 223, 231));
+    --com-c-pill-border-radius: var(--com-c-promotions-summary-pill-border-radius, 0.5rem);
+}
+.promotions-content {
+    display: flex;
+    gap: var(--com-c-promotions-summary-pills-vertical-gap, 0.75rem)
+        var(--com-c-promotions-summary-pills-horizontal-gap, 0.5rem);
+    flex-wrap: wrap;
+    padding-top: var(--com-c-promotions-summary-content-padding-top, 0.75rem);
+    padding-bottom: var(--com-c-promotions-summary-content-padding-bottom, 0.75rem);
+}

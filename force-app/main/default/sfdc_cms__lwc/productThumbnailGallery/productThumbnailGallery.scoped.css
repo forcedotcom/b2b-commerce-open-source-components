@@ -87,7 +87,6 @@ ul {
 .zoom-hero-container {
     position: relative;
     max-height: inherit;
-    min-width: 450px;
 }
 button experience-picture,
 button experience-video-thumbnail {

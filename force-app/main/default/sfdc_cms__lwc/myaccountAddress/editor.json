@@ -1,0 +1,249 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myaccountAddress",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_layout:tabs",
+                                "type": "component",
+                                "attributes": {
+                                    "tabsetConfig": {
+                                        "tabs": [
+                                            {
+                                                "tabKey": "shipping",
+                                                "tabName": "Shipping"
+                                            },
+                                            {
+                                                "tabKey": "billing",
+                                                "tabName": "Billing"
+                                            }
+                                        ]
+                                    }
+                                },
+                                "children": [
+                                    {
+                                        "name": "shipping",
+                                        "title": "shipping",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:grid",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "itemSpacing": "xx-small",
+                                                    "numberOfColumns": 3,
+                                                    "showEmptyState": true,
+                                                    "showErrorState": true,
+                                                    "showPagination": true,
+                                                    "autoScrollToMostRecent": true,
+                                                    "isFixedRowHeight": true
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "sfdcRepeaterItem",
+                                                        "title": "Repeater",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "attributes": {
+                                                                    "item": "{!MyAccountAddress}",
+                                                                    "rawInternationalizationData": "{!I18n.Countries}"
+                                                                },
+                                                                "definition": "commerce_builder:myAccountAddressCard",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "emptyState",
+                                                        "title": "Empty State",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:myAccountAddressEmptyState",
+                                                                "type": "component",
+                                                                "children": [
+                                                                    {
+                                                                        "name": "emptyStateContent",
+                                                                        "title": "Empty State Content",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "You haven't added shipping addresses.",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}",
+                                                                                    "textDecoration": "{\"bold\": true}",
+                                                                                    "textAlign": "center"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "When you add a shipping address, it'll show here.",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                                                                    "textAlign": "center"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "errorState",
+                                                        "title": "Error State",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:myAccountAddressErrorState",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "dataProviders": [
+                                                    {
+                                                        "definition": "sfdc_cms__commerceMyAccountAddressDataProvider",
+                                                        "type": "dataProvider",
+                                                        "sfdcExpressionKey": "MyAccountAddress",
+                                                        "attributes": {
+                                                            "addressType": "shipping",
+                                                            "excludeUnsupportedCountries": true,
+                                                            "pageSize": 10,
+                                                            "showOnlyDefaultAddress": false
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "billing",
+                                        "title": "billing",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:grid",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "itemSpacing": "xx-small",
+                                                    "numberOfColumns": 3,
+                                                    "showEmptyState": true,
+                                                    "showErrorState": true,
+                                                    "showPagination": true,
+                                                    "autoScrollToMostRecent": true,
+                                                    "isFixedRowHeight": true
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "sfdcRepeaterItem",
+                                                        "title": "Repeater",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "attributes": {
+                                                                    "item": "{!MyAccountAddress}",
+                                                                    "rawInternationalizationData": "{!I18n.Countries}"
+                                                                },
+                                                                "definition": "commerce_builder:myAccountAddressCard",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "emptyState",
+                                                        "title": "Empty State",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:myAccountAddressEmptyState",
+                                                                "type": "component",
+                                                                "children": [
+                                                                    {
+                                                                        "name": "emptyStateContent",
+                                                                        "title": "Empty State Content",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "You haven't added billing addresses.",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}",
+                                                                                    "textDecoration": "{\"bold\": true}",
+                                                                                    "textAlign": "center"
+                                                                                }
+                                                                            },
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "When you add a billing address, it'll show here.",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                                                                    "textAlign": "center"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "errorState",
+                                                        "title": "Error State",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:myAccountAddressErrorState",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "dataProviders": [
+                                                    {
+                                                        "definition": "sfdc_cms__commerceMyAccountAddressDataProvider",
+                                                        "type": "dataProvider",
+                                                        "sfdcExpressionKey": "MyAccountAddress",
+                                                        "attributes": {
+                                                            "addressType": "billing",
+                                                            "excludeUnsupportedCountries": false,
+                                                            "pageSize": 10,
+                                                            "showOnlyDefaultAddress": false
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceI18nDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "I18n",
+                        "attributes": {
+                            "excludeCountries": false,
+                            "countries": ["JP", "CN", "KR", "TW", "TH", "VN", "MY"]
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

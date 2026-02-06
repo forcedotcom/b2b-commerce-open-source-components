@@ -1,0 +1,35 @@
+<template lwc:render-mode="light">
+    <site-checkout-deliverymethod-options
+        lwc:if={_showWithoutGroupName}
+        checkout-details={checkoutDetails}
+        delivery-group={_deliveryGoup}
+        shipping-methods-enabled={shippingMethodsEnabled}
+        show-multiple-shipments-ui={_showWithoutGroupName}></site-checkout-deliverymethod-options>
+    <site-common-scoped-notification
+        type="info"
+        body-text={splitShipmentScopeNotificationLabel}
+        class="slds-p-vertical_x-small"
+        lwc:if={_showScopedNotification}></site-common-scoped-notification>
+    <br lwc:if={expandedMode} />
+    <div
+        data-methods-multiple-groups
+        lwc:if={_showWithGroupName}>
+        <div
+            lwc:if={_summaryMode}
+            class="summary-label">
+            {multipleShippingMethodsLabel}
+            <div class="summary-label-dates">{summarisedLabel}</div>
+        </div>
+        <template
+            lwc:else
+            for:each={checkoutDetails.deliveryGroups.items}
+            for:item="deliveryGroupData">
+            <site-checkout-deliverymethod-group
+                key={deliveryGroupData.id}
+                checkout-details={checkoutDetails}
+                delivery-group={deliveryGroupData}
+                raw-internationalization-data={_rawInternationalizationData}
+                shipping-methods-enabled={shippingMethodsEnabled}></site-checkout-deliverymethod-group>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,26 @@
+<template lwc:render-mode="light">
+    <div
+        class="stencil-container"
+        data-cart-items>
+        <template
+            for:each={items}
+            for:item="item">
+            <div
+                class="stencil-item-container"
+                key={item.key}>
+                <div class="stencil-item icon"></div>
+                <div class="line-method details slds-m-left_small">
+                    <div class="stencil-item line name"></div>
+                    <div class="stencil-item line"></div>
+                    <div class="stencil-item line"></div>
+                    <div class="stencil-item line"></div>
+                </div>
+                <div class="line-method stencil-item-end slds-float_right">
+                    <div class="stencil-item line price"></div>
+                    <div class="stencil-item line price"></div>
+                    <div class="stencil-item line delete"></div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

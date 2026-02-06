@@ -1,10 +1,6 @@
 :host {
     display: block;
 }
-.limitHitTextSection {
-    display: flex;
-    justify-content: center;
-}
 .pageControlPart {
     display: flex;
     justify-content: center;

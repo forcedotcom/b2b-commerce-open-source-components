@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Gift Options</masterLabel>
+  <description>Builder component for Gift Options.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="items" label="Items" type="String" default="{!Cart.Items}"></property>
+      <property name="checkoutDetails" label="Checkout Details" type="String" default="{!Checkout.Details}"></property>
+      <property name="giftWraps" label="Gift Wraps" type="String" default="{!Checkout.GiftWraps}"></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

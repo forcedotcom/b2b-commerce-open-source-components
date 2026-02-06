@@ -1,0 +1,42 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutPurchaseOrder",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "heading",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Purchase Order",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "medium",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "billingAddress",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutBillingInfo",
+                                "type": "component",
+                                "attributes": {
+                                    "showAddressLookup": true
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

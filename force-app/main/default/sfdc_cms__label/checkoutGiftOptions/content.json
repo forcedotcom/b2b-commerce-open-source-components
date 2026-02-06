@@ -1,0 +1,41 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutGiftOptions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "noGiftOptionsLabel",
+      "value" : "Gifting options are available"
+    }, {
+      "name" : "giftMessageLabel",
+      "value" : "Gift message"
+    }, {
+      "name" : "giftWrapLabel",
+      "value" : "Gift wrap"
+    }, {
+      "name" : "giftMessageAndWrapLabel",
+      "value" : "Gift wrap and gift message"
+    }, {
+      "name" : "orderIsAGiftLabel",
+      "value" : "This is a gift"
+    }, {
+      "name" : "giftMessageCheckboxLabel",
+      "value" : "Include a gift message"
+    }, {
+      "name" : "giftMessageTextAreaPlaceholderTextLabel",
+      "value" : "Enter your message here..."
+    }, {
+      "name" : "giftMessageRemainingCharactersLabel",
+      "value" : "Remaining characters: {0}"
+    }, {
+      "name" : "orderAsGiftCheckBoxLabel",
+      "value" : "This is a gift"
+    }, {
+      "name" : "addGiftWrapLabel",
+      "value" : "Add a gift wrap"
+    }, {
+      "name" : "defaultDeliveryGroupMessage",
+      "value" : "When you’re shipping to multiple shipments, only Shipment1 can be marked as a gift. Make sure the intended gift product is in Shipment1 before ordering. To send gifts to multiple addresses, place them in separate orders."
+    } ]
+  },
+  "urlName" : "checkoutgiftoptions"
+}

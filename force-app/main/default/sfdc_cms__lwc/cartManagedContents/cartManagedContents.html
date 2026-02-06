@@ -1,0 +1,36 @@
+<template lwc:render-mode="light">
+    <site-common-scoped-notification
+        lwc:if={message}
+        class="slds-m-bottom_small"
+        header-text={message.message}
+        type={messageSeverity}></site-common-scoped-notification>
+    <header>
+        <site-cart-header
+            sort-order={sortOrder}
+            show-sort-options={showSortOptions}>
+            <section
+                slot="label"
+                data-automation="label">
+                <slot name="headerLabel"></slot>
+            </section>
+            <section
+                slot="countLabel"
+                data-automation="countLabel">
+                <slot name="headerCount"></slot>
+            </section>
+            <section
+                slot="footerClearCart"
+                data-automation="footerClearCart">
+                <slot name="footerClearCart"></slot>
+            </section>
+        </site-cart-header>
+    </header>
+
+    <div>
+        <slot name="cartDiscountsApproaching"></slot>
+        <slot name="cartBody"></slot>
+    </div>
+    <footer lwc:if={showFooter}>
+        <site-cart-footer></site-cart-footer>
+    </footer>
+</template>

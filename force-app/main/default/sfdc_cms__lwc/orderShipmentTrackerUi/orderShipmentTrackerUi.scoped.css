@@ -1,0 +1,116 @@
+.container {
+    border: 1px solid var(--com-c-order-shipment-tracker-border-color, var(--dxp-s-form-element-color-border));
+    border-radius: var(--com-c-order-shipment-tracker-border-radius, 0px);
+    background-color: var(--com-c-order-shipment-tracker-background-color, var(--dxp-g-root));
+    overflow-x: hidden;
+}
+.track {
+    position: relative;
+    display: flex;
+}
+.track .step {
+    flex-grow: 1;
+    text-align: center;
+    position: relative;
+}
+.track .step:before {
+    background: var(--com-c-order-shipment-tracker-pending-icon-color, #d9dfe7);
+}
+.track .step.active:before {
+    background: var(--com-c-order-shipment-tracker-success-icon-color, #0d825d);
+}
+.track .step::before {
+    height: 4px;
+    position: absolute;
+    content: '';
+    width: 100%;
+    left: -2px;
+    top: 14px;
+}
+.track .step:first-child::before {
+    width: 50%;
+    right: 0;
+    left: initial;
+}
+.track .step:last-child::before {
+    width: 50%;
+}
+.track .step:only-child:last-child::before {
+    width: 0;
+}
+.text {
+    margin-top: var(--dxp-g-spacing-small, 0.75rem);
+    padding-right: var(--dxp-g-spacing-xxxsmall, 0.125rem);
+    padding-left: var(--dxp-g-spacing-xxxsmall, 0.125rem);
+    color: var(--com-c-order-shipment-tracker-text-color, var(--dxp-g-root-contrast, #1c1c1c));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.bold {
+    font-weight: 600;
+}
+.text-container {
+    display: flex;
+    align-items: center;
+}
+.status-text-color {
+    color: var(--com-c-order-shipment-tracker-success-icon-color, #0d825d);
+}
+.previous-status-text {
+    color: var(--com-c-order-shipment-tracker-previous-status-text-color, #707275);
+}
+.track .step.active .icon {
+    background: var(--com-c-order-shipment-tracker-background-color, var(--dxp-g-root));
+}
+.track .icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    position: relative;
+    border-radius: 100%;
+    background: var(--com-c-order-shipment-tracker-pending-icon-color, #d9dfe7);
+}
+.slds-progress__marker_icon .slds-icon {
+    fill: var(--com-c-order-shipment-tracker-success-icon-color, #0d825d);
+}
+.icon-offset-left {
+    position: relative;
+    left: calc(-16px + 50%);
+}
+.status-icon-color {
+    fill: var(--com-c-order-shipment-tracker-success-icon-color, #0d825d);
+}
+.v-align-middle {
+    vertical-align: middle;
+}
+@media only screen and (min-width: 64.0625em) {
+    .track {
+        margin-left: -3.5%;
+        margin-right: -3.5%;
+    }
+    .text {
+        width: 70%;
+        margin: 0 auto;
+        margin-top: var(--dxp-g-spacing-small, 0.75rem);
+    }
+}
+@media only screen and (max-width: 47.9375em) {
+    .container {
+        overflow-x: auto;
+    }
+    .text {
+        margin-top: var(--dxp-g-spacing-small, 0.75rem);
+        padding-right: var(--dxp-g-spacing-xsmall, 0.5rem);
+        padding-left: var(--dxp-g-spacing-xsmall, 0.5rem);
+    }
+    .slds-size_1-of-4 {
+        width: 35%;
+    }
+    .slds-size_1-of-5 {
+        width: 30%;
+    }
+}

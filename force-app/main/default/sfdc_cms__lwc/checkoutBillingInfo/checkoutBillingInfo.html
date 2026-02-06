@@ -1,0 +1,61 @@
+<template lwc:render-mode="light">
+    <div slot="heading">
+        <h2
+            class="slds-text-heading_medium slds-text-align_left slds-p-vertical_medium"
+            style="font-weight: bold">
+            Billing Address
+        </h2>
+    </div>
+
+    <template if:true={_showSummary}>
+        <template if:true={useShippingAddressForBilling}>
+            <div>{billingAddressSameAsShippingAddressLabel}</div>
+        </template>
+        <template if:false={useShippingAddressForBilling}>
+            <div>{address.name}</div>
+            <lightning-formatted-address
+                street={address.street}
+                city={address.city}
+                country={countryLabel}
+                province={address.region}
+                postal-code={address.postalCode}
+                disabled
+                locale={customLocale}></lightning-formatted-address>
+        </template>
+    </template>
+
+    <template if:true={_showEdit}>
+        <lightning-input
+            data-use-same-shipping-address
+            class="checkbox-checked"
+            type="checkbox"
+            disabled={_readOnly}
+            label={billingAddressSameAsShippingAddressLabel}
+            name="use-same-shipping-address"
+            onchange={handleBillingAddressOptionChange}
+            checked={useShippingAddressForBilling}></lightning-input>
+
+        <site-checkout-billing-address-combo
+            lwc:if={showMultipleBillingAddresses}
+            data-multiple-billing
+            delivery-group-addresses={deliveryGroupAddresses}
+            selected-address={_selectedAddress}
+            raw-internationalization-data={_rawInternationalizationData}
+            onchangeaddressoption={handleSelectedAddressChange}
+            a11y-billing-address-label={_a11yBillingAddressLabel}></site-checkout-billing-address-combo>
+
+        <div class={billingAddressClasses}>
+            <site-checkout-input-address
+                data-billing-input-address
+                show-address-lookup={_showAddressLookup}
+                disabled={_readOnly}
+                show-person-name={_showName}
+                address={address}
+                default-country={_defaultCountry}
+                raw-internationalization-data={_rawInternationalizationData}
+                show-all-countries={_showAllCountries}
+                onaddresschanged={handleAddressChange}
+                onaddressdirty={handleAddressDirty}></site-checkout-input-address>
+        </div>
+    </template>
+</template>

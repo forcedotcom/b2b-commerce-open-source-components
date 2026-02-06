@@ -1,0 +1,36 @@
+<template lwc:render-mode="light">
+    <template lwc:if={showShipmentTracker}>
+        <div class="container slds-p-horizontal_xx-small slds-p-vertical_large slds-m-bottom_medium">
+            <div class="track">
+                <template
+                    for:each={normalizedStatus}
+                    for:item="status">
+                    <template lwc:if={status.completed}>
+                        <div
+                            key={status.apiName}
+                            class={status.widthCssClass}>
+                            <span class={status.iconCssClass}>
+                                <svg
+                                    class="slds-icon slds-icon_medium icon-offset-left icon-clipping"
+                                    aria-hidden="true">
+                                    <use xlink:href={fetchIcon}></use>
+                                </svg>
+                            </span>
+                            <span class="slds-assistive-text">{status.displayValue} - Completed</span>
+                            <span class={status.textCssClass}>{status.displayValue}</span>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <div
+                            key={status.apiName}
+                            class={status.widthCssClass}>
+                            <span class="icon v-align-middle"></span>
+                            <span class="slds-assistive-text">{status.displayValue}</span>
+                            <span class={status.textCssClass}>{status.displayValue}</span>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

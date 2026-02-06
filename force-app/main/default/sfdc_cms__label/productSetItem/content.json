@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "productSetItem",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "addToCartButtonText",
-        "value": "Add to Cart"
-      },
-      {
-        "name": "quantitySelectorText",
-        "value": "qty"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "productSetItem",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToCartButtonText",
+      "value" : "Add to Cart"
+    }, {
+      "name" : "quantitySelectorText",
+      "value" : "qty"
+    } ]
+  },
+  "urlName" : "productsetitem"
 }

@@ -1,0 +1,127 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:productBundle",
+                "type": "component",
+                "attributes": {
+                    "productClass": "{!ProductChild.productClass}",
+                    "total": "{!ProductChild.total}"
+                },
+                "children": [
+                    {
+                        "name": "itemsBody",
+                        "title": "itemsBody",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:expandableSection",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "title": "Title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Included Items ({!ProductChild.total})",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                                    "textDecoration": "{\"bold\": false}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "content",
+                                        "title": "Content",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:list",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "itemSpacing": "none",
+                                                    "listType": "unformatted",
+                                                    "showPagination": true,
+                                                    "autoScrollToMostRecent": true
+                                                },
+                                                "dataProviders": [
+                                                    {
+                                                        "definition": "sfdc_cms__expressionDataProvider",
+                                                        "type": "dataProvider",
+                                                        "sfdcExpressionKey": "Item",
+                                                        "attributes": {
+                                                            "listSource": "{!ProductChild.items}"
+                                                        }
+                                                    }
+                                                ],
+                                                "children": [
+                                                    {
+                                                        "name": "sfdcRepeaterItem",
+                                                        "title": "sfdcRepeaterItem",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "attributes": {
+                                                                    "item": "{!Item.data}",
+                                                                    "parentProductDetails": "{!Product.Details}",
+                                                                    "dynamicAttributesAvailableText": "{0} Configurable Attributes"
+                                                                },
+                                                                "definition": "commerce_builder:productBundleItem",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "pagination",
+                                                        "title": "pagination",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "attributes": {
+                                                                    "nextPageToken": "{!ProductChild.pagination.state.nextPageToken}",
+                                                                    "dxpStyle": {
+                                                                        "margin": {
+                                                                            "bottom": "0rem",
+                                                                            "left": "0rem",
+                                                                            "right": "0rem",
+                                                                            "top": "0.5rem"
+                                                                        }
+                                                                    },
+                                                                    "alignment": "center"
+                                                                },
+                                                                "definition": "commerce_builder:productBundleViewAllButton",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "iconAlignment": "left",
+                                    "expandByDefault": true
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceProductChildrenDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "ProductChild",
+                        "attributes": {
+                            "productId": "{!Route.recordId}"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

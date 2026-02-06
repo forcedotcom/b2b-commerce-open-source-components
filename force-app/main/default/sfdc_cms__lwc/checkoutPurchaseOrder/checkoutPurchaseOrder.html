@@ -1,0 +1,32 @@
+<template lwc:render-mode="light">
+    <template if:true={_showComponent}>
+        <div class={_showEditLayoutClass}>
+            <div slot="heading">
+                <slot name="heading"></slot>
+            </div>
+
+            <lightning-input
+                data-purchase-order-input
+                name="po-number"
+                label={inputLabel}
+                placeholder={placeholderLabel}
+                required></lightning-input>
+
+            <template if:true={requireBillingAddress}>
+                <div class="slds-p-top_small">
+                    <div
+                        slot="billingAddress"
+                        data-automation="billingAddress">
+                        <slot name="billingAddress"></slot>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <template if:true={showStencil}>
+            <site-checkout-stencil
+                stencil-type={_stencilType}
+                item-count="3"></site-checkout-stencil>
+        </template>
+    </template>
+</template>

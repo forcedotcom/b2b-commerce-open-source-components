@@ -1,0 +1,13 @@
+:host {
+    display: grid;
+    word-break: break-word;
+}
+:host > div {
+    align-self: var(--com-c-product-field-align-self, auto);
+    font-weight: var(--com-c-product-field-font-weight, inherit);
+    justify-self: var(--com-c-product-field-justify-self, auto);
+    padding: var(--com-c-product-field-padding, 0);
+}
+.bold-string-title {
+    font-weight: 700;
+}

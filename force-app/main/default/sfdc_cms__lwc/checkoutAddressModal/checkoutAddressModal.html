@@ -1,0 +1,53 @@
+<template>
+    <lightning-modal-header label={headerLabel}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="body-contents">
+            <div
+                class="slds-p-left_xx-large slds-p-right_xx-large slds-p-top_xx-large"
+                lwc:if={shipmentName}>
+                <h1 class="body-heading">{shipmentName}</h1>
+            </div>
+            <div class="slds-p-left_xx-large slds-p-right_xx-large slds-p-top_x-large">
+                <site-checkout-input-address
+                    data-shipping-input-address
+                    show-address-lookup={showAddressLookup}
+                    show-form-border-style={showBackToListLink}
+                    show-back-to-list-link={showBackToListLink}
+                    show-person-name={_showPersonName}
+                    show-company-name={showCompanyName}
+                    show-phone-number={showPhoneNumber}
+                    phone-number-required={phoneNumberRequired}
+                    show-default-address={isLoggedIn}
+                    make-default-address-label={makeDefaultAddressLabel}
+                    address={address}
+                    default-country={defaultCountry}
+                    raw-internationalization-data={rawInternationalizationData}
+                    raw-internationalization-data-phone={rawInternationalizationDataPhone}
+                    phone-number-label={phoneNumberLabel}
+                    phone-number-placeholder-text={phoneNumberPlaceholderText}
+                    skip-phone-number-validation-enabled={skipPhoneNumberValidationEnabled}></site-checkout-input-address>
+            </div>
+            <hr class="solid" />
+            <div class="slds-grid slds-wrap slds-p-around_small footer">
+                <site-common-button-ui
+                    variant="secondary"
+                    width="stretch"
+                    onclick={handleCancel}
+                    alignment="center"
+                    data-test-id="cancel-btn"
+                    class="cancel-btn">
+                    {cancelActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    variant="primary"
+                    width="stretch"
+                    onclick={handleSubmit}
+                    alignment="center"
+                    data-test-id="submit-btn"
+                    disabled={isSubmitButtonDisabled}>
+                    {_saveButtonLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+    </lightning-modal-body>
+</template>

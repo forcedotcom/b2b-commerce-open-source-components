@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "searchCombobox",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "search",
-        "value": "Search"
-      },
-      {
-        "name": "searchFor",
-        "value": "Search for \"{searchTerm}\""
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "searchCombobox",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "search",
+      "value" : "Search"
+    }, {
+      "name" : "searchFor",
+      "value" : "Search for \"{searchTerm}\""
+    } ]
+  },
+  "urlName" : "searchcombobox"
 }

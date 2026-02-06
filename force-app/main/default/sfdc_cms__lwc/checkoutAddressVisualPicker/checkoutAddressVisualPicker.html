@@ -1,0 +1,76 @@
+<template lwc:render-mode="light">
+    <fieldset
+        class={fieldSetClasses}
+        part="input-radio-group"
+        aria-invalid={_ariaInvalid}>
+        <div class="slds-form-element__control">
+            <div class={addressContainerClasses}>
+                <template
+                    for:each={transformedOptions}
+                    for:item="option">
+                    <div
+                        class={addressCardClasses}
+                        key={option.address.addressId}>
+                        <div class="address-card card-address-height">
+                            <label class="radio-container slds-radio">
+                                <input
+                                    type="radio"
+                                    name={name}
+                                    id={option.indexId}
+                                    value={option.address.addressId}
+                                    required
+                                    checked={option.isChecked}
+                                    disabled={disabled}
+                                    onchange={handleChange} />
+                                <span class="slds-radio_faux"></span>
+                            </label>
+                            <label
+                                class="slds-radio__label card-address-height"
+                                for={option.indexId}>
+                                <div class="card-address-fit">
+                                    <div class="slds-grid">
+                                        <div class="slds-col">{option.name}</div>
+                                        <div
+                                            if:true={option.address.isDefault}
+                                            class="slds-col slds-size_1-of-4">
+                                            <lightning-badge label={badgeLabel}></lightning-badge>
+                                        </div>
+                                    </div>
+                                    <div if:true={option.hasCompanyName}>{option.address.companyName}</div>
+                                    <div>
+                                        <lightning-formatted-address
+                                            street={option.address.street}
+                                            city={option.address.city}
+                                            country={option.countryLabel}
+                                            province={option.stateLabel}
+                                            postal-code={option.address.postalCode}
+                                            locale={option.customLocale}
+                                            disabled></lightning-formatted-address>
+                                    </div>
+                                    <div if:true={option.formattedPhoneNumber}>{option.formattedPhoneNumber}</div>
+                                    <lightning-button
+                                        data-edit
+                                        variant="base"
+                                        label={editAddressLabel}
+                                        aria-label={option.ariaLabel}
+                                        onclick={handleEdit}
+                                        value={option.address.addressId}
+                                        lwc:if={option.canEdit}></lightning-button>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <template if:true={_helpMessage}>
+            <div
+                data-help-message
+                id="help-message"
+                role="alert"
+                class="slds-form-element__help">
+                {_helpMessage}
+            </div>
+        </template>
+    </fieldset>
+</template>

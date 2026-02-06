@@ -1,6 +1,7 @@
 import { api, LightningElement } from 'lwc';
 import { resolve } from 'experience/resourceResolver';
 import { createImageDataMap } from 'experience/picture';
+import currencyFormatter from 'site/commonFormatterCurrency';
 import { getOutputValueFromTextConfig } from './textDeterminationUtil';
 import { CHILD_PARENT_LABEL_CONFIGS, PRICING_LABEL_CONFIGS } from './conditionalTextconfigs';
 export default class ProductBundleItemUi extends LightningElement {
@@ -31,6 +32,8 @@ export default class ProductBundleItemUi extends LightningElement {
   @api
   currencyCode;
   @api
+  currencyCodeForItemPrice;
+  @api
   isNavigable;
   @api
   isPriceIncludedInParent;
@@ -42,6 +45,10 @@ export default class ProductBundleItemUi extends LightningElement {
   isParentDynamicBundle;
   @api
   componentGroup;
+  @api
+  pricingDetails;
+  @api
+  dynamicAttributesAvailableText;
   get isVariantAttributesFieldEmpty() {
     return !this.variantAttributesField || this.variantAttributesField.length === 0;
   }
@@ -72,21 +79,28 @@ export default class ProductBundleItemUi extends LightningElement {
       isRequired: this.isRequired,
       isDefault: this.isDefault
     };
-    return getOutputValueFromTextConfig(CHILD_PARENT_LABEL_CONFIGS, childItemDetails);
+    return '(' + getOutputValueFromTextConfig(CHILD_PARENT_LABEL_CONFIGS, childItemDetails) + ')';
   }
   get pricingText() {
+    const negotiatedPrice = this.pricingDetails?.negotiatedPrice;
+    const childPrice = negotiatedPrice ? parseFloat(negotiatedPrice) : undefined;
     const childItemDetails = {
       isPriceIncludedInParent: this.isPriceIncludedInParent,
       isRequired: this.isRequired,
-      isDefault: this.isDefault
+      isDefault: this.isDefault,
+      childPrice
     };
-    return getOutputValueFromTextConfig(PRICING_LABEL_CONFIGS, childItemDetails);
+    const pricingTextLabel = getOutputValueFromTextConfig(PRICING_LABEL_CONFIGS, childItemDetails);
+    return pricingTextLabel.replace('{priceWithCurrency}', this.currencyCodeForItemPrice ? currencyFormatter(this.currencyCodeForItemPrice, childPrice) : '');
   }
   get hideChildParentRelationshipText() {
     return !(this.isParentDynamicBundle && this.childParentRelationshipText?.length);
   }
   get hidePricingText() {
     return !(this.isParentDynamicBundle && this.pricingText?.length);
+  }
+  get hideDynamicAttributesAvailableText() {
+    return !this.dynamicAttributesAvailableText;
   }
   handleImageClicked(event) {
     event.stopPropagation();

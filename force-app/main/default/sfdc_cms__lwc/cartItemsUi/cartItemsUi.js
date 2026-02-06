@@ -21,6 +21,8 @@ export default class CartItemsUi extends LightningElement {
   @api
   showRemoveItem = false;
   @api
+  showModifyItem = false;
+  @api
   showProductImage = false;
   @api
   showProductVariants = false;

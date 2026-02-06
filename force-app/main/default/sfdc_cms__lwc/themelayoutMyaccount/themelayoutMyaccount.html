@@ -1,0 +1,31 @@
+<template lwc:render-mode="light">
+    <div
+        name="header"
+        data-f6-region
+        class="header">
+        <div class="announcement">
+            <slot name="announcement"></slot>
+        </div>
+        <slot name="header"></slot>
+    </div>
+    <div
+        name="navigation"
+        class="slds-grid">
+        <aside
+            lwc:if={_isLoggedIn}
+            class="navigation slds-border_right"
+            data-f6-region>
+            <slot name="navigation"></slot>
+        </aside>
+        <div
+            class={_loggedInContentCss}
+            data-f6-region>
+            <slot></slot>
+        </div>
+    </div>
+    <div
+        name="footer"
+        data-f6-region>
+        <slot name="footer"></slot>
+    </div>
+</template>

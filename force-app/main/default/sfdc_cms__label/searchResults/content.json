@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchResults",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "viewCart",
+      "value" : "View Cart"
+    }, {
+      "name" : "continueShopping",
+      "value" : "Continue Shopping"
+    }, {
+      "name" : "successfullyAddedToCartPopupMessage",
+      "value" : "Added to cart"
+    }, {
+      "name" : "unexpectedAddToCartError",
+      "value" : "Something went wrong while adding a product to the cart. Try again later."
+    } ]
+  },
+  "urlName" : "searchresults"
+}

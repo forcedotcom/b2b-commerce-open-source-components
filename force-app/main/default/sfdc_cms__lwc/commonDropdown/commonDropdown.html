@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <lightning-button-menu
+        icon-name={icon}
+        menu-alignment={menuAlignmentValue}
+        variant={variantValue}
+        label={dropdownLabel}
+        disabled={disabled}
+        onselect={dropdownSelectHandler}
+        class={computedButtonMenuClass}>
+        <template
+            for:each={normalizedOptions}
+            for:item="option">
+            <lightning-menu-item
+                class="slds-dropdown_x-small slds-align-middle slds-text-body_small slds-p-vertical_xx-small"
+                key={option.value}
+                value={option.value}
+                label={option.label}
+                checked={option.selected}
+                icon-name={option.iconName}
+                prefix-icon-name={option.prefixIconName}></lightning-menu-item>
+        </template>
+    </lightning-button-menu>
+</template>

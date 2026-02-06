@@ -1,0 +1,31 @@
+.address-card {
+    display: flex;
+}
+.address-stretch {
+    align-items: stretch;
+}
+.card-address-height {
+    height: 100%;
+}
+.card-address-fit {
+    height: fit-content;
+    margin: 0 1rem;
+}
+.slds-badge {
+    text-decoration: var(--dxp-s-body-text-decoration);
+    font-family: var(--dxp-s-body-font-family);
+    font-size: var(--dxp-s-body-font-size);
+    font-style: var(--dxp-s-body-font-style);
+    font-weight: var(--dxp-s-body-font-weight);
+    text-transform: var(--dxp-s-body-text-transform);
+    line-height: var(--dxp-s-body-line-height);
+    letter-spacing: var(--dxp-s-body-letter-spacing);
+}
+fieldset.separators .address-card {
+    border-color: var(--com-c-checkout-address-visual-picker-card-border-color, #707275);
+    border-width: var(--com-c-checkout-address-visual-picker-card-border-width, 1px);
+    border-style: var(--com-c-checkout-address-visual-picker-card-border-style, solid);
+    border-radius: var(--com-c-checkout-address-visual-picker-card-border-radius, 5px);
+    margin: 0 0 var(--dxp-g-spacing-medium) 0;
+    padding: var(--dxp-g-spacing-medium);
+}

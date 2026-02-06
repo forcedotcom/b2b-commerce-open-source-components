@@ -1,0 +1,30 @@
+<template lwc:render-mode="light">
+    <template lwc:if={hasConsentItems}>
+        <div class="slds-form-element__control consent-list">
+            <template
+                for:each={consentItems}
+                for:item="item">
+                <div
+                    class="slds-checkbox"
+                    key={item.id}>
+                    <label
+                        for={item.id}
+                        class="slds-checkbox__label consent-item">
+                        <input
+                            id={item.id}
+                            type="checkbox"
+                            checked={item.value}
+                            onchange={handleOnChange} />
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="consent-text">
+                            {item.title}
+                            <template lwc:if={item.description}>
+                                <div class="consent-description">{item.description}</div>
+                            </template>
+                        </span>
+                    </label>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

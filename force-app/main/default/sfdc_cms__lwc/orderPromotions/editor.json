@@ -1,0 +1,28 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderPromotions",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "promotionsTitle",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Promotions Applied",
+                                    "textAlign": "left",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

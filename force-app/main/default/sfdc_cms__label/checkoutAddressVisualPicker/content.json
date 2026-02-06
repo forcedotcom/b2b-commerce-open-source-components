@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutAddressVisualPicker",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "badgeLabel",
+      "value" : "Default"
+    }, {
+      "name" : "editButtonAriaLabel",
+      "value" : "Edit {0}"
+    }, {
+      "name" : "validityValueMissing",
+      "value" : "Complete this field."
+    } ]
+  },
+  "urlName" : "checkoutaddressvisualpicker"
+}

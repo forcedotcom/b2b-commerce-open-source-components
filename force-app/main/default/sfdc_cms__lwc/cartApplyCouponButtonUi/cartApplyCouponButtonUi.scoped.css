@@ -1,0 +1,18 @@
+:host {
+    flex-grow: 1;
+    align-items: flex-start;
+}
+button {
+    color: var(--com-c-cart-apply-coupon-button-text-color, var(--dxp-s-button-color-contrast));
+    border-radius: var(--com-c-cart-apply-coupon-button-border-radius), var(--dxp-s-button-radius-border);
+    background-color: var(--com-c-cart-apply-coupon-button-background-color, var(--dxp-s-button-color));
+    border-color: var(--com-c-cart-apply-coupon-button-border-color, var(--dxp-s-button-color));
+}
+button.slds-button.dxp-button-small,
+button.slds-button.dxp-button-large {
+    border-radius: var(--com-c-cart-apply-coupon-button-border-radius), var(--dxp-s-button-radius-border);
+}
+button:hover:enabled {
+    background-color: var(--com-c-cart-apply-coupon-button-background-hover-color, var(--dxp-s-button-color-1));
+    color: var(--com-c-cart-apply-coupon-button-text-hover-color, var(--dxp-s-button-color-hover-contrast));
+}

@@ -1,0 +1,65 @@
+:host {
+    --com-c-cart-summary-label-font-size: var(--dxp-s-text-heading-small-font-size);
+    --com-c-cart-summary-total-label-font-size: var(--dxp-s-text-heading-medium-font-size);
+    --com-c-cart-summary-total-font-weight: var(--dxp-c-strong-text-weight);
+}
+.item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+lightning-formatted-number {
+    font-size: var(--com-c-cart-summary-label-font-size);
+    font-weight: var(--lwc-fontWeightLight);
+}
+.original-price lightning-formatted-number {
+    text-decoration: line-through;
+    color: var(--com-c-cart-summary-original-text-color);
+    font-size: var(--com-c-cart-summary-original-text-size, var(--com-c-cart-summary-label-font-size));
+}
+.subtotal-price lightning-formatted-number {
+    color: var(--com-c-cart-summary-subtotal-text-color);
+    font-size: var(--com-c-cart-summary-subtotal-text-size, var(--com-c-cart-summary-label-font-size));
+}
+.discount-amount lightning-formatted-number {
+    color: var(--com-c-cart-summary-discount-amount-text-color);
+    font-size: var(--com-c-cart-summary-discount-amount-text-size, var(--com-c-cart-summary-label-font-size));
+}
+.shipping-price lightning-formatted-number {
+    color: var(--com-c-cart-summary-shipping-text-color);
+    font-size: var(--com-c-cart-summary-shipping-text-size, var(--com-c-cart-summary-label-font-size));
+}
+.tax-price lightning-formatted-number {
+    color: var(--com-c-cart-summary-tax-text-color);
+    font-size: var(--com-c-cart-summary-tax-text-size, var(--com-c-cart-summary-label-font-size));
+}
+.total-price lightning-formatted-number {
+    color: var(--com-c-cart-summary-total-text-color);
+    font-size: var(--com-c-cart-summary-total-text-size, --com-c-cart-summary-total-label-font-size);
+    font-weight: var(--com-c-cart-summary-total-font-weight);
+}
+.summary-label {
+    flex-grow: 1;
+}
+.summary-value {
+    flex-grow: 1;
+}
+.summary-value * {
+    float: right;
+}
+.stencil-item-container {
+    height: var(--dxp-s-body-line-height, 1.5rem);
+}
+.stencil-item {
+    height: var(--dxp-s-body-font-size, 1rem);
+    background-color: var(--dxp-g-neutral, #f3f2f2);
+    display: inline-block;
+}
+.icon {
+    width: var(--dxp-s-body-font-size, 1rem);
+    border-radius: 50%;
+}
+.line {
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+    width: 5.75rem;
+}

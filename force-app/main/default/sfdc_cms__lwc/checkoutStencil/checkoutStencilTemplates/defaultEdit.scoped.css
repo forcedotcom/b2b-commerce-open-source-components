@@ -1,0 +1,23 @@
+.stencil-item-container {
+    margin-bottom: var(--slds-g-sizing-6, 1.25rem);
+    border: var(--dxp-s-form-element-width-border) solid var(--dxp-g-neutral, #f3f2f2);
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+}
+.stencil-item {
+    height: var(--dxp-g-font-size-5, 1rem);
+    margin-top: var(--slds-g-sizing-6, 1.25rem);
+    margin-bottom: var(--slds-g-sizing-6, 1.25rem);
+    background-color: var(--dxp-g-neutral, #f3f2f2);
+    display: inline-block;
+}
+.line {
+    border-radius: var(--dxp-s-form-border-radius, 0.5rem);
+}
+.stencil-item-container:nth-child(odd) > div {
+    width: 20%;
+    margin-left: 5%;
+}
+.stencil-item-container:nth-child(even) > div {
+    width: 20%;
+    margin-left: 5%;
+}

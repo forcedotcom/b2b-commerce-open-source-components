@@ -1,0 +1,48 @@
+.gift-cart {
+    border-color: var(--com-c-gift-cart-border-color, #707275);
+    border-width: var(--com-c-gift-cart-border-width, 1px);
+    border-style: var(--com-c-gift-cart-border-style, solid);
+    border-radius: 5px;
+    margin: 0 0 var(--dxp-g-spacing-large) 0;
+    padding: var(--dxp-g-spacing-large);
+    background-color: var(--slds-g-color-surface-container-2, #f3f3f3);
+}
+
+.gift-options-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    padding-top: var(--dxp-g-spacing-medium);
+}
+
+.gift-options-toggle lightning-input {
+    padding: 0px;
+}
+
+.custom-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    background-color: black;
+    color: white;
+}
+
+.divider {
+    margin: 12px 8px;
+    border: 0;
+    border-top: 1px solid #ccc;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+    margin: 4px 8px;
+}
+
+lightning-icon {
+    margin-right: 6px;
+}

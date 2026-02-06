@@ -44,6 +44,7 @@ export default class CartMinicartpanel extends LightningElement {
   _cartSummary;
   _cartItemsDataLoading = true;
   _hasCartItemsDataLoadingError = false;
+  _showModifyItem = false;
   pageSize = DEFAULT_CART_ITEMS_PAGE_SIZE;
   nextPageNumber = null;
   emptyMiniCartLabel = emptyMiniCart;

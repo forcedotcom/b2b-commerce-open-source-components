@@ -1,0 +1,56 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutAddressModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "firstNameLabel",
+      "value" : "First Name"
+    }, {
+      "name" : "lastNameLabel",
+      "value" : "Last Name"
+    }, {
+      "name" : "companyNameLabel",
+      "value" : "Company Name"
+    }, {
+      "name" : "streetLabel",
+      "value" : "Street Address"
+    }, {
+      "name" : "cityLabel",
+      "value" : "City"
+    }, {
+      "name" : "postalCodeLabel",
+      "value" : "ZIP/Postal Code"
+    }, {
+      "name" : "provinceLabel",
+      "value" : "State/Province"
+    }, {
+      "name" : "countryLabel",
+      "value" : "Country"
+    }, {
+      "name" : "newAddressLabel",
+      "value" : "Add Shipping Address"
+    }, {
+      "name" : "editAddressLabel",
+      "value" : "Edit Shipping Address"
+    }, {
+      "name" : "makeDefaultAddressLabel",
+      "value" : "Make this my default address"
+    }, {
+      "name" : "phoneNumberLabel",
+      "value" : "Phone Number"
+    }, {
+      "name" : "componentHeaderEditAddressLabel",
+      "value" : "Edit Address Heading"
+    }, {
+      "name" : "cancelActionLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "headerLabel",
+      "value" : "New Shipment"
+    }, {
+      "name" : "saveAddressLabel",
+      "value" : "Save Address"
+    } ]
+  },
+  "urlName" : "checkoutaddressmodal"
+}

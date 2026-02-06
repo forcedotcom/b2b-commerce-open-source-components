@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutSummary",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "expandableCartItemsTitle",
+      "value" : "My Cart {0}"
+    }, {
+      "name" : "expandableSummaryHeading",
+      "value" : "Show Order Summary"
+    } ]
+  },
+  "urlName" : "checkoutsummary"
+}

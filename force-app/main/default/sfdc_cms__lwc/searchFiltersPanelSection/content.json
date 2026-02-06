@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "searchFiltersPanelSection",
+  "contentBody" : { },
+  "urlName" : "searchfilterspanelsection"
+}

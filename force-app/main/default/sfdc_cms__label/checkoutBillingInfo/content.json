@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutBillingInfo",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "a11yBillingAddressLabel",
+      "value" : "Bill To"
+    } ]
+  },
+  "urlName" : "checkoutbillinginfo"
+}

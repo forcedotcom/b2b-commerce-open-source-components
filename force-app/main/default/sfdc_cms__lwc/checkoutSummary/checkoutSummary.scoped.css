@@ -1,0 +1,89 @@
+:host {
+    display: block;
+    --com-c-checkout-summary-container-mobile-collapse-height: 6rem;
+    --checkout-summary-background-color: var(
+        --com-c-checkout-summary-container-background-color,
+        rgba(242, 245, 249, 1)
+    );
+    padding-bottom: 1rem;
+}
+.expandable-summary {
+    background-color: var(--checkout-summary-background-color);
+    border-radius: var(--slds-c-card-radius-border, 0.25rem);
+    background-color: var(--checkout-summary-background-color);
+}
+.cart-item-title {
+    font-size: var(--dxp-g-font-size-5);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: var(--dxp-s-form-element-width-border) solid #707275;
+}
+.cart-item-title span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.cartitems-expand-button {
+    cursor: pointer;
+    padding: 0 var(--dxp-g-spacing-xsmall);
+    margin-bottom: var(--dxp-g-spacing-xxsmall);
+}
+.cartitems {
+    overflow-y: hidden;
+    max-height: 0;
+}
+.cartitems.show {
+    user-select: none;
+    max-height: 100%;
+    padding: 0;
+    transition: max-height 2s ease-in-out;
+}
+.item-count {
+    padding: 0 var(--dxp-g-spacing-xxsmall);
+}
+.summary-mobile-heading {
+    display: none;
+    font-size: var(--dxp-g-font-size-4);
+    font-weight: var(--dxp-s-text-heading-regular-font-weight);
+    line-height: 1.5rem;
+    padding: 0.5rem 0;
+}
+.summary-mobile-heading span {
+    display: inline-block;
+    vertical-align: middle;
+}
+@media (max-width: 78em) {
+    .expandable-summary {
+        padding: 0.25rem 1rem;
+    }
+    .expandable-summary.hide {
+        height: 3rem;
+        max-height: 3rem;
+        overflow: hidden;
+    }
+    .cart-item-title .cartitems-expand-button {
+        display: none;
+    }
+    .expandable-summary.show {
+        height: auto;
+        max-height: 100%;
+        transition: max-height 2s ease-in-out;
+    }
+    .cartitems {
+        padding: 0.25rem;
+    }
+    .container[aria-expanded='false'] {
+        overflow: hidden;
+        height: var(--com-c-checkout-summary-container-mobile-collapse-height);
+    }
+    .summary-mobile-heading {
+        display: flex;
+    }
+    .summary-mobile-heading .title {
+        flex-grow: 1;
+    }
+    .mobile-expand-button {
+        cursor: pointer;
+        padding: 0 var(--dxp-g-spacing-xsmall);
+        margin-bottom: var(--dxp-g-spacing-xxsmall);
+    }
+}

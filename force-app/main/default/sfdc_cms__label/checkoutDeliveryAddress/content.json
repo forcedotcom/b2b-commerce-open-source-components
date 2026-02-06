@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutDeliveryAddress",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addressModalDescriptionLabel",
+      "value" : "Form to create or edit a shipping address."
+    }, {
+      "name" : "shippingMultipleLocationsSummaryLabel",
+      "value" : "You're shipping to multiple addresses."
+    }, {
+      "name" : "phoneNumberLabel",
+      "value" : "Phone Number"
+    }, {
+      "name" : "requiredShippingPhoneMissing",
+      "value" : "A phone number is required for the selected shipping address. Edit your shipping address and add a valid phone number."
+    }, {
+      "name" : "shipToMultipleLocationsNoAddressLabel",
+      "value" : "Enter or select an address first before shipping to multiple addresses."
+    }, {
+      "name" : "shipmentWithSubscriptionLabel",
+      "value" : "You can't split a shipment with a digital good or a subscription. To split the shipment, return to your cart and remove the item."
+    } ]
+  },
+  "urlName" : "checkoutdeliveryaddress"
+}

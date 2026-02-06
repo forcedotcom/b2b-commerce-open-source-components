@@ -1,0 +1,54 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={isVisible}
+        class={classes}>
+        <site-common-focus-trap-manager
+            focus-id="consentBlanket"
+            focus-trap-active={isRuntime}>
+            <div
+                class="modal-container"
+                data-automation="consentBlanketModalContainer">
+                <div class="modal">
+                    <div
+                        class="header-row"
+                        lwc:if={isRuntime}>
+                        <button
+                            class="close-button"
+                            data-automation="consentBlanketCloseButton"
+                            onclick={handleCloseClick}>
+                            <svg
+                                aria-hidden="true"
+                                class="slds-icon_small">
+                                <use href={closeIconPath}></use>
+                            </svg>
+                            <span class="slds-assistive-text">{labels.closeButtonAssistiveText}</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="content">
+                            <slot name="content"></slot>
+                        </div>
+                        <div class="footer">
+                            <site-common-button-ui
+                                class="reject"
+                                variant="primary"
+                                assistive-text={rejectText}
+                                onclick={handleRejectClick}
+                                size="small">
+                                {rejectText}
+                            </site-common-button-ui>
+                            <site-common-button-ui
+                                class="accept"
+                                variant="primary"
+                                assistive-text={acceptText}
+                                onclick={handleAcceptClick}
+                                size="small">
+                                {acceptText}
+                            </site-common-button-ui>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </site-common-focus-trap-manager>
+    </div>
+</template>

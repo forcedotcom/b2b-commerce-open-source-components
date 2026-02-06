@@ -1,0 +1,3 @@
+site-product-bundle li.dxp-list-item:last-child .product-bundle-item {
+    border-bottom: 0;
+}

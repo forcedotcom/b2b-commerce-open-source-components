@@ -1,0 +1,2 @@
+import termsAndConditionsModalCloseButtonText from '@salesforce/label/site.legalTermsandconditionsModal.termsAndConditionsModalCloseButtonText';
+export { termsAndConditionsModalCloseButtonText };

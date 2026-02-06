@@ -1,0 +1,45 @@
+<template lwc:render-mode="light">
+    <p>Open code</p>
+    <div class="slds-p-top_small">
+        <div
+            class={revealButtonClass}
+            onclick={handleRevealButtonClick}>
+            <slot name="revealButton"></slot>
+        </div>
+        <template lwc:if={showInputForm}>
+            <div class="coupon-input-form">
+                <div class={couponInputContainerClasses}>
+                    <lightning-input
+                        lwc:ref="couponInput"
+                        data-coupon-code
+                        class="coupon-code-input"
+                        name="coupon-code-input"
+                        type="text"
+                        aria-label={_labels.couponCodeInputPlaceHolderText}
+                        label={_couponInputPlaceholderText}
+                        aria-invalid={isInvalid}
+                        onchange={handleCouponCodeChange}
+                        onkeyup={handleKeyup}
+                        value={couponInputText}
+                        variant={inputVariant}
+                        placeholder={placeHolderText}></lightning-input>
+                </div>
+                <site-cart-apply-coupon-button-ui
+                    alignment="center"
+                    variant={buttonVariant}
+                    size="standard"
+                    width="stretch"
+                    disabled={disableApplyCouponButton}
+                    text={applyCouponButtonText}
+                    assistive-button-text={_labels.applyCouponInputAriaLabel}
+                    onclick={handleCouponButtonClick}></site-cart-apply-coupon-button-ui>
+            </div>
+        </template>
+        <p
+            lwc:if={hasError}
+            class="slds-p-top_x-small slds-text-align_left slds-m-right_small slds-text-color_error error"
+            role="alert">
+            {errorMessage}
+        </p>
+    </div>
+</template>

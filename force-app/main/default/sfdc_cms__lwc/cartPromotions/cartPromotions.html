@@ -1,0 +1,14 @@
+<template lwc:render-mode="light">
+    <div lwc:if={showPromotions}>
+        <slot name="applyCoupon"></slot>
+        <div
+            lwc:if={_showPromotionsDisclaimer}
+            data-slot-name="promotionsDisclaimer"
+            class="slds-p-vertical_xx-small">
+            <slot name="promotionsDisclaimer"></slot>
+        </div>
+        <section onremovecoupon={handleRemoveCoupon}>
+            <slot name="appliedPromotionRepeater"></slot>
+        </section>
+    </div>
+</template>

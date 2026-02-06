@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <minApiVersion>64</minApiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Enhanced Video</masterLabel>
+  <description>Add URLs from supported providers or directly upload video files. Customize your
+        videos&apos; autoplay, loop, mute, and control settings.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <capabilities>
+    <capability>lightning__ServerRenderable</capability>
+  </capabilities>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Video URL" description="URLs can be embedded or non-embedded links." name="url" type="String" translatable="true"></property>
+      <property label="Video Alt Text" name="alternativeText" type="String" translatable="true"></property>
+      <property label="Video Placeholder Alt Text" description="Alt text for the placeholder image that shows when there&apos;s no video" name="videoPlaceholderAltText" default="Video Placeholder Image" type="String" translatable="true"></property>
+      <property label="Video controls" description="Lets users play and pause the video, adjust the volume, and make use of other video settings." name="controls" type="Boolean" default="true"></property>
+      <property label="Autoplay" name="autoplay" type="Boolean" default="false"></property>
+      <property label="Mute" name="mute" type="Boolean" default="false"></property>
+      <property label="Loop" name="loop" type="Boolean" default="false"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="url"></designLayoutProperty>
+            <designLayoutProperty name="alternativeText"></designLayoutProperty>
+            <designLayoutProperty name="videoPlaceholderAltText"></designLayoutProperty>
+            <designLayoutProperty name="autoplay"></designLayoutProperty>
+            <designLayoutProperty name="loop"></designLayoutProperty>
+            <designLayoutProperty name="mute"></designLayoutProperty>
+            <designLayoutProperty name="controls"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

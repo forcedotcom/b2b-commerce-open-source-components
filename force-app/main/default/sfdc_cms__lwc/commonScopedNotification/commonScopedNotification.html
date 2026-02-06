@@ -1,0 +1,28 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={showNotification}
+        class={_classList}
+        role="alert"
+        aria-live="assertive">
+        <lightning-icon
+            if:false={hideIcon}
+            alternative-text={iconAltText}
+            class="slds-var-m-right_small variant-color"
+            icon-name={iconName}
+            size="small"
+            variant="inverse"></lightning-icon>
+        <div class="slds-media__body">
+            <h2
+                lwc:if={headerText}
+                class="slds-text-heading_small">
+                {headerText}
+            </h2>
+            <p
+                lwc:if={bodyText}
+                class="slds-text-body_small">
+                {bodyText}
+            </p>
+            <slot name="details"></slot>
+        </div>
+    </div>
+</template>

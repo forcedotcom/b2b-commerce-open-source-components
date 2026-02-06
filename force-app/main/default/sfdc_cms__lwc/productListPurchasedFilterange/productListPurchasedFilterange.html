@@ -1,0 +1,14 @@
+<template lwc:render-mode="light">
+    <div class="slds-p-around_x-small">
+        <lightning-formatted-text
+            class="slds-m-right_x-small"
+            value={sortMenuLabel}></lightning-formatted-text>
+        <lightning-combobox
+            value={value}
+            options={filterOptions}
+            onchange={handleFilterRangeChange}
+            variant="label-hidden"
+            label={sortMenuLabel}
+            class="slds-m-bottom_none filter-menu slds-m-right_large"></lightning-combobox>
+    </div>
+</template>

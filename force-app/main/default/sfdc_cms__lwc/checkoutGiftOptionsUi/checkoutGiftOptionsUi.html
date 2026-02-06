@@ -1,0 +1,58 @@
+<template lwc:render-mode="light">
+    <!-- Conditional rendering: Check if gifting config is enabled -->
+    <template if:true={isGiftingEnabled}>
+        <template lwc:if={_summaryMode}>
+            <span class="slds-badge custom-badge">{badgeContent}</span>
+        </template>
+
+        <template lwc:else>
+            <div class="gift-cart">
+                <!-- Toggle section for enabling/disabling gift options -->
+                <div class="gift-options-toggle">
+                    <lightning-input
+                        type="checkbox"
+                        label={labels.orderAsGiftCheckBoxLabel}
+                        id="gift-checkbox"
+                        checked={isGiftingOptedByUser}
+                        onchange={handleToggleGiftOptions}></lightning-input>
+                </div>
+
+                <!-- Render gift options if user has opted for gifting -->
+                <template if:true={isGiftingOptedByUser}>
+                    <div class="gift-options-container">
+                        <!-- Render gift messaging component if gift messaging config is enabled -->
+                        <template if:true={isGiftMessageEnabled}>
+                            <div class="gift-option">
+                                <site-checkout-gift-message
+                                    labels={labels}
+                                    gift-message-text={giftMessage}
+                                    ongiftmessageupdate={handleGiftMessageEvent}
+                                    ongiftmessagingselected={handleGiftMessagingSelection}></site-checkout-gift-message>
+                            </div>
+                        </template>
+
+                        <!-- Render gift wrap component if gift wrapping is enabled -->
+                        <template if:true={showGiftWrap}>
+                            <div class="gift-option">
+                                <site-checkout-gift-wrap
+                                    labels={labels}
+                                    gift-wrap-state={isGiftWrapSelected}
+                                    ongiftwrapchange={handleGiftWrapEvent}></site-checkout-gift-wrap>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+                <template lwc:if={showDefaultGiftDelivery}>
+                    <hr class="divider" />
+                    <div>
+                        <lightning-icon
+                            icon-name="utility:info"
+                            size="x-small"
+                            alternative-text="Info"></lightning-icon>
+                        <span>{labels.defaultDeliveryGroupMessage}</span>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </template>
+</template>

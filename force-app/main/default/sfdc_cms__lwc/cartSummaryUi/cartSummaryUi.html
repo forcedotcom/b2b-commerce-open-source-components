@@ -1,0 +1,160 @@
+<template lwc:render-mode="light">
+    <div lwc:if={cartTotals}>
+        <header class="slds-p-bottom_medium">
+            <slot name="headerText"></slot>
+        </header>
+
+        <dl>
+            <!-- a11y dl/dt/dd -->
+            <!-- Original Price Info -->
+            <div
+                lwc:if={cartTotals.originalPrice}
+                class="item original-price slds-p-bottom_x-small">
+                <dt class="summary-label"><slot name="originalPriceLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.originalPrice}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Subtotal Price Info -->
+            <div
+                lwc:if={cartTotals.subtotal}
+                class="item subtotal-price slds-p-bottom_x-small">
+                <dt class="summary-label"><slot name="subtotalLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.subtotal}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Shipping Price Info -->
+            <div
+                lwc:if={cartTotals.shippingPrice}
+                class="item shipping-price slds-p-bottom_x-small">
+                <dt class="summary-label"><slot name="shippingLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.shippingPrice}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Discount Amount Info ( Promotions ) -->
+            <div
+                lwc:if={cartTotals.discountAmount}
+                class="item discount-amount slds-p-bottom_x-small">
+                <dt class="summary-label"><slot name="promotionsLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.discountAmount}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Tax Price Info -->
+            <div
+                lwc:if={cartTotals.tax}
+                class="item tax-price slds-p-bottom_x-small">
+                <dt class="summary-label"><slot name="taxLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.tax}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Total Price Info -->
+            <div
+                class="item total-price"
+                aria-live="polite"
+                aria-atomic="true">
+                <dt class="summary-label"><slot name="totalLabel"></slot></dt>
+                <dd class="summary-value">
+                    <template lwc:if={isCartProcessing}>
+                        <div
+                            class="stencil-container"
+                            data-cart-summary>
+                            <div class="stencil-item-container">
+                                <div class="stencil-item line"></div>
+                            </div>
+                        </div>
+                    </template>
+                    <lightning-formatted-number
+                        lwc:else
+                        currency-code={currencyCode}
+                        format-style="currency"
+                        maximum-fraction-digits="20"
+                        value={cartTotals.total}></lightning-formatted-number>
+                </dd>
+            </div>
+
+            <!-- Tax Included Display -->
+            <div class="tax-included-label">
+                <dt><slot name="taxIncludedLabel"></slot></dt>
+            </div>
+        </dl>
+    </div>
+</template>

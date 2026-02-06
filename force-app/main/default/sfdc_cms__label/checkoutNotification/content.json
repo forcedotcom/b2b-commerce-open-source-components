@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutNotification",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "alternativeSpinnerText",
+      "value" : "Loading"
+    } ]
+  },
+  "urlName" : "checkoutnotification"
+}

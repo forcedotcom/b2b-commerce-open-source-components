@@ -1,0 +1,11 @@
+.footer-container {
+    flex-direction: row;
+    display: flex;
+    justify-content: flex-end;
+}
+@media only screen and (max-width: 64em) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+    }
+}

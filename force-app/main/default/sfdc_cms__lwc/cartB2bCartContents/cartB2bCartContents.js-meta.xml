@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Cart</masterLabel>
+  <description>Shows the cart items or an empty cart message.</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="items" type="string" default="{!Cart.Items}"></property>
+      <property name="messages" type="string" default="{!Cart.Messages}"></property>
+      <property name="showSortOptions" type="boolean" default="true" label="Show sort options"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="items" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="messages" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="showSortOptions"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>
