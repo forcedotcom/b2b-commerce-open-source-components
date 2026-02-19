@@ -3,6 +3,7 @@ import { navigate, NavigationContext, CurrentPageReference } from 'lightning/nav
 import { createCartItemAddAction, createSearchFiltersUpdateAction, dispatchAction } from 'commerce/actionApi';
 import { Labels } from './labels';
 import Toast from 'site/commonToast';
+import { trackClickCategory, trackClickSearch } from 'commerce/activitiesApi';
 import { createProductRecommendationDataEvent, dispatchDataEvent, updateSearchCorrelationId } from 'commerce/dataEventApi';
 export default class SearchResults extends LightningElement {
   static renderMode = 'light';
@@ -124,8 +125,10 @@ export default class SearchResults extends LightningElement {
     if (this.currentPageReference) {
       if (this.currentPageReference.type === 'standard__search') {
         const searchTerm = this.currentPageReference.state?.term ?? '';
+        trackClickSearch(searchTerm, event.detail.productId);
       } else if (this.currentPageReference.type === 'standard__recordPage') {
         categoryId = this.currentPageReference.state?.category ?? this.currentPageReference.attributes?.recordId ?? '';
+        trackClickCategory(categoryId, event.detail.productId);
       }
     }
     if (this.navContext && pageReference) {

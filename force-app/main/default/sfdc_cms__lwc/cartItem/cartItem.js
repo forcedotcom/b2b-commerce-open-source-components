@@ -37,7 +37,7 @@ export default class CartItem extends LightningElement {
   _showModifyItem = false;
   @api
   get showModifyItem() {
-    return this._showModifyItem;
+    return this._showModifyItem && (this.item?.isConfigurationAllowed ?? false);
   }
   set showModifyItem(value) {
     this._showModifyItem = value;
