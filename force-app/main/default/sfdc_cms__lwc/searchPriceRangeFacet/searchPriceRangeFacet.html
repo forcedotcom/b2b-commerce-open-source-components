@@ -1,0 +1,37 @@
+<template lwc:render-mode="light">
+    <div
+        data-automation="price-range-container"
+        class="search-price-range-container">
+        <!-- Min Price Input -->
+        <lightning-input
+            data-automation="min-price-input"
+            class={errorClassMinInput}
+            label={minLimitLabel}
+            value={minPrice}
+            onchange={handleMinPriceChange}
+            onblur={handleMinPriceBlur}></lightning-input>
+        <!-- Max Price Input -->
+        <lightning-input
+            data-automation="max-price-input"
+            class={errorClassMaxInput}
+            label={maxLimitLabel}
+            value={maxPrice}
+            onchange={handleMaxPriceChange}
+            onblur={handleMaxPriceBlur}></lightning-input>
+        <site-common-button-ui
+            class="slds-m-vertical_x-small slds-p-bottom_medium"
+            variant="secondary"
+            width="standard"
+            onclick={handlePriceRangeApplyClick}
+            disabled={isApplyButtonDisabled}
+            assistive-text={priceRangeApplyButtonAssistiveText}>
+            {applyButtonLabel}
+        </site-common-button-ui>
+    </div>
+    <div
+        data-help-message
+        role="alert"
+        class="search-price-range-help-message slds-form-element__help">
+        {priceRangeValidationLabel}
+    </div>
+</template>

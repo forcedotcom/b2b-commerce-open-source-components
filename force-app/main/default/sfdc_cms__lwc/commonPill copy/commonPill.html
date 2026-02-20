@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <div class="slds-pill slds-p-horizontal_x-small slds-p-vertical_xx-small">
+        <div
+            class="slds-pill__label slds-p-top_xxx-small"
+            title={labelText}>
+            {labelText}
+        </div>
+        <lightning-button-icon
+            lwc:if={showRemoveButton}
+            icon-name="utility:close"
+            class="slds-pill__remove slds-p-left_x-small slds-p-bottom_xxx-small"
+            variant="bare"
+            onclick={removePill}
+            alternative-text={removePillAccessibilityText}></lightning-button-icon>
+    </div>
+</template>

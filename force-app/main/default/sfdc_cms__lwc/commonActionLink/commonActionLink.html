@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <a
+        if:false={disabled}
+        href={href}
+        onclick={handleClick}
+        aria-label={assistiveText}
+        class={anchorClasses}
+        lwc:ref="anchorElement">
+        <slot></slot>
+    </a>
+    <button
+        if:true={disabled}
+        aria-label={assistiveText}
+        class={anchorClasses}
+        disabled>
+        <slot></slot>
+    </button>
+</template>

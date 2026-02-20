@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Search Filters</masterLabel>
+  <description>Displays category trees and facets for filtering search results</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="searchResults" type="String" default="{!Search.Results}" label="Search Results"></property>
+      <property name="showFacetCounts" type="Boolean" default="false" label="Show Facet Counts"></property>
+      <property name="searchTerm" type="String" default="{!Route.term}" label="Search Term"></property>
+      <property name="showFilters" type="String" default="{!Search.ClientState.showFilters}" label="Show Filters"></property>
+      <property name="sortRules" type="String" default="{!Search.SortRules.rules}" label="Sort Rules"></property>
+      <property name="sortRuleId" type="String" default="{!Search.SortRules.currentSortRuleId}" label="Sort Rule ID"></property>
+      <property type="String" name="headingTextDisplayInfo" default="{}" label="Heading Text Display Info"></property>
+      <property type="Color" name="headingTextColor" label="Heading Text Color"></property>
+      <property type="Color" name="headingBackgroundColor" label="Heading Background Color"></property>
+      <property type="String" name="headingTextAlign" default="left" screenResponsive="true" exposedTo="css" label="Heading Text Alignment"></property>
+      <property type="String" name="headingTextDecoration" default="{}" label="Heading Text Decoration"></property>
+      <property name="paddingVertical" type="String" default="none" datasource="none,xx-small,x-small,small,medium,large,x-large,xx-large" label="Vertical Padding"></property>
+      <property name="paddingHorizontal" type="String" default="none" datasource="none,xx-small,x-small,small,medium,large,x-large,xx-large" label="Horizontal Padding"></property>
+      <property type="String" name="maxDepth" datasource="1,2" default="1" label="Maximum Depth"></property>
+      <property type="String" name="textDisplayInfo" default="{&quot;textStyle&quot;: &quot;body-regular&quot;}" label="Text Display Info"></property>
+      <property type="Color" name="linkColor" label="Link Color"></property>
+      <property type="Color" name="linkHoverColor" label="Link Hover Color"></property>
+      <property type="String" name="linkTextAlign" default="left" screenResponsive="true" exposedTo="css" label="Link Text Alignment"></property>
+      <property type="String" name="textDecoration" default="{}" label="Text Decoration"></property>
+      <property type="String" name="linkSpacing" default="x-small" datasource="none,xx-small,x-small,small,medium,large,x-large,xx-large" label="Link Spacing"></property>
+      <designLayout>
+        <designSection name="Page Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="searchResults"></designLayoutProperty>
+            <designLayoutProperty name="showFilters"></designLayoutProperty>
+            <designLayoutProperty name="sortRules"></designLayoutProperty>
+            <designLayoutProperty name="sortRuleId"></designLayoutProperty>
+            <designLayoutProperty name="showFacetCounts"></designLayoutProperty>
+            <designLayoutProperty name="searchTerm"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Heading Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="headingTextDisplayInfo"></designLayoutProperty>
+            <designLayoutProperty name="headingTextColor"></designLayoutProperty>
+            <designLayoutProperty name="headingBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="headingTextAlign"></designLayoutProperty>
+            <designLayoutProperty name="headingTextDecoration"></designLayoutProperty>
+            <designLayoutProperty name="paddingVertical"></designLayoutProperty>
+            <designLayoutProperty name="paddingHorizontal"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Categories Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="maxDepth"></designLayoutProperty>
+            <designLayoutProperty name="textDisplayInfo"></designLayoutProperty>
+            <designLayoutProperty name="linkColor"></designLayoutProperty>
+            <designLayoutProperty name="linkHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="linkTextAlign"></designLayoutProperty>
+            <designLayoutProperty name="textDecoration"></designLayoutProperty>
+            <designLayoutProperty name="linkSpacing"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

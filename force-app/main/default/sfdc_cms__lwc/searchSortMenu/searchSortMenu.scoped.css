@@ -1,0 +1,32 @@
+:host {
+    --dxp-s-body-font-weight: 600;
+    --dxp-s-body-font-size: 1rem;
+    --dxp-g-spacing-small: 0.25rem;
+}
+
+.sort-filter-button {
+    display: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    text-decoration: underline;
+}
+
+/* Tablet sized screens or smaller */
+@media only screen and (max-width: 64em) {
+    .sort-filter-button {
+        display: block;
+    }
+
+    .sort-filter-button:focus-visible {
+        outline: 2px solid var(--dxp-s-button-color-focus, var(--dxp-g-brand-1));
+        outline-offset: 2px;
+    }
+
+    .sort-menu-dropdown {
+        display: none;
+    }
+}

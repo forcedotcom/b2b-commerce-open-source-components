@@ -1,0 +1,43 @@
+:host {
+    --com-c-pill-font-size: var(--dxp-g-font-size-8, 1.5em);
+    --com-c-pill-text-color: var(--dxp-g-root-contrast);
+    --com-c-pill-font-size: var(--dxp-g-font-size-2);
+    ---slds-c-pill-color-background: #d9dfe7;
+    --com-c-pill-border-color: var(--dxp-g-root-1);
+    --com-c-pill-border-radius: 8px;
+    --com-c-pill-background-color: #d9dfe7;
+}
+.section-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding-top: var(--slds-g-spacing-3, 0.75rem);
+    padding-bottom: var(--slds-g-spacing-3, 0.75rem);
+    cursor: pointer;
+}
+
+.section-title {
+    display: inline-block;
+    font-size: var(--dxp-g-font-size-5);
+}
+.section-style {
+    border-color: var(--dxp-g-neutral);
+    border-bottom-style: solid;
+    border-width: var(--dxp-s-form-element-width-border, 1px);
+    padding-bottom: var(--dxp-g-spacing-small);
+    padding-top: var(--dxp-g-spacing-small);
+}
+.sort-menu-list {
+    display: none;
+}
+.section-header:focus-visible {
+    outline: 1px auto var(--dxp-g-brand);
+    outline-offset: 1px;
+}
+@media only screen and (max-width: 64.0625em) {
+    .sort-menu-list {
+        display: block;
+    }
+}

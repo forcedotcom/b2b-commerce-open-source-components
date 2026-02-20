@@ -1,0 +1,74 @@
+<template lwc:render-mode="light">
+    <nav
+        if:true={hasBreadcrumbs}
+        aria-label={componentNameLabel}
+        class="commerce-breadcrumb"
+        style={customStyles}>
+        <ol class={computedTextSizeClass}>
+            <template iterator:it={normalizedBreadcrumbs}>
+                <template lwc:if={htmlProductNameGate}>
+                    <li
+                        key={it.value.label}
+                        class={it.value.classes}>
+                        <template lwc:if={it.value.isLast}>
+                            <template if:false={showLastItemAsLink}>
+                                <lightning-formatted-rich-text
+                                    value={it.value.label}
+                                    disable-linkify></lightning-formatted-rich-text>
+                            </template>
+                            <a href={it.value.url}>
+                                <lightning-formatted-rich-text
+                                    value={it.value.label}
+                                    disable-linkify></lightning-formatted-rich-text>
+                            </a>
+                            <p aria-hidden="true"></p>
+                        </template>
+                        <template lwc:elseif={it.last}>
+                            <template lwc:if={showLastItemAsLink}>
+                                <a href={it.value.url}>
+                                    <lightning-formatted-rich-text
+                                        value={it.value.label}
+                                        disable-linkify></lightning-formatted-rich-text>
+                                </a>
+                            </template>
+                            <template lwc:else>
+                                <lightning-formatted-rich-text
+                                    value={it.value.label}
+                                    disable-linkify></lightning-formatted-rich-text>
+                            </template>
+                        </template>
+                        <template lwc:else>
+                            <a href={it.value.url}>
+                                <lightning-formatted-rich-text
+                                    value={it.value.label}
+                                    disable-linkify></lightning-formatted-rich-text>
+                            </a>
+                            <p aria-hidden="true"></p>
+                        </template>
+                    </li>
+                </template>
+                <template lwc:else>
+                    <li
+                        key={it.value.label}
+                        class={it.value.classes}>
+                        <template lwc:if={it.value.isLast}>
+                            <template if:false={showLastItemAsLink}><span>{it.value.label}</span></template>
+                            <a href={it.value.url}>{it.value.label}</a>
+                            <p aria-hidden="true"></p>
+                        </template>
+                        <template lwc:elseif={it.last}>
+                            <template lwc:if={showLastItemAsLink}>
+                                <a href={it.value.url}>{it.value.label}</a>
+                            </template>
+                            <template lwc:else><span>{it.value.label}</span></template>
+                        </template>
+                        <template lwc:else>
+                            <a href={it.value.url}>{it.value.label}</a>
+                            <p aria-hidden="true"></p>
+                        </template>
+                    </li>
+                </template>
+            </template>
+        </ol>
+    </nav>
+</template>

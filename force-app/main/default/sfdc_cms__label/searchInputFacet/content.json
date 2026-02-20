@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchInputFacet",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "showMore",
+      "value" : "Show More"
+    }, {
+      "name" : "showLess",
+      "value" : "Show Less"
+    }, {
+      "name" : "showMoreAriaLabel",
+      "value" : "Show More {name}"
+    }, {
+      "name" : "showLessAriaLabel",
+      "value" : "Show Less {name}"
+    }, {
+      "name" : "moreButtonText",
+      "value" : "{count} More"
+    } ]
+  },
+  "urlName" : "searchinputfacet"
+}

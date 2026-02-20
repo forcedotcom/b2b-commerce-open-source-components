@@ -1,0 +1,140 @@
+<template lwc:render-mode="light">
+    <site-common-focus-trap-manager
+        lwc:ref="focusTrapManager"
+        focus-id="filters-panel"
+        focus-trap-active={showFilters}
+        no-focus-next-on-disable>
+        <div class="panel-class">
+            <div class="header-and-body">
+                <section class="sort-menu-list">
+                    <div class="heading-wrapper">
+                        <section class="sort-and-filter">{sortAndFilters}</section>
+                        <lightning-button-icon
+                            class="close-button"
+                            lwc:ref="closeButton"
+                            icon-name="utility:close"
+                            variant="bare"
+                            alternative-text={closeButtonLabel}
+                            onclick={handleHideFilterPanel}></lightning-button-icon>
+                    </div>
+                    <site-search-sort-menu-ui
+                        group-name="filters"
+                        custom-styles={customStyles}
+                        custom-classes={customClasses}
+                        is-heading-h1={isHeadingH1}
+                        is-heading-h2={isHeadingH2}
+                        is-heading-h3={isHeadingH3}
+                        is-heading-h4={isHeadingH4}
+                        is-heading-h5={isHeadingH5}
+                        is-heading-h6={isHeadingH6}
+                        is-body={isBody}
+                        sort-rules={sortRules}
+                        sort-rule-id={sortRuleId}
+                        filter-panel-state={filterPanelState}></site-search-sort-menu-ui>
+                </section>
+                <section>
+                    <div class="filters-header-container">
+                        <h3 class="filters-header">{filterHeader}</h3>
+                        <div class="clear-button">
+                            <lightning-button
+                                disabled={shouldDisableClearFiltersButton}
+                                class="desktop-clear-all slds-text-link"
+                                variant="base"
+                                label={clearFiltersLabel}
+                                onclick={handleClearAll}></lightning-button>
+                        </div>
+                    </div>
+                </section>
+                <section
+                    lwc:if={showCategoryList}
+                    class="clearfix">
+                    <site-search-filters-category-list
+                        custom-styles={customStyles}
+                        custom-classes={customClasses}
+                        is-heading-h1={isHeadingH1}
+                        is-heading-h2={isHeadingH2}
+                        is-heading-h3={isHeadingH3}
+                        is-heading-h4={isHeadingH4}
+                        is-heading-h5={isHeadingH5}
+                        is-heading-h6={isHeadingH6}
+                        is-body={isBody}
+                        max-depth={maxDepth}
+                        link-text-weight={linkTextWeight}
+                        link-text-style={linkTextStyle}
+                        text-node-tag={textNodeTag}
+                        link-text-font-size={linkTextFontSize}
+                        link-text-font-family={linkTextFontFamily}
+                        link-color={linkColor}
+                        link-hover-color={linkHoverColor}
+                        link-text-align={linkTextAlign}
+                        link-text-decoration={linkTextDecoration}
+                        line-item-padding={lineItemPadding}
+                        categories={categories}
+                        parent-category={parentCategory}
+                        category-name={categoryName}
+                        search-term={searchTerm}
+                        filter-panel-state={filterPanelState}
+                        onitemclick={handleCategoryClick}
+                        data-automation="showCategoryList"></site-search-filters-category-list>
+                </section>
+                <section lwc:if={shouldShowSelectedFilters}>
+                    <site-search-filters-selected
+                        custom-styles={customStyles}
+                        custom-classes={customClasses}
+                        is-heading-h1={isHeadingH1}
+                        is-heading-h2={isHeadingH2}
+                        is-heading-h3={isHeadingH3}
+                        is-heading-h4={isHeadingH4}
+                        is-heading-h5={isHeadingH5}
+                        is-heading-h6={isHeadingH6}
+                        is-body={isBody}
+                        selected-filters={selectedFilters}
+                        filter-panel-state={filterPanelState}
+                        onfacetvaluetoggle={handleFacetValueToggle}
+                        onfacetvaluepricefilter={handleFacetValuePriceFilter}></site-search-filters-selected>
+                </section>
+                <template
+                    for:each={facets}
+                    for:item="facet">
+                    <section key={facet.id}>
+                        <site-search-facet
+                            custom-styles={customStyles}
+                            custom-classes={customClasses}
+                            is-heading-h1={isHeadingH1}
+                            is-heading-h2={isHeadingH2}
+                            is-heading-h3={isHeadingH3}
+                            is-heading-h4={isHeadingH4}
+                            is-heading-h5={isHeadingH5}
+                            is-heading-h6={isHeadingH6}
+                            is-body={isBody}
+                            key={facet.id}
+                            display-data={facet}
+                            data-facetid={facet.id}
+                            show-facet-counts={showFacetCounts}
+                            filter-panel-state={filterPanelState}
+                            onfacetvaluetoggle={handleFacetValueToggle}
+                            onfacetvaluepricefilter={handleFacetValuePriceFilter}></site-search-facet>
+                    </section>
+                </template>
+            </div>
+            <div class="footer">
+                <site-common-button-ui
+                    disabled={shouldDisableClearFiltersButton}
+                    width="stretch"
+                    alignment="left"
+                    variant="none"
+                    onclick={handleClearAll}>
+                    {clearFiltersLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    class="see-items-button"
+                    data-automation="filter-panel-see-items-button"
+                    alignment="right"
+                    variant="primary"
+                    onclick={handleHideFilterPanel}>
+                    {seeItemsButtonLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+    </site-common-focus-trap-manager>
+</template>

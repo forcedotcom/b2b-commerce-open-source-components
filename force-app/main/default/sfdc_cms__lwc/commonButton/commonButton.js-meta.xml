@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Action Button</masterLabel>
+  <description>Add a button for page-level actions.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="text" type="String" default="Button" translatable="true" label="Button Text"></property>
+      <property name="buttonTextColor" type="Color" label="Button Text Color"></property>
+      <property name="buttonTextHoverColor" type="Color" label="Button Text Hover Color"></property>
+      <property name="buttonBackgroundColor" type="Color" label="Button Background Color"></property>
+      <property name="buttonBackgroundHoverColor" type="Color" label="Button Background Hover Color"></property>
+      <property name="buttonBorderColor" type="Color" label="Button Border Color"></property>
+      <property name="buttonBorderRadius" type="Integer" min="0" max="50" default="0" label="Button Border Radius (0px - 50px)"></property>
+      <property name="variant" type="String" default="primary" label="Button Style" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" type="String" default="standard" label="Button Size" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" type="String" default="standard" label="Max Button Width" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <designLayout>
+        <designSection name="Button">
+          <designLayoutItems>
+            <designLayoutProperty name="text"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

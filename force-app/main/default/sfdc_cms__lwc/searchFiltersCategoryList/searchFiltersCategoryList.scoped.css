@@ -1,0 +1,31 @@
+:host {
+    --dxp-s-body-font-size: var(--dxp-g-font-size-4);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    color: var(--com-c-search-filters-heading-text-color, var(--dxp-g-root-contrast));
+    background-color: var(--com-c-search-filters-heading-background-color, transparent);
+    display: flex;
+    flex-direction: column;
+    align-items: var(--com-c-search-filters-heading-alignment);
+    text-decoration: var(--com-c-search-filters-heading-decoration);
+    font-weight: var(--com-c-search-filters-heading-text-font-weight);
+    font-style: var(--com-c-search-filters-heading-text-font-style);
+    font-size: var(--com-c-search-filters-heading-text-font-size);
+    font-family: var(--com-c-search-filters-heading-text-font-family);
+    width: 100%;
+}
+.parent-category {
+    display: flex;
+    align-items: center;
+    justify-content: var(--com-c-search-filters-text-align);
+}
+.slot-style {
+    width: 100%;
+    display: flex;
+}
