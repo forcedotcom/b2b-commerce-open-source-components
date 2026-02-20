@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Search Results</masterLabel>
+  <description>Displays the search results.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="searchResults" type="String" default="{!Search.Results}" label="Results Data Binding"></property>
+      <property name="searchResultsFields" type="String" default="{!Search.Name}"></property>
+      <property name="searchResultsLoading" type="String" default="{!Search.ClientState.loading}" label="Search Loading State Expression"></property>
+      <property name="resultsLayout" type="String" default="grid" datasource="grid,list" label="Results Layout"></property>
+      <property name="gridColumnSpacing" type="String" default="large" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource" label="Grid Column Spacing"></property>
+      <property name="gridRowSpacing" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource" label="Grid Row Spacing"></property>
+      <property name="listRowSpacing" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource" label="List Row Spacing"></property>
+      <property name="currentPage" type="String" default="{!Search.Pagination.currentPage}" label="Current Page"></property>
+      <property name="resultNavigation" type="String" default="pagination" datasource="slidingWindow,pagination" label="Result Navigation" description="Select Pagination Only if you have a large catalog."></property>
+      <property name="cardBackgroundColor" type="Color" label="Card Background Color"></property>
+      <property name="cardBorderColor" type="Color" label="Card Border Color"></property>
+      <property name="cardBorderRadius" type="String" default="1" datasource="1,2,3,4,5,6,7,8" label="Card Border Radius"></property>
+      <property name="cardAlignment" type="String" default="center" datasource="left,center,right" label="Card Alignment"></property>
+      <property name="cardDividerColor" type="Color" label="Card Divider Color"></property>
+      <property name="showProductImage" type="Boolean" default="true" label="Show Product Image"></property>
+      <property name="navigateToParentProduct" type="Boolean" default="false" label="Navigate to Parent Product" description="Navigate from a product card to the parent product instead of to the default variant product."></property>
+      <property name="showNegotiatedPrice" type="Boolean" default="true" label="Show Actual Price" description="Show price the customer will pay, including any quantity-based discount."></property>
+      <property name="showOriginalPrice" type="Boolean" default="true" label="Show Original Price" description="Show the original price of the item. This price is shown with a line through it."></property>
+      <property name="negotiatedPriceTextColor" type="Color" label="Actual Price Text Color"></property>
+      <property name="negotiatedPriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Actual Price Text Size"></property>
+      <property name="originalPriceTextColor" type="Color" label="Original Price Text Color"></property>
+      <property name="originalPriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Original Price Text Size"></property>
+      <property name="cardContentMapping" type="String" default="[{&quot;name&quot;: &quot;Name&quot;, &quot;showLabel&quot;: false, &quot;label&quot;: &quot;Product Name&quot;, &quot;fontSize&quot;: &quot;medium&quot;}]"></property>
+      <property name="subscriptionOptionsText" type="String" translatable="true" default="Subscription Options Available" label="Subscription Option Text"></property>
+      <property name="showCallToActionButton" type="Boolean" default="false" label="Show Call To Action Button"></property>
+      <property name="addToCartButtonStyle" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" label="Button Style"></property>
+      <property name="addToCartButtonText" type="String" translatable="true" default="Add to cart" label="Add To Cart Button Text"></property>
+      <property name="addToCartButtonProcessingText" type="String" translatable="true" default="Adding..." label="Add To Cart Button Processing Text"></property>
+      <property name="viewOptionsButtonText" type="String" translatable="true" default="View options" label="View Options Button Text"></property>
+      <property name="quantitySelectorLabel" type="String" translatable="true" default="QTY" label="Quantity Selector Label"></property>
+      <property name="showQuantitySelector" type="Boolean" default="false" label="Show Quantity Selector"></property>
+      <property name="includeQuantityRules" type="String" default=""></property>
+      <property name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" label="Minimum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy {0} to start”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" label="Maximum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy up to {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property name="showQuantityRulesText" type="Boolean" default="false" label="Show quantity rules" description="Display quantity rules for the product. The rules always display when users hover over the quantity selector’s information icon."></property>
+      <property name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" label="Increment Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Sold in increments of {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <designLayout>
+        <designSection name="Layout">
+          <designLayoutItems>
+            <designLayoutProperty name="resultsLayout"></designLayoutProperty>
+            <designLayoutProperty name="gridColumnSpacing" cbVisibleIf="resultsLayout=grid"></designLayoutProperty>
+            <designLayoutProperty name="gridRowSpacing" cbVisibleIf="resultsLayout=grid"></designLayoutProperty>
+            <designLayoutProperty name="listRowSpacing" cbVisibleIf="resultsLayout=list"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Results Display">
+          <designLayoutItems>
+            <designLayoutProperty name="resultNavigation"></designLayoutProperty>
+            <designLayoutProperty name="cardBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="cardBorderColor" cbVisibleIf="resultsLayout=grid"></designLayoutProperty>
+            <designLayoutProperty name="cardBorderRadius" cbVisibleIf="resultsLayout=grid"></designLayoutProperty>
+            <designLayoutProperty name="cardAlignment" cbVisibleIf="resultsLayout=grid"></designLayoutProperty>
+            <designLayoutProperty name="cardDividerColor" cbVisibleIf="resultsLayout=list"></designLayoutProperty>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="navigateToParentProduct"></designLayoutProperty>
+            <designLayoutProperty name="cardContentMapping"></designLayoutProperty>
+            <designLayoutProperty name="showNegotiatedPrice"></designLayoutProperty>
+            <designLayoutProperty name="negotiatedPriceTextSize" cbVisibleIf="showNegotiatedPrice"></designLayoutProperty>
+            <designLayoutProperty name="negotiatedPriceTextColor" cbVisibleIf="showNegotiatedPrice"></designLayoutProperty>
+            <designLayoutProperty name="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceTextSize" cbVisibleIf="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceTextColor" cbVisibleIf="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionOptionsText"></designLayoutProperty>
+            <designLayoutProperty name="showCallToActionButton"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonStyle" cbVisibleIf="showCallToActionButton"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonText" cbVisibleIf="showCallToActionButton"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonProcessingText" cbVisibleIf="showCallToActionButton"></designLayoutProperty>
+            <designLayoutProperty name="viewOptionsButtonText" cbVisibleIf="showCallToActionButton"></designLayoutProperty>
+            <designLayoutProperty name="searchResults"></designLayoutProperty>
+            <designLayoutProperty name="searchResultsFields"></designLayoutProperty>
+            <designLayoutProperty name="searchResultsLoading"></designLayoutProperty>
+            <designLayoutProperty name="currentPage"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="includeQuantityRules"></designLayoutProperty>
+            <designLayoutProperty name="minimumValueGuideText" cbVisibleIf="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText" cbVisibleIf="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText" cbVisibleIf="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="showQuantityRulesText" cbVisibleIf="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="quantitySelectorLabel" cbVisibleIf="showQuantitySelector"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

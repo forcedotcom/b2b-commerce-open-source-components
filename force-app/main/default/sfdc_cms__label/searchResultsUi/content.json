@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchResultsUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "loading",
+      "value" : "Loading"
+    }, {
+      "name" : "noResultsFound",
+      "value" : "No results found. Please try different keywords or filters."
+    }, {
+      "name" : "resultsLoaded",
+      "value" : "Loading completed. {totalResults} results found."
+    }, {
+      "name" : "resultsLoadedPartial",
+      "value" : "Page {currentPage} loaded. Showing {startIndex} through {endIndex} of {totalResults} results."
+    }, {
+      "name" : "variationAttribute",
+      "value" : "{name}: {value}"
+    } ]
+  },
+  "urlName" : "searchresultsui"
+}

@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchFiltersUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "filtersHeader",
+      "value" : "Applied filters {count}"
+    } ]
+  },
+  "urlName" : "searchfiltersui"
+}

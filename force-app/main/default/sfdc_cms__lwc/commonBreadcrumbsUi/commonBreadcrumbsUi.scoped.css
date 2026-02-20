@@ -1,0 +1,62 @@
+ol {
+    --slds-c-breadcrumbs-spacing-inline-start: 0.25rem;
+    --slds-c-breadcrumbs-spacing-inline-end: 0.25rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+ol li {
+    font-size: var(--com-c-breadcrumb-text-size);
+    padding-left: var(--slds-c-breadcrumbs-spacing-inline-start);
+    color: var(--com-c-breadcrumb-text-color, var(--dxp-g-root-contrast));
+}
+
+ol li a {
+    color: var(--com-c-breadcrumb-link-color, var(--dxp-s-link-text-color));
+}
+
+ol li a:hover {
+    color: var(--com-c-breadcrumb-link-hover-color, var(--dxp-s-link-text-color-hover));
+}
+
+/* By default, outline was following the color attribute, but not in safari, so need to set it */
+ol li a:focus-visible {
+    outline: 2px solid;
+    outline-offset: 2px;
+}
+
+ol li p {
+    float: right;
+    margin-left: var(--slds-c-breadcrumbs-spacing-inline-end);
+}
+
+ol li p::before {
+    content: var(--com-c-breadcrumb-divider);
+    color: var(--com-c-breadcrumb-divider-color, var(--dxp-g-root-contrast));
+}
+
+ol li:first-child {
+    padding-left: 0;
+}
+
+@media only screen and (min-width: 48em) {
+    li.s.text > :not(a):not(p) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 47.9375em) {
+    li:not(.s) {
+        display: none;
+    }
+
+    li.s.last p {
+        display: none;
+    }
+
+    li.s.text a {
+        display: none;
+    }
+}

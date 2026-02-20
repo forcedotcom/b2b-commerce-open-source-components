@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>No Results Layout</masterLabel>
+  <description>Results Layout with No Results.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="searchResultsTotal" type="String" default="{!Search.Results.productLoadedCount}" label="Results Total"></property>
+      <property name="searchResultsLoading" type="String" default="{!Search.ClientState.loading}" label="Search Loading State Expression"></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

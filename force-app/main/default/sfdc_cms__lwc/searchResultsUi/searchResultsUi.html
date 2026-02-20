@@ -1,0 +1,39 @@
+<template lwc:render-mode="light">
+    <div
+        class="slds-assistive-text"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+        <span lwc:if={searchResultsLoaded}>{resultsLoadedLabel}</span>
+        <span lwc:if={searchResultsLoading}>{loadingLabel}</span>
+    </div>
+
+    <section style={customCssProperties}>
+        <!-- Product Grid - shows results as product cards in a grid  -->
+        <site-search-product-grid
+            configuration={resultsConfiguration.layoutConfiguration}
+            display-data={normalizedSearchResults.cardCollection}
+            onaddproducttocart={handleAddToCart}
+            onshowproduct={handleNavigateToProductPage}></site-search-product-grid>
+
+        <!-- Paging Control - paging navigation -->
+        <site-search-paging-control
+            class="slds-p-top_x-large slds-p-bottom_medium"
+            if:true={showPagingControl}
+            current-page-number={_currentPageNumber}
+            page-size={pageSize}
+            total-item-count={totalItemCount}
+            pagination-type={selectedNavigationType}
+            onpageprevious={handlePreviousPageEvent}
+            onpagenext={handleNextPageEvent}
+            onpagegoto={handleGotoPageEvent}></site-search-paging-control>
+
+        <div
+            lwc:if={searchResultsLoading}
+            class="search-loading">
+            <lightning-spinner
+                variant="brand"
+                size="large"></lightning-spinner>
+        </div>
+    </section>
+</template>
