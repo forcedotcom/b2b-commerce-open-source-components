@@ -1,0 +1,9 @@
+.show-more {
+    text-decoration: underline;
+    text-decoration-color: var(--dxp-g-brand);
+    --com-c-button-display: contents;
+}
+.input-padding {
+    padding-top: var(--dxp-g-spacing-small);
+    padding-bottom: var(--dxp-g-spacing-small);
+}

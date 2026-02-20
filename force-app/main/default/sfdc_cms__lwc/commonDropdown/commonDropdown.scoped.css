@@ -1,0 +1,44 @@
+:host {
+    --dxp-s-button-color-active: var(--com-c-dropdown-button-color-active, var(--dxp-s-button-color, #1c1c1c));
+    --dxp-s-button-color-focus: var(--com-c-dropdown-button-color-focus, var(--dxp-s-button-color, #1c1c1c));
+    --dxp-s-button-color-hover: var(--com-c-dropdown-button-color-hover, var(--dxp-s-button-color, #1c1c1c));
+    --sds-c-button-sizing-border: var(--com-c-dropdown-button-sizing-border, 0px);
+    --sds-c-button-shadow-focus: var(--com-c-dropdown-button-shadow-focus, none);
+    --dxp-c-link-text-decoration: var(--com-c-dropdown-text-decoration, none);
+    --dxp-s-button-text-decoration-active: var(--com-c-dropdown-button-text-decoration-active, none);
+    --dxp-s-button-font-weight: var(--com-c-dropdown-button-font-weight, 600);
+}
+lightning-button-menu::part(button) {
+    --slds-c-button-color-background: var(--dxp-s-tertiary-button-color, rgba(0, 0, 0, 0));
+    --slds-c-button-color-border: var(--dxp-s-tertiary-button-border-color, rgba(0, 0, 0, 0));
+    --slds-c-button-neutral-text-color: var(--dxp-s-tertiary-button-text-color, var(--dxp-g-brand, #0176d3));
+    --slds-c-button-neutral-text-color-hover: var(
+        --dxp-s-tertiary-button-text-color-hover,
+        var(--dxp-g-brand-1, #014486)
+    );
+    --slds-c-button-color-background-active: var(--dxp-s-tertiary-button-color-active, rgba(0, 0, 0, 0));
+    --slds-c-button-color-border-active: var(--dxp-s-tertiary-button-border-color-active, rgba(0, 0, 0, 0));
+    --slds-c-button-neutral-text-color-active: var(
+        --dxp-s-tertiary-button-text-color-active,
+        var(--dxp-g-brand-1, #014486)
+    );
+    --sds-c-button-shadow-active: none;
+    --sds-c-button-shadow-focus: none;
+    --slds-c-button-shadow: none;
+    --slds-c-button-shadow-focus: none;
+    --sds-c-button-spacing-inlineend: 0px;
+    --sds-c-button-spacing-inlinestart: 0px;
+    --slds-s-button-spacing-inline: 0px;
+}
+lightning-menu-item {
+    --slds-c-dropdown-item-color: var(--dxp-s-dropdown-text-color, var(--dxp-g-root-contrast));
+    --slds-c-dropdown-item-color-hover: var(--dxp-s-dropdown-text-color-hover, var(--dxp-g-neutral-contrast));
+    --slds-c-dropdown-item-color-focus: var(--dxp-s-dropdown-text-color-hover, var(--dxp-g-neutral-contrast));
+    --slds-c-dropdown-item-color-active: var(--dxp-s-dropdown-text-color, var(--dxp-g-root-contrast));
+    --slds-c-dropdown-item-color-disabled: var(--slds-g-color-neutral-base-80, #c9c9c9);
+    --slds-c-dropdown-item-color-background: var(--dxp-c-link-color-background);
+    --slds-c-dropdown-item-color-background-hover: var(--dxp-s-dropdown-color-background-hover, var(--dxp-g-neutral));
+    --slds-c-dropdown-item-color-background-focus: var(--dxp-s-dropdown-color-background-hover, var(--dxp-g-neutral));
+    --slds-c-dropdown-item-color-background-active: var(--slds-g-color-neutral-base-95, #f3f3f3);
+    --slds-c-dropdown-item-color-background-disabled: var(--dxp-c-link-color-background);
+}

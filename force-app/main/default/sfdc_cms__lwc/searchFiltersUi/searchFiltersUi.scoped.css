@@ -1,0 +1,72 @@
+.panel-wrapper {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    top: auto;
+}
+@media only screen and (max-width: 47.9375em) {
+    .panel-wrapper {
+        position: fixed;
+        background-color: var(--dxp-g-root, #fff);
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition:
+            visibility 0.1s,
+            opacity 0.1s linear;
+        overflow-y: auto;
+    }
+    .panel-wrapper .container {
+        padding: 1em;
+    }
+    .panel-wrapper.visible {
+        visibility: visible;
+        opacity: 1;
+        z-index: 10000;
+    }
+}
+@media only screen and (min-width: 48em) and (max-width: 64em) {
+    .panel-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        background-color: rgb(0, 0, 0, 0.2);
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        visibility: hidden;
+        z-index: 10000;
+        overflow-y: auto;
+    }
+    .panel-wrapper.visible {
+        z-index: 10000;
+        visibility: visible;
+    }
+    .panel-container {
+        background-color: var(--dxp-g-root, #fff);
+        width: 358px;
+        height: 100%;
+        white-space: break-spaces;
+        overflow-y: auto;
+        overflow-x: hidden;
+        left: -358px;
+        position: relative;
+        transform: translateX(0%);
+        transition:
+            0.3s ease-out,
+            visibility 0.2s linear;
+    }
+    .visible div {
+        transform: translateX(100%);
+    }
+}
+@media only screen and (min-width: 64.0625em) {
+    .show-filter-button {
+        display: none;
+    }
+}

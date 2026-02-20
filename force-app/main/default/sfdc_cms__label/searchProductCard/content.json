@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchProductCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToCartAriaLabel",
+      "value" : "Add to cart: {productTitle}"
+    }, {
+      "name" : "viewOptionsAriaLabel",
+      "value" : "View Options: {productTitle}"
+    }, {
+      "name" : "variationAttribute",
+      "value" : "{name}: {value}"
+    }, {
+      "name" : "configurableLabel",
+      "value" : "Configurable"
+    } ]
+  },
+  "urlName" : "searchproductcard"
+}

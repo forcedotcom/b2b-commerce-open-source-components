@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchFiltersSelected",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "appliedFiltersSectionTitle",
+      "value" : "Applied Filters {count}"
+    } ]
+  },
+  "urlName" : "searchfiltersselected"
+}

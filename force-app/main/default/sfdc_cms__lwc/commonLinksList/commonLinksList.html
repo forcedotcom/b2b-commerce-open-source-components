@@ -1,0 +1,20 @@
+<template lwc:render-mode="light">
+    <div slot="header"><slot name="header"></slot></div>
+    <template lwc:if={hasItems}>
+        <site-common-links-list-ui
+            items={linkListItems}
+            orientation={orientation}
+            link-color={linkColor}
+            link-hover-color={linkHoverColor}
+            max-depth={maxDepth}
+            onitemclick={handleItemClick}
+            line-item-padding={lineItemPadding}
+            text-node-tag={textNodeTag}
+            link-text-align={textAlign}
+            link-text-weight={linkTextWeight}
+            link-text-style={linkTextStyle}
+            link-text-decoration={linkTextDecoration}
+            link-text-font-size={linkTextFontSize}
+            link-text-font-family={linkTextFontFamily}></site-common-links-list-ui>
+    </template>
+</template>

@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchFiltersPanel",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "filterHeader",
+      "value" : "Filter"
+    }, {
+      "name" : "clearFiltersButton",
+      "value" : "Clear Filters"
+    }, {
+      "name" : "clearButtonAriaLabel",
+      "value" : "Clear all filters"
+    }, {
+      "name" : "closeLabel",
+      "value" : "Close filter panel"
+    }, {
+      "name" : "oneSeeItemsButton",
+      "value" : "See Item"
+    }, {
+      "name" : "multipleSeeItemsButton",
+      "value" : "See Items {count}"
+    }, {
+      "name" : "loading",
+      "value" : "Loading"
+    }, {
+      "name" : "sortAndFilters",
+      "value" : "Sort &amp; Filter"
+    } ]
+  },
+  "urlName" : "searchfilterspanel"
+}

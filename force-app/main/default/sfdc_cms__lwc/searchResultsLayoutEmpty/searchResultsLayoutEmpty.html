@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <section
+        lwc:if={showResults}
+        data-automation="results-layout"
+        data-id="results-layout">
+        <slot name="resultsLayout"></slot>
+    </section>
+    <section
+        lwc:if={showNoResults}
+        data-id="no-results">
+        <slot name="noResults"></slot>
+    </section>
+    <section
+        lwc:if={showLoaderPlaceholder}
+        data-id="loader-placeholder">
+        <slot name="loaderPlaceholder"></slot>
+    </section>
+</template>
