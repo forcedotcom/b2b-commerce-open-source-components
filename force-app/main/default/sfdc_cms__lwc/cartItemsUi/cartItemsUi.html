@@ -110,7 +110,7 @@
         onclick={handleShowMoreButton}>
         <slot name="showMore"></slot>
     </button>
-    <site-search-pagingcontrol
+    <site-search-paging-control
         lwc:if={displayPages}
         class="slds-p-top_x-large slds-p-bottom_medium item-paginator"
         current-page-number={currentPageNumber}
@@ -119,5 +119,5 @@
         total-item-count={totalItemCount}
         onpagegoto={handleGotoPageEvent}
         onpageprevious={handlePreviousPageEvent}
-        onpagenext={handleNextPageEvent}></site-search-pagingcontrol>
+        onpagenext={handleNextPageEvent}></site-search-paging-control>
 </template>
