@@ -1,0 +1,42 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myaccountNavigationMenu",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "welcomeMessage",
+                        "title": "Welcome Message",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "backgroundColor": "",
+                                    "paddingVertical": "medium",
+                                    "text": "Hi {!User.Commerce.Profile.firstName},",
+                                    "textAlign": "left",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h1\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "navigationMenuItemList",
+                        "title": "Navigation Menu Item List",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:myaccountNavigationMenuItems",
+                                "type": "component"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonDrilldownNavigationListUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "closeNavigationMenu",
+      "value" : "Close navigation menu"
+    }, {
+      "name" : "All",
+      "value" : "All"
+    }, {
+      "name" : "Back",
+      "value" : "Back"
+    }, {
+      "name" : "component_name",
+      "value" : "Multilevel Navigation Menu"
+    } ]
+  },
+  "urlName" : "commondrilldownnavigationlistui"
+}

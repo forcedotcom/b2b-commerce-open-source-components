@@ -1,0 +1,122 @@
+<template lwc:render-mode="light">
+    <template lwc:if={showListView}>
+        <template lwc:if={showMobileTrigger}>
+            <button
+                class="drilldown-nav-hamburger-button slds-button"
+                onclick={handleNavigationTriggerClicked}
+                lwc:ref="hamburgerButton"
+                aria-label={mobileTriggerLabel}
+                aria-haspopup="dialog">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    height="52"
+                    width="52"
+                    viewBox="0 0 520 520"
+                    fill="#fff"
+                    class="slds-button__icon slds-button__icon_large">
+                    <path
+                        d="M465 140H55c-8 0-15-7-15-15V95c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15zm0 149H55c-8 0-15-7-15-15v-30c0-7 7-14 15-14h410c8 0 15 7 15 15v30c0 7-7 14-15 14zm0 151H55c-8 0-15-7-15-15v-30c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15z"></path>
+                </svg>
+            </button>
+        </template>
+        <template lwc:if={mobileMenuOpen}>
+            <site-common-drilldown-navigation-list-ui
+                is-mobile-view
+                menu-items={viewMenuItems}
+                onclosesubmenus={focusMobileNavigationTrigger}
+                show-back-label={showBackLabel}
+                custom-theme-styles={customThemeStylesList}></site-common-drilldown-navigation-list-ui>
+        </template>
+    </template>
+    <template lwc:else>
+        <div lwc:if={isDesktop}>
+            <site-common-drilldown-navigation-bar-ui
+                hide-more-menu={hideMoreMenu}
+                menu-items={viewMenuItems}
+                menu-alignment={normalizedAlignment}
+                show-back-label={showBackLabel}
+                show-app-launcher={showAppLauncher}
+                custom-theme-styles-bar={customThemeStylesBar}
+                custom-theme-styles-list={customThemeStylesList}></site-common-drilldown-navigation-bar-ui>
+        </div>
+
+        <div lwc:if={isTablet}>
+            <!-- By default, bar is shown in tablet unless custom CSS token is set -->
+            <site-common-drilldown-navigation-bar-ui
+                hide-more-menu={hideMoreMenu}
+                menu-items={viewMenuItems}
+                menu-alignment={normalizedAlignment}
+                show-back-label={showBackLabel}
+                show-app-launcher={showAppLauncher}
+                custom-theme-styles-bar={customThemeStylesBar}
+                custom-theme-styles-list={customThemeStylesList}></site-common-drilldown-navigation-bar-ui>
+            <div class="drilldown-nav-tablet-icon">
+                <template lwc:if={showMobileTrigger}>
+                    <button
+                        class="drilldown-nav-hamburger-button slds-button"
+                        onclick={handleNavigationTriggerClicked}
+                        lwc:ref="hamburgerButton"
+                        aria-label={mobileTriggerLabel}
+                        aria-haspopup="dialog">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            height="52"
+                            width="52"
+                            viewBox="0 0 520 520"
+                            fill="#fff"
+                            class="slds-button__icon slds-button__icon_large">
+                            <path
+                                d="M465 140H55c-8 0-15-7-15-15V95c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15zm0 149H55c-8 0-15-7-15-15v-30c0-7 7-14 15-14h410c8 0 15 7 15 15v30c0 7-7 14-15 14zm0 151H55c-8 0-15-7-15-15v-30c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15z"></path>
+                        </svg>
+                    </button>
+                </template>
+                <template lwc:if={mobileMenuOpen}>
+                    <div
+                        class="tablet-menu-overlay"
+                        onclick={focusMobileNavigationTrigger}></div>
+                    <div class="tablet-menu-container slds-m-right_xx-small">
+                        <site-common-drilldown-navigation-list-ui
+                            is-mobile-view
+                            menu-items={viewMenuItems}
+                            onclosesubmenus={focusMobileNavigationTrigger}
+                            show-back-label={showBackLabel}
+                            custom-theme-styles={customThemeStylesList}></site-common-drilldown-navigation-list-ui>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        <div lwc:if={isMobile}>
+            <template lwc:if={showMobileTrigger}>
+                <button
+                    class="drilldown-nav-hamburger-button slds-button"
+                    onclick={handleNavigationTriggerClicked}
+                    lwc:ref="hamburgerButton"
+                    aria-label={mobileTriggerLabel}
+                    aria-haspopup="dialog">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="52"
+                        width="52"
+                        viewBox="0 0 520 520"
+                        fill="#fff"
+                        class="slds-button__icon slds-button__icon_large">
+                        <path
+                            d="M465 140H55c-8 0-15-7-15-15V95c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15zm0 149H55c-8 0-15-7-15-15v-30c0-7 7-14 15-14h410c8 0 15 7 15 15v30c0 7-7 14-15 14zm0 151H55c-8 0-15-7-15-15v-30c0-8 7-15 15-15h410c8 0 15 7 15 15v30c0 8-7 15-15 15z"></path>
+                    </svg>
+                </button>
+            </template>
+            <template lwc:if={mobileMenuOpen}>
+                <div class="mobile-menu-container">
+                    <site-common-drilldown-navigation-list-ui
+                        is-mobile-view
+                        no-focus-next-on-close
+                        menu-items={viewMenuItems}
+                        onclosesubmenus={focusMobileNavigationTrigger}
+                        show-back-label={showBackLabel}
+                        custom-theme-styles={customThemeStylesList}></site-common-drilldown-navigation-list-ui>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

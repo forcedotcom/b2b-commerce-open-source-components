@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-  <apiVersion>64</apiVersion>
+  <apiVersion>66</apiVersion>
   <isExposed>true</isExposed>
   <masterLabel>Navigation List Menu</masterLabel>
   <description>Display a list of navigation menu items.</description>
@@ -16,12 +16,12 @@
       <paletteSection>Open Code</paletteSection>
     </targetConfig>
     <targetConfig targets="lightningCommunity__Default">
-      <property label="Navigation Menu" type="String" name="navigationLinkSetDevName"></property>
+      <property label="Navigation Menu" type="NavigationMenuEditor" name="navigationMenuDevName"></property>
       <property label="Nav Item Spacing" name="navItemSpacing" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.DxpSpacingSizeDataSource"></property>
       <designLayout>
         <designSection>
           <designLayoutItems>
-            <designLayoutProperty name="navigationLinkSetDevName"></designLayoutProperty>
+            <designLayoutProperty name="navigationMenuDevName"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
         <designSection name="Navigation Display Settings">

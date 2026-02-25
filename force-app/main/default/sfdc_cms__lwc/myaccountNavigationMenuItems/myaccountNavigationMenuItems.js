@@ -1,6 +1,7 @@
 import { api, LightningElement, wire } from 'lwc';
 import { generatePaddingClass } from 'experience/styling';
 import { CurrentPageReference, generateUrl, navigate, NavigationContext } from 'lightning/navigation';
+import { getNavigationMenu } from 'experience/navigationMenuApi';
 import { isCurrentPage } from './navigationMenuItemSelector';
 import LABELS from './labels';
 export const MENU_ITEMS_TO_SKIP = new Set(['Event', 'GlobalAction', 'MenuLabel', 'NavigationalTopic', 'SystemLink', 'Modal']);
@@ -9,10 +10,25 @@ export default class MyaccountNavigationMenuItems extends LightningElement {
   _currentPageUrl = '';
   _pageRef;
   _navContext;
+  _navigationMenuItems = [];
   @api
-  navigationLinkSetDevName;
+  navigationMenuDevName;
   @api
   navItemSpacing;
+  @wire(getNavigationMenu, {
+    navigationLinkSetDeveloperName: '$navigationMenuDevName',
+    menuItemTypesToSkip: ['NavigationalTopic', 'GlobalAction', 'Event'],
+    addHomeMenuItem: false,
+    includeImageUrl: false
+  })
+  handleNavigationMenu(result) {
+    if (result.data?.menuItems) {
+      this._navigationMenuItems = result.data.menuItems;
+    } else if (result.error) {
+      console.error('[myaccountNavigationMenuItems] Wire error:', result.error);
+      this._navigationMenuItems = [];
+    }
+  }
   @wire(NavigationContext)
   getNavContext(navContext) {
     if (this._pageRef) {
@@ -29,7 +45,7 @@ export default class MyaccountNavigationMenuItems extends LightningElement {
   }
   get menuItems() {
     const paddingClass = generatePaddingClass(this.navItemSpacing ?? 'medium', 'vertical');
-    return (this.navigationLinkSetDevName || []).reduce((menuItems, menuItem, index) => {
+    return this._navigationMenuItems.reduce((menuItems, menuItem, index) => {
       if (menuItem.actionValue && !MENU_ITEMS_TO_SKIP.has(menuItem.actionType)) {
         const selected = isCurrentPage(menuItem, this._currentPageUrl, this._pageRef);
         const id = index.toString();

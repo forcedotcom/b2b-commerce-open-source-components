@@ -6,6 +6,53 @@
                 "type": "component",
                 "children": [
                     {
+                        "name": "dateFilter",
+                        "title": "dateFilter",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderListDateFilter",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "emptyBody",
+                        "title": "emptyBody",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "We couldn't find any orders from that period of time.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h3\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Try changing your filter settings.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h4\", \"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:button",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue Shopping",
+                                    "url": "/"
+                                }
+                            }
+                        ]
+                    },
+                    {
                         "name": "orderListRepeater",
                         "type": "region",
                         "children": [

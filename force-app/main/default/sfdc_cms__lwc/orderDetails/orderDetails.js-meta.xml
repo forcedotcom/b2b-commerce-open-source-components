@@ -1,0 +1,36 @@
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>66</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Summary Details</masterLabel>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderSummaryDetails" type="String" default="{!Order.Details}"></property>
+      <property name="highlightsTitle" translatable="true" type="String" default="Details"></property>
+      <property name="highlightsCardBackgroundColor" type="Color"></property>
+      <property name="highlightsCardBorderColor" type="Color"></property>
+      <property name="highlightsCardTextColor" type="Color"></property>
+      <property name="highlightsCardBorderRadius" type="Integer" min="0" max="20" default="0"></property>
+      <property name="orderSummaryHighlightsFieldMapping" type="String" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderSummaryDetails"></designLayoutProperty>
+            <designLayoutProperty name="highlightsTitle"></designLayoutProperty>
+            <designLayoutProperty name="highlightsCardBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="highlightsCardBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="highlightsCardBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="highlightsCardTextColor"></designLayoutProperty>
+            <designLayoutProperty name="orderSummaryHighlightsFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

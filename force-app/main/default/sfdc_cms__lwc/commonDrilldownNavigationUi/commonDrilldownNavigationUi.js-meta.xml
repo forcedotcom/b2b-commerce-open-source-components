@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
   <apiVersion>66</apiVersion>
+  <masterLabel>Drilldown Navigation</masterLabel>
+  <description>Add a drilldown navigation menu to your page.</description>
   <isExposed>true</isExposed>
 </LightningComponentBundle>

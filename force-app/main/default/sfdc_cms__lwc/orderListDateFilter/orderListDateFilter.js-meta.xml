@@ -2,7 +2,7 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
   <masterLabel>Order Date Filter</masterLabel>
   <description>Dropdown to filter the order list based on time.</description>
-  <apiVersion>67</apiVersion>
+  <apiVersion>66</apiVersion>
   <isExposed>true</isExposed>
   <targets>
     <target>lightningCommunity__Page</target>
