@@ -43,12 +43,12 @@ After the prerequisites are completed, follow these steps to use open source com
    If you’re deploying the components for the first time and want to deploy all the components, run this command:
 
    ```console
-   sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>  --target-org <org_alias_name>
+   sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_site>  --target-org <org_alias_name>
    ```
    If you’re deploying a single updated component, use this command:
 
    ```console
-   sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_store>/sfdc_cms__lwc/<name_of_component>  --target-org <org_alias_name>
+   sf project deploy start --source-dir force-app/main/default/digitalExperiences/site/<name_of_site>/sfdc_cms__lwc/<name_of_component>  --target-org <org_alias_name>
    ```
 
 5. **Activate in Experience Builder**: Once the deployment is complete, navigate to your Salesforce org and open the Experience Builder for the store where the components were deployed. You’ll notice a new section in the palette named Open Source, which shows the newly-deployed components. Replace the existing components in your store with the enhanced versions from the Open Source section. <img width="967" height="557" alt="Screenshot 2025-07-25 at 12 10 08 PM" src="https://github.com/user-attachments/assets/81705582-a38f-429c-91c5-445393136add" />
