@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonScopedNotification",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "infoIconAltText",
+      "value" : "Info"
+    }, {
+      "name" : "warningIconAltText",
+      "value" : "Warning"
+    }, {
+      "name" : "errorIconAltText",
+      "value" : "Error"
+    }, {
+      "name" : "successIconAltText",
+      "value" : "Success"
+    } ]
+  },
+  "urlName" : "commonscopednotification"
+}

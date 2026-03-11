@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Wishlist</masterLabel>
+  <description>Show a list of products that were added to My List.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="wishlistsData" type="string" default="{!Wishlists}"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="wishlistsData" cbVisibleIf="false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

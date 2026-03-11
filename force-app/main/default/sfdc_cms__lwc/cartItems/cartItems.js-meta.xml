@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Cart Items</masterLabel>
+  <description>Shows the items in a cart.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="items" type="String" default="{!Cart.Items}" translatable="true"></property>
+      <property name="pagination" type="String" default="{!Cart.Pagination}" translatable="true"></property>
+      <property name="hasNextPageItems" type="String" default="{!Cart.Pagination.hasNextPage}"></property>
+      <property name="currencyIsoCode" type="String" default="{!Cart.Details.currencyIsoCode}" translatable="true"></property>
+      <property name="showRemoveItem" type="Boolean" default="true" label="Show remove item option"></property>
+      <property name="showModifyItem" type="Boolean" default="true" label="Show modify item option"></property>
+      <property name="paginationType" type="String" default="scroll" datasource="java://siteforce.customComponent.datasource.CartItemsPaginationOptionsDataSource" label="Cart Item Pagination"></property>
+      <property name="showSku" type="Boolean" default="true" label="Show SKU" description="Show each product&amp;apos;s SKU ID."></property>
+      <property name="skuLabel" type="String" default="SKU# {0}" translatable="true" label="SKU Label"></property>
+      <property name="showProductImage" type="Boolean" default="true" label="Show product image"></property>
+      <property name="imageAspectRatio" type="String" default="1"></property>
+      <property name="imageSize" type="String" default="contain" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource" label="Image Fit"></property>
+      <property name="showProductVariants" type="Boolean" default="true" label="Show product variants"></property>
+      <property name="showCountInName" type="Boolean" default="false" label="Show quantity next to product name"></property>
+      <property name="removeProductLinks" type="Boolean" default="false" label="Remove product page links" description="By default, product names and images link to corresponding product pages."></property>
+      <property name="productFieldMapping" type="String" translatable="true" label="Fields" description="Select the fields to show with each product."></property>
+      <property name="productDescriptionFontColor" type="Color"></property>
+      <property name="productDetailsPillFontColor" type="Color" label="Product Details Pill Text Color"></property>
+      <property name="productDetailsPillFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Product Details Pill Text Size"></property>
+      <property name="productDetailsPillBackgroundColor" type="Color" default="rgb(217, 223, 231)" label="Product Details Pill Background Color"></property>
+      <property name="productDetailsPillBorderColor" type="Color" default="rgb(217, 223, 231)" label="Product Details Pill Border Color"></property>
+      <property name="productDetailsPillBorderRadius" type="Integer" min="0" max="50" default="8" label="Product Details Pill Border Radius (0px - 50px)" description="A value of 0 will follow the regular button theme border radius setting."></property>
+      <property name="showPricePerUnit" type="Boolean" default="true" label="Show price per unit" description="Show a product&amp;apos;s price per unit on a cart line item."></property>
+      <property name="pricePerUnitFontColor" type="Color" label="Price per Unit Text Color"></property>
+      <property name="pricePerUnitFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Price per Unit Text Size"></property>
+      <property name="showTotalPrices" type="Boolean" default="true" label="Show line item total"></property>
+      <property name="showOriginalPrice" type="Boolean" default="true" label="Show original price" description="The base price from the store’s original price book. If the original price is higher than the actual price, it’s crossed out."></property>
+      <property name="originalPriceFontColor" type="Color" label="Original Price Text Color"></property>
+      <property name="originalPriceFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Original Price Text Size"></property>
+      <property name="showActualPrice" type="Boolean" default="true" label="Show actual price" description="The final price for the current customer. This value comes from the price book assigned to the store or buyer group."></property>
+      <property name="actualPriceFontColor" type="Color" label="Actual Price Text Color"></property>
+      <property name="actualPriceFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Actual Price Text Size"></property>
+      <property name="showPromotions" type="Boolean" default="true" label="Show Promotions" description="Show applied promotions"></property>
+      <property name="promotionsAppliedSavingsButtonText" type="String" default="Saved {amount}" translatable="true" label="Promotion Label" description="Use {amount} to show discount."></property>
+      <property name="hideQuantitySelector" type="Boolean" default="false" label="Hide quantity selector"></property>
+      <property name="showQuantitySelectorLabel" type="Boolean" default="false" label="Show quantity selector label"></property>
+      <property name="quantitySelectorLabel" type="String" translatable="true" label="Quantity Selector Label"></property>
+      <property name="minimumValueGuideText" type="String" default="Minimum quantity is {0}" translatable="true" label="Minimum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy {0} to start”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property name="maximumValueGuideText" type="String" default="Maximum quantity is {0}" translatable="true" label="Maximum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy up to {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property name="incrementValueGuideText" type="String" default="Sold in increments of {0}" translatable="true" label="Increment Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Sold in increments of {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="items" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="pagination" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="hasNextPageItems" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="currencyIsoCode" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="showModifyItem"></designLayoutProperty>
+            <designLayoutProperty name="showRemoveItem"></designLayoutProperty>
+            <designLayoutProperty name="showTotalPrices"></designLayoutProperty>
+            <designLayoutProperty name="paginationType"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showSku"></designLayoutProperty>
+            <designLayoutProperty name="skuLabel" cbVisibleIf="showSku=true"></designLayoutProperty>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+            <designLayoutProperty name="imageSize" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+            <designLayoutProperty name="showProductVariants"></designLayoutProperty>
+            <designLayoutProperty name="showCountInName"></designLayoutProperty>
+            <designLayoutProperty name="removeProductLinks"></designLayoutProperty>
+            <designLayoutProperty name="productFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Details Pill">
+          <designLayoutItems>
+            <designLayoutProperty name="productDetailsPillFontColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillFontSize"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBorderRadius"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Price Per Unit">
+          <designLayoutItems>
+            <designLayoutProperty name="showPricePerUnit"></designLayoutProperty>
+            <designLayoutProperty name="pricePerUnitFontColor" cbVisibleIf="showPricePerUnit=true"></designLayoutProperty>
+            <designLayoutProperty name="pricePerUnitFontSize" cbVisibleIf="showPricePerUnit=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Original Price" cbVisibleIf="showTotalPrices=true">
+          <designLayoutItems>
+            <designLayoutProperty name="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceFontColor" cbVisibleIf="showOriginalPrice=true"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceFontSize" cbVisibleIf="showOriginalPrice=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Actual Price" cbVisibleIf="showTotalPrices=true">
+          <designLayoutItems>
+            <designLayoutProperty name="showActualPrice"></designLayoutProperty>
+            <designLayoutProperty name="actualPriceFontColor" cbVisibleIf="showActualPrice=true"></designLayoutProperty>
+            <designLayoutProperty name="actualPriceFontSize" cbVisibleIf="showActualPrice=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Promotion Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showPromotions"></designLayoutProperty>
+            <designLayoutProperty name="promotionsAppliedSavingsButtonText" cbVisibleIf="showPromotions=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="hideQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="showQuantitySelectorLabel" cbVisibleIf="hideQuantitySelector=false"></designLayoutProperty>
+            <designLayoutProperty name="quantitySelectorLabel" cbVisibleIf="showQuantitySelectorLabel=true"></designLayoutProperty>
+            <designLayoutProperty name="minimumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

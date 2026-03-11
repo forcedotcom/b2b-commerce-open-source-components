@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonDrilldownNavigationBarUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "titleLabel",
+      "value" : "App Launcher"
+    }, {
+      "name" : "OverflowMenuItemLabel",
+      "value" : "More"
+    }, {
+      "name" : "component_name",
+      "value" : "Multilevel Navigation Menu"
+    } ]
+  },
+  "urlName" : "commondrilldownnavigationbarui"
+}

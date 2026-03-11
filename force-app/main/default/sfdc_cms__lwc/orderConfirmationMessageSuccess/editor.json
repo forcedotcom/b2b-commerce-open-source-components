@@ -1,0 +1,56 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationMessageSuccess",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Thank you for your purchase!",
+                                    "textAlign": "center",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}"
+                                },
+                                "mobileAttributes": {
+                                    "textDisplayInfo": "{\"textStyle\":\"heading-medium\",\"headingTag\":\"h2\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "description",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Your Order Number : {!Route.orderNumber}. Use this order number to track your purchase.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "You'll receive an email with your order details soon.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}",
+                                    "textDecoration": "{\"bold\": false}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

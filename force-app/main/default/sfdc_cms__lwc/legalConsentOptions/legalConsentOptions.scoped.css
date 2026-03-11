@@ -1,0 +1,17 @@
+.consent-list {
+    display: grid;
+    gap: var(--dxp-g-spacing-medium);
+}
+.consent-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--dxp-g-spacing-medium);
+}
+.consent-text {
+    display: flex;
+    flex-direction: column;
+}
+.consent-description {
+    padding-top: var(--dxp-g-spacing-xsmall);
+}

@@ -1,0 +1,129 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderList",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "dateFilter",
+                        "title": "dateFilter",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderListDateFilter",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "emptyBody",
+                        "title": "emptyBody",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "We couldn't find any orders from that period of time.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h3\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Try changing your filter settings.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h4\", \"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:button",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue Shopping",
+                                    "url": "/"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "orderListRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "small",
+                                    "listType": "unformatted",
+                                    "showPagination": true,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "commerce_builder:orderSummary",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "orderNumberLabel",
+                                                        "title": "orderNumberLabel",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Order Number: ",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "orderNumber",
+                                                        "title": "orderNumber",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "{!OrderSummary.orderNumber}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commerceOrderListDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "OrderSummary",
+                                        "attributes": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

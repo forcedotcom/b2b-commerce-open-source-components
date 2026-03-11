@@ -1,6 +1,11 @@
 function evaluateCondition(condition, itemDetails) {
   const fieldValue = itemDetails[condition.field];
-  return fieldValue === condition.fieldValue;
+  switch (condition.operationWithFieldValue) {
+    case '!=':
+      return fieldValue !== condition.fieldValue;
+    default:
+      return fieldValue === condition.fieldValue;
+  }
 }
 function evaluateConditions(conditions, itemDetails) {
   if (conditions.length === 0) {
@@ -11,7 +16,7 @@ function evaluateConditions(conditions, itemDetails) {
     if (index === 0) {
       return conditionResult;
     }
-    switch (condition.operation) {
+    switch (condition.operationWithPreviousCondition) {
       case 'AND':
         return result && conditionResult;
       case 'OR':

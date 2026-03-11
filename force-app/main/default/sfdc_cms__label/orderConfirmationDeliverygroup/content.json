@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderConfirmationDeliverygroup",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "hours",
+      "value" : "Hours"
+    }, {
+      "name" : "days",
+      "value" : "Days"
+    }, {
+      "name" : "weeks",
+      "value" : "Weeks"
+    } ]
+  },
+  "urlName" : "orderconfirmationdeliverygroup"
+}

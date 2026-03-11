@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>66</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Navigation List Menu</masterLabel>
+  <description>Display a list of navigation menu items.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Navigation Menu" type="NavigationMenuEditor" name="navigationMenuDevName"></property>
+      <property label="Nav Item Spacing" name="navItemSpacing" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.DxpSpacingSizeDataSource"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="navigationMenuDevName"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Navigation Display Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="navItemSpacing"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

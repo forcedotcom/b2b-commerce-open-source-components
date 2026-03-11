@@ -1,0 +1,138 @@
+<template lwc:render-mode="light">
+    <!-- stencil and summary mode here, else use stateful container -->
+    <template if:true={_showStencil}>
+        <site-checkout-stencil
+            data-shipping-method-stencil
+            stencil-type={_stencilType}
+            item-count="2"></site-checkout-stencil>
+    </template>
+
+    <template if:true={_showSummary}>
+        <div
+            data-shipping-method-readonly
+            class="slds-m-bottom_medium">
+            <template if:true={transformedSelectedOption}>
+                <div class="flex-container align-radio">
+                    <div
+                        id={transformedSelectedOption.labelId}
+                        data-id={transformedSelectedOption.labelAria}>
+                        <div lwc:if={transformedSelectedOption.deliveryEstimate}>
+                            <div>{transformedSelectedOption.deliveryEstimate}</div>
+                            <div>
+                                <site-common-formatted-price
+                                    id={transformedSelectedOption.priceAria}
+                                    value={transformedSelectedOption.shippingFee}
+                                    currency-code={transformedSelectedOption.currencyIsoCode}
+                                    display-currency-as="symbol"></site-common-formatted-price>
+                                {labels.optionsSeparator}{transformedSelectedOption.label}
+                            </div>
+                        </div>
+                        <div lwc:else>
+                            {transformedSelectedOption.label}
+                            <site-common-formatted-price
+                                class="slds-m-left_medium slds-align_right"
+                                id={transformedSelectedOption.priceAria}
+                                value={transformedSelectedOption.shippingFee}
+                                currency-code={transformedSelectedOption.currencyIsoCode}
+                                display-currency-as="symbol"></site-common-formatted-price>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </template>
+
+    <div
+        if:true={_isShowEmptyMessage}
+        class="slds-p-around_small empty-message">
+        {_emptyMessage}
+    </div>
+
+    <template lwc:if={_showErrorNotification}>
+        <div class="slds-p-top_small">
+            <site-common-scoped-notification
+                type="error"
+                body-text={labels.noDeliveryMethodsErrorLabel}
+                class="slds-p-vertical_x-small"></site-common-scoped-notification>
+        </div>
+    </template>
+
+    <div
+        if:true={_showEdit}
+        class="slds-form-element"
+        data-shipping-method-edit>
+        <fieldset
+            class={fieldSetClasses}
+            part="input-radio-group"
+            aria-invalid={_ariaInvalid}>
+            <div class="slds-form-element__control">
+                <div
+                    class="slds-assistive-text"
+                    aria-live="polite"
+                    data-delivery-method-assistive>
+                    {deliveryMethodAssistiveText}
+                </div>
+                <template
+                    for:each={transformedOptions}
+                    for:item="option">
+                    <span
+                        class="slds-radio"
+                        key={option.value}>
+                        <input
+                            type="radio"
+                            name={option.name}
+                            id={option.radioId}
+                            data-id={option.radioAria}
+                            checked={option.isChecked}
+                            value={option.value}
+                            required
+                            disabled={_readOnly}
+                            onchange={handleShippingMethodChange} />
+                        <label
+                            class="slds-radio__label flex-container align-radio"
+                            for={option.radioId}>
+                            <span>
+                                <span class="slds-radio_faux"></span>
+                                 
+                            </span>
+                            <span
+                                id={option.labelId}
+                                data-id={option.labelAria}
+                                class="slds-form-element__label flex-grow">
+                                <div lwc:if={option.deliveryEstimate}>
+                                    <div>{option.deliveryEstimate}</div>
+                                    <div>{option.label}</div>
+                                </div>
+                                <div lwc:else>{option.label}</div>
+                            </span>
+                            <site-common-formatted-price
+                                data-delivery-original-price
+                                if:true={option.hasAdjustedShippingFee}
+                                class="strikethrough-price slds-form-element__label slds-m-left_medium slds-align_right option-text"
+                                id={option.originalPriceAria}
+                                value={option.shippingFeeOriginal}
+                                currency-code={option.currencyIsoCode}
+                                display-currency-as="symbol"></site-common-formatted-price>
+                            <site-common-formatted-price
+                                data-delivery-price
+                                class="slds-form-element__label slds-m-left_medium slds-align_right option-text"
+                                id={option.priceAria}
+                                value={option.shippingFee}
+                                currency-code={option.currencyIsoCode}
+                                display-currency-as="symbol"></site-common-formatted-price>
+                        </label>
+                    </span>
+                </template>
+            </div>
+            <template if:true={_helpMessage}>
+                <div
+                    data-help-message
+                    id="help-message"
+                    role="alert"
+                    class="slds-form-element__help">
+                    {_helpMessage}
+                </div>
+            </template>
+        </fieldset>
+    </div>
+</template>

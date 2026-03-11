@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <isExposed>true</isExposed>
+  <apiVersion>66</apiVersion>
+  <masterLabel>Drilldown Navigation</masterLabel>
+  <description>Add a drilldown navigation menu to your page.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property type="NavigationMenuEditor" name="navigationMenuEditor" label="Navigation Menu Editor"></property>
+      <property type="String" name="alignment" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource" default="left" label="Alignment"></property>
+      <property type="Boolean" name="showHomeLink" default="true" label="Show Home Link"></property>
+      <property type="Boolean" name="showBackLabel" default="true" label="Show Back Label" description="Show the Back label as the first submenu option. When this box is deselected, the first submenu option is the parent page."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="navigationMenuEditor"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+            <designLayoutProperty name="showHomeLink"></designLayoutProperty>
+            <designLayoutProperty name="showBackLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

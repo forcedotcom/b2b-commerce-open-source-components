@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Bundle View All Button</masterLabel>
+  <description>Show a button to view all products in a bundle.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="text" type="String" label="Button Text" default="View All" translatable="true"></property>
+      <property name="type" type="String" label="Button Style" default="secondary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" type="String" label="Button Size" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" type="String" label="Button Width" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property name="alignment" type="HorizontalAlignment" label="Button Alignment" default="center"></property>
+      <property name="nextPageToken" type="String" label="Next Page Token"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="text"></designLayoutProperty>
+            <designLayoutProperty name="type"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+            <designLayoutProperty name="nextPageToken"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Checkout Button</masterLabel>
+  <description>Shows the checkout button.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="layoutDesktop" type="String" label="Desktop Layout" default="label" datasource="java://siteforce.customComponent.datasource.ButtonTotalPriceLabelDataSource"></property>
+      <property name="layoutMobile" type="String" label="Mobile Layout" default="price" datasource="java://siteforce.customComponent.datasource.ButtonTotalPriceLabelDataSource"></property>
+      <property name="text" type="String" default="Checkout" translatable="true" label="Button Text"></property>
+      <property name="buttonTextColor" type="Color" label="Button Text Color"></property>
+      <property name="buttonTextHoverColor" type="Color" label="Button Text Hover Color"></property>
+      <property name="buttonBackgroundColor" type="Color" label="Button Background Color"></property>
+      <property name="buttonBackgroundHoverColor" type="Color" label="Button Background Hover Color"></property>
+      <property name="buttonBorderColor" type="Color" label="Button Border Color"></property>
+      <property name="buttonBorderRadius" type="Integer" min="0" max="50" default="0" label="Button Border Radius (0px - 50px)"></property>
+      <property name="variant" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" label="Button Variant"></property>
+      <property name="size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="width" type="String" default="stretch" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource" label="Max Button Width"></property>
+      <property name="alignment" type="String" default="center" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource" label="Button Alignment"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="layoutDesktop"></designLayoutProperty>
+            <designLayoutProperty name="layoutMobile"></designLayoutProperty>
+            <designLayoutProperty name="text"></designLayoutProperty>
+            <designLayoutProperty name="buttonTextColor"></designLayoutProperty>
+            <designLayoutProperty name="buttonTextHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="buttonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="buttonBackgroundHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="buttonBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

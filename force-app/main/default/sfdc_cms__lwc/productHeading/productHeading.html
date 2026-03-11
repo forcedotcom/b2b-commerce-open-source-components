@@ -1,0 +1,11 @@
+<template lwc:render-mode="light">
+    <site-product-heading-ui
+        currency-code={currencyCode}
+        show-additional-fields={showAdditionalFields}
+        fields={productFieldsData}
+        dynamic-attributes-available-text={dynamicAttributesAvailableTextFormmatted}>
+        <div slot="heading">
+            <slot name="heading"></slot>
+        </div>
+    </site-product-heading-ui>
+</template>

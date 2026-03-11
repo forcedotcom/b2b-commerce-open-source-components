@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchFiltersCategoryList",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "categoriesHeader",
+      "value" : "Categories"
+    }, {
+      "name" : "backActionAssistiveText",
+      "value" : "Back to {categoryName}"
+    }, {
+      "name" : "searchResults",
+      "value" : "Search Results"
+    } ]
+  },
+  "urlName" : "searchfilterscategorylist"
+}

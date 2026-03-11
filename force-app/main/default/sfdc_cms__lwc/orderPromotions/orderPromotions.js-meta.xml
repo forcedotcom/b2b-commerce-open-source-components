@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Promotions Summary</masterLabel>
+  <description>Displays the list of Promotions applied to the order.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="appliedPromotions" type="String" default="{!Order.Adjustments}" label="Order Applied Promotions"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="appliedPromotions"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

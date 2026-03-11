@@ -1,0 +1,8 @@
+span {
+    display: inline-block;
+}
+.price-display {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}

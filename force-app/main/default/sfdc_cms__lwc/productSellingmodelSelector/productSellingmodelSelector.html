@@ -1,0 +1,25 @@
+<template lwc:render-mode="light">
+    <site-product-sellingmodel-selector-ui
+        if:true={_displayProductSellingOptions}
+        style={_customStyles}
+        product={product}
+        product-pricing={productPricing}
+        selected-product-selling-model={selectedProductSellingModel}
+        show-border={showBorder}
+        onsubscriptionchanged={handleSubscriptionChanged}>
+        <span slot="lifeTimeLabel"><slot name="lifeTimeLabel"></slot></span>
+        <div
+            class="price-display"
+            slot="lifeTimePrice">
+            <slot name="lifeTimePrice"></slot>
+        </div>
+        <span slot="subscriptionLabel"><slot name="subscriptionLabel"></slot></span>
+        <div
+            class="price-display"
+            slot="selectedSubscriptionPrice">
+            <slot name="selectedSubscriptionPrice"></slot>
+        </div>
+        <div slot="oneTimeDescription"><slot name="oneTimeDescription"></slot></div>
+        <div slot="subscribeDescription"><slot name="subscribeDescription"></slot></div>
+    </site-product-sellingmodel-selector-ui>
+</template>

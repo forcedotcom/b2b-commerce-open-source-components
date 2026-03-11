@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Cart Summary</masterLabel>
+  <description>Show an overview of costs and discounts applied to the cart.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="backgroundColor" type="Color" label="Cart Summary Background Color"></property>
+      <property name="showOriginalPrice" type="Boolean" default="false" label="Show original price"></property>
+      <property name="originalTextColor" type="Color" label="Original Price Text Color"></property>
+      <property name="originalTextSize" type="String" default="small" label="Original Price Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="showSubtotalPrice" type="Boolean" default="true" label="Show subtotal"></property>
+      <property name="subtotalTextColor" type="Color" label="Subtotal Text Color"></property>
+      <property name="subtotalTextSize" type="String" default="small" label="Subtotal Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="showDiscountAmount" type="Boolean" default="true" label="Show promotions total"></property>
+      <property name="discountAmountTextColor" type="Color" label="Promotions Text Color"></property>
+      <property name="discountAmountTextSize" type="String" default="small" label="Promotions Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="showShippingPrice" type="Boolean" default="true" label="Show shipping total" description="Indicates that shipping is included in the cart total. Only shows when the store shipping is turned on."></property>
+      <property name="shippingTextColor" type="Color" label="Shipping Text Color"></property>
+      <property name="shippingTextSize" type="String" default="small" label="Shipping Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="showTaxPrice" type="Boolean" default="true" label="Show tax total"></property>
+      <property name="taxTextColor" type="Color" label="Tax Text Color"></property>
+      <property name="taxTextSize" type="String" default="small" label="Tax Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="totalTextColor" type="Color" label="Total Text Color"></property>
+      <property name="totalTextSize" type="String" default="small" label="Total Text Size" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="showTaxIncludedLabel" type="Boolean" default="false" label="Show tax included note" description="Indicates that tax is included in the cart total. Only shows when the store tax type is gross."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="showSubtotalPrice"></designLayoutProperty>
+            <designLayoutProperty name="showDiscountAmount"></designLayoutProperty>
+            <designLayoutProperty name="showShippingPrice"></designLayoutProperty>
+            <designLayoutProperty name="showTaxPrice"></designLayoutProperty>
+            <designLayoutProperty name="showTaxIncludedLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Style">
+          <designLayoutItems>
+            <designLayoutProperty name="backgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="originalTextColor" cbVisibleIf="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="originalTextSize" cbVisibleIf="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="subtotalTextColor" cbVisibleIf="showSubtotalPrice"></designLayoutProperty>
+            <designLayoutProperty name="subtotalTextSize" cbVisibleIf="showSubtotalPrice"></designLayoutProperty>
+            <designLayoutProperty name="discountAmountTextColor" cbVisibleIf="showDiscountAmount"></designLayoutProperty>
+            <designLayoutProperty name="discountAmountTextSize" cbVisibleIf="showDiscountAmount"></designLayoutProperty>
+            <designLayoutProperty name="shippingTextColor" cbVisibleIf="showShippingPrice"></designLayoutProperty>
+            <designLayoutProperty name="shippingTextSize" cbVisibleIf="showShippingPrice"></designLayoutProperty>
+            <designLayoutProperty name="taxTextColor" cbVisibleIf="showTaxPrice"></designLayoutProperty>
+            <designLayoutProperty name="taxTextSize" cbVisibleIf="showTaxPrice"></designLayoutProperty>
+            <designLayoutProperty name="totalTextColor"></designLayoutProperty>
+            <designLayoutProperty name="totalTextSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

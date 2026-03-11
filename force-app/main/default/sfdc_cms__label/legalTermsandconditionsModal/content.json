@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "legalTermsandconditionsModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "termsAndConditionsModalCloseButtonText",
+      "value" : "Close"
+    } ]
+  },
+  "urlName" : "legaltermsandconditionsmodal"
+}

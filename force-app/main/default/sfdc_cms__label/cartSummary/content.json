@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartSummary",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "defaultErrorMessage",
+      "value" : "An unexpected error occurred. Try again later."
+    }, {
+      "name" : "getCartItemsEffectiveAccountNotFoundErrorMessage",
+      "value" : "You don't have permission to get the items on this cart."
+    }, {
+      "name" : "getCartItemsInsufficientAccessErrorMessage",
+      "value" : "You need permission to access the cart. The store admin can help with that."
+    }, {
+      "name" : "getCartItemsInvalidInputErrorMessage",
+      "value" : "We can't get items in this cart. Try again later."
+    }, {
+      "name" : "webstoreNotFoundErrorMessage",
+      "value" : "You don't have access to this store."
+    } ]
+  },
+  "urlName" : "cartsummary"
+}

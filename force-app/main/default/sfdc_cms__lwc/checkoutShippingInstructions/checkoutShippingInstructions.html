@@ -1,0 +1,40 @@
+<template lwc:render-mode="light">
+    <div
+        slot="heading"
+        class={showHeadingClass}>
+        <slot name="heading"></slot>
+    </div>
+
+    <!-- stencil and summary mode here, else use stateful container -->
+    <template if:true={_showStencil}>
+        <site-checkout-stencil
+            data-shipping-instructions-stencil
+            stencil-type={_stencilType}
+            item-count={_shippingInstructionsStencilItemCount}></site-checkout-stencil>
+    </template>
+
+    <template if:true={_showSummary}>
+        <p>
+            <lightning-formatted-text
+                data-shipping-instructions-summary
+                value={shippingInstructions}></lightning-formatted-text>
+        </p>
+    </template>
+
+    <template if:true={_showEdit}>
+        <div>
+            <!-- consider a generic input BB here -->
+            <lightning-input
+                lwc:ref="dataShippingInstructions"
+                data-shipping-instructions
+                read-only={_readOnly}
+                name="shipping-instructions"
+                variant="label-hidden"
+                placeholder={placeholderLabel}
+                value={shippingInstructions}
+                label={_shippingInstructionsFieldLabel}
+                autocomplete="shippingInstructions"
+                oncommit={handleShippingInstructionChange}></lightning-input>
+        </div>
+    </template>
+</template>

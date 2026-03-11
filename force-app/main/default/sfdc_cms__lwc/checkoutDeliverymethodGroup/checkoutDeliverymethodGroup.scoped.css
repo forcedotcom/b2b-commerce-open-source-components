@@ -1,0 +1,36 @@
+:host {
+    --slds-c-accordion-section-spacing-inline-start: 0;
+}
+.no-shadow {
+    box-shadow: none !important;
+}
+.slds-radio {
+    padding: 0;
+    margin: 0;
+}
+.slds-form-element.slds-p-vertical_small {
+    padding: 0;
+}
+.slds-form-element__control {
+    margin-top: 0;
+}
+.slds-card {
+    border-color: var(--com-c-checkout-delivery-method-options-border-color, #707275);
+}
+.slds-border_bottom {
+    border-color: var(--com-c-checkout-delivery-method-options-border-color, #707275);
+}
+.heading {
+    display: flex;
+    padding-top: var(--dxp-g-spacing-large);
+}
+.heading .title {
+    flex-grow: 1;
+}
+.title {
+    font-weight: bold;
+}
+.expand-icon {
+    cursor: pointer;
+    padding: 0 var(--dxp-g-spacing-xsmall);
+}

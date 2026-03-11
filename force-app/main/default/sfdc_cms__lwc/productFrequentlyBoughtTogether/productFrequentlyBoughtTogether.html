@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <div if:true={isDataAvailable}>
+        <site-product-frequently-bought-together-ui
+            style={customStyles}
+            class="slds-m-top_small"
+            products={products}
+            show-plus-icon-on-desktop={showPlusIconOnDesktop}
+            show-sale-price={showSalePrice}
+            show-total-price={showTotalPrice}
+            show-original-price={showOriginalPrice}
+            show-product-variants={showProductVariants}
+            add-to-cart-button-text={buttonLabel}
+            add-to-cart-button-variant={buttonStyle}
+            add-to-cart-button-size={buttonSize}
+            currency-code={currencyIsoCode}
+            onviewproduct={handleProductDetailNavigation}
+            onadditemstocart={handleAddItemsToCart}
+            total-promotional-price={totalPromotionalPrice}
+            is-add-to-cart-in-progress={isAddToCartInProgress}
+            onselectitem={handleSelectItem}></site-product-frequently-bought-together-ui>
+    </div>
+</template>

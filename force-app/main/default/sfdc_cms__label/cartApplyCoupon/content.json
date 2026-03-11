@@ -1,0 +1,38 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartApplyCoupon",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "applyCouponAlreadyAppliedErrorMessage",
+      "value" : "Coupon {code} is already applied."
+    }, {
+      "name" : "applyCouponBlockedExclusiveErrorMessage",
+      "value" : "This coupon can't be applied to your cart."
+    }, {
+      "name" : "defaultErrorMessage",
+      "value" : "An unexpected error occurred. Try again later."
+    }, {
+      "name" : "applyCouponEffectiveAccountNotFoundErrorMessage",
+      "value" : "Looks like you don't have access to this cart. Try another account."
+    }, {
+      "name" : "applyCouponInsufficientAccessErrorMessage",
+      "value" : "Looks like you don't have permission to apply coupons to this cart. The store admin can help with that."
+    }, {
+      "name" : "applyCouponMaxLimitExceededErrorMessage",
+      "value" : "You reached the coupon limit for this cart."
+    }, {
+      "name" : "applyCouponMaxItemLimitExceededErrorMessage",
+      "value" : "Your cart has too many items for promotions to apply. To apply promotions, remove some items from your cart and re-enter any coupon codes."
+    }, {
+      "name" : "applyCouponInvalidInputErrorMessage",
+      "value" : "Coupon {code} is invalid."
+    }, {
+      "name" : "applyCouponUnqualifiedCartErrorMessage",
+      "value" : "Your cart isn't eligible for coupon {code}."
+    }, {
+      "name" : "webstoreNotFoundErrorMessage",
+      "value" : "You don't have access to this store."
+    } ]
+  },
+  "urlName" : "cartapplycoupon"
+}

@@ -1,0 +1,104 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:cartPromotions",
+                "type": "component",
+                "attributes": {
+                    "dxpStyle": {
+                        "margin": {
+                            "bottom": "0%",
+                            "left": "4%",
+                            "right": "0%",
+                            "top": "0%"
+                        }
+                    }
+                },
+                "children": [
+                    {
+                        "name": "appliedPromotionRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "medium",
+                                    "listType": "unformatted",
+                                    "backgroundColor": "rgba(255, 255, 255, 0)"
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "commerce_builder:cartAppliedPromotion",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "couponCode": "{!Promotion.couponCode}",
+                                                    "name": "{!Promotion.name}",
+                                                    "termsAndConditions": "{!Promotion.termsAndConditions}",
+                                                    "couponId": "{!Promotion.couponId}"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "discountAmount",
+                                                        "title": "Discount Amount",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "commerce_builder:formattedCurrency",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "value": "{!Promotion.discountAmount}",
+                                                                    "currencyCode": "{!Cart.Details.currencyIsoCode}",
+                                                                    "displayAs": "symbol",
+                                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}",
+                                                                    "paddingVertical": "xx-small"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "termsAndConditions",
+                                                        "title": "Terms & Conditions",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:button",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Terms & Conditions",
+                                                                    "size": "standard",
+                                                                    "type": "tertiary",
+                                                                    "alignment": "left",
+                                                                    "url": ""
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__expressionDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "Promotion",
+                                        "attributes": {
+                                            "listSource": "{!Cart.Promotions}"
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

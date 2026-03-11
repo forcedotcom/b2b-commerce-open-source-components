@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Express Checkout</masterLabel>
+  <description>Show buttons for Express Checkout payment options.</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="paymentMethodSetId" type="String" required="true" default="" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource" label="Payment Method Set Key" description="Shows a configured set of payment methods at checkout. Find the key on the Merchant Account related list page."></property>
+      <property name="useManualCapture" type="Boolean" default="true" label="Use manual capture"></property>
+      <property name="buttonShape" type="String" default="rectangle" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsButtonShapeDataSource" label="Button Shape"></property>
+      <property name="buttonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="sectionLabel" type="String" default="Express Checkout" translatable="true" label="Section Label"></property>
+      <property name="applepayColor" type="String" default="black" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsApplePayColorDataSource" label="Button Color"></property>
+      <property name="googlepayColor" type="String" default="black" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsGooglePayColorDataSource" label="Button Color"></property>
+      <property name="paypalColor" type="String" default="gold" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsPayPalColorDataSource" label="Button Color"></property>
+      <property name="venmoColor" type="String" default="blue" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsVenmoColorDataSource" label="Button Color"></property>
+      <property name="applepayLabel" type="String" default="plain" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsApplePayLabelDataSource" label="Button Label"></property>
+      <property name="googlepayLabel" type="String" default="buy" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsGooglePayLabelDataSource" label="Button Label"></property>
+      <property name="paypalLabel" type="String" default="paypal" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsPayPalLabelDataSource" label="Button Label"></property>
+      <property name="venmoLabel" type="String" default="paypal" datasource="java://siteforce.customComponent.datasource.ExpressPaymentsVenmoLabelDataSource" label="Button Label"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="paymentMethodSetId"></designLayoutProperty>
+            <designLayoutProperty name="useManualCapture"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Style Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="buttonShape"></designLayoutProperty>
+            <designLayoutProperty name="buttonSize"></designLayoutProperty>
+            <designLayoutProperty name="sectionLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Apple Pay">
+          <designLayoutItems>
+            <designLayoutProperty name="applepayColor"></designLayoutProperty>
+            <designLayoutProperty name="applepayLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Google Pay">
+          <designLayoutItems>
+            <designLayoutProperty name="googlepayColor"></designLayoutProperty>
+            <designLayoutProperty name="googlepayLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="PayPal">
+          <designLayoutItems>
+            <designLayoutProperty name="paypalColor"></designLayoutProperty>
+            <designLayoutProperty name="paypalLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Venmo">
+          <designLayoutItems>
+            <designLayoutProperty name="venmoColor"></designLayoutProperty>
+            <designLayoutProperty name="venmoLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

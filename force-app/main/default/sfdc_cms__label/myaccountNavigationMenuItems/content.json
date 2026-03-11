@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myaccountNavigationMenuItems",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "desktopNavMenuAriaLabel",
+      "value" : "Sub page"
+    }, {
+      "name" : "mobileDropdownLabel",
+      "value" : "Navigation Menu"
+    } ]
+  },
+  "urlName" : "myaccountnavigationmenuitems"
+}

@@ -18,6 +18,8 @@ import actualPricePerYearSubscriptionText from '@salesforce/label/site.cartItem.
 import actualPricePerMonthSubscriptionAssistiveText from '@salesforce/label/site.cartItem.actualPricePerMonthSubscriptionAssistiveText';
 import actualPricePerYearSubscriptionAssistiveText from '@salesforce/label/site.cartItem.actualPricePerYearSubscriptionAssistiveText';
 import bundleChildProductCount from '@salesforce/label/site.cartItem.bundleChildProductCount';
+import modifyButtonText from '@salesforce/label/site.cartItem.modifyButtonText';
+import modifyItemAssistiveText from '@salesforce/label/site.cartItem.modifyItemAssistiveText';
 export const Labels = {
   pricePerItem,
   actualPricePerMonthSubscriptionText,
@@ -38,5 +40,7 @@ export const Labels = {
   evergreenAnnualSubscriptionTypeText,
   termDefinedMonthlySubscriptionTypeText,
   termDefinedAnnualSubscriptionTypeText,
-  bundleChildProductCount
+  bundleChildProductCount,
+  modifyButtonText,
+  modifyItemAssistiveText
 };

@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartApplyCouponUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "applyCouponInputAriaLabel",
+      "value" : "Enter a Coupon Code"
+    }, {
+      "name" : "couponCodeInputPlaceHolderText",
+      "value" : "Coupon code..."
+    } ]
+  },
+  "urlName" : "cartapplycouponui"
+}

@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartHeader",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "nameAZ",
+      "value" : "Name - A to Z"
+    }, {
+      "name" : "nameZA",
+      "value" : "Name - Z to A"
+    }, {
+      "name" : "dateAddedNew",
+      "value" : "Date Added - Newest First"
+    }, {
+      "name" : "dateAddedOld",
+      "value" : "Date Added - Oldest First"
+    }, {
+      "name" : "labelText",
+      "value" : "Sort By"
+    }, {
+      "name" : "confirmClearCart",
+      "value" : "Clear Cart"
+    } ]
+  },
+  "urlName" : "cartheader"
+}

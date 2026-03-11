@@ -1,0 +1,4 @@
+:host {
+    --slds-c-button-spacing-block-end: var(--com-c-promotion-details-popover-button-spacing-block-end, 0);
+    --slds-c-button-spacing-block-start: var(--com-c-promotion-details-popover-button-spacing-block-start, 0);
+}

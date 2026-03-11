@@ -182,14 +182,24 @@
                 </div>
             </div>
         </div>
-        <!-- Delete button -->
-        <div class="item-delete">
+        <!-- Action buttons -->
+        <div class="item-actions">
+            <site-common-button-ui
+                lwc:if={showModifyItem}
+                title={modifyButtonAssistiveText}
+                assistive-text={modifyButtonAssistiveText}
+                onclick={handleModifyItem}
+                variant="tertiary"
+                class="modify-button">
+                {modifyButtonText}
+            </site-common-button-ui>
             <site-common-button-ui
                 lwc:if={showRemoveItem}
                 title={removeButtonAssistiveText}
                 assistive-text={removeButtonAssistiveText}
                 onclick={handleDeleteItem}
-                variant="tertiary">
+                variant="tertiary"
+                class="delete-button">
                 {removeButtonText}
             </site-common-button-ui>
         </div>

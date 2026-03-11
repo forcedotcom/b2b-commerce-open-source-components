@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Product Variations</masterLabel>
+  <description>Displays options for selecting product variations.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Out of Stock Text" name="outOfStockText" type="String" default="(Out of Stock)" translatable="true" description="Text added to a dropdown variant when an item is out of stock."></property>
+      <property label="Swatch Border Color" name="swatchBorderColor" type="Color"></property>
+      <property label="Swatch Border Hover Color" name="swatchBorderHoverColor" type="Color"></property>
+      <property label="Swatch Border Selected Color" name="swatchBorderSelectedColor" type="Color"></property>
+      <property label="Swatch Border Radius" name="swatchBorderRadius" type="Integer" min="0" max="50" default="50"></property>
+      <property label="Pill Text Color" name="pillTextColor" type="Color"></property>
+      <property label="Pill Background Color" name="pillBackgroundColor" type="Color"></property>
+      <property label="Pill Border Color" name="pillBorderColor" type="Color"></property>
+      <property label="Pill Border Hover Color" name="pillBorderHoverColor" type="Color"></property>
+      <property label="Pill Border Selected Color" name="pillBorderSelectedColor" type="Color"></property>
+      <property label="Pill Border Radius" name="pillBorderRadius" type="Integer" min="0" max="50" default="5"></property>
+      <property label="Out of Stock Text" name="assistiveOutOfStockText" type="String" default="Out of Stock" translatable="true" description="Text used by screen readers when a variant is out of stock. Used for pills and swatches only."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="product"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Dropdowns">
+          <designLayoutItems>
+            <designLayoutProperty name="outOfStockText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Color Swatches">
+          <designLayoutItems>
+            <designLayoutProperty name="swatchBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderSelectedColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Pills">
+          <designLayoutItems>
+            <designLayoutProperty name="pillTextColor"></designLayoutProperty>
+            <designLayoutProperty name="pillBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="pillBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="pillBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="pillBorderHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="pillBorderSelectedColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Assistive Text">
+          <designLayoutItems>
+            <designLayoutProperty name="assistiveOutOfStockText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

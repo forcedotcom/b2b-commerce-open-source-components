@@ -1,0 +1,121 @@
+<template lwc:render-mode="light">
+    <div class="slds-form-element">
+        <label
+            class="slds-form-element__label slds-hide"
+            for="phone-number-field"
+            id="phone-number-label">
+            <abbr
+                class="slds-required"
+                title="required"
+                if:true={phoneNumberRequired}>
+                *
+            </abbr>
+            {phoneNumberLabel}
+        </label>
+        <div class="slds-form-element__control">
+            <div class="slds-grid">
+                <div class="slds-no-flex">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label slds-assistive-text">{labels.phonePrefixLabel}</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-combobox_container">
+                                <div
+                                    class={comboboxClassList}
+                                    aria-owns="listbox">
+                                    <div
+                                        class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                                        role="none">
+                                        <button
+                                            id="prefix"
+                                            required="true"
+                                            aria-expanded={_dropDownOpen}
+                                            aria-haspopup="listbox"
+                                            aria-controls="listbox"
+                                            aria-labelledby="phone-number-label prefix"
+                                            type="button"
+                                            class="slds-input slds-combobox__input slds-text-align_center slds-has-focus"
+                                            onclick={toggleDropdown}
+                                            onmousedown={mouseDown}
+                                            onblur={handleBlur}
+                                            onkeydown={handleKeyDown}
+                                            disabled={comboboxDisabled}
+                                            lwc:ref="countryCodeButton">
+                                            {phonePrefixDisplayValue}
+                                        </button>
+                                        <div class="slds-input__icon-group slds-input__icon-group_right">
+                                            <lightning-icon
+                                                class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
+                                                size="xx-small"
+                                                src={chevronDownIconPath}></lightning-icon>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                                        id="listbox"
+                                        role="listbox"
+                                        aria-labelledby="phone-number-label prefix"
+                                        lwc:ref="listboxElement">
+                                        <ul
+                                            class="slds-listbox slds-listbox_vertical"
+                                            role="presentation">
+                                            <template
+                                                for:each={phonePrefixOptions}
+                                                for:item="option">
+                                                <li
+                                                    role="presentation"
+                                                    key={option.value}
+                                                    data-value={option.value}
+                                                    class="slds-listbox__item"
+                                                    onmousedown={selectOption}>
+                                                    <div
+                                                        id={option.value}
+                                                        class={option.classList}
+                                                        aria-checked={option.selected}
+                                                        aria-selected={option.selected}
+                                                        role="option">
+                                                        <div class="slds-media__figure slds-listbox__option-icon">
+                                                            <div
+                                                                if:true={option.selected}
+                                                                class="slds-icon_container slds-icon-utility-check slds-current-color">
+                                                                <svg
+                                                                    class="slds-icon slds-icon_x-small"
+                                                                    aria-hidden="true">
+                                                                    <use
+                                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-media__body">
+                                                            <span title={option.label}>{option.label}</span>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-col">
+                    <lightning-input
+                        data-phonenumber
+                        read-only={readOnly}
+                        placeholder={phoneNumberPlaceholderText}
+                        label={phoneNumberLabel}
+                        type="tel"
+                        name="phonenumber"
+                        autocomplete="tel-national"
+                        oncommit={handlePhoneNumberChange}
+                        required={phoneNumberRequired}
+                        value={phoneDisplayValue}
+                        id="phone-number-field"
+                        pattern="[0-9\s\-\(\)\.]*"
+                        message-when-pattern-mismatch={labels.phoneMessageWhenPatternMismatchLabel}
+                        lwc:ref="phoneNumberInput"></lightning-input>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

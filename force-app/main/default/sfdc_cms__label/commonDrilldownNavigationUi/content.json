@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonDrilldownNavigationUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "MobileTrigger",
+      "value" : "Navigation Menu Trigger"
+    }, {
+      "name" : "OpensInNewTab",
+      "value" : "{0}, opens in new tab"
+    } ]
+  },
+  "urlName" : "commondrilldownnavigationui"
+}

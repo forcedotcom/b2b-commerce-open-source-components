@@ -1,0 +1,34 @@
+.tier-row-title {
+    white-space: nowrap;
+    font-weight: 600;
+}
+.adjustment-tiers-container {
+    overflow-x: auto;
+    background-color: var(--com-c-product-pricing-tiers-background-color, #f7f9fa);
+    border-radius: var(--com-c-product-pricing-tiers-border-radius, var(--dxp-s-button-radius-border));
+}
+.tier {
+    text-align: center;
+    white-space: nowrap;
+}
+.tier-row-title-label {
+    color: var(--com-c-product-pricing-tiers-row-title-text-color);
+}
+.tier-row-value {
+    color: var(--com-c-product-pricing-tiers-text-color);
+}
+.tier-column-title {
+    color: var(--com-c-product-pricing-tiers-label-text-color);
+}
+.tier-row-title + .tier,
+.tier + .tier {
+    border-left: 1px solid var(--dxp-g-neutral-2);
+}
+lightning-formatted-number {
+    display: block;
+}
+@media only screen and (min-width: 48em) {
+    .tier:last-child {
+        padding-right: 0;
+    }
+}

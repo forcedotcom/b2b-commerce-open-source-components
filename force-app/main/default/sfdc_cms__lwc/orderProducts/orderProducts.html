@@ -1,0 +1,12 @@
+<template lwc:render-mode="light">
+    <template lwc:if={isLoading}>
+        <div class="slds-align_absolute-center slds-is-relative spinner-container">
+            <lightning-spinner
+                size="large"
+                variant="brand"></lightning-spinner>
+        </div>
+    </template>
+    <template lwc:else>
+        <slot name="orderProductsInfoRepeater"></slot>
+    </template>
+</template>

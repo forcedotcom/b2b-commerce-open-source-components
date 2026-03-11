@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutDeliverymethodGroup",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "deliveryGroupCartItemsSubTotalTextLabel",
+      "value" : "Subtotal"
+    }, {
+      "name" : "itemsTextLabel",
+      "value" : "({0} for {1} items)"
+    }, {
+      "name" : "showMoreItemsLabel",
+      "value" : "Show More"
+    }, {
+      "name" : "nameAddressSingleLineBreak",
+      "value" : ","
+    }, {
+      "name" : "deliveryEmailPrompt",
+      "value" : "Email recipient: {0}"
+    } ]
+  },
+  "urlName" : "checkoutdeliverymethodgroup"
+}

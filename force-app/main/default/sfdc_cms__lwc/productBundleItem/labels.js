@@ -1,0 +1,3 @@
+import variantAttributeFieldWithCommaSeparator from '@salesforce/label/site.productBundleItem.variantAttributeFieldWithCommaSeparator';
+import attributeNameWithColonSeparator from '@salesforce/label/site.productBundleItem.attributeNameWithColonSeparator';
+export { variantAttributeFieldWithCommaSeparator, attributeNameWithColonSeparator };

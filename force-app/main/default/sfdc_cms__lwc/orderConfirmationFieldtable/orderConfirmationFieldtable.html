@@ -1,0 +1,50 @@
+<template lwc:render-mode="light">
+    <div class="container slds-grid">
+        <template
+            for:each={_columnsArr}
+            for:item="column">
+            <div
+                key={column.index}
+                class="column slds-grid slds-grid--vertical">
+                <dl class="grid-item dxp-text-heading-small">
+                    <template
+                        for:each={column.fields}
+                        for:item="field">
+                        <dt
+                            key={field.label}
+                            class="label slds-p-bottom_xx-small">
+                            {field.label}
+                        </dt>
+                        <dd
+                            key={field.name}
+                            class="value slds-p-bottom_medium">
+                            <!-- Address type field -->
+                            <template lwc:if={field.isAddress}>
+                                <div>{field.value.name}</div>
+                                <site-common-field
+                                    type={field.type}
+                                    value={field.value}></site-common-field>
+                            </template>
+                            <!-- PaymentMethod type field -->
+                            <template lwc:elseif={field.isPaymentMethod}>
+                                <svg
+                                    class="slds-icon slds-m-right_small"
+                                    aria-label={field.value.paymentType}>
+                                    <use xlink:href={field.value.iconPath}></use>
+                                </svg>
+                                <span class="payment-details">{field.value.paymentMethodDetails}</span>
+                            </template>
+                            <!-- Any other field type -->
+                            <template lwc:else>
+                                <site-common-field
+                                    currency-code={currencyCode}
+                                    type={field.type}
+                                    value={field.value}></site-common-field>
+                            </template>
+                        </dd>
+                    </template>
+                </dl>
+            </div>
+        </template>
+    </div>
+</template>

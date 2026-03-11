@@ -1,12 +1,11 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "legalConsentBlanket",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "closeButtonAssistiveText",
-        "value": "Reject and close"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "legalConsentBlanket",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "closeButtonAssistiveText",
+      "value" : "Reject and close"
+    } ]
+  },
+  "urlName" : "legalconsentblanket"
 }

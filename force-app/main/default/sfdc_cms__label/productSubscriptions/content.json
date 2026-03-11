@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productSubscriptions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "errorHeading",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Try again, and if the issue persists, contact us for help."
+    } ]
+  },
+  "urlName" : "productsubscriptions"
+}

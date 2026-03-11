@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productListPurchasedFilterange",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "pastMonth",
+      "value" : "Last Month"
+    }, {
+      "name" : "past6Month",
+      "value" : "Last 6 Months"
+    }, {
+      "name" : "pastYear",
+      "value" : "Last Year"
+    } ]
+  },
+  "urlName" : "productlistpurchasedfilterange"
+}

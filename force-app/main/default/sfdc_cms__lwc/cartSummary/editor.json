@@ -1,0 +1,123 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:cartSummary",
+                "type": "component",
+                "attributes": {
+                    "dxpStyle": {
+                        "margin": {
+                            "bottom": "0%",
+                            "left": "4%",
+                            "right": "0%",
+                            "top": "0%"
+                        }
+                    }
+                },
+                "children": [
+                    {
+                        "name": "headerText",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Summary",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h2\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "promotionsLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Promotions",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "shippingLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Shipping",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "subtotalLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Subtotal",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "taxIncludedLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Tax included",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}",
+                                    "textAlign": "right"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "taxLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Tax",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "totalLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Total",
+                                    "textDisplayInfo": "{ \"headingTag\": \"p\", \"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

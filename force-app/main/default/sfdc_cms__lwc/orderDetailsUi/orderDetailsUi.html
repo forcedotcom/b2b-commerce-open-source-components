@@ -1,0 +1,14 @@
+<template lwc:render-mode="light">
+    <template if:false={_hasError}>
+        <site-order-details-display
+            title-text={highlightsTitle}
+            field-mapping={orderSummaryHighlightsFieldMapping}
+            details-data={orderSummaryDetails}
+            style={_customStyles}></site-order-details-display>
+    </template>
+    <template if:true={_hasError}>
+        <site-common-error
+            error-label={_errorMessage}
+            error-type="warning"></site-common-error>
+    </template>
+</template>

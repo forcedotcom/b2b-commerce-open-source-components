@@ -1,0 +1,7 @@
+.summary-label {
+    line-height: var(--dxp-s-text-heading-extra-extra-small-line-height, 1.25);
+}
+.summary-label-dates {
+    font-size: var(--dxp-g-font-size-4);
+    margin-top: 0.25rem;
+}

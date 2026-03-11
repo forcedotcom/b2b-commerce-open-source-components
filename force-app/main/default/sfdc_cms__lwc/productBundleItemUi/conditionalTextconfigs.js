@@ -17,7 +17,7 @@ export const CHILD_PARENT_LABEL_CONFIGS = [{
     field: 'isDefault',
     fieldValue: false
   }, {
-    operation: 'AND',
+    operationWithPreviousCondition: 'AND',
     field: 'isRequired',
     fieldValue: false
   }]
@@ -33,5 +33,10 @@ export const PRICING_LABEL_CONFIGS = [{
   conditions: [{
     field: 'isPriceIncludedInParent',
     fieldValue: false
+  }, {
+    field: 'childPrice',
+    fieldValue: undefined,
+    operationWithPreviousCondition: 'AND',
+    operationWithFieldValue: '!='
   }]
 }];

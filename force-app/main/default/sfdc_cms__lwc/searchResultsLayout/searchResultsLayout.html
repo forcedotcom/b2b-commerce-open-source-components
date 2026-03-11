@@ -1,0 +1,31 @@
+<template lwc:render-mode="light">
+    <div
+        class="search-container"
+        data-testid="results-layout">
+        <div
+            class="category-header"
+            slot="categoryHeader">
+            <slot name="categoryHeader"></slot>
+        </div>
+        <div class="content-container">
+            <section class="left-container">
+                <slot name="searchFilters"></slot>
+            </section>
+            <section class="right-container">
+                <section class="header-container">
+                    <div
+                        class="search-header"
+                        slot="searchHeader">
+                        <slot name="searchHeader"></slot>
+                    </div>
+                    <div class="sorting-menu">
+                        <slot name="sortingMenu"></slot>
+                    </div>
+                </section>
+                <section class="results-container">
+                    <slot name="searchResult"></slot>
+                </section>
+            </section>
+        </div>
+    </div>
+</template>

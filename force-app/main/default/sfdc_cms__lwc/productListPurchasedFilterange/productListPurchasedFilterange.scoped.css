@@ -1,0 +1,22 @@
+div {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.filter-menu {
+    width: 250px;
+    min-width: fit-content;
+}
+@media only screen and (max-width: 48em) {
+    div {
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .filter-menu {
+        width: 100%;
+    }
+    lightning-formatted-text {
+        margin-bottom: 0.125rem;
+    }
+}

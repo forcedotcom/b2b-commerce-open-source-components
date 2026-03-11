@@ -1,0 +1,20 @@
+<template lwc:render-mode="light">
+    <div class="subscription-item-container slds-m-top_medium">
+        <div class="image-area slds-m-right_x-small slds-m-bottom_small">
+            <slot name="productImage"></slot>
+        </div>
+        <div class="subscription-item-info slds-m-bottom_small">
+            <div class="slds-grid slds-wrap slds-m-bottom_xx-small">
+                <span class="slds-p-right_xx-small">
+                    <slot name="productName"></slot>
+                </span>
+                <span>
+                    <slot name="productQuantity"></slot>
+                </span>
+            </div>
+            <div>
+                <slot name="information"></slot>
+            </div>
+        </div>
+    </div>
+</template>

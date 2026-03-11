@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Shipment Tracking</masterLabel>
+  <description>Displays status progress using a customizable tracker that can show up to 5 tracking statuses.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderStatus" label="Expression" type="String" default="{!Order.Details.status}"></property>
+      <property name="trackerCardBorderColor" type="Color" default="#D9DFE7" label="Border Color"></property>
+      <property name="trackerCardBorderRadius" type="IntegerSlider" min="0" max="20" default="5" label="Border Radius (0px - 20px)"></property>
+      <property name="trackerCardTextColor" type="Color" label="Text Color"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderStatus"></designLayoutProperty>
+            <designLayoutProperty name="trackerCardBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="trackerCardBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="trackerCardTextColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

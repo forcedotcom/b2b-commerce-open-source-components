@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <div class="promotion-information">
+        <site-common-pill
+            label-text={promoText}
+            show-remove-button={showRemoveButton}
+            onremovepill={removeCoupon}></site-common-pill>
+        <site-promotion-popover
+            lwc:if={showInfoIcon}
+            popover-text={name}
+            assistive-text={labels.popoverCloseAssistiveText}></site-promotion-popover>
+        <div
+            lwc:if={showDiscountAmount}
+            class="discount-amount">
+            <slot name="discountAmount"></slot>
+        </div>
+    </div>
+    <div
+        lwc:if={showTermsAndConditionsButton}
+        class="terms-and-conditions"
+        onclick={showTermsAndConditionsModal}>
+        <slot name="termsAndConditions"></slot>
+    </div>
+</template>

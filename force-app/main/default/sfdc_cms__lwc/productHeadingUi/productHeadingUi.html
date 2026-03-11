@@ -18,4 +18,9 @@
                 currency-code={currencyCode}></site-common-field>
         </div>
     </template>
+    <template if:false={hideDynamicAttributesAvailableText}>
+        <p class="attributes-available-text slds-p-top_x-small">
+            <lightning-formatted-rich-text value={dynamicAttributesAvailableText}></lightning-formatted-rich-text>
+        </p>
+    </template>
 </template>

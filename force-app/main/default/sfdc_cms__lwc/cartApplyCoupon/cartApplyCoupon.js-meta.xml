@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Coupons</masterLabel>
+  <description>This component is used to apply a coupon code to the cart.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="showRevealButton" type="Boolean" default="true" label="Hide coupon field behind a button" description="If unchecked, the field shows by default."></property>
+      <property name="couponInputPlaceholderText" type="String" translatable="true" default="Coupon code..." label="Field Placeholder Text"></property>
+      <property name="couponInputBorderRadius" type="Integer" default="4" label="Field Border Radius (0px - 50px)"></property>
+      <property name="couponInputBackgroundColor" type="Color" default="rgba(255, 255, 255, 0)" label="Field Background Color"></property>
+      <property name="couponInputTextColor" type="Color" label="Field Text Color"></property>
+      <property name="applyCouponButtonText" type="String" translatable="true" default="Apply" label="Button Text"></property>
+      <property name="applyCouponButtonProcessingText" type="String" translatable="true" default="Applying" label="Button Applying Text"></property>
+      <property name="applyCouponButtonTextColor" type="Color" label="Button Text Color"></property>
+      <property name="applyCouponButtonTextHoverColor" type="Color" label="Button Text Hover Color"></property>
+      <property name="applyCouponButtonBackgroundColor" type="Color" label="Button Background Color"></property>
+      <property name="applyCouponButtonBackgroundHoverColor" type="Color" label="Button Background Hover Color"></property>
+      <property name="applyCouponButtonBorderColor" type="Color" label="Button Border Color"></property>
+      <property name="applyCouponButtonBorderRadius" type="Integer" default="4" label="Button Border Radius (0px - 50px)"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="showRevealButton"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="couponInput">
+          <designLayoutItems>
+            <designLayoutProperty name="couponInputPlaceholderText"></designLayoutProperty>
+            <designLayoutProperty name="couponInputTextColor"></designLayoutProperty>
+            <designLayoutProperty name="couponInputBackgroundColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="couponButton">
+          <designLayoutItems>
+            <designLayoutProperty name="applyCouponButtonText"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonProcessingText"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonTextColor"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonTextHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonBackgroundHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="applyCouponButtonBorderColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

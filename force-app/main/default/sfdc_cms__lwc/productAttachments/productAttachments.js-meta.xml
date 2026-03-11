@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Attachments</masterLabel>
+  <description>Add product attachments to the page</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="File Icon Color" name="fileIconColor" type="Color" default="rgb(0, 0, 0)"></property>
+      <property label="Open Files In a New Tab" name="openFilesInNewTab" type="Boolean" default="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="fileIconColor"></designLayoutProperty>
+            <designLayoutProperty name="openFilesInNewTab"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

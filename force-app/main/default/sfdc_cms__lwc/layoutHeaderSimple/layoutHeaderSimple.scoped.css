@@ -1,0 +1,83 @@
+:host {
+    --com-c-layout-header-icon-padding: 0 var(--dxp-g-spacing-xsmall, 0.5rem);
+    --com-c-my-account-user-profile-icon-padding: var(--com-c-layout-header-icon-padding);
+    --com-c-search-input-container-padding: var(--com-c-layout-header-icon-padding);
+    --com-c-unified-cart-badge-padding: var(--com-c-layout-header-icon-padding);
+    --com-c-wishlist-shortcut-padding: var(--com-c-layout-header-icon-padding);
+}
+.header-content {
+    padding: var(--com-c-layout-header-spacing-block-start, var(--dxp-c-header-container-spacing-block-start))
+        var(--com-c-layout-header-spacing-inline-end, var(--dxp-c-header-container-spacing-inline-end))
+        var(--com-c-layout-header-spacing-block-end, var(--dxp-c-header-container-spacing-block-end))
+        var(--com-c-layout-header-spacing-inline-start, var(--dxp-c-header-container-spacing-inline-start));
+    background-color: var(--com-c-layout-header-background-color, var(--dxp-g-root, #fff));
+    display: grid;
+    grid-template-columns: auto max-content;
+    column-gap: var(--dxp-g-spacing-medium);
+    max-width: var(--com-c-layout-header-max-width);
+    margin: auto;
+    --com-c-my-account-user-profile-icon-color: var(--com-c-layout-header-icons-color, var(--dxp-g-brand));
+    --com-c-my-account-user-profile-icon-hover-color: var(
+        --com-c-layout-header-icons-color-hover,
+        var(--dxp-g-brand-1)
+    );
+    --com-c-my-account-user-profile-login-link-color: var(
+        --com-c-button-tertiary-color,
+        var(--dxp-s-tertiary-button-text-color)
+    );
+    --com-c-my-account-user-profile-login-link-hover-color: var(
+        --com-c-button-tertiary-color-hover,
+        var(--dxp-s-tertiary-button-text-color-hover)
+    );
+    --com-c-unified-cart-badge-link-color: var(--com-c-layout-header-icons-color, var(--dxp-g-brand));
+    --com-c-unified-cart-badge-link-color-hover: var(--com-c-layout-header-icons-color-hover, var(--dxp-g-brand-1));
+    --com-c-wishlist-shortcut-color: var(--com-c-layout-header-icons-color, var(--dxp-g-brand));
+    --com-c-wishlist-shortcut-color-hover: var(--com-c-layout-header-icons-color-hover, var(--dxp-g-brand-1));
+    --com-c-shopper-agent-shortcut-icon-color: var(--com-c-layout-header-icons-color, var(--dxp-g-brand));
+    --com-c-shopper-agent-shortcut-icon-hover-color: var(--com-c-layout-header-icons-color-hover, var(--dxp-g-brand-1));
+    --dxp-c-link-color-outline-focus: var(--com-c-layout-header-icons-color-hover, var(--dxp-g-brand-1));
+    --dxp-s-button-color-focus: var(--com-c-layout-header-icons-color-hover, var(--dxp-g-brand-1));
+}
+.header-start,
+.header-end {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+}
+.header-start {
+    justify-content: start;
+}
+.header-end {
+    justify-content: end;
+}
+.header-logo,
+.header-badge-icons {
+    display: block;
+    min-width: 0;
+}
+.header-badge-icons-flex {
+    display: flex;
+    --dxp-c-component-wrapper-spacer-size: 0;
+    --dxp-c-component-wrapper-spacer-size-tablet: 0;
+    --dxp-c-component-wrapper-spacer-size-mobile: 0;
+    align-items: center;
+    justify-content: end;
+}
+@media only screen and (max-width: 64em) {
+    .header-content {
+        padding: var(
+                --com-c-layout-header-spacing-block-start-mobile,
+                var(--dxp-c-header-container-spacing-block-start-mobile)
+            )
+            var(
+                --com-c-layout-header-spacing-inline-end-mobile,
+                var(--dxp-c-header-container-spacing-inline-end-mobile)
+            )
+            var(--com-c-layout-header-spacing-block-end-mobile, var(--dxp-c-header-container-spacing-block-end-mobile))
+            var(
+                --com-c-layout-header-spacing-inline-start-mobile,
+                var(--dxp-c-header-container-spacing-inline-start-mobile)
+            );
+    }
+}

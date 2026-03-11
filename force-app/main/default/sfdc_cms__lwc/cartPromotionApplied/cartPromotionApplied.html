@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <div
+        class="promotion-container"
+        style={appliedPromotionCssStyles}>
+        <site-cart-promotion-applied-ui
+            name={name}
+            coupon-code={couponCode}
+            show-terms-and-conditions={showTermsAndConditions}
+            terms-and-conditions={termsAndConditions}
+            show-discount-amount={showDiscountAmount}
+            coupon-id={couponId}
+            terms-and-conditions-title-text={termsAndConditionsTitleText}>
+            <section
+                slot="termsAndConditions"
+                data-automation="termsAndConditions">
+                <slot name="termsAndConditions"></slot>
+            </section>
+            <section slot="discountAmount">
+                <slot name="discountAmount"></slot>
+            </section>
+        </site-cart-promotion-applied-ui>
+    </div>
+</template>

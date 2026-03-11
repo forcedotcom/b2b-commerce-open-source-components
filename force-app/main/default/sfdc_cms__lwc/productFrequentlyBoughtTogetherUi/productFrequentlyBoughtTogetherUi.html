@@ -1,0 +1,44 @@
+<template lwc:render-mode="light">
+    <h2 class="slds-text-heading_medium slds-text-align_center slds-m-vertical_small">Frequently Bought Together</h2>
+    <div class="frequently-bought-together slds-grid slds-gutters slds-p-horizontal_small">
+        <template iterator:it={products}>
+            <div
+                class="slds-col slds-grid slds-gutters product-container slds-grow-none slds-p-bottom_small"
+                key={it.value.id}>
+                <site-product-fbt-item
+                    product={it.value}
+                    show-sale-price={showSalePrice}
+                    show-original-price={showOriginalPrice}
+                    show-product-variants={showProductVariants}
+                    currency-code={currencyCode}
+                    style={productStyles}
+                    onselectitem={handleSelectItem}></site-product-fbt-item>
+
+                <div class="frequently-bought-together__separator slds-m-horizontal_small">
+                    <lightning-icon
+                        style={customStyles}
+                        if:false={it.last}
+                        src={addIconPath}
+                        size="xx-small"
+                        alternative-text={labels.addIconText}></lightning-icon>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="frequently-bought-together-button">
+        <site-common-button-ui
+            disabled={isAddToCartDisabled}
+            variant={addToCartButtonVariant}
+            onclick={handleAddAllToCart}
+            size={addToCartButtonSize}>
+            <span>{addToCartButtonText}</span>
+            <lightning-formatted-number
+                if:true={displayTotalPrice}
+                class="slds-m-left_medium"
+                value={totalPromotionalPrice}
+                maximum-fraction-digits="20"
+                currency-code={currencyCode}
+                format-style="currency"></lightning-formatted-number>
+        </site-common-button-ui>
+    </div>
+</template>

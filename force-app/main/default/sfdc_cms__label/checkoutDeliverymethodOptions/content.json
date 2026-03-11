@@ -1,0 +1,38 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutDeliverymethodOptions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "deliveryOptionsAssistiveTextLabel",
+      "value" : "Delivery options: {deliveryOptions}. Selected delivery option: {selectedOption}."
+    }, {
+      "name" : "noDeliveryMethodsErrorLabel",
+      "value" : "Sorry, we can't deliver this item to the selected address. Change the items in your cart or update the delivery address. For more help, contact customer support."
+    }, {
+      "name" : "validityValueMissing",
+      "value" : "Complete this field."
+    }, {
+      "name" : "deliveryEstimateText",
+      "value" : "Arrives on {0}"
+    }, {
+      "name" : "dateRangeDeliveryEstimateText",
+      "value" : "Arrives: {0}-{1}"
+    }, {
+      "name" : "sameDayDeliveryEstimateText",
+      "value" : "Arrives: Today at {0}-{1}"
+    }, {
+      "name" : "exactDayDeliveryEstimateText",
+      "value" : "Arrives: Today at {0}"
+    }, {
+      "name" : "nextDayDeliveryEstimateText",
+      "value" : "Arrives: Tomorrow, {0}"
+    }, {
+      "name" : "optionsSeparator",
+      "value" : "|"
+    }, {
+      "name" : "emptyMessage",
+      "value" : "Enter an address to see shipping method options"
+    } ]
+  },
+  "urlName" : "checkoutdeliverymethodoptions"
+}

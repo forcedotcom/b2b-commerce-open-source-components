@@ -1,0 +1,10 @@
+.gift-message-box {
+    display: flex;
+    flex-direction: column;
+}
+.character-count-container {
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: #707275;
+}

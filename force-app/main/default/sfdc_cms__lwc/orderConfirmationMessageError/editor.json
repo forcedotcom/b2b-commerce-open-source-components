@@ -1,0 +1,40 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationMessageError",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "errorMessageText",
+                        "title": "Error Message",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "This page isn't available.",
+                                    "textAlign": "center",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h1\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "But no worries! You can still find your order details.",
+                                    "textAlign": "center",
+                                    "paddingVertical": "x-small",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"p\"}",
+                                    "textDecoration": "{\"bold\": false}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

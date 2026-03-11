@@ -1,0 +1,24 @@
+.buttons {
+    margin-bottom: var(--dxp-g-spacing-medium);
+}
+button[data-show-more-addresses] {
+    margin-right: var(--dxp-g-spacing-small);
+}
+.buttons-flex {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: var(--lwc-spacingVerticalXxSmall, 0.25rem);
+    column-gap: var(--lwc-spacingXxSmall, 0.25rem);
+}
+.buttons-flex .slds-button + .slds-button {
+    margin-left: 0;
+}
+.cart-spinner {
+    position: fixed;
+}
+.cart-spinner.slds-spinner_container {
+    background-color: #1c1c1c25;
+}
+.link-width {
+    width: fit-content;
+}

@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "productWishlistUtil",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "addToWishlistSuccessToastMessage",
-        "value": "Item was added to list."
-      },
-      {
-        "name": "addToWishlistErrorToastMessage",
-        "value": "We couldn't add this item to the list. Try again."
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "productWishlistUtil",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToWishlistSuccessToastMessage",
+      "value" : "Item was added to list."
+    }, {
+      "name" : "addToWishlistErrorToastMessage",
+      "value" : "We couldn't add this item to the list. Try again."
+    } ]
+  },
+  "urlName" : "productwishlistutil"
 }

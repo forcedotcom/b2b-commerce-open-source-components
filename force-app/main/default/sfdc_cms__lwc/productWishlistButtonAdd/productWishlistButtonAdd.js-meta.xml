@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Add to Wishlist</masterLabel>
+  <description>Show a button to add a product to a wishlist.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property name="text" type="String" label="Button Text" default="Add to List" translatable="true"></property>
+      <property name="type" type="String" label="Button Style" default="secondary" description="Select a button style." datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" type="String" label="Button Size" default="standard" description="Button sizes are inherited from the Button Theme. Edit the Button Theme to resize the buttons." datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" type="String" label="Button Width" default="stretch" description="Button width options are inherited from the Button Theme. Edit the Button Theme to change the width options." datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property name="alignment" type="HorizontalAlignment" label="Button Alignment"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="text"></designLayoutProperty>
+            <designLayoutProperty name="type"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,11 @@
+.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+}
+.container {
+    --order-list-filter-layout-alignment: right;
+}
+@media screen and (max-width: 47.9375em) {
+    .container {
+        --order-list-filter-layout-alignment: left;
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Checkout Summary</masterLabel>
+  <description>The checkout summary container.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="expandableSummaryHeading" label="Expandable Summary Heading for Mobile Only" type="String" default="Show Order Summary"></property>
+      <property name="expandableCartItemsTitle" label="Expandable Cart Items Title with Item Count" type="String" default="My Cart {0}"></property>
+      <property name="showCartItemsExpanded" label="Show expandable cart items by default" type="Boolean" default="true"></property>
+      <property name="cartDetails" label="Cart Binding Expression" type="String" default="{!Checkout.CartDetails}"></property>
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}"></property>
+      <designLayout>
+        <designSection name="Checkout Summary Options">
+          <designLayoutItems>
+            <designLayoutProperty name="expandableSummaryHeading"></designLayoutProperty>
+            <designLayoutProperty name="expandableCartItemsTitle"></designLayoutProperty>
+            <designLayoutProperty name="showCartItemsExpanded"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="cartDetails"></designLayoutProperty>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

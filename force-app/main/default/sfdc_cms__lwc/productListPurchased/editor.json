@@ -1,0 +1,57 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:productListPurchased",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "purchasedProductsRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:grid",
+                                "type": "component",
+                                "attributes": {
+                                    "itemSpacing": "small",
+                                    "numberOfColumns": 5,
+                                    "showPagination": true,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "attributes": {
+                                                    "item": "{!PurchasedProduct}",
+                                                    "showAddToCartButton": true,
+                                                    "showWishlistButton": false,
+                                                    "cardBorderRadius": 0,
+                                                    "cardBorderWeight": 0,
+                                                    "addToCartButtonStyle": "primary"
+                                                },
+                                                "definition": "commerce_builder:productCard",
+                                                "type": "component"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commercePurchasedProductsDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "PurchasedProduct",
+                                        "attributes": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

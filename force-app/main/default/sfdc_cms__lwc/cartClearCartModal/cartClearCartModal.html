@@ -1,0 +1,23 @@
+<template>
+    <lightning-modal-header label={clearCartConfirmationHeaderText}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-grid slds-wrap dialog-options">
+            <div class="slds-col slds-p-around_x-small slds-size_1-of-1 slds-large-size_1-of-2">
+                <button
+                    onclick={handleModalCancelButton}
+                    class="slds-size_1-of-1 slds-button slds-button_neutral"
+                    name="closeCancelModalButton">
+                    {cancelClearCartButtonText}
+                </button>
+            </div>
+            <div class="slds-col slds-p-around_x-small slds-size_1-of-1 slds-large-size_1-of-2">
+                <button
+                    onclick={handleConfirmClearCart}
+                    class="slds-size_1-of-1 slds-button slds-button_brand"
+                    name="confirmClearCartButton">
+                    {confirmClearCartButtonText}
+                </button>
+            </div>
+        </div>
+    </lightning-modal-body>
+</template>

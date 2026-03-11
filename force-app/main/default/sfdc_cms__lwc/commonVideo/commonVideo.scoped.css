@@ -1,0 +1,16 @@
+:host {
+    display: contents;
+    all: inherit;
+}
+experience-video {
+    display: block;
+    max-height: inherit;
+    height: 100%;
+    width: 100%;
+    border: 0;
+}
+img {
+    display: block;
+    width: auto;
+    margin: auto;
+}

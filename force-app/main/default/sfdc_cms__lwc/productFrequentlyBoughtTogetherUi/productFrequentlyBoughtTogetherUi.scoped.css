@@ -1,0 +1,26 @@
+.product-container {
+    display: flex;
+    align-items: center;
+}
+.frequently-bought-together {
+    justify-content: var(--com-c-product-frequently-bought-together-section-content-alignment, flex-start);
+    align-items: flex-start;
+}
+.frequently-bought-together-button {
+    display: flex;
+    justify-content: center;
+}
+@media (max-width: 47.9375em) {
+    .frequently-bought-together {
+        flex-direction: column;
+    }
+    .frequently-bought-together__separator {
+        display: none;
+    }
+}
+@media (min-width: 48em) {
+    .frequently-bought-together-button {
+        display: flex;
+        justify-content: var(--com-c-product-frequently-bought-together-section-content-alignment, flex-start);
+    }
+}

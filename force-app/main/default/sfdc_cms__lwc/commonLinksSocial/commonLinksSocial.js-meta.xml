@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Social Links</masterLabel>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property type="String" name="orientation" default="horizontal" datasource="java://siteforce.customComponent.datasource.DxpDirectionDataSource" label="Orientation"></property>
+      <property type="String" name="flexAlignment" default="flex-end" screenResponsive="true" exposedTo="css" datasource="java://siteforce.customComponent.datasource.FlexAlignmentDataSource" label="Alignment"></property>
+      <property type="String" name="navigationMenuData" default="{!NavMenu.MenuItems}" label="Navigation Menu Data"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orientation"></designLayoutProperty>
+            <designLayoutProperty name="flexAlignment"></designLayoutProperty>
+            <designLayoutProperty name="navigationMenuData"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

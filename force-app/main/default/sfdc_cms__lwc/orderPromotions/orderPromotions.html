@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <template lwc:if={hasPromotions}>
+        <div class="promotions-title">
+            <slot name="promotionsTitle"></slot>
+        </div>
+        <div class="promotions-content">
+            <template
+                for:each={appliedPromotions}
+                for:item="promotion">
+                <site-common-pill
+                    key={promotion.displayName}
+                    label-text={promotion.displayName}></site-common-pill>
+            </template>
+        </div>
+    </template>
+</template>

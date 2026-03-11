@@ -1,0 +1,19 @@
+<template lwc:render-mode="light">
+    <div class="centered-content error-content-padding">
+        <lightning-icon
+            src={iconPath}
+            alternative-text="Error"
+            title="Error"
+            class="slds-var-m-bottom_large"
+            variant="info"></lightning-icon>
+        <div>
+            <slot name="errorMessageText"></slot>
+        </div>
+        <site-common-button-ui
+            variant="primary"
+            onclick={handleOnClick}
+            class="slds-var-m-top_medium">
+            {buttonText}
+        </site-common-button-ui>
+    </div>
+</template>

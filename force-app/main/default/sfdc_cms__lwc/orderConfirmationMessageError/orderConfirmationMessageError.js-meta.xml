@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Confirmation Error Message</masterLabel>
+  <description>Show a message when the order confirmation page is unavailable, with options to redirect the user to the order
+        details page.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="guestUserButtonText" type="String" label="Guest User Button Label" default="Find My Order" translatable="true" description="Enter a label for the button that navigates the guest users to the Order Lookup page."></property>
+      <property name="authUserButtonText" type="String" label="Logged-in User Button Label" default="View Order History" translatable="true" description="Enter a label for the button that navigates the logged-in users to the Order History page."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="guestUserButtonText"></designLayoutProperty>
+            <designLayoutProperty name="authUserButtonText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

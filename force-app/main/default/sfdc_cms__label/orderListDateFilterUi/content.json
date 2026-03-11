@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderListDateFilterUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "allTime",
+      "value" : "All"
+    }, {
+      "name" : "past6Month",
+      "value" : "Last 6 months"
+    }, {
+      "name" : "pastYear",
+      "value" : "Last 12 months"
+    }, {
+      "name" : "filterText",
+      "value" : "Filter Orders:"
+    } ]
+  },
+  "urlName" : "orderlistdatefilterui"
+}

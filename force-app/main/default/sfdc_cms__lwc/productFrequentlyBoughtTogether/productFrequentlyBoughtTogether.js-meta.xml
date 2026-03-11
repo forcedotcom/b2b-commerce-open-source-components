@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Frequently Bought Together</masterLabel>
+  <description>Shows products commonly bought together with the current product, allowing easy bundling and purchase.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Id" name="productId" type="String" default="{!Route.recordId}"></property>
+      <property label="Recommendation Count" name="recommendationCount" type="String" default="3" datasource="2,3"></property>
+      <property label="Show product variation details" name="showProductVariants" type="Boolean" default="true"></property>
+      <property label="Show Plus Icon On Desktop" name="showPlusIconOnDesktop" type="Boolean" default="true"></property>
+      <property label="Icon Color" name="iconColor" type="Color"></property>
+      <property label="Show Sale Price" name="showSalePrice" type="Boolean" default="true"></property>
+      <property label="Sale Price Text Size" name="salePriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Sale Price Text Color" name="salePriceTextColor" type="Color"></property>
+      <property label="Sale Price Text Decoration" name="salePriceTextDecoration" type="String" default="{}"></property>
+      <property label="Show Original Price" name="showOriginalPrice" type="Boolean" default="true"></property>
+      <property label="Original Price Text Size" name="originalPriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property label="Original Price Text Color" name="originalPriceTextColor" type="Color"></property>
+      <property label="Original Price Text Decoration" name="originalPriceTextDecoration" type="String" default="{}"></property>
+      <property label="Section Content Alignment" name="sectionContentAlignment" type="String" default="center" screenResponsive="true" exposedTo="css"></property>
+      <property label="Card Content Alignment" name="cardContentAlignment" type="String" default="center" screenResponsive="true" exposedTo="css"></property>
+      <property label="Show Total Price inside button" name="showTotalPrice" type="Boolean" default="true"></property>
+      <property label="Button Label" name="buttonLabel" type="String" default="Add Selected To Cart" translatable="true"></property>
+      <property label="Button Style" name="buttonStyle" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property label="Button Size" name="buttonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <designLayout>
+        <designSection name="Recommendation Options">
+          <designLayoutItems>
+            <designLayoutProperty name="productId"></designLayoutProperty>
+            <designLayoutProperty name="recommendationCount"></designLayoutProperty>
+            <designLayoutProperty name="showProductVariants"></designLayoutProperty>
+            <designLayoutProperty name="showPlusIconOnDesktop"></designLayoutProperty>
+            <designLayoutProperty name="iconColor"></designLayoutProperty>
+            <designLayoutProperty name="showSalePrice"></designLayoutProperty>
+            <designLayoutProperty name="salePriceTextSize"></designLayoutProperty>
+            <designLayoutProperty name="salePriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="salePriceTextDecoration"></designLayoutProperty>
+            <designLayoutProperty name="showOriginalPrice"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceTextSize"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="originalPriceTextDecoration"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Recommendation Layout">
+          <designLayoutItems>
+            <designLayoutProperty name="sectionContentAlignment"></designLayoutProperty>
+            <designLayoutProperty name="cardContentAlignment"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Recommendation Button">
+          <designLayoutItems>
+            <designLayoutProperty name="showTotalPrice"></designLayoutProperty>
+            <designLayoutProperty name="buttonLabel"></designLayoutProperty>
+            <designLayoutProperty name="buttonStyle"></designLayoutProperty>
+            <designLayoutProperty name="buttonSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

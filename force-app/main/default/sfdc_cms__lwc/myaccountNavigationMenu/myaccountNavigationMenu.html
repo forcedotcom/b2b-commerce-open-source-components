@@ -1,0 +1,10 @@
+<template lwc:render-mode="light">
+    <div
+        class="navigationCtn"
+        style={computeStyle}>
+        <div class="welcomeMessageCtn">
+            <slot name="welcomeMessage"></slot>
+        </div>
+        <slot name="navigationMenuItemList"></slot>
+    </div>
+</template>

@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "commonQuantitySelectorPopover",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "quantityHelp",
-        "value": "Quantity Help"
-      },
-      {
-        "name": "closeButtonAssistiveText",
-        "value": "Close dialog"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "commonQuantitySelectorPopover",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "quantityHelp",
+      "value" : "Quantity Help"
+    }, {
+      "name" : "closeButtonAssistiveText",
+      "value" : "Close dialog"
+    } ]
+  },
+  "urlName" : "commonquantityselectorpopover"
 }

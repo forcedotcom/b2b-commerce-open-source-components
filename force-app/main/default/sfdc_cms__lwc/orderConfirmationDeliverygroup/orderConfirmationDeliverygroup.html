@@ -1,0 +1,25 @@
+<template lwc:render-mode="light">
+    <div class="header slds-m-bottom_x-small">
+        <slot name="header"></slot>
+    </div>
+    <div class="content">
+        <site-order-confirmation-fieldtable
+            no-of-columns={_noOfColumns}
+            fields={fields}
+            currency-code={currencyCode}></site-order-confirmation-fieldtable>
+        <div
+            lwc:if={showGiftingDetails}
+            class="gifting-details slds-m-top_large">
+            <div class="header slds-m-bottom_x-small">
+                <slot name="giftingHeader"></slot>
+            </div>
+            <site-order-confirmation-fieldtable
+                no-of-columns={_noOfColumns}
+                fields={giftingFields}
+                currency-code={currencyCode}></site-order-confirmation-fieldtable>
+        </div>
+        <div class="slds-m-top_large">
+            <slot name="deliveryItems"></slot>
+        </div>
+    </div>
+</template>

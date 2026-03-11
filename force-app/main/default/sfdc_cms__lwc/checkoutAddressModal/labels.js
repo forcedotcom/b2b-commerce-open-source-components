@@ -1,0 +1,17 @@
+import FirstNameLabel from '@salesforce/label/site.checkoutAddressModal.firstNameLabel';
+import LastNameLabel from '@salesforce/label/site.checkoutAddressModal.lastNameLabel';
+import CompanyNameLabel from '@salesforce/label/site.checkoutAddressModal.companyNameLabel';
+import StreetLabel from '@salesforce/label/site.checkoutAddressModal.streetLabel';
+import CityLabel from '@salesforce/label/site.checkoutAddressModal.cityLabel';
+import PostalCodeLabel from '@salesforce/label/site.checkoutAddressModal.postalCodeLabel';
+import ProvinceLabel from '@salesforce/label/site.checkoutAddressModal.provinceLabel';
+import CountryLabel from '@salesforce/label/site.checkoutAddressModal.countryLabel';
+import NewAddressLabel from '@salesforce/label/site.checkoutAddressModal.newAddressLabel';
+import EditAddressLabel from '@salesforce/label/site.checkoutAddressModal.editAddressLabel';
+import MakeDefaultAddressLabel from '@salesforce/label/site.checkoutAddressModal.makeDefaultAddressLabel';
+import PhoneNumberLabel from '@salesforce/label/site.checkoutAddressModal.phoneNumberLabel';
+import ComponentHeaderEditAddressLabel from '@salesforce/label/site.checkoutAddressModal.componentHeaderEditAddressLabel';
+import cancelActionLabel from '@salesforce/label/site.checkoutAddressModal.cancelActionLabel';
+import headerLabel from '@salesforce/label/site.checkoutAddressModal.headerLabel';
+import saveAddressLabel from '@salesforce/label/site.checkoutAddressModal.saveAddressLabel';
+export { FirstNameLabel, LastNameLabel, CompanyNameLabel, StreetLabel, CityLabel, PostalCodeLabel, ProvinceLabel, CountryLabel, MakeDefaultAddressLabel, NewAddressLabel, EditAddressLabel, PhoneNumberLabel, ComponentHeaderEditAddressLabel, cancelActionLabel, headerLabel, saveAddressLabel };

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Product Detail Subscriptions</masterLabel>
+  <description>Product Detail Subscriptions</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Product Pricing Data Binding" name="productPricing" type="String" default="{!Product.Pricing}"></property>
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Product Subscription Selection Data Binding" name="selectedProductSellingModel" type="String" default="{!Product.SelectedProductSellingModel}"></property>
+      <property label="Product Variant Data Binding" name="productVariant" type="String" default="{!Product.SelectedVariant}"></property>
+      <property label="Show Border" name="showBorder" type="Boolean" default="true"></property>
+      <property label="Border Color" name="borderColor" type="Color" default="#c9c9c9"></property>
+      <property label="Border Radius" name="borderRadius" type="Integer" default="16"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="showBorder"></designLayoutProperty>
+            <designLayoutProperty name="borderRadius"></designLayoutProperty>
+            <designLayoutProperty name="borderColor"></designLayoutProperty>
+            <designLayoutProperty name="productPricing"></designLayoutProperty>
+            <designLayoutProperty name="product"></designLayoutProperty>
+            <designLayoutProperty name="selectedProductSellingModel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

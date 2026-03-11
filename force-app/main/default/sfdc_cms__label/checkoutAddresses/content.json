@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutAddresses",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addressSingleLineBreak",
+      "value" : ", "
+    } ]
+  },
+  "urlName" : "checkoutaddresses"
+}

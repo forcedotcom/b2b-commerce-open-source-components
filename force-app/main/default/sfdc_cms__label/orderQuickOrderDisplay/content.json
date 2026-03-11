@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "orderQuickOrderDisplay",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "addEntryButtonAriaLabel",
-        "value": "Add Field"
-      },
-      {
-        "name": "addToCartButtonAriaLabel",
-        "value": "Add To Cart"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "orderQuickOrderDisplay",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addEntryButtonAriaLabel",
+      "value" : "Add Field"
+    }, {
+      "name" : "addToCartButtonAriaLabel",
+      "value" : "Add To Cart"
+    } ]
+  },
+  "urlName" : "orderquickorderdisplay"
 }

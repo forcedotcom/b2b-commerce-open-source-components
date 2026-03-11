@@ -1,0 +1,5 @@
+site-layout-header-simple .header-badge-icons [data-region-name='icons'],
+site-layout-header-simple .header-badge-icons [data-region-name='icons'] .dropzone {
+    flex-direction: row;
+    align-items: center;
+}

@@ -1,0 +1,15 @@
+<template>
+    <lightning-modal-header label={headerText}></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-formatted-rich-text
+            lwc:if={bodyText}
+            value={bodyText}></lightning-formatted-rich-text>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button
+            variant="brand"
+            label={labels.termsAndConditionsModalCloseButtonText}
+            onclick={handleClose}
+            aria-label={labels.termsAndConditionsModalCloseButtonText}></lightning-button>
+    </lightning-modal-footer>
+</template>

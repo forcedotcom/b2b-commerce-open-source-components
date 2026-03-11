@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Checkout Notification</masterLabel>
+  <description>Show a message for notifications and errors that occur at checkout.</description>
+  <apiVersion>64</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="checkoutSessionError" label="Error Binding Expression" type="String" default="{!Checkout.SessionError}" description="Access checkout error data. {!Checkout.SessionError} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="checkoutPaymentLink" label="Payment Link Binding Expression" type="String" default="{!Checkout.PaymentLink}"></property>
+      <property name="visibleLoadingIndicator" label="Show the loading indicator" type="Boolean" default="false"></property>
+      <property name="a11yLoadingIndicator" label="Render the a11y loading indicator" type="Boolean" default="false"></property>
+      <property name="sessionErrors" label="Show checkout session errors" type="Boolean" default="true"></property>
+      <property name="integrationErrors" label="Show checkout integration errors" type="Boolean" default="true"></property>
+      <property name="clientErrors" label="Show checkout client errors" type="Boolean" default="true"></property>
+      <property name="typeShippingFailure" label="Show shipping failures" type="Boolean" default="true"></property>
+      <property name="typePaymentFailure" label="Show payment failures" type="Boolean" default="true"></property>
+      <property name="typeCheckoutFailure" label="Show checkout failures" type="Boolean" default="true"></property>
+      <property name="typeInventoryFailure" label="Show inventory failures" type="Boolean" default="true"></property>
+      <property name="typeOtherIntegrationFailure" label="Show other integration failures" type="Boolean" default="true"></property>
+      <property name="typeOther" label="Show other failures" type="Boolean" default="true"></property>
+      <designLayout>
+        <designSection name="Loading Indicators">
+          <designLayoutItems>
+            <designLayoutProperty name="visibleLoadingIndicator"></designLayoutProperty>
+            <designLayoutProperty name="a11yLoadingIndicator"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Error Sources">
+          <designLayoutItems>
+            <designLayoutProperty name="sessionErrors"></designLayoutProperty>
+            <designLayoutProperty name="integrationErrors"></designLayoutProperty>
+            <designLayoutProperty name="clientErrors"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Error Types">
+          <designLayoutItems>
+            <designLayoutProperty name="typeShippingFailure"></designLayoutProperty>
+            <designLayoutProperty name="typePaymentFailure"></designLayoutProperty>
+            <designLayoutProperty name="typeCheckoutFailure"></designLayoutProperty>
+            <designLayoutProperty name="typeInventoryFailure"></designLayoutProperty>
+            <designLayoutProperty name="typeOtherIntegrationFailure"></designLayoutProperty>
+            <designLayoutProperty name="typeOther"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+            <designLayoutProperty name="checkoutSessionError"></designLayoutProperty>
+            <designLayoutProperty name="checkoutPaymentLink"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

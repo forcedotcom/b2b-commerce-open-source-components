@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    background: var(--Foundation-Gray-Neutral-95, #f3f3f3);
+}
+site-common-button-ui {
+    margin-right: 0.681rem;
+}
+site-checkout-input-address {
+    margin: 0 auto;
+}
+.body-heading {
+    font-size: var(--dxp-g-font-size-6);
+}
+.body-contents {
+    margin: -1rem;
+}
+.solid {
+    margin: 0;
+}
+@media only screen and (max-width: 30em) {
+    .footer {
+        display: block;
+        margin-left: 10.9px;
+        background: none;
+    }
+    .cancel-btn {
+        margin-bottom: var(--dxp-g-spacing-small);
+    }
+}

@@ -1,16 +1,14 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "productVariantAttributesDisplay",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "nameValueWithSeparator",
-        "value": "{name}: {value}"
-      },
-      {
-        "name": "attributeSeparator",
-        "value": ",&amp;nbsp;"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "productVariantAttributesDisplay",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "nameValueWithSeparator",
+      "value" : "{name}: {value}"
+    }, {
+      "name" : "attributeSeparator",
+      "value" : ",&amp;nbsp;"
+    } ]
+  },
+  "urlName" : "productvariantattributesdisplay"
 }

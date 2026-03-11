@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Billing Address</masterLabel>
+  <description>Add a form to collect a billing address at checkout.</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property label="Same Billing and Shipping Address Checkbox" name="billingAddressSameAsShippingAddressLabel" type="String" default="Same as shipping address" translatable="true"></property>
+      <designLayout>
+        <designSection name="Billing Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="billingAddressSameAsShippingAddressLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

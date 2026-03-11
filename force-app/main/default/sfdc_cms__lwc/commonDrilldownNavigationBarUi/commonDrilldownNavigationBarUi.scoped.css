@@ -1,0 +1,41 @@
+nav a,
+nav button {
+    white-space: nowrap;
+    padding: var(--dxp-c-navigation-bar-spacing, 0.75rem);
+    background-color: var(--dxp-c-navigation-list-color, inherit);
+    transition: background-color 0.2s linear;
+    color: var(--dxp-c-navigation-text-color, var(--dxp-g-root-contrast, #181818));
+}
+nav a {
+    display: block;
+    text-decoration: none;
+}
+nav button {
+    border: unset;
+    display: flex;
+    align-items: center;
+    --slds-c-icon-color-foreground: var(--dxp-c-navigation-text-color, var(--dxp-g-root-contrast, #181818));
+}
+nav a:hover,
+nav a:active,
+nav a:focus,
+nav button:hover,
+nav button:active,
+nav button:focus {
+    background-color: var(--dxp-c-navigation-list-hover-background-color-contrast);
+}
+nav a.isActive,
+nav button.isActive {
+    border-bottom: var(--dxp-c-navigation-bar-border-bottom-active, 2px solid #0176d3);
+}
+nav button:focus-visible,
+nav a:focus-visible {
+    outline: var(--dxp-c-navigation-bar-outline, 2px solid #181818);
+    outline-offset: -1px;
+}
+nav .comm-drilldown-navigation__bar-wrap {
+    flex-wrap: wrap;
+}
+nav .comm-drilldown-navigation__bar {
+    padding: var(--dxp-c-navigation-bar-padding, 0);
+}

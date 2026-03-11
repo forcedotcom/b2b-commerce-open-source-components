@@ -1,0 +1,25 @@
+<template lwc:render-mode="light">
+    <div class="gift-messaging">
+        <div class="input-container">
+            <lightning-input
+                type="checkbox"
+                label={labels.giftMessageCheckboxLabel}
+                onchange={handleCheckboxChange}
+                checked={_showGiftMessagingBox}></lightning-input>
+        </div>
+
+        <!-- Conditional rendering of the input text box -->
+        <template if:true={_showGiftMessagingBox}>
+            <div class="gift-message-box">
+                <lightning-textarea
+                    class="text-box"
+                    value={_giftMessage}
+                    onchange={handleInputChange}
+                    placeholder={labels.giftMessageTextAreaPlaceholderTextLabel}
+                    variant="label-hidden"
+                    maxlength={maxLength}></lightning-textarea>
+                <p class="character-count-container">{remainingCharactersLabel}</p>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Purchase Order</masterLabel>
+  <description>Add a field to collect a purchase order number at checkout.</description>
+  <apiVersion>65</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property label="Purchase Order Number Field Label" name="inputLabel" type="String" default="Purchase Order Number" translatable="true"></property>
+      <property label="Purchase Order Number Field Ghost Text" name="placeholderLabel" type="String" default="" translatable="true"></property>
+      <property label="Require Billing Address for Purchase Order" name="requireBillingAddress" type="Boolean" default="true"></property>
+      <designLayout>
+        <designSection name="Purchase Order">
+          <designLayoutItems>
+            <designLayoutProperty name="inputLabel"></designLayoutProperty>
+            <designLayoutProperty name="placeholderLabel"></designLayoutProperty>
+            <designLayoutProperty name="requireBillingAddress"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <div
+        class="stencil-container"
+        data-contact-info-stencil>
+        <template
+            for:each={items}
+            for:item="item">
+            <div
+                class="stencil-item-container slds-m-bottom_x-small"
+                key={item.key}>
+                <div class="stencil-item line"></div>
+            </div>
+        </template>
+        <div class="terms-of-use-spacer"></div>
+    </div>
+</template>

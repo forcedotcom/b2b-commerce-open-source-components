@@ -1,0 +1,12 @@
+<template lwc:render-mode="light">
+    <site-common-button-ui
+        if:true={isDisplayable}
+        class={buttonClass}
+        variant={type}
+        width={width}
+        assistive-text={text}
+        size={size}
+        onclick={handleShowMore}>
+        {text}
+    </site-common-button-ui>
+</template>

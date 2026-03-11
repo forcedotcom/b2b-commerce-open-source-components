@@ -1,0 +1,15 @@
+<template lwc:render-mode="light">
+    <div class="slds-p-vertical_small">
+        <lightning-icon
+            data-error-icon
+            src={iconPath}
+            variant={iconType}
+            size="x-small"
+            class={iconVariantClassName}></lightning-icon>
+        <span
+            data-error-label
+            class={computedTextColorClass}>
+            {errorLabel}
+        </span>
+    </div>
+</template>

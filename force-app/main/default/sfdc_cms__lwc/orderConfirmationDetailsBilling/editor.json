@@ -1,0 +1,28 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationDetailsBilling",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "header",
+                        "title": "Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Billing Details",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

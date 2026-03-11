@@ -1,0 +1,93 @@
+<template lwc:render-mode="light">
+    <nav
+        lwc:ref="navbar"
+        aria-label={componentNameLabel}
+        class="slds-has-flexi-truncate"
+        onclick={handleNavClick}
+        style={navCustomStyles}>
+        <ul
+            class={menuAlignmentClass}
+            data-menubar
+            aria-label={componentNameLabel}>
+            <template
+                for:each={styledVisibleItems}
+                for:item="item">
+                <template if:true={item.appLauncher}>
+                    <li
+                        key={item.id}
+                        class="slds-is-relative slds-list__item slds-p-around_x-small">
+                        <lightning-dynamic-icon
+                            data-id={item.id}
+                            data-menubar-item
+                            type="waffle"
+                            alternative-text={appLauncherLabel}
+                            onclick={handleAppLauncher}
+                            onfocus={handleFocus}></lightning-dynamic-icon>
+                    </li>
+                </template>
+                <template if:false={item.appLauncher}>
+                    <li
+                        key={item.id}
+                        class="slds-is-relative slds-list__item">
+                        <template if:true={item.subMenu}>
+                            <button
+                                title={item.label}
+                                data-id={item.id}
+                                data-menubar-item
+                                aria-haspopup="dialog"
+                                aria-expanded={item.isSelected}
+                                aria-current={item.ariaCurrent}
+                                onclick={handleParentClick}
+                                onfocus={handleFocus}
+                                onmouseover={handleHover}
+                                onmouseout={handleHoverOut}
+                                style={item.customStyles}
+                                class={item.activeClass}>
+                                {item.label}
+                                <lightning-icon
+                                    icon-name="utility:chevrondown"
+                                    variant="bare"
+                                    size="xx-small"
+                                    class="slds-current-color slds-p-left_x-small"></lightning-icon>
+                            </button>
+                            <template if:true={item.isSelected}>
+                                <site-common-drilldown-navigation-list-ui
+                                    parent-item={item}
+                                    menu-items={item.subMenu}
+                                    onclosesubmenus={handleCloseSubmenus}
+                                    focus-on-first-item={setFocusOnFirstSubMenuItem}
+                                    focus-on-last-item={setFocusOnLastSubMenuItem}
+                                    show-back-label={showBackLabel}
+                                    custom-theme-styles={customThemeStylesList}
+                                    is-more-menu={isMoreMenu}></site-common-drilldown-navigation-list-ui>
+                            </template>
+                            <a
+                                href={item.href}
+                                style="display: none"
+                                aria-hidden="true">
+                                {item.label}
+                            </a>
+                        </template>
+                        <a
+                            if:false={item.subMenu}
+                            title={item.label}
+                            data-id={item.id}
+                            data-menubar-item
+                            href={item.href}
+                            aria-label={item.ariaLabel}
+                            aria-current={item.ariaCurrent}
+                            onclick={handleLeafClick}
+                            onfocus={handleFocus}
+                            onkeydown={handleLeafKeyDown}
+                            onmouseover={handleHover}
+                            onmouseout={handleHoverOut}
+                            style={item.customStyles}
+                            class={item.activeClass}>
+                            {item.label}
+                        </a>
+                    </li>
+                </template>
+            </template>
+        </ul>
+    </nav>
+</template>

@@ -1,28 +1,23 @@
 {
-  "type": "sfdc_cms__label",
-  "title": "productBundleItemUi",
-  "contentBody": {
-    "labels": [
-      {
-        "name": "childCostsExtraText",
-        "value": "Additional Cost"
-      },
-      {
-        "name": "childIsIncludedAddOnText",
-        "value": "Included Add-on"
-      },
-      {
-        "name": "childIsOptionalAddOnText",
-        "value": "Optional Add-on"
-      },
-      {
-        "name": "childIsRequiredText",
-        "value": "Required"
-      },
-      {
-        "name": "noExtraCostText",
-        "value": "No Additional Cost"
-      }
-    ]
-  }
+  "type" : "sfdc_cms__label",
+  "title" : "productBundleItemUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "childCostsExtraText",
+      "value" : "+{priceWithCurrency}"
+    }, {
+      "name" : "childIsIncludedAddOnText",
+      "value" : "Included Add-On"
+    }, {
+      "name" : "childIsOptionalAddOnText",
+      "value" : "Add-On"
+    }, {
+      "name" : "childIsRequiredText",
+      "value" : "Required"
+    }, {
+      "name" : "noExtraCostText",
+      "value" : "Included in Bundle Price"
+    } ]
+  },
+  "urlName" : "productbundleitemui"
 }
