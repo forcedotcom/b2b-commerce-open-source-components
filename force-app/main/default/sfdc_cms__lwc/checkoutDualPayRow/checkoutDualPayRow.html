@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <section class="accordion-section">
+        <div class="accordion-summary">
+            <lightning-radio-group
+                type="radio"
+                name="multiPaymentAccordionRadioGroup"
+                data-accordion-section-button={sectionName}
+                options={multiPaymentRadioOptions}
+                onclick={handleSelectSection}
+                value={multiPaymentRadioValue}
+                class="multi-payment-accordion-radio-group-style"></lightning-radio-group>
+        </div>
+        <template if:true={isExpanded}>
+            <div
+                data-accordion-section-content={sectionName}
+                id="accordion-content"
+                class="accordion-content">
+                <!-- Section Content Slot -->
+                <div data-slot><slot></slot></div>
+            </div>
+        </template>
+    </section>
+</template>

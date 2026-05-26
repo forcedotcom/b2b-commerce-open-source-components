@@ -1,0 +1,26 @@
+<template lwc:render-mode="light">
+    <div slot="heading">
+        <slot name="heading"></slot>
+    </div>
+
+    <!-- CSS to hide payment so it can pre-load in the background -->
+    <div class={_showEditLayoutClass}>
+        <commerce-payment-wrapper
+            lwc:ref="paymentComponent"
+            webstore-id={_webstoreId}
+            has-subscription-product={_hasSubscriptionProduct}
+            card-payment-label={cardPaymentLabel}></commerce-payment-wrapper>
+
+        <!-- slot intended to hold checkoutBillingInfo between payment and error -->
+        <div slot="billingAddress">
+            <slot name="billingAddress"></slot>
+        </div>
+    </div>
+
+    <template if:true={_showStencil}>
+        <site-checkout-stencil
+            data-checkout-payment-stencil
+            stencil-type={_stencilType}
+            item-count="3"></site-checkout-stencil>
+    </template>
+</template>

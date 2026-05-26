@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Dual Payment</masterLabel>
+  <description>Add a form to collect credit card or purchase order details at checkout.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Checkout Binding Expression" name="checkoutDetails" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property label="Heading" name="cardPaymentLabel" type="String" default="Credit Card" translatable="true"></property>
+      <property label="Heading" name="headerLabel" type="String" default="Purchase Order" translatable="true"></property>
+      <property label="Show Purchase Order" name="isPurchaseOrderAvailable" type="Boolean" default="true"></property>
+      <property label="Purchase Order Number Field" name="inputLabel" type="String" default="Purchase Order Number" translatable="true"></property>
+      <property label="Purchase Order Number Placeholder Text" name="placeholderLabel" type="String" default="" translatable="true"></property>
+      <property label="Require billing address for purchase order" name="requireBillingAddress" type="Boolean" default="true"></property>
+      <property label="Billing Address" name="billingAddressLabel" type="String" default="Billing Address 1" translatable="true"></property>
+      <property label="Same Billing and Shipping Address Checkbox" name="billingAddressSameAsShippingAddressLabel" type="String" default="Same as shipping address" translatable="true"></property>
+      <property label="Phone Number" name="phoneNumberLabel" type="String" default="Phone Number" translatable="true"></property>
+      <property label="Phone Number Placeholder Text" name="phoneNumberPlaceholderText" type="String" default="" translatable="true"></property>
+      <designLayout>
+        <designSection name="Credit Card">
+          <designLayoutItems>
+            <designLayoutProperty name="cardPaymentLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Purchase Order">
+          <designLayoutItems>
+            <designLayoutProperty name="isPurchaseOrderAvailable"></designLayoutProperty>
+            <designLayoutProperty name="headerLabel"></designLayoutProperty>
+            <designLayoutProperty name="inputLabel"></designLayoutProperty>
+            <designLayoutProperty name="placeholderLabel"></designLayoutProperty>
+            <designLayoutProperty name="requireBillingAddress"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Billing Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="billingAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="billingAddressSameAsShippingAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberLabel"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberPlaceholderText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

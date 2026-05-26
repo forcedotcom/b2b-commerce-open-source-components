@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutDualPayment",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "billingAddressText",
+      "value" : "Billing Address"
+    } ]
+  },
+  "urlName" : "checkoutdualpayment"
+}

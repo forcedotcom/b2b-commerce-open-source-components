@@ -1,0 +1,88 @@
+<template lwc:render-mode="light">
+    <template lwc:if={_showPurchaseOrder}>
+        <div class="accordion-container">
+            <ul class="slds-accordion">
+                <li class="slds-accordion__list-item">
+                    <site-checkout-dual-pay-row
+                        data-accordion-section
+                        data-accordion-section-key="credit-card"
+                        onsectionselected={handleSectionSelected}
+                        section-name="credit-card"
+                        section-label={cardPaymentLabel}
+                        is-expanded={isCreditCardExpanded}>
+                        <site-checkout-payment
+                            checkout-details={checkoutDetails}
+                            expanded-mode={_expandedMode}>
+                            <site-checkout-billing-info
+                                slot="billingAddress"
+                                checkout-details={checkoutDetails}
+                                expanded-mode={_expandedMode}
+                                billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                                phone-number-label={phoneNumberLabel}
+                                phone-number-placeholder-text={phoneNumberPlaceholderText}
+                                show-address-lookup>
+                                <div
+                                    slot="heading"
+                                    data-automation="heading">
+                                    <slot name="creditCardBillingHeading"></slot>
+                                </div>
+                            </site-checkout-billing-info>
+                        </site-checkout-payment>
+                    </site-checkout-dual-pay-row>
+                </li>
+                <li class="slds-accordion__list-item">
+                    <site-checkout-dual-pay-row
+                        data-accordion-section
+                        data-accordion-section-key="purchase-order"
+                        onsectionselected={handleSectionSelected}
+                        section-name="purchase-order"
+                        section-label={headerLabel}
+                        is-expanded={isPurchaseOrderExpanded}>
+                        <site-checkout-purchase-order
+                            checkout-details={checkoutDetails}
+                            expanded-mode={_expandedMode}
+                            require-billing-address={requireBillingAddress}
+                            input-label={inputLabel}
+                            placeholder-label={placeholderLabel}>
+                            <site-checkout-billing-info
+                                slot="billingAddress"
+                                checkout-details={checkoutDetails}
+                                expanded-mode={_expandedMode}
+                                billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                                phone-number-label={phoneNumberLabel}
+                                phone-number-placeholder-text={phoneNumberPlaceholderText}
+                                show-address-lookup>
+                                <div
+                                    slot="heading"
+                                    data-automation="heading">
+                                    <slot name="purchaseOrderBillingHeading"></slot>
+                                </div>
+                            </site-checkout-billing-info>
+                        </site-checkout-purchase-order>
+                    </site-checkout-dual-pay-row>
+                </li>
+            </ul>
+        </div>
+    </template>
+    <template lwc:else>
+        <site-checkout-payment
+            data-solo-credit-card
+            checkout-details={checkoutDetails}
+            expanded-mode={_expandedMode}>
+            <site-checkout-billing-info
+                slot="billingAddress"
+                checkout-details={checkoutDetails}
+                expanded-mode={_expandedMode}
+                billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                phone-number-label={phoneNumberLabel}
+                phone-number-placeholder-text={phoneNumberPlaceholderText}
+                show-address-lookup>
+                <div
+                    slot="heading"
+                    data-automation="heading">
+                    <slot name="soloBillingHeading"></slot>
+                </div>
+            </site-checkout-billing-info>
+        </site-checkout-payment>
+    </template>
+</template>
