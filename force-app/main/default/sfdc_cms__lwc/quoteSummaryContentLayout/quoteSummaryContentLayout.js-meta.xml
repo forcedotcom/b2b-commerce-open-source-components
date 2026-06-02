@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Quote Summary Layout</masterLabel>
+  <description>Provide a summary layout to add components such as quoted items, status tracker, and discussions.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="quoteSummaryDetails" type="String" label="Quote Summary Details Expression" default="{!QuoteDetail}" description="Data binding expression for the quote detail data provider"></property>
+      <property name="errorComponentHeadingText" type="String" label="Error Component Header Text" default="We couldn&apos;t retrieve the quote details" translatable="true" description="Heading text shown when an error occurs"></property>
+      <property name="errorComponentSubHeadingText" type="String" label="Error Component Description Text" default="Refresh the page. If the issue persists, contact support." translatable="true" description="Subheading text shown below the error heading"></property>
+      <property name="errorComponentButtonText" type="String" label="Error Component Button Text" default="Continue Shopping" translatable="true" description="Text for the button that navigates back to the home page"></property>
+      <property name="clientState" type="String" label="Quote Detail Data Provider Client State Expression" default="{!QuoteDetail.ClientState}" description="Data binding expression for the quote detail data provider client state"></property>
+      <designLayout>
+        <designSection name="Data Bindings">
+          <designLayoutItems>
+            <designLayoutProperty name="quoteSummaryDetails"></designLayoutProperty>
+            <designLayoutProperty name="clientState"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Error Component Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="errorComponentHeadingText"></designLayoutProperty>
+            <designLayoutProperty name="errorComponentSubHeadingText"></designLayoutProperty>
+            <designLayoutProperty name="errorComponentButtonText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

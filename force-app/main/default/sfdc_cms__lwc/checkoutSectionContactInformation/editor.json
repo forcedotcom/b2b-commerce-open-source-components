@@ -1,0 +1,69 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutSectionContactInformation",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Contact Information",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Change",
+                                    "variant": "tertiary",
+                                    "alignment": "right"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutContactInfo",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "proceed",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue to Shipping Address",
+                                    "buttonBorderRadius": "4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

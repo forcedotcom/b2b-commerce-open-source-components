@@ -1,0 +1,17 @@
+.info-icon {
+    margin-top: -3px;
+    white-space: normal;
+}
+.adjustments-amount-text {
+    color: var(--com-c-my-account-order-products-details-discount-amount-color, var(--dxp-g-root-contrast));
+}
+.field-item {
+    font-size: var(--com-c-order-product-field-item-font-size, var(--dxp-g-font-size-3));
+}
+.field-item span.slds-grid {
+    align-items: center;
+}
+.field-item-label,
+site-common-field {
+    word-break: break-all;
+}

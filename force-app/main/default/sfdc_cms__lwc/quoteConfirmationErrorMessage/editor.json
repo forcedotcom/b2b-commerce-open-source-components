@@ -1,0 +1,40 @@
+{
+    "presets": [
+        {
+            "view": {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "Oops! This page is not available",
+                                    "textAlign": "center",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h1\"}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            },
+                            {
+                                "attributes": {
+                                    "paddingVertical": "x-small",
+                                    "text": "You can find your quote using",
+                                    "textAlign": "center",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"p\"}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "errorMessageText",
+                        "title": "errorMessageText",
+                        "type": "region"
+                    }
+                ],
+                "definition": "site:quoteConfirmationErrorMessage",
+                "type": "component"
+            }
+        }
+    ]
+}

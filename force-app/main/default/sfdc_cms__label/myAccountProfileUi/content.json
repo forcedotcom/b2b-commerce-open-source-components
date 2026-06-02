@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountProfileUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "NoDataLabel",
+      "value" : "Not added yet"
+    }, {
+      "name" : "EditActionLabel",
+      "value" : "Edit"
+    }, {
+      "name" : "VerifyActionLabel",
+      "value" : "Verify"
+    }, {
+      "name" : "AddActionLabel",
+      "value" : "Add Mobile"
+    }, {
+      "name" : "VerifiedLabel",
+      "value" : "Verified"
+    }, {
+      "name" : "UnVerifiedLabel",
+      "value" : "Not verified"
+    } ]
+  },
+  "urlName" : "myaccountprofileui"
+}

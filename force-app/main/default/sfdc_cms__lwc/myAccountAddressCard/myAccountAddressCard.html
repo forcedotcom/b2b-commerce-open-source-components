@@ -1,0 +1,27 @@
+<template lwc:render-mode="light">
+    <site-my-account-address-card-ui
+        key={addressId}
+        name={name}
+        first-name={firstName}
+        last-name={lastName}
+        address-type={addressType}
+        street={street}
+        city={city}
+        region={region}
+        country={country}
+        phone-number={phoneNumber}
+        postal-code={postalCode}
+        is-default={isDefault}
+        default-border-radius="50"
+        default-badge-color="#D9DFE7"
+        default-badge-label={cardDefaultBadgeLabel}>
+        <div slot="myAccountAddressFooter">
+            <site-my-account-address-footer
+                edit-label={footerEditLabel}
+                delete-label={footerDeleteLabel}
+                address-id={addressId}
+                address-name={name}
+                disable={footerDisable}></site-my-account-address-footer>
+        </div>
+    </site-my-account-address-card-ui>
+</template>

@@ -1,0 +1,39 @@
+.submit-button {
+    display: block;
+}
+.email-input {
+    min-height: 54px;
+}
+.email-label {
+    display: block;
+    position: initial;
+    padding-bottom: var(--dxp-g-spacing-xxsmall);
+    padding-top: var(--dxp-g-spacing-medium);
+}
+.email-input::placeholder {
+    font-family: var(--dxp-s-form-element-caption-text-font-family);
+}
+.consent-list {
+    display: grid;
+    gap: var(--dxp-g-spacing-medium);
+    padding-top: var(--dxp-g-spacing-medium);
+    padding-bottom: var(--dxp-g-spacing-medium);
+}
+.consent-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    gap: var(--dxp-g-spacing-medium);
+}
+.consent-text {
+    display: flex;
+    flex-direction: column;
+}
+.consent-description {
+    padding-top: var(--dxp-g-spacing-xsmall);
+}
+@media only screen and (max-width: 47.9375em) {
+    .slds-button {
+        width: 100%;
+    }
+}

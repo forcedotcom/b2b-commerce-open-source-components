@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Quote List Date Filter</masterLabel>
+  <description>Wrapper component for the quote list date filter dropdown, enabling filtering of quotes by time period.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

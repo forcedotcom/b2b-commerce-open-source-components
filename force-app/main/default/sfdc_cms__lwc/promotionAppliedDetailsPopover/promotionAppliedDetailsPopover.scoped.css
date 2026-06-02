@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    --slds-c-button-spacing-block-end: var(--com-c-applied-details-popover-button-spacing-block-end, 0);
+    --slds-c-button-spacing-block-start: var(--com-c-applied-details-popover-button-spacing-block-start, 0);
+}
+.popover-header {
+    display: flex;
+    justify-content: space-between;
+}
+.promotion-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-weight: var(--dxp-c-strong-text-weight, 500);
+}
+.promotion-details span {
+    width: 70%;
+}
+site-common-formatted-price {
+    white-space: nowrap;
+    color: var(--com-c-my-account-order-products-details-discount-amount-color, var(--dxp-g-root-contrast));
+}
+@media only screen and (max-width: 64em) {
+    .field-properties {
+        flex-direction: column;
+    }
+}
+site-common-field {
+    white-space: pre-line;
+}

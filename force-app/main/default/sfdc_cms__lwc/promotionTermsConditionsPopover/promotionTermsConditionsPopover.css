@@ -1,0 +1,7 @@
+:host {
+    display: flex;
+}
+.popover-header {
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,41 @@
+<template lwc:render-mode="light">
+    <fieldset class={sectionClass}>
+        <legend class="a11y-legend">
+            <h2>{a11yTitle}</h2>
+        </legend>
+
+        <header>
+            <h3 class="summary-title">{a11yTitle}</h3>
+            <h2 class="collapsed-title">{a11yTitle}</h2>
+            <div
+                slot="title"
+                data-automation="title"
+                class="title">
+                <slot name="title"></slot>
+            </div>
+            <div
+                slot="edit"
+                data-automation="edit"
+                onclick={handleEdit}
+                class={_editClasses}>
+                <slot name="edit"></slot>
+            </div>
+        </header>
+        <div
+            slot="content"
+            data-automation="content"
+            class={_contentClasses}
+            onnavtosplitship={handleProceed}>
+            <slot name="content"></slot>
+        </div>
+        <template lwc:if={_showProceed}>
+            <div
+                slot="proceed"
+                data-automation="proceed"
+                class={_proceedClasses}
+                onclick={handleProceed}>
+                <slot name="proceed"></slot>
+            </div>
+        </template>
+    </fieldset>
+</template>

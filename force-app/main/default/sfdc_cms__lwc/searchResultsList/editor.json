@@ -1,0 +1,40 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:searchResultsList",
+                "type": "component",
+                "attributes": {
+                    "searchResults": "{!Search.Results}"
+                },
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__expressionDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Item",
+                        "attributes": {
+                            "listSource": "{!Search.Results.cardCollection}"
+                        }
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "sfdcRepeaterItem",
+                        "title": "Repeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:productCard",
+                                "type": "component",
+                                "attributes": {
+                                    "item": "{!Item}",
+                                    "cardLayout": "list"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

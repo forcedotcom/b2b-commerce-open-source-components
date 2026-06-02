@@ -1,0 +1,66 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutDualPayment",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "creditCardBillingHeading",
+                        "title": "creditCardBillingHeading",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Billing Address",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "medium",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "purchaseOrderBillingHeading",
+                        "title": "purchaseOrderBillingHeading",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Billing Address",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "medium",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "soloBillingHeading",
+                        "title": "soloBillingHeading",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Billing Address",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "medium",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+<template>
+    <lightning-modal-header label={headerText}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-p-vertical_x-large modal-contents">
+            <div lwc:if={_isNotLoading}>
+                <div
+                    lwc:if={_showIcon}
+                    class="slds-m-bottom_small">
+                    <span
+                        class={_iconClass}
+                        aria-hidden="true">
+                        {_iconText}
+                    </span>
+                </div>
+                <div class="slds-text-heading_small">{confirmationMessage}</div>
+            </div>
+            <div
+                lwc:else
+                class="modal-contents">
+                <div class="spinner-loading-group">
+                    <div class="spinner-container">
+                        <lightning-spinner alternative-text={spinnerHelpText}></lightning-spinner>
+                    </div>
+                    <div class="slds-text-align_center slds-text-heading_small">{spinnerHelpText}</div>
+                </div>
+            </div>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <button
+                class="slds-button slds-button_outline-brand"
+                aria-label={closeButtonLabel}
+                onclick={handleClose}
+                name="closeModalButton">
+                {closeButtonLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                aria-label={confirmButtonLabel}
+                onclick={handleConfirm}
+                name="confirmButton">
+                {confirmButtonLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+</template>

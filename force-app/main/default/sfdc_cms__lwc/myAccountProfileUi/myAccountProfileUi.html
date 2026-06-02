@@ -1,0 +1,183 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:ref="card"
+        tabindex="-1"
+        class="card slds-m-bottom_medium">
+        <div class="card-body slds-m-bottom_large">
+            <span>
+                <slot name="personalDetailsHeader"></slot>
+            </span>
+            <div class="action-container-header">
+                <site-common-button-ui
+                    variant="tertiary"
+                    onclick={handlePersonalDetailsEditActionClick}>
+                    {_editActionLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+        <div
+            class="field-group"
+            data-type="input">
+            <div class="field-container slds-p-bottom_medium slds-size_1-of-2">
+                <p
+                    lwc:if={firstNameLabel}
+                    class="slds-text-body_small label">
+                    {firstNameLabel}
+                </p>
+                <p
+                    class="slds-text-heading_small slds-truncate"
+                    data-automation="firstname">
+                    {_firstName}
+                </p>
+            </div>
+            <div class="field-container slds-p-bottom_medium">
+                <p
+                    lwc:if={lastNameLabel}
+                    class="slds-text-body_small label">
+                    {lastNameLabel}
+                </p>
+                <p
+                    class="slds-text-heading_small slds-truncate"
+                    data-automation="lastname">
+                    {_lastName}
+                </p>
+            </div>
+        </div>
+        <div class="action-container-footer">
+            <site-common-button-ui
+                variant="tertiary"
+                onclick={handlePersonalDetailsEditActionClick}>
+                {_editActionLabel}
+            </site-common-button-ui>
+        </div>
+    </div>
+    <div class="card slds-m-bottom_medium">
+        <div class="card-body slds-m-bottom_large">
+            <div
+                class="card-header"
+                data-type="header-pill-container">
+                <span class="slds-p-right_x-small header-text">
+                    <slot name="emailHeader"></slot>
+                </span>
+                <site-common-pill
+                    lwc:if={_showEmailPill}
+                    label-text={_emailPillText}
+                    class={_emailPillClass}></site-common-pill>
+            </div>
+            <div class="action-container-header">
+                <site-common-button-ui
+                    lwc:if={_showEmailEditButton}
+                    variant="tertiary"
+                    onclick={handleEmailEditActionClick}>
+                    {_editActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    lwc:if={_showEmailVerifyButton}
+                    variant="secondary"
+                    onclick={handleEmailVerifyActionClick}>
+                    {_verifyActionLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+        <div class="slds-m-bottom_medium">
+            <div class="field-container">
+                <p
+                    lwc:if={emailLabel}
+                    class="slds-text-body_small label">
+                    {emailLabel}
+                </p>
+                <p
+                    class="slds-text-heading_small slds-truncate"
+                    data-automation="email">
+                    {_email}
+                </p>
+            </div>
+        </div>
+        <div class="action-container-footer">
+            <site-common-button-ui
+                lwc:if={_showEmailEditButton}
+                variant="tertiary"
+                onclick={handleEmailEditActionClick}>
+                {_editActionLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:if={_showEmailVerifyButton}
+                variant="secondary"
+                onclick={handleEmailVerifyActionClick}>
+                {_verifyActionLabel}
+            </site-common-button-ui>
+        </div>
+    </div>
+    <div
+        lwc:if={showPhoneDetails}
+        class="card slds-m-bottom_medium">
+        <div class="card-body slds-m-bottom_large">
+            <div class="card-header">
+                <span class="slds-p-right_x-small header-text">
+                    <slot name="phoneHeader"></slot>
+                </span>
+                <site-common-pill
+                    lwc:if={_showPhonePill}
+                    label-text={_phonePillText}
+                    class={_phonePillClass}></site-common-pill>
+            </div>
+            <div class="action-container-header">
+                <site-common-button-ui
+                    lwc:if={_showPhoneEditButton}
+                    variant="tertiary"
+                    onclick={handlePhoneEditActionClick}>
+                    {_editActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    lwc:if={_showPhoneVerifyButton}
+                    variant="secondary"
+                    onclick={handlePhoneVerifyActionClick}>
+                    {_verifyActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    lwc:if={_showPhoneAddButton}
+                    variant="secondary"
+                    onclick={handlePhoneAddActionClick}>
+                    {_addActionLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+        <div class="slds-m-bottom_medium">
+            <div class="field-container">
+                <p
+                    lwc:if={phoneLabel}
+                    class="slds-text-body_small label">
+                    {phoneLabel}
+                </p>
+                <p
+                    class="slds-text-heading_small slds-truncate"
+                    data-automation="phone">
+                    {_phone}
+                </p>
+            </div>
+        </div>
+        <div class="action-container-footer">
+            <site-common-button-ui
+                lwc:if={_showPhoneEditButton}
+                variant="tertiary"
+                onclick={handlePhoneEditActionClick}>
+                {_editActionLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:if={_showPhoneVerifyButton}
+                variant="secondary"
+                onclick={handlePhoneVerifyActionClick}>
+                {_verifyActionLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:if={_showPhoneAddButton}
+                variant="secondary"
+                onclick={handlePhoneAddActionClick}>
+                {_addActionLabel}
+            </site-common-button-ui>
+        </div>
+    </div>
+    <div class="button-width">
+        <slot name="changePasswordButton"></slot>
+    </div>
+</template>

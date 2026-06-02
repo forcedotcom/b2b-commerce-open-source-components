@@ -1,0 +1,20 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:quoteStatusTracker",
+                "type": "component",
+                "attributes": {
+                    "availableQuoteStatuses": "{!AppContext.QuoteStatuses}",
+                    "quoteStatus": "{!QuoteDetail.status}",
+                    "includeDraftStatus": true,
+                    "includeInReviewStatus": true,
+                    "includeApprovedStatus": true,
+                    "includeRejectedStatus": true,
+                    "includeAcceptedStatus": true,
+                    "includeDeniedStatus": true
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentAddPaymentMethodsUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addPaymentMethodHeader",
+      "value" : "Add Payment Method"
+    }, {
+      "name" : "billingAddressSubHeader",
+      "value" : "Billing Address"
+    }, {
+      "name" : "paymentMethodSubHeader",
+      "value" : "Payment Method"
+    }, {
+      "name" : "CancelLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "saveLabel",
+      "value" : "Save"
+    } ]
+  },
+  "urlName" : "paymentaddpaymentmethodsui"
+}

@@ -1,0 +1,60 @@
+<template lwc:render-mode="light">
+    <div class="media-container">
+        <div class="image-area slds-m-around_medium">
+            <figure
+                class="tile"
+                for:each={images}
+                for:item="image"
+                key={image.id}>
+                <a
+                    href={quoteDetailUrl}
+                    onclick={handleTileClick}>
+                    <experience-picture
+                        lwc:if={image.available}
+                        url={image.url}
+                        images={image.images}
+                        alternative-text={image.alternateText}></experience-picture>
+
+                    <svg
+                        lwc:else
+                        viewBox="0 0 100 100"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0_2738_14955)">
+                            <rect
+                                style="height: 100%; width: 100%"
+                                rx="3"
+                                fill="#F7F9FA"></rect>
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M69.8461 36.7691C69.8461 34.9499 68.3577 33.4614 66.5384 33.4614H33.4615C31.6423 33.4614 30.1538 34.9499 30.1538 36.7691V63.2307C30.1538 65.0499 31.6423 66.5383 33.4615 66.5383H66.5384C68.3577 66.5383 69.8461 65.0499 69.8461 63.2307V36.7691ZM61.2461 59.9223H37.2653C36.273 59.9223 35.6942 58.8473 36.1903 58.0204L43.4672 45.3685C43.798 44.7896 44.5422 44.7896 44.873 45.3685L49.2557 52.8935C49.5865 53.3896 50.3307 53.4723 50.6615 52.9762L54.2172 47.8493C54.548 47.3531 55.2922 47.3531 55.623 47.8493L62.1557 58.2685C62.6519 59.0127 62.1557 59.9223 61.2461 59.9223ZM59.0961 45.0384C57.2768 45.0384 55.7884 43.5499 55.7884 41.7307C55.7884 39.9115 57.2768 38.423 59.0961 38.423C60.9153 38.423 62.4038 39.9115 62.4038 41.7307C62.4038 43.5499 60.9153 45.0384 59.0961 45.0384Z"
+                                fill="#707275"></path>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_2738_14955">
+                                <rect
+                                    style="height: 100%; width: 100%"
+                                    fill="#F7F9FA"></rect>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+            </figure>
+            <a
+                lwc:if={displayLastTileInDesktop}
+                href={quoteDetailUrl}
+                class="tile last-tile desktop-count"
+                onclick={handleTileClick}>
+                <p class="slds-p-around_xx-small">{lastTileTextForDesktop}</p>
+            </a>
+            <a
+                lwc:if={displayLastTileInMobile}
+                href={quoteDetailUrl}
+                class="tile last-tile mobile-count"
+                onclick={handleTileClick}>
+                <p class="slds-p-around_xx-small">{lastTileTextForMobile}</p>
+            </a>
+        </div>
+    </div>
+</template>

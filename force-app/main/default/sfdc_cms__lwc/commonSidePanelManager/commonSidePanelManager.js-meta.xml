@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Side Panel Manager</masterLabel>
+  <description>Manages the side panel interface for storefront chat and shopper agent interactions.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="shopperAgentContextData" type="String" default="{!ShopperAgentContext.Details}" label="Shopper Agent Context Data" description="Data binding for the shopper agent context."></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

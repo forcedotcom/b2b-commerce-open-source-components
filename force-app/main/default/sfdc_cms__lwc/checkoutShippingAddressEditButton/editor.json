@@ -1,0 +1,27 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutShippingAddressEditButton",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Change",
+                                    "variant": "tertiary",
+                                    "alignment": "right"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

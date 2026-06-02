@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <description>Show a one-page layout at checkout with dual payment options.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Checkout Layout One-Page Dual Payment</masterLabel>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

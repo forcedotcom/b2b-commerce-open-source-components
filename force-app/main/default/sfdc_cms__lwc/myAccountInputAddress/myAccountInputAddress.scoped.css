@@ -1,0 +1,67 @@
+:host {
+    --slds-c-form-row-spacing-block-end: var(--dxp-g-spacing-medium, 1rem);
+    --dxp-s-form-element-label-font-size: var(--com-c-my-account-address-form-element-label-font-size, 0.75rem);
+}
+
+.address-header {
+    padding-bottom: var(--dxp-g-spacing-large);
+    font-weight: var(--dxp-s-text-heading-large-font-weight);
+    text-align: left;
+    font-size: var(--dxp-s-text-heading-large-font-size);
+}
+
+.address-form-align {
+    margin: auto;
+    width: var(--com-c-my-account-input-address-form-width, 100%);
+}
+
+.name-fields {
+    display: inline-flex;
+    vertical-align: text-top;
+    width: 100%;
+}
+
+.name-field:nth-child(1) {
+    padding-right: var(--dxp-g-spacing-xxsmall);
+}
+
+.name-field:nth-child(2) {
+    padding-left: var(--dxp-g-spacing-xxsmall);
+}
+
+.address-type {
+    font-size: var(--dxp-g-font-size-5);
+}
+
+@media only screen and (max-width: 48em) {
+    .address-header {
+        padding-bottom: var(--dxp-g-spacing-medium);
+        text-align: center;
+    }
+
+    .address-form-align {
+        width: 100%;
+    }
+
+    .name-fields {
+        display: block;
+    }
+
+    .name-fields [lightning-input_input-host] {
+        width: 100%;
+    }
+
+    .name-field:nth-child(1),
+    .name-field:nth-child(2) {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .address-type {
+        display: grid;
+    }
+
+    .address-type :nth-child(2) {
+        padding-top: var(--dxp-g-spacing-medium);
+    }
+}

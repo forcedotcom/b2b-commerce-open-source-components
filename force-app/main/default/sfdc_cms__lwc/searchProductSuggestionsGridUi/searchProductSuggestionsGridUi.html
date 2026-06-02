@@ -1,0 +1,27 @@
+<template lwc:render-mode="light">
+    <div class="slds-col suggested-products">
+        <div
+            lwc:if={normalizedHeader}
+            class="header">
+            {normalizedHeader}
+        </div>
+        <ul
+            class="product-suggestions-grid"
+            role="presentation">
+            <template
+                for:each={normalizedProductSuggestions}
+                for:item="item">
+                <li
+                    key={item.id}
+                    class="grid-item"
+                    role="presentation">
+                    <section class="product-suggestion-card-container">
+                        <site-search-product-suggestion-card-ui
+                            class="product-suggestion-card-item"
+                            display-data={item}></site-search-product-suggestion-card-ui>
+                    </section>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>

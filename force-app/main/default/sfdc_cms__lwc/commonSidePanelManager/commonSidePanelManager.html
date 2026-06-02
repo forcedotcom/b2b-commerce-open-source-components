@@ -1,0 +1,10 @@
+<template lwc:render-mode="light">
+    <div class="panel slds-panel slds-panel_docked slds-panel_docked-left slds-is-open">
+        <!-- Storefront Chat State -->
+        <template lwc:if={showStorefrontChatState}>
+            <div class="storefront-chat">
+                <slot name="storefrontChat"></slot>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,24 @@
+<template lwc:render-mode="light">
+    <div class={containerClasses}>
+        <div class="checkout-column">
+            <div
+                slot="content"
+                data-automation="content"
+                class="column-content">
+                <slot name="content"></slot>
+            </div>
+        </div>
+        <div
+            class="summary-column"
+            style={checkoutSummaryColumnStyles}
+            lwc:if={showSummaryColumn}
+            onsummarytoggle={handleSummaryToggle}>
+            <div
+                class={_summaryColumnClass}
+                slot="column"
+                data-automation="column">
+                <slot name="column"></slot>
+            </div>
+        </div>
+    </div>
+</template>

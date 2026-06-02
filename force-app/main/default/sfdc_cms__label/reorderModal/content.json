@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "reorderModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "defaultHeaderText",
+      "value" : "Buy again"
+    }, {
+      "name" : "itemsNotAvailableInStoreHeaderText",
+      "value" : "Some items are unavailable"
+    }, {
+      "name" : "noItemAvailableInStoreHeaderText",
+      "value" : "All items are unavailable"
+    }, {
+      "name" : "closeButtonLabel",
+      "value" : "Close"
+    }, {
+      "name" : "viewCartButtonLabel",
+      "value" : "View Cart"
+    }, {
+      "name" : "continueShoppingButton",
+      "value" : "Continue Shopping"
+    }, {
+      "name" : "errorScreenHeaderText",
+      "value" : "Something isn't right..."
+    } ]
+  },
+  "urlName" : "reordermodal"
+}

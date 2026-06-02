@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonPasswordlessLoginModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "modalHeader",
+      "value" : "Confirm it's you"
+    }, {
+      "name" : "otpDescriptionEmail",
+      "value" : "To use your account information, enter the code sent to your email."
+    }, {
+      "name" : "otpDescriptionPhone",
+      "value" : "To use your account information, enter the code sent to your mobile number ending in ****."
+    }, {
+      "name" : "resendButton",
+      "value" : "Text a new code"
+    }, {
+      "name" : "guestCheckout",
+      "value" : "Check out as a guest"
+    }, {
+      "name" : "resendTooltip",
+      "value" : "Option to resend code will be enabled upon incorrect code entry."
+    }, {
+      "name" : "switchEmailButton",
+      "value" : "Email a new code"
+    } ]
+  },
+  "urlName" : "commonpasswordlessloginmodal"
+}

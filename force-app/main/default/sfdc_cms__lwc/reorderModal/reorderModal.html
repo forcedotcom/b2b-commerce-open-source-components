@@ -1,0 +1,38 @@
+<template>
+    <lightning-modal-header label={_modalHeading}></lightning-modal-header>
+    <lightning-modal-body>
+        <site-reorder-modal-contents
+            succeeded-product-count={_succeededProductCount}
+            failed-product-count={_failedProductCount}
+            unadded-product-list={_unaddedProductList}
+            errors={_errors}
+            error-code={_errorCode}
+            loading={_isLoading}></site-reorder-modal-contents>
+    </lightning-modal-body>
+    <lightning-modal-footer if:false={_isLoading}>
+        <div class="footer-content-container">
+            <button
+                class="close-button slds-button slds-button_neutral"
+                onclick={handleClose}
+                name="closeModalButton">
+                {_closeButtonLabel}
+            </button>
+            <div lwc:if={_errors}>
+                <button
+                    class="primary-action-button slds-button slds-button_brand"
+                    onclick={handleClose}
+                    name="continueShoppingButton">
+                    {_continueShoppingButtonText}
+                </button>
+            </div>
+            <div lwc:else>
+                <a
+                    class="primary-action-button slds-button slds-button_brand"
+                    href={cartUrl}
+                    onclick={handleViewCart}>
+                    {_viewCartButtonText}
+                </a>
+            </div>
+        </div>
+    </lightning-modal-footer>
+</template>

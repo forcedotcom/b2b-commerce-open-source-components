@@ -68,6 +68,12 @@
     }, {
       "name" : "modifyItemAssistiveText",
       "value" : "Modify {name}"
+    }, {
+      "name" : "ConfiguredText",
+      "value" : "Configured"
+    }, {
+      "name" : "seeConfigButtonText",
+      "value" : "See Configuration"
     } ]
   },
   "urlName" : "cartitem"

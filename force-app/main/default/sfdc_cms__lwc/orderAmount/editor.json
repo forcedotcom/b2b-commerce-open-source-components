@@ -1,0 +1,17 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderAmount",
+                "type": "component",
+                "attributes": {
+                    "orderSummaryDetails": "{!Order.Details}",
+                    "showHorizontalLineAboveLastField": true,
+                    "showLastFieldAsBold": true,
+                    "totalsCardBorderRadius": 0,
+                    "totalsCardTitle": "Totals"
+                }
+            }
+        }
+    ]
+}

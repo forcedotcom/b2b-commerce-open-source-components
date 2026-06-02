@@ -35,7 +35,7 @@
       <property name="negotiatedPriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Actual Price Text Size"></property>
       <property name="originalPriceTextColor" type="Color" label="Original Price Text Color"></property>
       <property name="originalPriceTextSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Original Price Text Size"></property>
-      <property name="cardContentMapping" type="String" default="[{&quot;name&quot;: &quot;Name&quot;, &quot;showLabel&quot;: false, &quot;label&quot;: &quot;Product Name&quot;, &quot;fontSize&quot;: &quot;medium&quot;}]"></property>
+      <property name="cardContentMapping" type="CardContentFieldMapping" default="[{&quot;name&quot;: &quot;Name&quot;, &quot;showLabel&quot;: false, &quot;label&quot;: &quot;Product Name&quot;, &quot;fontSize&quot;: &quot;medium&quot;}]"></property>
       <property name="subscriptionOptionsText" type="String" translatable="true" default="Subscription Options Available" label="Subscription Option Text"></property>
       <property name="showCallToActionButton" type="Boolean" default="false" label="Show Call To Action Button"></property>
       <property name="addToCartButtonStyle" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" label="Button Style"></property>

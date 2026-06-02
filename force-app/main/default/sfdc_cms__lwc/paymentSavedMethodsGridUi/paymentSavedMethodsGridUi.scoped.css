@@ -1,0 +1,104 @@
+.payment-saved-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(23rem, 1fr));
+    grid-auto-rows: minmax(max-content, 1fr);
+}
+
+.payment-saved-methods-grid-gap-small {
+    grid-gap: var(--dxp-g-spacing-small);
+    padding: var(--dxp-g-spacing-small);
+}
+
+.payment-saved-methods-grid-gap-medium {
+    grid-gap: var(--dxp-g-spacing-medium);
+    padding: var(--dxp-g-spacing-medium);
+}
+
+.payment-saved-methods-grid-gap-large {
+    grid-gap: var(--dxp-g-spacing-large);
+    padding: var(--dxp-g-spacing-large);
+}
+
+.buttons {
+    display: flex;
+}
+
+.show-more-button {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline;
+}
+
+.show-more-button_left {
+    margin: auto auto auto 0;
+}
+
+.show-more-button_center {
+    margin: auto;
+}
+
+.show-more-button_right {
+    margin: auto 0 auto auto;
+}
+
+.emptyState,
+.userHasNoAccess {
+    padding-top: calc(5 * var(--dxp-g-spacing-xlarge, 2rem));
+    padding-bottom: calc(5 * var(--dxp-g-spacing-xlarge, 2rem));
+}
+
+.emptyStateTitle {
+    font-size: var(--dxp-s-text-heading-medium-font-size, 1.25rem);
+}
+
+.float-medium_right {
+    float: right;
+}
+
+@media only screen and (max-width: 48em) {
+    .payment-saved-methods-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-auto-rows: minmax(max-content, 1fr);
+    }
+
+    .payment-saved-methods-grid-gap-small {
+        grid-gap: var(--dxp-g-spacing-small);
+        padding: var(--dxp-g-spacing-small);
+    }
+
+    .payment-saved-methods-grid-gap-medium {
+        grid-gap: var(--dxp-g-spacing-medium);
+        padding: var(--dxp-g-spacing-medium);
+    }
+
+    .payment-saved-methods-grid-gap-large {
+        grid-gap: var(--dxp-g-spacing-large);
+        padding: var(--dxp-g-spacing-large);
+    }
+
+    .buttons {
+        display: flex;
+        max-width: 47.9375em;
+        padding: var(--dxp-g-spacing-small);
+    }
+
+    .show-more-button_left,
+    .show-more-button_center,
+    .show-more-button_right {
+        flex: 0 0 100%;
+    }
+
+    .emptyStateTitle {
+        font-size: var(--dxp-s-text-heading-small-font-size, 1.125rem);
+    }
+
+    .addNewSPMButton {
+        width: 100%;
+    }
+
+    .float-medium_right {
+        float: none;
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonItemFields",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "keyValueSeparatorWithSpace",
+      "value" : ":&nbsp;"
+    }, {
+      "name" : "adjustmentsPopupHeaderText",
+      "value" : "Adjustments"
+    }, {
+      "name" : "closeButtonAssistiveText",
+      "value" : "Close Adjustments"
+    }, {
+      "name" : "infoBubbleAssistiveText",
+      "value" : "Show Adjustments"
+    } ]
+  },
+  "urlName" : "commonitemfields"
+}

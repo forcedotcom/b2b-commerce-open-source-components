@@ -1,0 +1,22 @@
+.product-suggestions-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--com-c-breakpoint-product-suggestions-columns, 3), minmax(0, 1fr));
+    gap: 1rem;
+    padding-top: 1rem;
+}
+.header {
+    color: var(
+        --com-c-search-input-suggestions-header-text-color,
+        var(--dxp-s-tertiary-button-text-color-hover, #707275)
+    );
+}
+.grid-item {
+    border-color: transparent;
+    border-bottom-color: var(--com-c-product-suggestions-list-color-border, transparent);
+    width: 172px;
+}
+@media only screen and (max-width: 47.9375em) {
+    .product-suggestions-grid {
+        --com-c-breakpoint-product-suggestions-columns: var(--com-c-product-suggestions-columns-mobile, 2);
+    }
+}

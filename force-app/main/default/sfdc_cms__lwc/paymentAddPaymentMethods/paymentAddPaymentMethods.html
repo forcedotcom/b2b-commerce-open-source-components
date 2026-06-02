@@ -1,0 +1,19 @@
+<template lwc:render-mode="light">
+    <template lwc:if={showMissingPaymentMethodSetMessage}>
+        <experience-payment-empty-state
+            empty-state-title={_missingStateTitle}
+            empty-state-description={_missingStateDescription}></experience-payment-empty-state>
+    </template>
+    <template lwc:else>
+        <site-payment-add-payment-methods-ui
+            payment-method-set={paymentMethodSet}
+            billing-details={billingDetails}
+            user-account-id={userAccountId}
+            sepa-debit-mandate={sepaDebitMandate}
+            default-country={_defaultCountry}
+            raw-internationalization-data={_rawInternationalizationData}
+            onspmredirectcancel={handleRedirect}
+            onsavepaymentmethodsuccess={handleRedirect}
+            disable-save={disableSave}></site-payment-add-payment-methods-ui>
+    </template>
+</template>

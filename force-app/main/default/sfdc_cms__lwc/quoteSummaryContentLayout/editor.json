@@ -1,0 +1,374 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:quoteSummaryContentLayout",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceQuoteDetailDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "QuoteDetail",
+                        "attributes": {
+                            "recordId": "{!Route.recordId}"
+                        }
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "content",
+                        "title": "Content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonBreadcrumbs",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "hideOnMobile": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 12
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Quote Request Number: {!QuoteDetail.quoteNumber}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h1\"}",
+                                                    "textDecoration": "{\"bold\": true}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "col2a",
+                                        "title": "Column 2 - Renegotiate",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:quoteDeclineRenegotiateButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "quoteId": "{!QuoteDetail.id}",
+                                                    "quoteStatus": "{!QuoteDetail.status}",
+                                                    "buttonText": "Renegotiate or Decline",
+                                                    "variant": "secondary",
+                                                    "size": "standard",
+                                                    "width": "stretch"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "col2b",
+                                        "title": "Column 2 - Accept & Buy / Duplicate to Cart",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:quoteAcceptandbuyButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "quoteId": "{!QuoteDetail.id}",
+                                                    "quoteStatus": "{!QuoteDetail.status}",
+                                                    "orderId": "{!QuoteDetail.orderId}",
+                                                    "hasLineItems": "{!QuoteDetail.hasLineItems}",
+                                                    "acceptAndBuyButtonText": "Accept & Buy",
+                                                    "buyButtonText": "Buy",
+                                                    "variant": "primary",
+                                                    "size": "standard",
+                                                    "width": "stretch"
+                                                }
+                                            },
+                                            {
+                                                "definition": "site:quoteDuplicateToCartButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "quoteId": "{!QuoteDetail.id}",
+                                                    "quoteStatus": "{!QuoteDetail.status}",
+                                                    "orderId": "{!QuoteDetail.orderId}",
+                                                    "hasLineItems": "{!QuoteDetail.hasLineItems}",
+                                                    "buttonText": "Duplicate to Cart",
+                                                    "variant": "tertiary",
+                                                    "size": "standard",
+                                                    "width": "stretch"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 6
+                                            },
+                                            {
+                                                "columnKey": "col2a",
+                                                "columnName": "Column 2 - Renegotiate",
+                                                "columnWidth": 3
+                                            },
+                                            {
+                                                "columnKey": "col2b",
+                                                "columnName": "Column 2 - Accept & Buy / Duplicate to Cart",
+                                                "columnWidth": 3
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:horizontalLine",
+                                                "type": "component"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 12
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:quoteStatusTracker",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "quoteStatus": "{!QuoteDetail.status}",
+                                                    "includeDraftStatus": true,
+                                                    "includeNeedsReviewStatus": false,
+                                                    "includeInReviewStatus": true,
+                                                    "includeApprovedStatus": true,
+                                                    "includeRejectedStatus": true,
+                                                    "includePresentedStatus": false,
+                                                    "includeAcceptedStatus": true,
+                                                    "includeDeniedStatus": true
+                                                }
+                                            },
+                                            {
+                                                "definition": "site:quoteConfirmationItems",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "items": "{!QuoteDetail.LineItems}",
+                                                    "currencyIsoCode": "{!QuoteDetail.fields.CurrencyIsoCode.text}",
+                                                    "totalPrice": "{!QuoteDetail.fields.TotalPrice.text}",
+                                                    "pageSize": 10,
+                                                    "removeProductLinks": false,
+                                                    "viewBundleDetailLabel": "View Details"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "header",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Items in Your Quote",
+                                                                    "textAlign": "left",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "showMore",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Show more",
+                                                                    "textAlign": "center",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\", \"headingTag\": \"p\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "col2",
+                                        "title": "Column 2",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:quoteNotesThread",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "notesData": "{!QuoteDetail.Notes}",
+                                                    "notesTitle": "Notes Exchange"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 8
+                                            },
+                                            {
+                                                "columnKey": "col2",
+                                                "columnName": "Column 2",
+                                                "columnWidth": 4
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    },
+                                    "sectionColumnGutterWidth": "3rem"
+                                },
+                                "tabletAttributes": {
+                                    "sectionColumnGutterWidth": "0rem",
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

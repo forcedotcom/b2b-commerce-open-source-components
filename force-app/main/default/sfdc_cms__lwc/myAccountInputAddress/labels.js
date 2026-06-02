@@ -1,0 +1,16 @@
+import FirstNameLabel from '@salesforce/label/site.myAccountInputAddress.firstNameLabel';
+import LastNameLabel from '@salesforce/label/site.myAccountInputAddress.lastNameLabel';
+import AddressTypeLabel from '@salesforce/label/site.myAccountInputAddress.addressTypeLabel';
+import CompanyNameLabel from '@salesforce/label/site.myAccountInputAddress.companyNameLabel';
+import AddressLineOneLabel from '@salesforce/label/site.myAccountInputAddress.addressLineOneLabel';
+import AddressLineTwoLabel from '@salesforce/label/site.myAccountInputAddress.addressLineTwoLabel';
+import CityLabel from '@salesforce/label/site.myAccountInputAddress.cityLabel';
+import PostalCodeLabel from '@salesforce/label/site.myAccountInputAddress.postalCodeLabel';
+import ProvinceLabel from '@salesforce/label/site.myAccountInputAddress.provinceLabel';
+import CountryLabel from '@salesforce/label/site.myAccountInputAddress.countryLabel';
+import AddressTypePlaceHolderLabel from '@salesforce/label/site.myAccountInputAddress.addressTypePlaceHolderLabel';
+import ShippingLabel from '@salesforce/label/site.myAccountInputAddress.shippingLabel';
+import BillingLabel from '@salesforce/label/site.myAccountInputAddress.billingLabel';
+import SaveLabel from '@salesforce/label/site.myAccountInputAddress.saveLabel';
+import PhoneNumberLabel from '@salesforce/label/site.myAccountInputAddress.phoneNumberLabel';
+export { FirstNameLabel, LastNameLabel, AddressTypeLabel, AddressTypePlaceHolderLabel, CompanyNameLabel, AddressLineOneLabel, AddressLineTwoLabel, CityLabel, PostalCodeLabel, ProvinceLabel, CountryLabel, ShippingLabel, BillingLabel, SaveLabel, PhoneNumberLabel };

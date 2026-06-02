@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "marketingEmailsignup",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "emailErrorMessage",
+      "value" : "Enter a valid email address."
+    }, {
+      "name" : "checkboxErrorMessage",
+      "value" : "Select at least one option."
+    }, {
+      "name" : "systemErrorMessage",
+      "value" : "Unable to process your request. Try again later."
+    } ]
+  },
+  "urlName" : "marketingemailsignup"
+}

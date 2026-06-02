@@ -1,0 +1,6 @@
+:host {
+    --com-c-transact-layout-summary-bg-color: transparent;
+}
+.order-confirmation-content-layout {
+    min-height: 20rem;
+}

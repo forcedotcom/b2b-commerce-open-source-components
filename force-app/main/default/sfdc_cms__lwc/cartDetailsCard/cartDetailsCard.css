@@ -1,0 +1,149 @@
+.cart-details-card {
+    --com-c-pill-background-color: var(--com-c-cart-details-card-pill-background-color, var(--dxp-g-root-1));
+    --com-c-pill-border-color: var(--com-c-cart-details-card-pill-border-color, var(--dxp-g-root-1));
+    --com-c-pill-border-radius: var(
+        --com-c-cart-details-card-pill-border-radius,
+        var(--dxp-s-form-element-radius-border)
+    );
+    --com-c-pill-text-color: var(--com-c-cart-details-card-pill-font-color, var(--dxp-g-root-contrast));
+    --com-c-pill-font-size: var(--com-c-cart-details-card-pill-font-size, var(--dxp-g-font-size-4));
+}
+
+.cart-header-pill {
+    --com-c-pill-background-color: #d9dfe7;
+    --com-c-pill-border-color: #d9dfe7;
+    --com-c-pill-border-radius: 8px;
+    --com-c-pill-text-color: var(--dxp-g-root-contrast);
+    --com-c-pill-font-size: var(--dxp-g-font-size-4);
+}
+
+.cart-details-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: none;
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+}
+
+.cart-details-card .cart-main {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.cart-details-card .cart-information {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.75rem;
+    direction: ltr;
+}
+
+.cart-details-card .cart-information > .column:last-child {
+    align-items: flex-end;
+}
+
+.cart-details-card .cart-information .column1 {
+    flex: 1 1 0%;
+    display: flex;
+    gap: 0.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    text-align: left;
+    direction: ltr;
+    min-width: 0;
+}
+
+.cart-details-card .cart-information .column1 > * {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cart-details-card .cart-information .column1 .cart-name.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+    font-size: var(--dxp-g-font-size-5, 1rem);
+}
+
+.cart-details-card .cart-information .column1 .items-and-total {
+    font-size: var(--dxp-g-font-size-3, 0.875rem);
+    color: var(--com-c-cart-details-card-detail-font-color, var(--dxp-s-body-text-color, var(--dxp-g-root-contrast)));
+}
+
+.cart-details-card .cart-information .column1 .items-and-total .items-count::after {
+    content: '';
+    display: inline-block;
+    width: 0.25rem;
+    height: 0.25rem;
+    border-radius: 50%;
+    background-color: var(--slds-g-color-border-base-1, #d9dfe7);
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.cart-details-card .cart-information .column1 .cart-description {
+    font-size: var(--dxp-g-font-size-3, 0.875rem);
+    color: var(--com-c-cart-details-card-description-color, var(--dxp-s-body-text-color-muted, #706e6b));
+    margin: 0;
+}
+
+.cart-details-card .cart-information .column1 .cart-description p {
+    margin: 0;
+}
+
+.cart-details-card .cart-information .column2 {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.cart-details-card .cart-information .column3 {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    font-size: var(--dxp-g-font-size-5, 1rem);
+    white-space: nowrap;
+}
+
+.cart-details-card:hover {
+    border-color: var(--dxp-s-body-text-color, #1c1c1c);
+    cursor: pointer;
+}
+
+@media (max-width: 64em) {
+    .cart-details-card {
+        gap: 0.75rem;
+    }
+
+    .cart-details-card .cart-information {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .cart-details-card .cart-information > .column:last-child {
+        align-items: flex-start;
+    }
+
+    .cart-details-card .cart-information .column1 {
+        flex: 8 0 0%;
+    }
+
+    .cart-details-card .cart-information .column2 {
+        flex: 0 0 auto;
+        align-items: flex-start;
+    }
+
+    .cart-details-card .cart-information .column3 {
+        flex: 0 0 100%;
+        align-items: flex-start;
+    }
+}

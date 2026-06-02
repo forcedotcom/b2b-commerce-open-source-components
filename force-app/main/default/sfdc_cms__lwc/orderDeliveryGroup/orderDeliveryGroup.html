@@ -1,0 +1,17 @@
+<template lwc:render-mode="light">
+    <site-order-delivery-group-ui
+        order-delivery-group={orderDeliveryGroup}
+        prefix-to-shipping-group={prefixToShippingGroup}
+        shipping-field-mapping={_parsedShippingFieldMapping}
+        is-first-delivery-group={isFirstDeliveryGroup}
+        is-only-delivery-group={isOnlyDeliveryGroup}
+        icon-base-path={_basePath}
+        product-count-title={productCountTitle}
+        shipping-phone-number={shippingPhoneNumber}
+        shipping-phone-number-label={shippingPhoneNumberLabel}
+        gift-order-label={giftOrderLabel}
+        gift-message-label={giftMessageLabel}>
+        <!-- TODO: Replace with site/orderLineItems once orderLineItems is converted to open code -->
+        <span slot="orderItemsRepeater"><slot name="orderItemsRepeater"></slot></span>
+    </site-order-delivery-group-ui>
+</template>

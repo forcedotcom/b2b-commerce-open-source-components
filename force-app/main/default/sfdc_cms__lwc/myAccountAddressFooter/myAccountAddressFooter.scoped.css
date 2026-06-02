@@ -1,0 +1,33 @@
+.address-footer-style {
+    width: 100%;
+    display: inline-block;
+    height: var(--com-c-my-account-address-footer-height);
+    margin-top: var(--dxp-g-spacing-xxsmall);
+}
+.address-footer-button-style {
+    max-width: 40%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    min-width: fit-content;
+}
+.address-footer-style button:nth-child(1) {
+    text-decoration-line: var(--com-c-my-account-address-footer-text-decoration, underline);
+}
+.address-footer-style button:nth-child(2) {
+    text-decoration-line: var(--com-c-my-account-address-footer-text-decoration, underline);
+    margin-left: var(--dxp-g-spacing-small);
+}
+@media only screen and (max-width: 47.9375em) {
+    .address-footer-style {
+        max-width: 47.9375em;
+    }
+    .address-footer-style button:nth-child(1) {
+        text-decoration-line: var(--com-c-my-account-address-footer-text-decoration, underline);
+    }
+    .address-footer-style button:nth-child(2) {
+        text-decoration-line: var(--com-c-my-account-address-footer-text-decoration, underline);
+        margin-left: var(--dxp-g-spacing-small);
+    }
+}

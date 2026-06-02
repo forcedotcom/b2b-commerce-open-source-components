@@ -1,0 +1,72 @@
+<template lwc:render-mode="light">
+    <!--
+        Mirror menu status outside the menu panel so VoiceOver announces loading / empty / error
+        when the dropdown opens (live regions inside button-menu slots are often not announced).
+    -->
+    <template lwc:if={_showAssistiveErrorMirror}>
+        <span
+            class="slds-assistive-text"
+            data-add-to-secondary-cart-a11y="assertive"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true">
+            {_assistiveErrorStatusText}
+        </span>
+    </template>
+    <template lwc:elseif={_showAssistivePoliteMirror}>
+        <span
+            class="slds-assistive-text"
+            data-add-to-secondary-cart-a11y="polite"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true">
+            {_assistivePoliteStatusText}
+        </span>
+    </template>
+    <lightning-button-menu
+        label={_addToSecondaryCartLabel}
+        disabled={disabled}
+        icon-name="utility:chevrondown"
+        menu-alignment="left"
+        variant="container"
+        onopen={handleSecondaryCartMenuOpen}
+        onselect={handleAddToSecondaryCart}>
+        <div class="menu-content">
+            <template lwc:if={_showLoading}>
+                <li
+                    class="menu-info-item menu-info-item_loading"
+                    role="presentation">
+                    <lightning-spinner
+                        alternative-text={_fetchSecondaryCartsLoadingLabel}
+                        size="x-small"></lightning-spinner>
+                    <span>{_fetchSecondaryCartsLoadingLabel}</span>
+                </li>
+            </template>
+            <template lwc:elseif={_hasSecondaryCarts}>
+                <template
+                    for:each={secondaryCarts}
+                    for:item="cart">
+                    <lightning-menu-item
+                        key={cart.id}
+                        value={cart.id}
+                        label={cart.label}></lightning-menu-item>
+                </template>
+            </template>
+            <template lwc:elseif={_hasNoSecondaryCarts}>
+                <li
+                    class="menu-info-item"
+                    role="presentation">
+                    <span>{_fetchSecondaryCartsNoResultLabel}</span>
+                </li>
+            </template>
+            <template lwc:elseif={_showFetchError}>
+                <li
+                    class="menu-info-item menu-info-item_vertical"
+                    role="presentation">
+                    <span>{_fetchSecondaryCartsErrorLine1Label}</span>
+                    <span>{_fetchSecondaryCartsErrorLine2Label}</span>
+                </li>
+            </template>
+        </div>
+    </lightning-button-menu>
+</template>

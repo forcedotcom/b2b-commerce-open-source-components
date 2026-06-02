@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentAddPaymentMethods",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "missingPaymentMethodSetKeyTitle",
+      "value" : "No payment method Set assigned yet"
+    }, {
+      "name" : "missingPaymentMethodSetKeyDescription",
+      "value" : "Add a set containing the payment methods you want to customers to use"
+    } ]
+  },
+  "urlName" : "paymentaddpaymentmethods"
+}

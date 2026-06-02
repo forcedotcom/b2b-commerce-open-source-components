@@ -1,0 +1,74 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:layoutHeaderOne",
+                "type": "component",
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:siteLogo",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "storeLogo",
+                        "title": "storeLogo",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "showMyAccountMenu": true
+                                },
+                                "definition": "experience:megaMenuNavigation",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "navigation",
+                        "title": "navigation",
+                        "type": "region"
+                    },
+                    {
+                        "children": [],
+                        "name": "searchInput",
+                        "title": "searchInput",
+                        "type": "region"
+                    },
+                    {
+                        "children": [],
+                        "name": "shopperCopilot",
+                        "title": "shopperCopilot",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "definition": "site:productWishlistShortcut",
+                                "type": "component"
+                            },
+                            {
+                                "attributes": {
+                                    "menuStyle": "icon"
+                                },
+                                "definition": "site:myAccountUserProfileMenu",
+                                "type": "component"
+                            },
+                            {
+                                "attributes": {
+                                    "showCount": true
+                                },
+                                "definition": "site:cartBadge",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "icons",
+                        "title": "icons",
+                        "type": "region"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -13,3 +13,11 @@ export default function sanitizeValue(richTextValue, allowedTags = ['sup', 'sub'
   }
   return richTextValue;
 }
+export function sanitizeValueAndDecodeEntities(richTextValue, allowedTags = []) {
+  const sanitizedValue = sanitizeValue(richTextValue, allowedTags);
+  if (!sanitizedValue) {
+    return '';
+  }
+  const decodedValue = sanitizedValue.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+  return decodedValue;
+}

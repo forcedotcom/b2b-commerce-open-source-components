@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderDeliveryGroup",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "TotalLineAmount",
+      "value" : "Subtotal"
+    }, {
+      "name" : "Name",
+      "value" : "Name"
+    } ]
+  },
+  "urlName" : "orderdeliverygroup"
+}

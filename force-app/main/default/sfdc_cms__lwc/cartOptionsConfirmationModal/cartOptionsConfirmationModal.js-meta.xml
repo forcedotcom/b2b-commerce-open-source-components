@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Cart Options Confirmation Modal</masterLabel>
+  <description>Reusable confirmation modal for cart actions like delete and set-as-default</description>
+</LightningComponentBundle>

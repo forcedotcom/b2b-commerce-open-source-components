@@ -1,0 +1,41 @@
+.modal-subheading {
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--slds-g-color-neutral-base-10, #444444);
+}
+.notes-textarea lightning-textarea {
+    --slds-c-textarea-sizing-min-height: 12rem;
+}
+lightning-modal-body {
+    padding: 0;
+}
+.modal-body-content {
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+.modal-body-content .slds-col {
+    padding-left: 0;
+    padding-right: 0;
+}
+lightning-modal-footer {
+    text-align: right;
+}
+@media (max-width: 768px) {
+    .modal-body-content {
+        padding: 1rem 1rem 0.5rem;
+    }
+    .notes-textarea lightning-textarea {
+        --slds-c-textarea-sizing-min-height: 10rem;
+    }
+}
+lightning-textarea:focus-within {
+    outline: none;
+}
+@media (prefers-contrast: high) {
+    lightning-modal-footer .slds-button_neutral {
+        border-width: 2px;
+    }
+    lightning-modal-footer .slds-button_brand {
+        border-width: 2px;
+    }
+}

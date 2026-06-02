@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToCartSuccess",
+      "value" : "Product \"{productName}\" was added to the cart."
+    }, {
+      "name" : "addToCartError",
+      "value" : "We couldn’t add Product \"{productName}\" to cart. Try again."
+    }, {
+      "name" : "removeError",
+      "value" : "We couldn’t remove Product \"{productName}\" from My List. Try again later."
+    }, {
+      "name" : "productQuickViewButtonLabel",
+      "value" : "Quick View"
+    } ]
+  },
+  "urlName" : "productcard"
+}

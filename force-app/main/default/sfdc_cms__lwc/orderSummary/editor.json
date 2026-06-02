@@ -1,0 +1,43 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderSummary",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "orderNumberLabel",
+                        "title": "orderNumberLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Order Number: ",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "orderNumber",
+                        "title": "orderNumber",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!OrderSummary.orderNumber}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

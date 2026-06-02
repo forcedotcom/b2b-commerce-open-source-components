@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Accept Quote &amp; Buy</masterLabel>
+  <description>Lets buyers accept an approved quote and proceed to checkout.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="quoteId" label="Quote ID" type="String" default="{!QuoteDetail.id}" description="The ID of the quote, bound to QuoteDetail data provider."></property>
+      <property name="quoteStatus" label="Quote Status" type="String" default="{!QuoteDetail.status}" description="The current status of the quote, bound to QuoteDetail data provider."></property>
+      <property name="orderId" label="Order ID" type="String" default="{!QuoteDetail.orderId}" description="Order ID associated with the quote."></property>
+      <property name="hasLineItems" label="Has Line Items" type="String" default="{!QuoteDetail.hasLineItems}" description="Whether the quote has line items from QuoteDetail."></property>
+      <property name="variant" label="Button Style" type="String" default="primary" description="Select a button style." datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" label="Button Size" type="String" default="standard" description="Button sizes are inherited from the Button Theme." datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" label="Max Button Width" type="String" default="stretch" description="Button width options are inherited from the Button Theme." datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property name="acceptAndBuyButtonText" label="Accept &amp; Buy Button Text" type="String" default="Accept &amp; Buy" translatable="true" description="Text displayed on the Accept and Buy button."></property>
+      <property name="acceptAndBuyModalTitleText" label="Accept &amp; Buy Modal Title" type="String" default="Accept quote?" translatable="true" description="Title text for the Accept and Buy confirmation modal."></property>
+      <property name="acceptAndBuyModalDescriptionLabel" label="Accept &amp; Buy Modal Description" type="String" default="Accepting this quote locks the prices and takes you to the cart to complete the purchase." translatable="true" description="Description text shown in the Accept and Buy confirmation modal."></property>
+      <property name="acceptAndBuyModalInfoText" label="Accept &amp; Buy Modal Info Text" type="String" default="This action removes any promotions applied to items that are already in your cart." translatable="true" description="Informational text shown in the Accept and Buy confirmation modal."></property>
+      <property name="acceptAndBuyModalCancelButtonLabel" label="Accept &amp; Buy Modal Cancel Button" type="String" default="Cancel" translatable="true" description="Cancel button label for the Accept and Buy confirmation modal."></property>
+      <property name="acceptAndBuyModalSendRequestButtonLabel" label="Accept &amp; Buy Modal Confirm Button" type="String" default="Accept &amp; Buy" translatable="true" description="Confirm button label for the Accept and Buy confirmation modal."></property>
+      <property name="buyButtonText" label="Buy Button Text" type="String" default="Buy" translatable="true" description="Text displayed on the Buy button."></property>
+      <property name="buyModalTitleText" label="Buy Modal Title" type="String" default="Complete purchase?" translatable="true" description="Title text for the Buy confirmation modal."></property>
+      <property name="buyModalDescriptionLabel" label="Buy Modal Description" type="String" default="You&apos;ll be taken to your cart to finalize the purchase." translatable="true" description="Description text shown in the Buy confirmation modal."></property>
+      <property name="buyModalInfoText" label="Buy Modal Info Text" type="String" default="Proceeding removes any promotions applied to items already in your cart." translatable="true" description="Informational text shown in the Buy confirmation modal."></property>
+      <property name="buyModalCancelButtonLabel" label="Buy Modal Cancel Button" type="String" default="Cancel" translatable="true" description="Cancel button label for the Buy confirmation modal."></property>
+      <property name="buyModalSendRequestButtonLabel" label="Buy Modal Confirm Button" type="String" default="Buy" translatable="true" description="Confirm button label for the Buy confirmation modal."></property>
+      <designLayout>
+        <designSection name="Action Button">
+          <designLayoutItems>
+            <designLayoutProperty name="quoteId" cbVisibleIf="quoteId=false"></designLayoutProperty>
+            <designLayoutProperty name="quoteStatus" cbVisibleIf="quoteStatus=false"></designLayoutProperty>
+            <designLayoutProperty name="orderId" cbVisibleIf="orderId=false"></designLayoutProperty>
+            <designLayoutProperty name="hasLineItems" cbVisibleIf="hasLineItems=false"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Accept &amp; Buy Button">
+          <designLayoutItems>
+            <designLayoutProperty name="acceptAndBuyButtonText"></designLayoutProperty>
+            <designLayoutProperty name="acceptAndBuyModalTitleText"></designLayoutProperty>
+            <designLayoutProperty name="acceptAndBuyModalDescriptionLabel"></designLayoutProperty>
+            <designLayoutProperty name="acceptAndBuyModalInfoText"></designLayoutProperty>
+            <designLayoutProperty name="acceptAndBuyModalCancelButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="acceptAndBuyModalSendRequestButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Buy Button">
+          <designLayoutItems>
+            <designLayoutProperty name="buyButtonText"></designLayoutProperty>
+            <designLayoutProperty name="buyModalTitleText"></designLayoutProperty>
+            <designLayoutProperty name="buyModalDescriptionLabel"></designLayoutProperty>
+            <designLayoutProperty name="buyModalInfoText"></designLayoutProperty>
+            <designLayoutProperty name="buyModalCancelButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="buyModalSendRequestButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

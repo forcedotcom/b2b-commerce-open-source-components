@@ -1,0 +1,26 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutPaymentSheet",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "billingAddress",
+                        "title": "Billing Address",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutBillingInfo",
+                                "type": "component",
+                                "attributes": {
+                                    "showAddressLookup": true
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

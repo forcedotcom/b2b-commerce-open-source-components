@@ -1,0 +1,65 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountInputAddress",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "firstNameLabel",
+      "value" : "First Name"
+    }, {
+      "name" : "lastNameLabel",
+      "value" : "Last Name"
+    }, {
+      "name" : "addressTypeLabel",
+      "value" : "Address Type"
+    }, {
+      "name" : "companyNameLabel",
+      "value" : "Company Name"
+    }, {
+      "name" : "addressLineOneLabel",
+      "value" : "Address 1"
+    }, {
+      "name" : "addressLineTwoLabel",
+      "value" : "Address 2"
+    }, {
+      "name" : "cityLabel",
+      "value" : "City"
+    }, {
+      "name" : "postalCodeLabel",
+      "value" : "ZIP/Postal Code"
+    }, {
+      "name" : "provinceLabel",
+      "value" : "State/Province"
+    }, {
+      "name" : "countryLabel",
+      "value" : "Country"
+    }, {
+      "name" : "addressTypePlaceHolderLabel",
+      "value" : "Select address type..."
+    }, {
+      "name" : "shippingLabel",
+      "value" : "Shipping Address"
+    }, {
+      "name" : "billingLabel",
+      "value" : "Billing Address"
+    }, {
+      "name" : "saveLabel",
+      "value" : "Save"
+    }, {
+      "name" : "phoneNumberLabel",
+      "value" : "Phone Number"
+    }, {
+      "name" : "defaultErrorMessage",
+      "value" : "An unexpected error occurred. Try again later."
+    }, {
+      "name" : "insufficientAccessMessage",
+      "value" : "You need permission to complete this action."
+    }, {
+      "name" : "invalidApiInputMessage",
+      "value" : "Something went wrong. Check your configuration, and try again."
+    }, {
+      "name" : "opInvalidInPreviewMode",
+      "value" : "Addresses can't be modified in builder or preview mode"
+    } ]
+  },
+  "urlName" : "myaccountinputaddress"
+}

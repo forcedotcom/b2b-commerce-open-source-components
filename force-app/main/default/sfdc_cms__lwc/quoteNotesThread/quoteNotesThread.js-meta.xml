@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Quote Notes Thread</masterLabel>
+  <description>Displays a discussion thread of notes for quotes.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="notesTitle" type="String" label="Notes Title" description="Title to display above the notes" default="Discussions"></property>
+      <property name="notesData" type="String" label="Notes Data" description="Notes data for display" default="{!QuoteDetail.Notes}"></property>
+      <designLayout>
+        <designSection name="Properties">
+          <designLayoutItems>
+            <designLayoutProperty name="notesTitle"></designLayoutProperty>
+            <designLayoutProperty name="notesData"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

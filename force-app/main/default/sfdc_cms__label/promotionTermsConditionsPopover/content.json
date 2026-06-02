@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "promotionTermsConditionsPopover",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "termsAndConditionsInfoBubbleAltText",
+      "value" : "Show Terms and Conditions"
+    }, {
+      "name" : "termsAndConditionsClosePopupAltText",
+      "value" : "Close Terms and Conditions"
+    } ]
+  },
+  "urlName" : "promotiontermsconditionspopover"
+}

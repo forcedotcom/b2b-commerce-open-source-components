@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Search Input with Suggestions</masterLabel>
+  <description>Provides a styled search input box with optional search and product suggestions. Customers can type a search
+        term and navigate to the search results page.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="placeholderText" label="Placeholder Text" type="String" translatable="true" default="Search"></property>
+      <property name="borderRadius" label="Border Radius" type="Integer" default="50" min="0" max="50"></property>
+      <property name="textColor" label="Text Color" type="Color"></property>
+      <property name="backgroundColor" label="Background Color" type="Color"></property>
+      <property name="borderColor" label="Border Color" type="Color"></property>
+      <property name="placeholderTextColor" label="Placeholder Text Color" type="Color"></property>
+      <property name="iconBoxColor" label="Icon Box Color" type="Color"></property>
+      <property name="suggestedSearchesHeaderText" label="Suggested Searches Header Text" type="String" translatable="true" default="Suggested searches"></property>
+      <property name="enableSearchSuggestions" label="Enable Search Suggestions" type="Boolean" default="true"></property>
+      <property name="recentSearchHeaderText" label="Recent Search Header Text" type="String" translatable="true" default="Recent searches"></property>
+      <property name="enableProductSuggestions" label="Enable Product Suggestions" type="Boolean" default="false"></property>
+      <property name="suggestedProductsHeaderText" label="Suggested Products Header Text" type="String" translatable="true" default="Suggested products"></property>
+      <property name="bestSellerCategory" label="Best Seller Category (Deprecated)" type="String" translatable="true"></property>
+      <property name="bestSellerCategory2" label="Best Seller Category" type="String"></property>
+      <property name="bestSellerHeaderText" label="Best Seller Header Text" type="String" translatable="true" default="Bestsellers"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="placeholderText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Style">
+          <designLayoutItems>
+            <designLayoutProperty name="borderRadius"></designLayoutProperty>
+            <designLayoutProperty name="textColor"></designLayoutProperty>
+            <designLayoutProperty name="placeholderTextColor"></designLayoutProperty>
+            <designLayoutProperty name="backgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="iconBoxColor"></designLayoutProperty>
+            <designLayoutProperty name="borderColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Suggestions">
+          <designLayoutItems>
+            <designLayoutProperty name="enableSearchSuggestions"></designLayoutProperty>
+            <designLayoutProperty name="suggestedSearchesHeaderText" cbVisibleIf="enableSearchSuggestions"></designLayoutProperty>
+            <designLayoutProperty name="recentSearchHeaderText"></designLayoutProperty>
+            <designLayoutProperty name="enableProductSuggestions"></designLayoutProperty>
+            <designLayoutProperty name="suggestedProductsHeaderText" cbVisibleIf="enableProductSuggestions"></designLayoutProperty>
+            <designLayoutProperty name="bestSellerCategory2" cbVisibleIf="enableProductSuggestions"></designLayoutProperty>
+            <designLayoutProperty name="bestSellerHeaderText" cbVisibleIf="enableProductSuggestions"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

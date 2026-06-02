@@ -1,0 +1,4 @@
+.buyer-details,
+.billing-address {
+    padding: var(--dxp-g-spacing-xsmall);
+}

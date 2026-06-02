@@ -1,0 +1,81 @@
+.product-grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--com-c-breakpoint-grid-columns, 3), minmax(0, 1fr));
+    --com-c-product-card-gap: var(--lwc-spacingSmall, 0.75rem);
+}
+.grid-item {
+    border-color: transparent;
+    border-bottom-color: var(--com-c-product-grid-list-color-border, transparent);
+    display: flex;
+    flex-direction: column;
+}
+.grid-item > * {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.search-loading {
+    background-color: rgb(0, 0, 0, 0.2);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+}
+.paging-control {
+    padding-top: 1.5rem;
+}
+.load-more-button,
+.load-previous-button {
+    display: flex;
+    justify-content: center;
+}
+.load-previous-button {
+    padding-bottom: var(--lwc-spacingSmall, 0.75rem);
+}
+.load-more-button {
+    padding-top: var(--lwc-spacingSmall, 0.75rem);
+}
+@media only screen and (max-width: 47.9375em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-mobile, 2);
+    }
+    .paging-control {
+        padding-top: 1rem;
+    }
+    .load-previous-button {
+        padding-bottom: var(--lwc-spacingXSmall, 0.5rem);
+    }
+    .load-more-button {
+        padding-top: var(--lwc-spacingXSmall, 0.5rem);
+    }
+}
+@media only screen and (min-width: 47.9375em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-tablet, 2);
+    }
+}
+@media only screen and (min-width: 64em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-desktop, 3);
+    }
+    .wrapper {
+        padding-left: 1rem;
+    }
+}
+@media only screen and (min-width: 100em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-largeDesktop, 4);
+    }
+}
+@media only screen and (min-width: 120em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-xlargeDesktop, 5);
+    }
+}
+@media only screen and (min-width: 160em) {
+    .product-grid-container {
+        --com-c-breakpoint-grid-columns: var(--com-c-grid-columns-xxlargeDesktop, 6);
+    }
+}

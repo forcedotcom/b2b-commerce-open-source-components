@@ -1,0 +1,33 @@
+.menu-info-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: var(--dxp-s-body-small-font-size, 0.8725rem);
+    line-height: 1.5;
+    color: var(--dxp-g-root-contrast, #1c1c1c);
+    background-color: var(--dxp-g-root, #fff);
+    cursor: default;
+    list-style: none;
+    pointer-events: none;
+    white-space: normal;
+}
+
+.menu-info-item_loading {
+    min-width: 160px;
+    gap: 0.75rem;
+}
+
+.menu-info-item_vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.125rem;
+}
+
+.menu-info-item lightning-spinner {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}

@@ -1,0 +1,38 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "reorderModalContents",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "itemsAddedItemsNotAvailableInStoreHelpText",
+      "value" : "{0} items were added to the cart, but {1} items are currently unavailable."
+    }, {
+      "name" : "itemAddedItemsNotAvailableInStoreHelpText",
+      "value" : "1 item was added to the cart, but {0} items are currently unavailable. "
+    }, {
+      "name" : "itemsAddedItemNotAvailableInStoreHelpText",
+      "value" : "{0} items were added to the cart, but 1 item is currently unavailable."
+    }, {
+      "name" : "itemAddedItemNotAvailableInStoreHelpText",
+      "value" : "1 item was added to the cart, but 1 item is currently unavailable."
+    }, {
+      "name" : "noItemsAvailableHelpText",
+      "value" : "We couldn't add any items to the cart. All of the items are currently unavailable."
+    }, {
+      "name" : "unavailableItems",
+      "value" : "Unavailable items"
+    }, {
+      "name" : "errorScreenSubHeaderText",
+      "value" : "We couldn't add any items to the cart. Try again, or contact support if the issue persists."
+    }, {
+      "name" : "spinnerScreenHelpText",
+      "value" : "Adding items to the cart..."
+    }, {
+      "name" : "successfullyAddedToCart",
+      "value" : "All items were added to the cart."
+    }, {
+      "name" : "AddDynamicBundlesToCartException",
+      "value" : "You can't reorder a configurable bundle. Configure the bundle again to add it to your cart."
+    } ]
+  },
+  "urlName" : "reordermodalcontents"
+}

@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <site-order-lookup-ui
+        lwc:ref="orderLookupElem"
+        email-field-label={emailFieldLabel}
+        last-name-field-label={lastNameFieldLabel}
+        order-number-field-label={orderNumberFieldLabel}
+        order-number-field-tooltip={orderNumberFieldTooltip}
+        phone-number-field-label={phoneNumberFieldLabel}
+        email={email}
+        email-required={verificationDetailsRequired}
+        error-message={errorMessage}
+        hide-last-name={hideLastName}
+        last-name={lastName}
+        last-name-required={verificationDetailsRequired}
+        order-number={orderNumber}
+        phone-number={phoneNumber}
+        phone-number-required={verificationDetailsRequired}
+        onsubmit={handleSubmit}>
+        <div slot="actions"><slot name="actions"></slot></div>
+    </site-order-lookup-ui>
+</template>

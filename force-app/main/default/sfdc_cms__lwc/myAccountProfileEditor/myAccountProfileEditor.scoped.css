@@ -1,0 +1,24 @@
+.card {
+    border: 1px solid var(--com-c-my-profile-border-color, #d9dfe7);
+    border-radius: var(--com-c-my-profile-border-radius, 3px);
+}
+.actions {
+    display: flex;
+    align-items: left;
+}
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.input-width {
+    width: 60%;
+}
+@media only screen and (max-width: 47.9375em) {
+    .card-body {
+        display: block;
+    }
+    .input-width {
+        width: 100%;
+    }
+}

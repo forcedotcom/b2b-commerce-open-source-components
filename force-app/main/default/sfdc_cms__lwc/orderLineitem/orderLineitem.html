@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <div class="slds-border_top slds-p-vertical_large">
+        <site-order-item-info
+            show-cgx-styles="true"
+            currency-code={currencyIsoCode}
+            order-item={orderLineItem}
+            product-unavailable-message={productUnavailableMessage}
+            show-image={showProductImage}
+            show-child-image={showChildProductImage}
+            show-total={showTotal}
+            total-price-text-color={totalPriceTextColor}
+            text-display-info={textDisplayInfo}
+            bundle-expand-collapse-label={bundleExpandCollapseLabel}
+            subscription-activation-success-label={subscriptionActivationSuccessLabel}
+            subscription-activation-in-progress-label={subscriptionActivationInProgressLabel}
+            subscription-activation-failed-label={subscriptionActivationFailedLabel}
+            rlm-subscription-enabled={_rlmSubscriptionEnabled}
+            icon-base-path={iconBasePath}
+            style={orderProductsCustomCssStyles}
+            onnavigatetoproductdetailpage={handleProductDetailNavigation}></site-order-item-info>
+    </div>
+</template>

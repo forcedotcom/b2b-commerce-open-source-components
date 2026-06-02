@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Layout Header</masterLabel>
+  <description>A responsive header layout component that adapts to mobile, tablet, and desktop viewports. Provides slots for
+        promo banner, store logo, navigation, search, account icons, and cart. Deprecated - use site/layoutHeaderOne
+        instead.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Hide Promo Banner" name="hidePromoBanner" type="Boolean" default="false" description="If true, hides the promotional banner slot at the top of the header"></property>
+      <property label="Hide Wishlist Shortcut" name="hideWishlistShortcut" type="Boolean" default="false" description="If true, hides the wishlist icon shortcut from the header"></property>
+      <designLayout>
+        <designSection name="Header Display Options">
+          <designLayoutItems>
+            <designLayoutProperty name="hidePromoBanner"></designLayoutProperty>
+            <designLayoutProperty name="hideWishlistShortcut"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

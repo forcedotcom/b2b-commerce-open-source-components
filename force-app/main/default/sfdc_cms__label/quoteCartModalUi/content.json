@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteCartModalUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "cartAlreadyContainsQuoteItemsErrorMessage",
+      "value" : "We couldn't move these items to your cart because it already contains items from another quote. Clear your cart and try again."
+    }, {
+      "name" : "subscriptionProductsNotSupportedErrorMessage",
+      "value" : "This quote contains subscription products and can't be added to the cart. To continue, create a quote without subscriptions."
+    }, {
+      "name" : "subscriptionProductCheckFailedErrorMessage",
+      "value" : "Something went wrong. Try again. If the issue persists, contact customer support."
+    }, {
+      "name" : "duplicateToCartWithInactiveProductFailed",
+      "value" : "We couldn't complete the purchase because some items are unavailable. To continue, create a quote with available items."
+    }, {
+      "name" : "acceptAndBuyOperationErrorMessage",
+      "value" : "Something went wrong. Try again. If the issue persists, contact support."
+    }, {
+      "name" : "duplicateCartOperationErrorMessage",
+      "value" : "We couldn't copy the items from this quote to the cart. Try again later."
+    }, {
+      "name" : "duplicateProductInCartErrorMessage",
+      "value" : "You can't copy this quote because your cart already contains one or more of these items. Remove the duplicate items from your cart and try again."
+    }, {
+      "name" : "cartCreationFailedErrorMessage",
+      "value" : "Unable to create a cart from this quote. Please try again later."
+    }, {
+      "name" : "outOfStockError",
+      "value" : "Some items are out of stock."
+    } ]
+  },
+  "urlName" : "quotecartmodalui"
+}

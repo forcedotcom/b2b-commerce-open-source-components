@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Add Address Button</masterLabel>
+  <description>Button that navigates to the Add Address form page.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="text" type="String" default="Add Address" label="Button Text" translatable="true" description="The label displayed on the button."></property>
+      <property name="variant" type="String" default="primary" label="Button Style" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" description="The visual style of the button."></property>
+      <property name="size" type="String" default="standard" label="Button Size" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" description="The size of the button."></property>
+      <property name="width" type="String" default="standard" label="Max Button Width" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource" description="Whether the button stretches to fill its container."></property>
+      <property name="alignment" type="String" default="right" label="Alignment" description="The horizontal alignment of the button."></property>
+      <designLayout>
+        <designSection name="addAddress">
+          <designLayoutItems>
+            <designLayoutProperty name="text"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

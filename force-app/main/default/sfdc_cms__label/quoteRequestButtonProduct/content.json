@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteRequestButtonProduct",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "quoteRequestError",
+      "value" : "We couldn't submit your request. Refresh the page and try again."
+    } ]
+  },
+  "urlName" : "quoterequestbuttonproduct"
+}

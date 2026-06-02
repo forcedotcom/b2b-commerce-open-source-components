@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Split Shipment Layout</masterLabel>
+  <description>A two-column layout for split shipment checkout that displays checkout content alongside an optional order
+        summary column.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="showSummaryColumn" label="Show Summary Column" type="Boolean" default="true"></property>
+      <property name="summaryColumnBackgroundColor" label="Summary Column Background Color" type="Color"></property>
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}"></property>
+      <property name="cartDetails" label="Cart Details Binding Expression" type="String" default="{!Checkout.CartDetails}"></property>
+      <property name="cartTotals" label="Cart Totals Binding Expression" type="String" default="{!Checkout.CartTotals}"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="showSummaryColumn"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Styles">
+          <designLayoutItems>
+            <designLayoutProperty name="summaryColumnBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="checkoutDetails" cbVisibleIf="checkoutDetails=false"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails" cbVisibleIf="cartDetails=false"></designLayoutProperty>
+            <designLayoutProperty name="cartTotals" cbVisibleIf="cartTotals=false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Reorder Button</masterLabel>
+  <description>A button that lets buyers reorder items from a previous order.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderSummaryId" label="Order Summary ID" type="String" default="{!recordId}"></property>
+      <property name="buttonText" label="Button Text" type="String" default="Start Reorder" translatable="true"></property>
+      <property name="variant" label="Button Style" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" label="Button Size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" label="Button Width" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property name="alignment" label="Alignment" type="String" default="right"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderSummaryId"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+            <designLayoutProperty name="buttonText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Contact Information</masterLabel>
+  <description>Add a form to collect email and phone number details at checkout.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="emailLabel" label="Email Field" type="String" default="Email" translatable="true"></property>
+      <property name="phoneNumberLabel" label="Phone Number Field" type="String" default="Phone Number" translatable="true"></property>
+      <property name="enableUserLookup" label="Enable Passwordless Login" type="Boolean" default="false" description="Send a one-time password to customers during checkout so they can log in to their account faster without a username or password."></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

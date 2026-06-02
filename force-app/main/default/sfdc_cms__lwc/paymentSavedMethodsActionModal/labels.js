@@ -1,0 +1,14 @@
+import CancelLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.cancelLabel';
+import DeleteLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.deleteLabel';
+import DeleteHeaderText from '@salesforce/label/site.paymentSavedMethodsActionModal.deleteHeaderText';
+import DeleteText from '@salesforce/label/site.paymentSavedMethodsActionModal.deleteText';
+import DefaultLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.defaultLabel';
+import DefaultHeaderText from '@salesforce/label/site.paymentSavedMethodsActionModal.defaultHeaderText';
+import DefaultText from '@salesforce/label/site.paymentSavedMethodsActionModal.defaultText';
+import ShareLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.shareLabel';
+import UnshareLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.unshareLabel';
+import ShareModalHeaderText from '@salesforce/label/site.paymentSavedMethodsActionModal.shareModalHeaderText';
+import UnshareModalHeaderText from '@salesforce/label/site.paymentSavedMethodsActionModal.unshareModalHeaderText';
+import ShareButtonLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.shareButtonLabel';
+import UnShareButtonLabel from '@salesforce/label/site.paymentSavedMethodsActionModal.unShareButtonLabel';
+export { CancelLabel, DeleteLabel, DeleteHeaderText, DeleteText, DefaultLabel, DefaultHeaderText, DefaultText, ShareLabel, UnshareLabel, ShareModalHeaderText, UnshareModalHeaderText, ShareButtonLabel, UnShareButtonLabel };

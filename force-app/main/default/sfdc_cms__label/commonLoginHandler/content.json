@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "commonLoginHandler",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "internalError",
+      "value" : "We can't log you in. Contact the site administrator."
+    }, {
+      "name" : "tooManyAttemptsError",
+      "value" : "You exceeded the maximum number of attempts to enter the correct code. Try again later."
+    }, {
+      "name" : "incorrectCodeError",
+      "value" : "You entered an invalid code. Try again."
+    } ]
+  },
+  "urlName" : "commonloginhandler"
+}

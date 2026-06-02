@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderSummary",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "Name",
+      "value" : "Order Summary Number"
+    }, {
+      "name" : "OrderedDate",
+      "value" : "Ordered Date"
+    }, {
+      "name" : "Status",
+      "value" : "Status"
+    }, {
+      "name" : "GrandTotalAmount",
+      "value" : "Total"
+    } ]
+  },
+  "urlName" : "ordersummary"
+}

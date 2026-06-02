@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteNotesThreadUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "title",
+      "value" : "Discussions"
+    }, {
+      "name" : "emptyState",
+      "value" : "Add a note to start a discussion."
+    } ]
+  },
+  "urlName" : "quotenotesthreadui"
+}

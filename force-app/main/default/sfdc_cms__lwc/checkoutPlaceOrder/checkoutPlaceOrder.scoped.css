@@ -1,0 +1,38 @@
+:host {
+    display: contents;
+}
+button {
+    color: var(--com-c-checkout-order-button-text-color, var(--dxp-s-button-color-contrast));
+    border-radius: var(--com-c-checkout-order-button-border-radius, var(--dxp-s-button-radius-border));
+    background-color: var(--com-c-checkout-order-button-background-color, var(--dxp-s-button-color));
+    border-color: var(--com-c-checkout-order-button-border-color, var(--dxp-s-button-color));
+}
+button.slds-button_brand {
+    color: var(--com-c-checkout-order-button-text-color, var(--dxp-s-button-color-contrast));
+    border-color: var(--com-c-checkout-order-button-border-color, var(--dxp-s-button-color));
+    background-color: var(--com-c-checkout-order-button-background-color, var(--dxp-s-button-color));
+}
+button.slds-button_outline-brand {
+    color: var(--com-c-checkout-order-button-text-color, var(--dxp-s-button-color-contrast));
+    border-color: var(--com-c-checkout-order-button-border-color, var(--dxp-s-button-color));
+    background-color: var(--com-c-checkout-order-button-background-color, var(--dxp-g-root));
+}
+button.slds_button-tertiary {
+    color: var(--com-c-checkout-order-button-text-color, var(--dxp-s-button-color-contrast));
+    border-color: var(--com-c-checkout-order-button-border-color, var(--dxp-g-root));
+    background-color: var(--com-c-checkout-order-button-background-color, var(--dxp-g-root));
+}
+button.slds-button.dxp-button-small,
+button.slds-button.dxp-button-large {
+    border-radius: var(--com-c-checkout-order-button-border-radius, var(--dxp-s-button-radius-border));
+}
+button:hover:enabled {
+    background-color: var(--com-c-checkout-order-button-background-hover-color, var(--dxp-s-button-color-hover));
+    color: var(--com-c-checkout-order-button-text-hover-color, var(--dxp-s-button-color-hover-contrast));
+}
+button:disabled,
+button[disabled] {
+    background-color: var(--sds-c-button-brand-color-background-disabled, #c9c7c5);
+    border-color: var(--sds-c-button-brand-color-border-disabled, #c9c7c5);
+    color: var(--sds-c-button-brand-text-color-disabled, #fff);
+}

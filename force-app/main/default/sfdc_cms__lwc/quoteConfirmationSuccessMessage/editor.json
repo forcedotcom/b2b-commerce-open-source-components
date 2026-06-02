@@ -1,0 +1,56 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:quoteConfirmationSuccessMessage",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Quote request was sent",
+                                    "textAlign": "center",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}"
+                                },
+                                "mobileAttributes": {
+                                    "textDisplayInfo": "{\"textStyle\":\"heading-medium\",\"headingTag\":\"h2\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "description",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Your quote request number is #{!QuoteDetail.quoteNumber}",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "A sales representative will contact you at your registered email or phone number.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}",
+                                    "textDecoration": "{\"bold\": false}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>My Account Input Address</masterLabel>
+  <description>Allows buyers to add or edit an address in their account.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Show Page Title" name="showComponentHeader" type="Boolean" default="true"></property>
+      <property label="Show all address types" name="showDifferentAddressTypes" type="Boolean" default="true"></property>
+      <property label="Show Phone Number" name="showPhoneNumber" type="Boolean" default="true"></property>
+      <property label="Make Phone Number Mandatory" name="makePhoneNumberRequired" type="Boolean" default="false"></property>
+      <property label="Show Company Name" name="showCompanyName" type="Boolean" default="true"></property>
+      <property label="Add Page Title" name="componentHeaderNewAddressLabel" type="String" default="Add Address" translatable="true"></property>
+      <property label="Edit Page Title" name="componentHeaderEditAddressLabel" type="String" default="Edit Address" translatable="true"></property>
+      <property label="Make Default Address Label" name="makeDefaultAddressLabel" type="String" default="Make this my default address" translatable="true"></property>
+      <property label="Width (25-100%)" name="formWidth" type="Integer" min="25" max="100" default="100"></property>
+      <designLayout>
+        <designSection name="Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="showComponentHeader"></designLayoutProperty>
+            <designLayoutProperty name="showDifferentAddressTypes"></designLayoutProperty>
+            <designLayoutProperty name="showPhoneNumber"></designLayoutProperty>
+            <designLayoutProperty name="makePhoneNumberRequired" cbVisibleIf="showPhoneNumber"></designLayoutProperty>
+            <designLayoutProperty name="showCompanyName"></designLayoutProperty>
+            <designLayoutProperty name="componentHeaderNewAddressLabel" cbVisibleIf="showComponentHeader"></designLayoutProperty>
+            <designLayoutProperty name="componentHeaderEditAddressLabel" cbVisibleIf="showComponentHeader"></designLayoutProperty>
+            <designLayoutProperty name="makeDefaultAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="formWidth"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

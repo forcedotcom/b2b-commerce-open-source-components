@@ -1,0 +1,17 @@
+<template lwc:render-mode="light">
+    <site-common-button-ui
+        variant="secondary"
+        width="stretch"
+        assistive-text={_newCartButtonLabelText}
+        name="newCartButton"
+        onclick={handleOpenCreateCart}>
+        <span class="new-cart-button-content">
+            <svg
+                class="add-icon"
+                aria-hidden="true">
+                <use href={_addIconUrl}></use>
+            </svg>
+            {_newCartButtonLabelText}
+        </span>
+    </site-common-button-ui>
+</template>

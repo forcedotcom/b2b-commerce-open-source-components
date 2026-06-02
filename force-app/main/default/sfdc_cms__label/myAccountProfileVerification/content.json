@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountProfileVerification",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "ResendCodeButtonLabel",
+      "value" : "Resend Code"
+    }, {
+      "name" : "ReCaptchaDisclaimer",
+      "value" : "This site is protected by reCAPTCHA and the Google &lt;b&gt;&lt;a href=&quot;{0}&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/b&gt; and &lt;b&gt;&lt;a href=&quot;{1}&quot;&gt;Terms of Service&lt;/a&gt;&lt;/b&gt; apply."
+    }, {
+      "name" : "ResendWaitMessage",
+      "value" : "You can request a new code in {0}"
+    }, {
+      "name" : "OtpInputAriaLabel",
+      "value" : "Enter the one time password."
+    }, {
+      "name" : "LoaderAssistiveText",
+      "value" : "Loading..."
+    } ]
+  },
+  "urlName" : "myaccountprofileverification"
+}

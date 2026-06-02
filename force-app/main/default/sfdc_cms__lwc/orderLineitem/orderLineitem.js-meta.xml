@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Order Line Item</masterLabel>
+  <description>Displays a single order line item with product details, pricing, adjustments, and subscription information.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderItem" label="Expression" type="String" default="{!OrderLineItem}"></property>
+      <property name="showProductImage" label="Show Product Image" type="Boolean" default="true"></property>
+      <property name="showChildProductImage" label="Show Child Product Image" type="Boolean" default="true"></property>
+      <property name="showTotal" label="Show Total" type="Boolean" default="true"></property>
+      <property name="productFieldMapping" label="Product Field Mapping" type="OrderProductFieldMapping" default="[]"></property>
+      <property name="childProductFieldMapping" label="Child Product Field Mapping" type="OrderChildProductFieldMapping" default="[]"></property>
+      <property name="productUnavailableMessage" label="Product Unavailable Message" type="String" default="" translatable="true"></property>
+      <property name="otherAdjustmentsLabel" label="Other Adjustments Label" type="String" default="Other Adjustments" translatable="true"></property>
+      <property name="bundleExpandCollapseLabel" label="Bundle Expand/Collapse Label" type="String" default="{0} Items included" translatable="true"></property>
+      <property name="adjustmentsAmountTextColor" label="Adjustments Amount Text Color" type="Color"></property>
+      <property name="totalPriceTextColor" label="Total Price Text Color" type="Color"></property>
+      <property name="textDisplayInfo" label="Text Display Info" type="String" default="{&amp;quot;headingTag&amp;quot;: &amp;quot;p&amp;quot;,&amp;quot;textStyle&amp;quot;: &amp;quot;body-regular&amp;quot;}"></property>
+      <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1"></property>
+      <property name="imageSize" label="Image Size" type="String" default="contain" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource"></property>
+      <property name="subscriptionPillFontColor" label="Subscription Pill Text Color" type="Color"></property>
+      <property name="subscriptionPillBackgroundColor" label="Subscription Pill Background Color" type="Color" default="#D9DFE7"></property>
+      <property name="subscriptionPillBorderRadius" label="Subscription Pill Border Radius (0px - 50px)" type="Integer" min="0" max="50" default="8"></property>
+      <property name="subscriptionActivationInProgressLabel" label="Activation In-Progress Message" type="String" default="Activation in progress."></property>
+      <property name="subscriptionActivationSuccessLabel" label="Activation Success Message" type="String" default="Your subscription is active."></property>
+      <property name="subscriptionActivationFailedLabel" label="Activation Failure Message" type="String" default="Subscription activation failed. Contact support."></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderItem"></designLayoutProperty>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio" cbVisibleIf="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="imageSize" cbVisibleIf="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="showTotal"></designLayoutProperty>
+            <designLayoutProperty name="productFieldMapping"></designLayoutProperty>
+            <designLayoutProperty name="productUnavailableMessage"></designLayoutProperty>
+            <designLayoutProperty name="otherAdjustmentsLabel"></designLayoutProperty>
+            <designLayoutProperty name="adjustmentsAmountTextColor"></designLayoutProperty>
+            <designLayoutProperty name="totalPriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="textDisplayInfo"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Subscription Status">
+          <designLayoutItems>
+            <designLayoutProperty name="subscriptionActivationInProgressLabel"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionActivationSuccessLabel"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionActivationFailedLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Subscription Pill">
+          <designLayoutItems>
+            <designLayoutProperty name="subscriptionPillFontColor"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionPillBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionPillBorderRadius"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Child Products">
+          <designLayoutItems>
+            <designLayoutProperty name="bundleExpandCollapseLabel"></designLayoutProperty>
+            <designLayoutProperty name="showChildProductImage"></designLayoutProperty>
+            <designLayoutProperty name="childProductFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

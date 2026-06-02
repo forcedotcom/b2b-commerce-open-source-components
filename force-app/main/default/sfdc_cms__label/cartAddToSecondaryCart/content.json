@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartAddToSecondaryCart",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToSecondaryCart",
+      "value" : "Add to a Saved Cart"
+    }, {
+      "name" : "itemsLabel",
+      "value" : "Items"
+    }, {
+      "name" : "addToSecondaryCartSuccessToast",
+      "value" : "\"{0}\" was added to the cart \"{1}\"."
+    }, {
+      "name" : "addToSecondaryCartFailureToast",
+      "value" : "We couldn't add \"{0}\" to the cart \"{1}\". Try again."
+    }, {
+      "name" : "fetchSecondaryCartsNoResult",
+      "value" : "You don't have any saved carts."
+    }, {
+      "name" : "fetchSecondaryCartsErrorLine1",
+      "value" : "We couldn't retrieve the list of carts."
+    }, {
+      "name" : "fetchSecondaryCartsErrorLine2",
+      "value" : "Refresh the page and try again."
+    }, {
+      "name" : "fetchSecondaryCartsLoading",
+      "value" : "Loading..."
+    } ]
+  },
+  "urlName" : "cartaddtosecondarycart"
+}

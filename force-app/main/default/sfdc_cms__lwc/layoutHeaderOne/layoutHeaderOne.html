@@ -1,0 +1,94 @@
+<template lwc:render-mode="light">
+    <site-common-primitive-focus-trap-manager
+        lwc:ref="headerFocusTrapManager"
+        data-automation="headerFocusTrapManager"
+        focus-id="layout-header-one"
+        no-focus-next-on-disable>
+        <header
+            class={headerClasses}
+            style={_customStyles}
+            aria-modal={_ariaModalAttribute}
+            role={_roleAttribute}>
+            <div class="promo-banner">
+                <slot name="promoBanner"></slot>
+            </div>
+            <div class="header-content">
+                <div class="header-start">
+                    <experience-responsive size="l">
+                        <div
+                            class="header-logo"
+                            data-automation="headerLogo">
+                            <slot name="storeLogo"></slot>
+                        </div>
+                    </experience-responsive>
+                    <div class="header-navigation">
+                        <slot name="navigation"></slot>
+                    </div>
+                    <experience-responsive size="-m">
+                        <div
+                            class="header-logo"
+                            data-automation="headerLogo">
+                            <slot name="storeLogo"></slot>
+                        </div>
+                    </experience-responsive>
+                </div>
+                <div
+                    class="header-end"
+                    data-automation="headerEnd">
+                    <div
+                        class="header-search"
+                        lwc:ref="headerSearchIcon"
+                        onsearchiconclick={handleSearchIconClick}>
+                        <slot name="searchInput"></slot>
+                    </div>
+                    <template lwc:if={showCopilotShortcut}>
+                        <div><slot name="shopperCopilot"></slot></div>
+                    </template>
+                    <div class="header-badge-icons">
+                        <div class="header-badge-icons-flex">
+                            <slot name="icons"></slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="header-search-drawer"
+                ontransitionend={handleSearchDrawerTransitionEnd}
+                lwc:ref="headerSearchDrawer"
+                data-automation="headerSearchDrawer">
+                <site-common-primitive-focus-trap-manager
+                    lwc:ref="headerDrawerFocusTrapManager"
+                    data-automation="headerDrawerFocusTrapManager"
+                    focus-id="layout-header-one-drawer"
+                    class="header-drawer-focus-trap-manager"
+                    no-focus-next-on-disable>
+                    <div class="header-search-drawer-content">
+                        <div
+                            class="header-search-drawer-input"
+                            onsearchinputescape={handleSearchInputEscape}
+                            onsearchnavigate={handleSearchNavigate}
+                            lwc:ref="headerSearchInput">
+                            <slot name="searchInput"></slot>
+                        </div>
+                        <button
+                            onclick={handleSearchDrawerCloseClick}
+                            data-automation="headerSearchDrawerClose"
+                            class="header-search-drawer-close slds-icon_container slds-icon-action-close slds-icon_container_circle">
+                            <svg
+                                tabindex="-1"
+                                aria-hidden="true"
+                                class="slds-icon_xx-small">
+                                <use href={closeIconPath}></use>
+                            </svg>
+                            <span class="slds-assistive-text">{ariaCloseButtonLabel}</span>
+                        </button>
+                    </div>
+                </site-common-primitive-focus-trap-manager>
+            </div>
+            <div
+                class="header-content-overlay"
+                data-automation="headerContentOverlay"
+                onclick={handleContentOverlayClick}></div>
+        </header>
+    </site-common-primitive-focus-trap-manager>
+</template>

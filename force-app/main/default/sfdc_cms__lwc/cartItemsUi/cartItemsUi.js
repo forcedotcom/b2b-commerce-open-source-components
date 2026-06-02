@@ -47,6 +47,10 @@ export default class CartItemsUi extends LightningElement {
   @api
   showSku = false;
   @api
+  showViewBundleDetail = false;
+  @api
+  viewBundleDetailLabel;
+  @api
   skuLabel;
   @api
   minimumValueGuideText;

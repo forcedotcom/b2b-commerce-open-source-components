@@ -1,0 +1,26 @@
+.section-header {
+    display: flex;
+    flex-direction: row-reverse;
+    background: var(--dxp-g-root);
+    cursor: pointer;
+    width: auto;
+    border: none;
+    padding: var(--dxp-g-spacing-none, 0);
+    gap: 0.25rem;
+}
+.section-header:focus-visible {
+    outline: 2px solid var(--dxp-g-root-contrast);
+    outline-offset: 2px;
+}
+.title {
+    padding-inline-end: var(--dxp-g-spacing-small);
+}
+.accordion-body {
+    border-left: var(--slds-g-sizing-border-3, 3px) solid var(--slds-g-color-neutral-base-80, #c9c9c9);
+}
+ul {
+    list-style: none;
+}
+ul li {
+    padding: var(--dxp-g-spacing-xxxsmall, 0.125rem) var(--dxp-g-spacing-xsmall, 0.5rem);
+}

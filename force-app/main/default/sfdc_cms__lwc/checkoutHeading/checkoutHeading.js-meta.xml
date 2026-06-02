@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Checkout Heading</masterLabel>
+  <description>A responsive checkout heading component that renders separate desktop and mobile slots, with an optional cart
+        total displayed on mobile.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="showMobileOnly" label="Show on Mobile Only" type="Boolean" default="false"></property>
+      <property name="cartDetails" label="Cart Details Binding Expression" type="String" default="{!Checkout.CartDetails}"></property>
+      <property name="cartTotals" label="Cart Totals Binding Expression" type="String" default="{!Checkout.CartTotals}"></property>
+      <designLayout>
+        <designSection name="Visibility">
+          <designLayoutItems>
+            <designLayoutProperty name="showMobileOnly"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails" cbVisibleIf="cartDetails=false"></designLayoutProperty>
+            <designLayoutProperty name="cartTotals" cbVisibleIf="cartTotals=false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

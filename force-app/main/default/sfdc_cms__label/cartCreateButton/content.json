@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartCreateButton",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "newCartButton",
+      "value" : "New cart"
+    } ]
+  },
+  "urlName" : "cartcreatebutton"
+}

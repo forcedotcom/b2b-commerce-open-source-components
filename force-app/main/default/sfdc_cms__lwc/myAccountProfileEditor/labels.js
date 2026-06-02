@@ -1,0 +1,10 @@
+import ConfirmEmailMismatchError from '@salesforce/label/site.myAccountProfileEditor.ConfirmEmailMismatchError';
+import ConfirmPhoneMismatchError from '@salesforce/label/site.myAccountProfileEditor.ConfirmPhoneMismatchError';
+import ExistingEmailError from '@salesforce/label/site.myAccountProfileEditor.ExistingEmailError';
+import ExistingPhoneError from '@salesforce/label/site.myAccountProfileEditor.ExistingPhoneError';
+import ConfirmEmailLabel from '@salesforce/label/site.myAccountProfileEditor.ConfirmEmailLabel';
+import ConfirmPhoneLabel from '@salesforce/label/site.myAccountProfileEditor.ConfirmPhoneLabel';
+import CancelActionLabel from '@salesforce/label/site.myAccountProfileEditor.CancelActionLabel';
+import SaveActionLabel from '@salesforce/label/site.myAccountProfileEditor.SaveActionLabel';
+import SaveAndVerifyActionLabel from '@salesforce/label/site.myAccountProfileEditor.SaveAndVerifyActionLabel';
+export { ConfirmEmailLabel, ConfirmPhoneLabel, ExistingEmailError, ExistingPhoneError, CancelActionLabel, SaveActionLabel, SaveAndVerifyActionLabel, ConfirmEmailMismatchError, ConfirmPhoneMismatchError };

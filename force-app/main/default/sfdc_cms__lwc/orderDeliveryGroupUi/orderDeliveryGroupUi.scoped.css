@@ -1,0 +1,101 @@
+.shipping-field-item,
+.gifting-field-item {
+    white-space: normal;
+    word-break: break-word;
+    align-items: center;
+}
+.delivery-address-container .slds-icon-utility-checkin {
+    padding-right: var(--dxp-g-spacing-xxsmall);
+}
+.delivery-address-container {
+    color: var(--slds-c-accordion-heading-text-color, var(--dxp-g-root-contrast));
+}
+button.delivery-address-container {
+    text-decoration: none;
+}
+button.delivery-address-container:hover {
+    color: var(--slds-c-accordion-heading-text-hover-color, var(--dxp-g-brand-1));
+}
+.field-properties {
+    display: flex;
+}
+.icon-color {
+    --sds-c-icon-color-foreground-default: var(--dxp-s-button-color);
+    padding-right: var(--dxp-g-spacing-xxsmall);
+}
+div.delivery-group .product-count {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+}
+div.delivery-group .delivery-address,
+div.delivery-group .single-delivery-address {
+    font-size: var(--com-c-delivery-group-address-font-size, var(--dxp-s-text-heading-small-font-size));
+    font-weight: normal;
+}
+div.delivery-group .delivery-city,
+div.delivery-group .delivery-address div.delivery-group .single-delivery-address {
+    display: inline;
+}
+div.delivery-group .product-count,
+div.delivery-group .delivery-city,
+div.delivery-group .delivery-address div.delivery-group .single-delivery-address,
+.shiping-phone-number {
+    font-size: var(--dxp-s-text-heading-small-font-size);
+}
+div.delivery-group .product-count,
+div.delivery-group .delivery-group-fields {
+    font-weight: bold;
+}
+div.delivery-group .delivery-city::after,
+div.delivery-group .shipping-field-item::after,
+.dot-separator-container {
+    content: '';
+    display: inline-block;
+    width: var(--com-c-delivery-group-field-separator-size, 0.25rem);
+    height: var(--com-c-delivery-group-field-separator-size, 0.25rem);
+    border-radius: 50%;
+    background-color: var(--com-c-delivery-group-field-separator-bg-color, #d9dfe7);
+    vertical-align: middle;
+    margin-left: var(--com-c-delivery-group-field-separator-horizontal-margin, 0.5rem);
+    margin-right: var(--com-c-delivery-group-field-separator-horizontal-margin, 0.5rem);
+}
+div.delivery-group .shipping-field-item:last-child::after {
+    display: none;
+}
+div.delivery-group,
+.field-properties {
+    border-color: var(--com-c-order-products-separator-color, var(--slds-g-color-border-base-1));
+}
+@media only screen and (max-width: 47.9375em) {
+    .field-properties {
+        flex-direction: column;
+    }
+    .delivery-address-container {
+        width: 100%;
+    }
+    .delivery-address {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: var(--dxp-g-spacing-xxlarge);
+    }
+    .single-delivery-address {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding-left: var(--dxp-g-spacing-xlarge);
+    }
+    div.delivery-group .delivery-city::after,
+    div.delivery-group .shipping-field-item::after,
+    .dot-separator-container {
+        display: none;
+    }
+    .gift-order-label {
+        max-width: 100%;
+    }
+}
+.gifting-field-item,
+.dot-separator-container {
+    line-height: var(--dxp-c-html-line-height);
+}

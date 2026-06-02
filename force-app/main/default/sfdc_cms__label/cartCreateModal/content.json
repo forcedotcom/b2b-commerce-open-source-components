@@ -1,0 +1,62 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartCreateModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "createNewCartHeader",
+      "value" : "Create Cart"
+    }, {
+      "name" : "editCartConfirmTitle",
+      "value" : "Edit Cart"
+    }, {
+      "name" : "cartNameLabel",
+      "value" : "Cart Name"
+    }, {
+      "name" : "cartDescription",
+      "value" : "Description"
+    }, {
+      "name" : "createCartSaveButton",
+      "value" : "Create"
+    }, {
+      "name" : "editCartConfirmButton",
+      "value" : "Save"
+    }, {
+      "name" : "createCartCancelButtonLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "cartNameMaxLengthErrMsg",
+      "value" : "Enter up to {maxLength} characters."
+    }, {
+      "name" : "cartDescriptionMaxLengthErrMsg",
+      "value" : "Enter up to {maxLength} characters."
+    }, {
+      "name" : "createCartApiFailureMessage",
+      "value" : "We couldn't create the cart. Try again later."
+    }, {
+      "name" : "createCartApiSuccessMessage",
+      "value" : "Cart \"{cartName}\" was created."
+    }, {
+      "name" : "editCartSuccessMessage",
+      "value" : "Cart \"{cartName}\" was modified."
+    }, {
+      "name" : "editCartErrorMessage",
+      "value" : "We couldn't edit the cart. Try again later."
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Saving..."
+    }, {
+      "name" : "editCartSpinnerHelpText",
+      "value" : "Saving..."
+    }, {
+      "name" : "cartNameMandatoryErrorMessage",
+      "value" : "Specify a name for your cart."
+    }, {
+      "name" : "cartNameInvalidCharactersErrMsg",
+      "value" : "Enter only letters, numbers, and spaces."
+    }, {
+      "name" : "cartDescInvalidCharactersErrMsg",
+      "value" : "Enter only letters, numbers, and spaces."
+    } ]
+  },
+  "urlName" : "cartcreatemodal"
+}

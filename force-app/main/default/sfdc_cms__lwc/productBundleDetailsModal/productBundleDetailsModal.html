@@ -1,0 +1,20 @@
+<template>
+    <lightning-modal-header label={headerTitle}></lightning-modal-header>
+    <lightning-modal-body>
+        <div
+            class="modal-layout modal-left slds-m-around_medium"
+            style={customCssStyles}>
+            <site-order-item-info
+                show-cgx-styles="true"
+                currency-code={currencyIsoCode}
+                order-item={orderItem}
+                product-unavailable-message={productUnavailableMessage}
+                show-image="true"
+                show-child-image="true"
+                show-total="true"
+                rlm-subscription-enabled="true"
+                bundle-expand-collapse-label={bundleExpandCollapseLabel}
+                onnavigatetoproductdetailpage={handleProductDetailNavigation}></site-order-item-info>
+        </div>
+    </lightning-modal-body>
+</template>

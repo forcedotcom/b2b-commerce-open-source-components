@@ -6,6 +6,17 @@
     width: max-content;
     margin-right: var(--dxp-g-spacing-small);
 }
+
+.secondary-cart-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--dxp-g-spacing-small, 0.75rem);
+}
+
+.secondary-cart-menu:has(> *) {
+    padding-top: var(--dxp-g-spacing-x-small, 0.5rem);
+}
+
 @media only screen and (max-width: 48em) {
     .quantity-rule {
         margin: auto;
@@ -18,5 +29,9 @@
     }
     site-product-add-quantity:not(:last-child) {
         margin-right: 0;
+    }
+
+    .secondary-cart-menu {
+        justify-content: center;
     }
 }

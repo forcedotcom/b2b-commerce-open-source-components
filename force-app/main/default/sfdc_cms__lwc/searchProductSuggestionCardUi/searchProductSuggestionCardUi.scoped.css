@@ -1,0 +1,49 @@
+.productSuggestionCardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+.productSuggestionCardImageArea {
+    width: 100%;
+}
+.imageArea {
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+.imageArea > experience-picture {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.productSuggestionCardDetailsArea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: var(--dxp-g-spacing-small);
+    width: 172px;
+}
+.productSuggestionCardProductNameArea {
+    font-weight: bold;
+    max-width: 95%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.productSuggestionCardPricing {
+    text-align: left;
+}
+@media screen and (max-width: 47.9375em) {
+    .productSuggestionCardContainer {
+        max-width: 292px;
+    }
+    .productSuggestionCardImageArea {
+        max-width: 180px;
+    }
+}

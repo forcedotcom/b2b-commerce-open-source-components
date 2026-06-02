@@ -1,0 +1,13 @@
+.order-confirmation-items {
+    min-height: 2rem;
+    display: block;
+}
+
+.show-more-hidden {
+    display: none;
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}

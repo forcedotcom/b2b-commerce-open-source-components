@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentSavedMethodsCardFooter",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "deleteLabel",
+      "value" : "Delete"
+    }, {
+      "name" : "cancelLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "deleteHeaderText",
+      "value" : "Delete Payment Method?"
+    }, {
+      "name" : "deleteText",
+      "value" : "Deleting this '{0}' payment method removes it as a payment option during checkout."
+    }, {
+      "name" : "defaultLabel",
+      "value" : "Set Default"
+    }, {
+      "name" : "shareCheckboxLabel",
+      "value" : "Share with other contacts in the account"
+    }, {
+      "name" : "defaultHeaderText",
+      "value" : "Set default payment method?"
+    }, {
+      "name" : "defaultText",
+      "value" : "'{0}' will be the default at checkout."
+    } ]
+  },
+  "urlName" : "paymentsavedmethodscardfooter"
+}

@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartSplitshipmentItemUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "imageDefaultAssistiveText",
+      "value" : "Product Image"
+    }, {
+      "name" : "pricePerItem",
+      "value" : "{0}/item"
+    }, {
+      "name" : "pricePerItemAssistiveText",
+      "value" : "Price per item: {0}"
+    } ]
+  },
+  "urlName" : "cartsplitshipmentitemui"
+}

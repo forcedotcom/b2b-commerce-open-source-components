@@ -1,0 +1,6 @@
+:host {
+    --com-c-product-card-container-color-border: #fff;
+    --com-c-product-card-container-radius-border: 0;
+    --com-c-product-card-content-align-self: center;
+    --com-c-product-card-content-justify-self: center;
+}

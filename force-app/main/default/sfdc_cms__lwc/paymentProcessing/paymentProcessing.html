@@ -1,0 +1,44 @@
+<template lwc:render-mode="light">
+    <template if:false={_paymentFailed}>
+        <div slot="processingIndicator"><slot name="processingIndicator"></slot></div>
+        <div slot="paymentProcessingHeader"><slot name="paymentProcessingHeader"></slot></div>
+        <div slot="informationalText"><slot name="informationalText"></slot></div>
+    </template>
+
+    <template if:true={_paymentFailed}>
+        <div class="slds-grid slds-gutters slds-wrap slds-m-around_medium">
+            <div class="slds-col slds-size_1-of-1 slds-align_absolute-center slds-m-bottom_medium">
+                <lightning-icon
+                    icon-name="utility:error"
+                    size="large"
+                    alternative-text="Error"
+                    variant="error"></lightning-icon>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-m-around_x-small slds-align_absolute-center">
+                <h3
+                    class="error-header dxp-text-heading-large"
+                    data-redirect-error-text-header>
+                    {_errorLabel.redirectHeader}
+                </h3>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-m-around_x-small slds-align_absolute-center">
+                <h3
+                    class="error-body dxp-text-heading-medium"
+                    data-redirect-error-text-body>
+                    {_errorLabel.body}
+                </h3>
+            </div>
+            <template lwc:if={showReturnToCheckoutButton}>
+                <div
+                    class="slds-col slds-size_1-of-1 slds-m-top_medium slds-m-top_medium slds-m-left_x-small slds-m-right_x-small slds-align_absolute-center">
+                    <lightning-button
+                        variant="brand"
+                        label={_errorLabel.returnToCheckout}
+                        title={_errorLabel.returnToCheckout}
+                        onclick={onReturnToCheckoutClick}
+                        stretch></lightning-button>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

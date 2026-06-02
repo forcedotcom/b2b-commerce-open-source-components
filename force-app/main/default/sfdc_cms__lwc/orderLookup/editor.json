@@ -1,0 +1,30 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderLookup",
+                "type": "component",
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "buttonBorderRadius": "4",
+                                    "size": "standard",
+                                    "text": "View Order Details",
+                                    "variant": "primary",
+                                    "width": "stretch"
+                                },
+                                "definition": "site:commonButton",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "actions",
+                        "title": "Actions",
+                        "type": "region"
+                    }
+                ]
+            }
+        }
+    ]
+}

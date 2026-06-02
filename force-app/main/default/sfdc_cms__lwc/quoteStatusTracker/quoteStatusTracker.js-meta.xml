@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Quote Status Tracker</masterLabel>
+  <description>Displays the status tracking of a quote with visual progress indicators</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="quoteStatus" label="Quote Status Expression" type="String" default="{!QuoteDetail.status}" description="The current status of the quote"></property>
+      <property name="includeDraftStatus" label="Include Draft Status" type="Boolean" default="true" description="Include Draft status in tracker"></property>
+      <property name="includeNeedsReviewStatus" label="Include Needs Review Status" type="Boolean" default="false" description="Include Needs Review status in tracker"></property>
+      <property name="includeInReviewStatus" label="Include In Review Status" type="Boolean" default="true" description="Include In Review status in tracker"></property>
+      <property name="includeApprovedStatus" label="Include Approved Status" type="Boolean" default="true" description="Include Approved status in tracker"></property>
+      <property name="includeRejectedStatus" label="Include Rejected Status" type="Boolean" default="true" description="Include Rejected status in tracker"></property>
+      <property name="includePresentedStatus" label="Include Presented Status" type="Boolean" default="false" description="Include Presented status in tracker"></property>
+      <property name="includeAcceptedStatus" label="Include Accepted Status" type="Boolean" default="true" description="Include Accepted status in tracker"></property>
+      <property name="includeDeniedStatus" label="Include Denied Status" type="Boolean" default="true" description="Include Denied status in tracker"></property>
+      <property name="customStatuses" label="Custom Statuses" type="String" default="[]" description="Custom statuses added by the user as JSON array of apiName strings (e.g., [&quot;Status1&quot;,&quot;Status2&quot;])"></property>
+      <property name="trackerCardBorderColor" label="Tracker Card Border Color" type="Color" default="#D9DFE7" description="Border color of the tracker card"></property>
+      <property name="trackerCardBorderRadius" label="Tracker Card Border Radius" type="Integer" min="0" max="20" default="5" description="Border radius of the tracker card in pixels"></property>
+      <property name="trackerCardTextColor" label="Tracker Card Text Color" type="Color" description="Text color in the tracker card"></property>
+      <designLayout>
+        <designSection name="Configuration">
+          <designLayoutItems>
+            <designLayoutProperty name="quoteStatus"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Status Selection">
+          <designLayoutItems>
+            <designLayoutProperty name="includeDraftStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeNeedsReviewStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeInReviewStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeApprovedStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeRejectedStatus"></designLayoutProperty>
+            <designLayoutProperty name="includePresentedStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeAcceptedStatus"></designLayoutProperty>
+            <designLayoutProperty name="includeDeniedStatus"></designLayoutProperty>
+            <designLayoutProperty name="customStatuses"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Card Styling">
+          <designLayoutItems>
+            <designLayoutProperty name="trackerCardBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="trackerCardBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="trackerCardTextColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

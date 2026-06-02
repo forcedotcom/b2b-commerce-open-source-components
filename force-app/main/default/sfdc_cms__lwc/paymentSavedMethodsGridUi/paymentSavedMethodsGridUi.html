@@ -1,0 +1,195 @@
+<template lwc:render-mode="light">
+    <template if:true={showAddNewSPMView}>
+        <div class="slds-p-horizontal_small">
+            <div class="emptyStateTitle slds-p-bottom_small">
+                <p>{emptyMessageTitle}</p>
+            </div>
+            <site-payment-add-payment-methods-ui
+                payment-method-set={paymentMethodSet}
+                sepa-debit-mandate={sepaDebitMandate}
+                prefer-legacy-forms={preferLegacyForms}
+                user-account-id={effectiveAccountId}
+                default-country={defaultCountry}
+                raw-internationalization-data={rawInternationalizationData}
+                billing-details={billingDetails}
+                onsavepaymentmethodsuccess={handleRedirect}
+                onspmredirectcancel={handleCancel}
+                disable-save={disableSave}></site-payment-add-payment-methods-ui>
+        </div>
+    </template>
+    <template if:false={showAddNewSPMView}>
+        <template if:true={addButtonEnabled}>
+            <div class="slds-grid slds-p-horizontal_small">
+                <div class="slds-col slds-size_4-of-5 slds-show_medium slds-p-bottom_x-large">
+                    <h1 class="slds-text-heading_large">{headerLabel}</h1>
+                </div>
+                <div class="slds-col slds-medium-size_1-of-5">
+                    <div
+                        class="buttons slds-medium-float_right slds-p-horizontal_none slds-p-top_none float-medium_right">
+                        <button
+                            onclick={handleAddSPMClicked}
+                            type="button"
+                            class="slds-button slds-button_brand addNewSPMButton">
+                            {addButtonLabel}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template if:false={userCanViewData}>
+            <div class="slds-grid_vertical slds-align_absolute-center userHasNoAccess">
+                <p class="userHasNoAccess">{userHasNoAccessLabel}</p>
+            </div>
+        </template>
+        <template if:true={userCanViewData}>
+            <template lwc:if={isSpmSharingEnabled}>
+                <lightning-tabset active-tab-value="myspm">
+                    <lightning-tab
+                        id="myspmview"
+                        label={mySPMTabLabel}
+                        value="myspm"
+                        onactive={handleActiveTab}>
+                        <div
+                            class={gridStyleClass}
+                            role="list">
+                            <template
+                                for:each={_savedPaymentMethods}
+                                for:item="item">
+                                <site-payment-saved-payment-methods-card
+                                    key={item.id}
+                                    record-id={item.id}
+                                    title={item.name}
+                                    record-title={item.name}
+                                    account-holder-name={item.accountHolderName}
+                                    account-holder-email={item.accountHolderEmail}
+                                    card-last4={item.last4}
+                                    expiration-year={item.expiryYear}
+                                    expiration-month={item.expiryMonth}
+                                    card-type={item.type}
+                                    network={item.network}
+                                    is-default={item.isDefault}
+                                    status={item.status}
+                                    bank-name={item.bankName}
+                                    reference-owner-id={item.referenceOwnerId}
+                                    default-badge-color={cardDefaultBadgeColor}
+                                    default-badge-label={cardDefaultLabel}
+                                    expired-badge-color={cardExpiredBadgeColor}
+                                    expired-badge-label={cardExpiredLabel}
+                                    expires-on-label={expiresOnLabel}
+                                    expired-border-radius={cardExpiredBorderRadius}
+                                    delete-label={footerDeleteLabel}
+                                    default-label={footerDefaultLabel}
+                                    disabled={disableFooterButtons}
+                                    default-border-radius={cardDefaultBorderRadius}
+                                    is-spm-sharing-enabled={isSpmSharingEnabled}
+                                    is-saved-payment-method-shared={item.isSharedWithinSameAccount}
+                                    is-owner={item.isOwner}
+                                    role="listitem"></site-payment-saved-payment-methods-card>
+                            </template>
+                        </div>
+                    </lightning-tab>
+                    <lightning-tab
+                        id="sharespmview"
+                        label={sharedSPMTabLabel}
+                        value="sharedspm"
+                        onactive={handleActiveTab}>
+                        <div
+                            class={gridStyleClass}
+                            role="list">
+                            <template
+                                for:each={_savedPaymentMethods}
+                                for:item="item">
+                                <site-payment-saved-payment-methods-card
+                                    key={item.id}
+                                    record-id={item.id}
+                                    title={item.name}
+                                    record-title={item.name}
+                                    account-holder-name={item.accountHolderName}
+                                    account-holder-email={item.accountHolderEmail}
+                                    card-last4={item.last4}
+                                    expiration-year={item.expiryYear}
+                                    expiration-month={item.expiryMonth}
+                                    card-type={item.type}
+                                    network={item.network}
+                                    is-default={item.isDefault}
+                                    status={item.status}
+                                    bank-name={item.bankName}
+                                    reference-owner-id={item.referenceOwnerId}
+                                    default-badge-color={cardDefaultBadgeColor}
+                                    default-badge-label={cardDefaultLabel}
+                                    expired-badge-color={cardExpiredBadgeColor}
+                                    expired-badge-label={cardExpiredLabel}
+                                    expires-on-label={expiresOnLabel}
+                                    expired-border-radius={cardExpiredBorderRadius}
+                                    delete-label={footerDeleteLabel}
+                                    default-label={footerDefaultLabel}
+                                    disabled={disableFooterButtons}
+                                    default-border-radius={cardDefaultBorderRadius}
+                                    is-spm-sharing-enabled={isSpmSharingEnabled}
+                                    is-saved-payment-method-shared={item.isSharedWithinSameAccount}
+                                    is-owner={item.isOwner}
+                                    role="listitem"></site-payment-saved-payment-methods-card>
+                            </template>
+                        </div>
+                    </lightning-tab>
+                </lightning-tabset>
+            </template>
+            <template lwc:else>
+                <div
+                    class={gridStyleClass}
+                    role="list">
+                    <template
+                        for:each={_savedPaymentMethods}
+                        for:item="item">
+                        <site-payment-saved-payment-methods-card
+                            key={item.id}
+                            record-id={item.id}
+                            title={item.name}
+                            record-title={item.name}
+                            account-holder-name={item.accountHolderName}
+                            account-holder-email={item.accountHolderEmail}
+                            card-last4={item.last4}
+                            expiration-year={item.expiryYear}
+                            expiration-month={item.expiryMonth}
+                            card-type={item.type}
+                            network={item.network}
+                            is-default={item.isDefault}
+                            status={item.status}
+                            bank-name={item.bankName}
+                            reference-owner-id={item.referenceOwnerId}
+                            default-badge-color={cardDefaultBadgeColor}
+                            default-badge-label={cardDefaultLabel}
+                            expired-badge-color={cardExpiredBadgeColor}
+                            expired-badge-label={cardExpiredLabel}
+                            expires-on-label={expiresOnLabel}
+                            expired-border-radius={cardExpiredBorderRadius}
+                            delete-label={footerDeleteLabel}
+                            default-label={footerDefaultLabel}
+                            disabled={disableFooterButtons}
+                            default-border-radius={cardDefaultBorderRadius}
+                            is-spm-sharing-enabled={isSpmSharingEnabled}
+                            is-saved-payment-method-shared={item.isSharedWithinSameAccount}
+                            is-owner={item.isOwner}
+                            role="listitem"></site-payment-saved-payment-methods-card>
+                    </template>
+                </div>
+            </template>
+            <template lwc:if={hasNextPage}>
+                <div class="buttons">
+                    <button
+                        class={customButtonClasses}
+                        data-show-more-payment-saved-payment-methods
+                        onclick={handleShowMoreClicked}
+                        type="button">
+                        {showMoreButtonLabel}
+                    </button>
+                </div>
+            </template>
+        </template>
+        <template if:true={showEmptyState}>
+            <div class="slds-grid_vertical slds-align_absolute-center emptyState">
+                <p>{emptyMessageTitle}</p>
+            </div>
+        </template>
+    </template>
+</template>

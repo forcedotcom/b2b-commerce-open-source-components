@@ -73,7 +73,7 @@ export default class CheckoutDeliverymethodGroup extends LightningElement {
     if (loaded) {
       const nextPageItems = remapCartItems(data?.cartItems?.cartItems) ?? [];
       this._nextPageToken = data?.cartItems?.nextPageToken;
-      this._numberOfItems = data?.totalCartItemCount;
+      this._numberOfItems = data?.totalCartItemQuantity ?? data?.totalCartItemCount;
       this._totalProductAmount = data?.totalProductAmount;
       this.hasNextPageItems = Boolean(data?.cartItems?.nextPageToken);
       if (!data?.cartItems?.previousPageToken) {

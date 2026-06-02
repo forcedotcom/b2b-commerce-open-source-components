@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Search Results List</masterLabel>
+  <description>Displays search results in a list layout with product cards</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="listRowSpacing" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource" label="Row Spacing" description="Spacing between rows in the list."></property>
+      <property name="resultNavigationType" type="String" default="pagination" datasource="java://siteforce.customComponent.datasource.SearchResultsNavigationTypeDataSource" label="Result Navigation" description="Select Load More or Pagination Only if you have a large catalog."></property>
+      <property name="searchResults" type="String" default="{!Search.Results}" label="Results Data Binding" description="Bind to a Search Data Provider results object (e.g. {!Search.Results})."></property>
+      <property name="total" type="String" default="{!Search.Results.total}" label="Total Results" description="Bind to total number of search results."></property>
+      <property name="pageSize" type="String" default="{!Search.Results.pageSize}" label="Results Per Page" description="Bind to number of results per page."></property>
+      <property name="currentPage" type="String" default="{!Search.Pagination.currentPage}" label="Current Page" description="Bind to current page number."></property>
+      <property name="searchResultsLoading" type="String" default="{!Search.ClientState.loading}" label="Search Loading State" description="Bind to search loading state."></property>
+      <property name="loadMoreLabel" label="Load More Button Label" type="String" default="Load More" translatable="true" description="Label for the load more button."></property>
+      <property name="loadPreviousLabel" label="Load Previous Button Label" type="String" default="Load Previous" translatable="true" description="Label for the load previous button."></property>
+      <designLayout>
+        <designSection name="List Layout">
+          <designLayoutItems>
+            <designLayoutProperty name="listRowSpacing"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Results Data">
+          <designLayoutItems>
+            <designLayoutProperty name="resultNavigationType"></designLayoutProperty>
+            <designLayoutProperty name="loadMoreLabel" cbVisibleIf="resultNavigationType=loadMore"></designLayoutProperty>
+            <designLayoutProperty name="loadPreviousLabel" cbVisibleIf="resultNavigationType=loadMore"></designLayoutProperty>
+            <designLayoutProperty name="searchResults"></designLayoutProperty>
+            <designLayoutProperty name="total"></designLayoutProperty>
+            <designLayoutProperty name="pageSize"></designLayoutProperty>
+            <designLayoutProperty name="currentPage"></designLayoutProperty>
+            <designLayoutProperty name="searchResultsLoading"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

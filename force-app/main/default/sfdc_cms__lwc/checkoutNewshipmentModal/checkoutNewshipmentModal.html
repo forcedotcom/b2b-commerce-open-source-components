@@ -1,0 +1,42 @@
+<template>
+    <lightning-modal-header label={labels.headerLabel}></lightning-modal-header>
+    <lightning-modal-body class="body-content">
+        <div class="body-contents">
+            <div class="slds-p-around_xx-large">
+                <h1 class="body-heading">{shipmentName}</h1>
+            </div>
+
+            <div class="dropdown-item">
+                <site-cart-item-dropdown
+                    item-type={itemType}
+                    item-list={addresses}
+                    selected-item-id={selectedAddressId}
+                    raw-internationalization-data={rawInternationalizationData}
+                    onvaluechange={handleValueChanged}
+                    onopenaddressmodal={openAddressModal}
+                    data-test-id="item-dropdown"
+                    show-dropdown-label></site-cart-item-dropdown>
+            </div>
+            <hr class="solid" />
+            <div class="slds-grid slds-wrap slds-p-top_large footer">
+                <site-common-button-ui
+                    variant="secondary"
+                    width="stretch"
+                    onclick={handleCancel}
+                    alignment="center"
+                    data-test-id="cancel-btn"
+                    class="slds-m-bottom_small">
+                    {labels.cancelActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    variant="primary"
+                    width="stretch"
+                    onclick={handleSubmit}
+                    alignment="center"
+                    data-test-id="submit-btn">
+                    {labels.saveNewShipmentLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+    </lightning-modal-body>
+</template>

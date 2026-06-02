@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderSummaryProductMedia",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "lastTileText",
+      "value" : "+{count} more product(s)"
+    } ]
+  },
+  "urlName" : "ordersummaryproductmedia"
+}

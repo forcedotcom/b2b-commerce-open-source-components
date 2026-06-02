@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <isExposed>true</isExposed>
+  <apiVersion>67</apiVersion>
+  <masterLabel>Quote Decline Renegotiate Button</masterLabel>
+  <description>Button component that allows customers to decline or request renegotiation of an approved quote</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="quoteId" type="String" default="{!QuoteDetail.id}" label="Quote ID" description="The ID of the quote"></property>
+      <property name="quoteStatus" type="String" default="{!QuoteDetail.status}" label="Quote Status" description="The current status of the quote" translatable="true"></property>
+      <property name="buttonText" type="String" default="Renegotiate or Decline" label="Button Text" description="Button text displayed on the decline/renegotiate button" translatable="true"></property>
+      <property name="variant" type="String" default="secondary" label="Button Variant" description="Button style variant" datasource="primary,secondary,tertiary"></property>
+      <property name="size" type="String" default="standard" label="Button Size" description="Button size" datasource="small,standard,large"></property>
+      <property name="width" type="String" default="standard" label="Button Width" description="Max button width" datasource="standard,stretch"></property>
+      <property name="headerText" type="String" default="Renegotiate or decline quote?" label="Modal Header Text" description="The text displayed in the modal header" translatable="true"></property>
+      <property name="subheadingText" type="String" default="Request a revised quote for a better offer, or decline this quote." label="Modal Subheading Text" description="The subheading text displayed below the heading" translatable="true"></property>
+      <property name="notesPlaceholder" type="String" default="Describe the modifications you need or your reason for declining..." label="Notes Placeholder" description="Placeholder text for the notes textarea" translatable="true"></property>
+      <property name="declineButtonLabel" type="String" default="Decline" label="Decline Button Label" description="Label for the decline button in the modal" translatable="true"></property>
+      <property name="renegotiateButtonLabel" type="String" default="Renegotiate" label="Renegotiate Button Label" description="Label for the renegotiate button in the modal" translatable="true"></property>
+      <designLayout>
+        <designSection name="Action Button">
+          <designLayoutItems>
+            <designLayoutProperty name="quoteId" cbVisibleIf="quoteId=false"></designLayoutProperty>
+            <designLayoutProperty name="quoteStatus" cbVisibleIf="quoteStatus=false"></designLayoutProperty>
+            <designLayoutProperty name="buttonText"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Modal Title">
+          <designLayoutItems>
+            <designLayoutProperty name="headerText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Modal Subheading">
+          <designLayoutItems>
+            <designLayoutProperty name="subheadingText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Notes Placeholder">
+          <designLayoutItems>
+            <designLayoutProperty name="notesPlaceholder"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Decline Button">
+          <designLayoutItems>
+            <designLayoutProperty name="declineButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Renegotiate Button">
+          <designLayoutItems>
+            <designLayoutProperty name="renegotiateButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

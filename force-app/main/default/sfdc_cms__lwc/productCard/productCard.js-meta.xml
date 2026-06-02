@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Product Card</masterLabel>
+  <description>Show product details.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="item" type="String" default="{!Item}" label="Data Binding"></property>
+      <property name="cardBackgroundColor" type="Color" label="Background Color"></property>
+      <property name="cardBorderColor" type="Color" default="rgba(0, 0, 0, 0)" label="Card Border Color"></property>
+      <property name="cardBorderRadius" type="Integer" default="5" min="0" screenResponsive="true" exposedTo="css" label="Card Border Radius (px)"></property>
+      <property name="cardBorderWeight" type="Integer" default="1" min="0" screenResponsive="true" exposedTo="css" label="Card Border Weight (px)"></property>
+      <property name="cardImageSize" type="String" default="contain" screenResponsive="true" exposedTo="css" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource" label="Image Fit"></property>
+      <property name="cardImageBorderColor" type="Color" default="#d9dfe7" label="Image Border Color"></property>
+      <property name="cardTextFlexAlign" type="String" default="flex-start" screenResponsive="true" exposedTo="css" datasource="java://siteforce.customComponent.datasource.FlexAlignmentDataSource" label="Text Alignment"></property>
+      <property name="cardInfoPadding" type="String" label="Card Info Padding" description="Only Applies to Desktop"></property>
+      <property name="imageHoverAction" type="String" default="none" datasource="java://siteforce.customComponent.datasource.ImageHoverActionDataSource" label="Image Hover Action"></property>
+      <property name="showProductImage" type="Boolean" default="true" label="Show Product Image"></property>
+      <property name="showSku" type="Boolean" default="false" label="Show SKU"></property>
+      <property name="skuLabel" type="String" default="SKU:" translatable="true" label="SKU# Label"></property>
+      <property name="addToCartButtonLabel" type="String" default="Add To Cart" translatable="true" label="Button Label for Adding a Product to the Cart"></property>
+      <property name="viewProductOptionsButtonLabel" type="String" default="View Options" translatable="true" label="Button Label for Viewing Product Options"></property>
+      <property name="promotionTextColor" type="Color" default="#0d825d" label="Promotion Text Color"></property>
+      <property name="combinePromosThreshold" type="String" default="1" datasource="java://siteforce.customComponent.datasource.ProductCardCombinePromosThresholdDataSource" label="Limit for when to combine all promotions into a total percentage"></property>
+      <property name="priceType" type="String" default="displayAllPrices" datasource="java://siteforce.customComponent.datasource.ProductCardPriceTypeDataSource" label="Select Pricing Type"></property>
+      <property name="primaryPriceTextColor" type="Color" label="Pricing Slot 1 - Text Color"></property>
+      <property name="primaryPriceFontSize" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Pricing Slot 1 - Text Size"></property>
+      <property name="primaryPriceTextStyle" type="String" default="{&amp;quot;bold&amp;quot;:true}" label="Pricing Slot 1 - Text Decoration"></property>
+      <property name="showWishlistIcon" type="Boolean" default="true" label="Show Icon for Wishlist"></property>
+      <property name="secondaryPriceTextColor" type="Color" default="#707275" label="Pricing Slot 2  - Text Color (strikethrough)"></property>
+      <property name="secondaryPriceFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Pricing Slot 2 - Text Size"></property>
+      <property name="unavailablePriceLabel" type="String" default="Price Unavailable" translatable="true" label="Unavailable Price Label"></property>
+      <property name="wishlistIconUnselectedColor" type="Color" label="Icon Color"></property>
+      <property name="wishlistIconSelectedColor" type="Color" label="Icon Selected Color"></property>
+      <property name="imageAspectRatio" type="String" default="1"></property>
+      <property name="iconBorderColor" type="Color" label="Icon Border Color"></property>
+      <property name="showAddToCartButton" type="Boolean" default="false" label="Show Add to Cart Button"></property>
+      <property name="showButtonOnDesktop" type="Boolean" default="false" label="Show Button on Desktop"></property>
+      <property name="showButtonOnMobile" type="Boolean" default="false" label="Show Button on Tablet/Mobile"></property>
+      <property name="swatchBorderRadius" type="Integer" default="5" min="0" label="Border Radius (px)"></property>
+      <property name="swatchBorderColor" type="Color" label="Swatch Border Color"></property>
+      <property name="swatchBorderHoverColor" type="Color" label="Swatch Border Hover Color"></property>
+      <property name="swatchBorderSelectedColor" type="Color" label="Swatch Border Selected Color"></property>
+      <property name="showProductQuickView" type="Boolean" default="false" label="Show quick view button" description="Appears when None or Image Rollover is selected as the image hover action. Doesn’t appear for product bundles, product sets, and subscription products."></property>
+      <property name="productQuickViewButtonLabel" type="String" default="Quick View" translatable="true" label="Quick View Button Label"></property>
+      <property name="showWishlistInQuickView" type="Boolean" default="false" label="Show wishlist button"></property>
+      <property name="subscriptionOptionsLabel" type="String" translatable="true" default="Subscription Options Available"></property>
+      <property name="showQuantitySelector" type="Boolean" default="false" label="Show Quantity Selector"></property>
+      <property name="quantityMinimum" type="String" default="{!Item.purchaseQuantityRule.minimum}"></property>
+      <property name="quantityMaximum" type="String" default="{!Item.purchaseQuantityRule.maximum}"></property>
+      <property name="quantityStep" type="String" default="{!Item.purchaseQuantityRule.increment}"></property>
+      <property name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" label="Minimum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Buy {0} to start&amp;quot;. The text is shown on the product and as hover text for the quantity selector&amp;apos;s information icon."></property>
+      <property name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" label="Maximum Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Buy up to {0}&amp;quot;. The text is shown on the product and as hover text for the quantity selector&amp;apos;s information icon."></property>
+      <property name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" label="Increment Text" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Sold in increments of {0}&amp;quot;. The text is shown on the product and as hover text for the quantity selector&amp;apos;s information icon."></property>
+      <property name="showQuantityRulesText" type="Boolean" default="false" label="Show quantity rules" description="Display quantity rules for the product. The rules always display when users hover over the quantity selector&amp;apos;s information icon."></property>
+      <property name="cardContentMapping" type="String" default="[{&amp;quot;name&amp;quot;:&amp;quot;Name&amp;quot;,&amp;quot;showLabel&amp;quot;:false,&amp;quot;label&amp;quot;:&amp;quot;Product Name&amp;quot;,&amp;quot;fontSize&amp;quot;:&amp;quot;medium&amp;quot;}]" label="Fields"></property>
+      <property name="searchResultsFields" type="String" default="{!Search.Name}" label="Search Results Fields"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="item"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Card Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="showWishlistIcon"></designLayoutProperty>
+            <designLayoutProperty name="wishlistIconUnselectedColor" cbVisibleIf="showWishlistIcon=true"></designLayoutProperty>
+            <designLayoutProperty name="wishlistIconSelectedColor" cbVisibleIf="showWishlistIcon=true"></designLayoutProperty>
+            <designLayoutProperty name="iconBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="cardBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="cardBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="cardBorderWeight"></designLayoutProperty>
+            <designLayoutProperty name="cardBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="cardTextFlexAlign"></designLayoutProperty>
+            <designLayoutProperty name="cardImageBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
+            <designLayoutProperty name="cardImageSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Information Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="imageHoverAction"></designLayoutProperty>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="showSku"></designLayoutProperty>
+            <designLayoutProperty name="skuLabel" cbVisibleIf="showSku=true"></designLayoutProperty>
+            <designLayoutProperty name="cardContentMapping"></designLayoutProperty>
+            <designLayoutProperty name="searchResultsFields"></designLayoutProperty>
+            <designLayoutProperty name="priceType"></designLayoutProperty>
+            <designLayoutProperty name="primaryPriceFontSize"></designLayoutProperty>
+            <designLayoutProperty name="primaryPriceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="primaryPriceTextStyle"></designLayoutProperty>
+            <designLayoutProperty name="secondaryPriceFontSize" cbVisibleIf="priceType=displayAllPrices"></designLayoutProperty>
+            <designLayoutProperty name="secondaryPriceTextColor" cbVisibleIf="priceType=displayAllPrices"></designLayoutProperty>
+            <designLayoutProperty name="promotionTextColor"></designLayoutProperty>
+            <designLayoutProperty name="combinePromosThreshold"></designLayoutProperty>
+            <designLayoutProperty name="unavailablePriceLabel"></designLayoutProperty>
+            <designLayoutProperty name="cardInfoPadding"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Swatches">
+          <designLayoutItems>
+            <designLayoutProperty name="swatchBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="swatchBorderSelectedColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Button Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="showButtonOnDesktop"></designLayoutProperty>
+            <designLayoutProperty name="showButtonOnMobile"></designLayoutProperty>
+            <designLayoutProperty name="addToCartButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="viewProductOptionsButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionOptionsLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="showQuantitySelector"></designLayoutProperty>
+            <designLayoutProperty name="minimumValueGuideText" cbVisibleIf="showQuantitySelector=true"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText" cbVisibleIf="showQuantitySelector=true"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText" cbVisibleIf="showQuantitySelector=true"></designLayoutProperty>
+            <designLayoutProperty name="showQuantityRulesText" cbVisibleIf="showQuantitySelector=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

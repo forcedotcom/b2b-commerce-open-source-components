@@ -1,0 +1,86 @@
+.quote-date-input lightning-input::placeholder,
+.quote-description-input lightning-textarea::placeholder {
+    color: transparent;
+}
+.quote-date-input lightning-input input[type='date']:not(:focus) {
+    color: transparent;
+}
+.quote-date-input lightning-input,
+.quote-description-input lightning-textarea {
+    --slds-c-textarea-sizing-min-height: 6rem;
+}
+.quote-date-input lightning-input .slds-form-element__help {
+    display: none;
+}
+.notification-container {
+    display: flex;
+    margin: 0;
+    background-color: rgba(229, 229, 229, 1);
+    padding: 0.75rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 8px;
+}
+.notification-container lightning-icon {
+    fill: #706e6b;
+    flex-shrink: 0;
+}
+.notification-container h2 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.4;
+    white-space: normal;
+    word-wrap: break-word;
+    margin: 0;
+    flex: 1;
+}
+lightning-modal-body {
+    padding: 0;
+}
+.slds-p-around_medium {
+    padding: 1.5rem;
+}
+.slds-p-around_medium .slds-col {
+    padding-left: 0;
+    padding-right: 0;
+}
+@media (max-width: 768px) {
+    .slds-p-around_medium {
+        padding: 1rem;
+    }
+    .notification-container .slds-notify__content h2 {
+        font-size: 0.8125rem;
+    }
+    .quote-description-input lightning-textarea {
+        --slds-c-textarea-sizing-min-height: 5rem;
+    }
+}
+lightning-input:focus-within,
+lightning-textarea:focus-within {
+    outline: none;
+}
+@media (prefers-contrast: high) {
+    .notification-container .slds-notify {
+        border-width: 2px;
+    }
+    lightning-modal-footer .slds-button_neutral {
+        border-width: 2px;
+    }
+    lightning-modal-footer .slds-button_brand {
+        border-width: 2px;
+    }
+}
+.modal-header {
+    display: flex;
+    height: 30px;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal-header h2 {
+    color: var(--change-to-global-theme-color, #181818);
+    text-align: center;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.16px;
+}

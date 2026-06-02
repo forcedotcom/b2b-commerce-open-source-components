@@ -1,0 +1,110 @@
+<template lwc:render-mode="light">
+    <template lwc:if={_isLoading}>
+        <div class="spinner-container">
+            <div class="slds-spinner_container">
+                <div
+                    role="status"
+                    class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                    <span class="slds-assistive-text">{_loaderAssistiveText}</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template lwc:if={_showContent}>
+        <div
+            lwc:if={_isProfileReadState}
+            class="slds-m-bottom_large">
+            <slot name="header"></slot>
+        </div>
+        <div
+            lwc:if={_showBacktoProfileAction}
+            class="slds-m-bottom_large">
+            <button
+                class="back-button"
+                onclick={handleBackToProfile}>
+                <svg
+                    class="slds-button__icon slds-button__icon_left"
+                    aria-hidden="true">
+                    <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chevronleft"></use>
+                </svg>
+                {_backActionLabel}
+            </button>
+        </div>
+        <site-my-account-profile-ui
+            lwc:if={_isProfileReadState}
+            lwc:ref="profileRead"
+            profile={profile}
+            first-name-label={firstNameLabel}
+            last-name-label={lastNameLabel}
+            email-label={emailLabel}
+            phone-label={phoneLabel}
+            show-phone-details={showPhoneDetails}
+            password-less-login-enabled={_isPasswordLessLoginEnabled}
+            oneditprofile={handleEditActionButtonClick}
+            onverifyprofile={handleVerifyActionButtonClick}
+            onaddphone={handleAddMobileButtonClick}
+            style={_profileCardCustomCssStyles}>
+            <section slot="personalDetailsHeader">
+                <slot name="personalDetailsHeaderLabel"></slot>
+            </section>
+            <section slot="emailHeader">
+                <slot name="emailHeaderLabel"></slot>
+            </section>
+            <section slot="phoneHeader">
+                <slot name="phoneHeaderLabel"></slot>
+            </section>
+            <section
+                slot="changePasswordButton"
+                data-automation="changePassword"
+                onclick={handleChangePasswordActionClick}>
+                <slot name="changePasswordButton"></slot>
+            </section>
+        </site-my-account-profile-ui>
+        <site-my-account-profile-editor
+            lwc:if={_isProfileEditState}
+            lwc:ref="profileEdit"
+            profile={profile}
+            edit-mode={_editMode}
+            header={_profileEditorHeader}
+            description={_profileEditorDescription}
+            first-name-label={_editFirstNameLabel}
+            last-name-label={_editLastNameLabel}
+            email-label={_editEmailLabel}
+            phone-label={_editPhoneLabel}
+            password-less-login-enabled={_isPasswordLessLoginEnabled}
+            onsaveprofile={handleSaveProfile}
+            onbacktoprofile={handleBackToProfile}
+            style={_profileCardCustomCssStyles}></site-my-account-profile-editor>
+        <site-my-account-profile-verification
+            lwc:if={_isProfileVerifyState}
+            lwc:ref="verify"
+            header={_verificationHeader}
+            description={_verificationDescription}
+            show-resend-code-button={_showResendCodeButton}
+            resend-wait-time-left={_resendWaitTimeLeft}
+            show-otp-spinner={_showOtpSpinner}
+            show-otp-error={_showOtpError}
+            otp-error-message={_otpErrorMessage}
+            onsubmitotp={handleSubmitOtp}
+            onresendotp={handleResendOtp}
+            style={_profileCardCustomCssStyles}></site-my-account-profile-verification>
+        <site-my-account-profile-verification
+            lwc:if={_isProfileAuthState}
+            lwc:ref="authenticate"
+            header={_authenticateHeaderLabel}
+            description={_authenticationDescription}
+            show-resend-code-button={_showResendCodeButton}
+            show-change-authentication-method-button={_showChangeAuthenticationMethodButton}
+            change-authentication-method-button-label={_changeAuthenticationMethodButtonLabel}
+            resend-wait-time-left={_resendWaitTimeLeft}
+            show-otp-spinner={_showOtpSpinner}
+            show-otp-error={_showOtpError}
+            otp-error-message={_otpErrorMessage}
+            onsubmitotp={handleSubmitOtp}
+            onresendotp={handleResendOtp}
+            onchangeauthenticationmethod={handleChangeAuthenticationMethodButton}
+            style={_profileCardCustomCssStyles}></site-my-account-profile-verification>
+    </template>
+</template>

@@ -1,0 +1,3 @@
+import missingPaymentMethodSetKeyTitle from '@salesforce/label/site.paymentAddPaymentMethods.missingPaymentMethodSetKeyTitle';
+import missingPaymentMethodSetKeyDescription from '@salesforce/label/site.paymentAddPaymentMethods.missingPaymentMethodSetKeyDescription';
+export { missingPaymentMethodSetKeyTitle, missingPaymentMethodSetKeyDescription };

@@ -1,0 +1,34 @@
+<template>
+    <lightning-modal-header
+        label={labels.headerText}
+        id={modalName}
+        class={modalName}></lightning-modal-header>
+    <lightning-modal-body>
+        <template lwc:if={hasSubscriptions}>
+            <div class="modal-body-content">
+                <site-subscription-card-list items={subscriptions}></site-subscription-card-list>
+            </div>
+        </template>
+        <template lwc:else>
+            <div class="modal-body-content">{labels.bodyText}</div>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div>
+            <button
+                class="slds-button slds-button_neutral"
+                onclick={handleCancel}
+                aria-label={labels.cancelLabel}
+                name="cancelButton">
+                {labels.cancelLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                onclick={handleConfirm}
+                aria-label={labels.confirmLabel}
+                name="confirmButton">
+                {labels.confirmLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+</template>

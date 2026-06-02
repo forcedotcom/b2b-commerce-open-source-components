@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTotals",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "spinnerText",
+      "value" : "Data Loading..."
+    }, {
+      "name" : "noDataAvailableText",
+      "value" : "No data to display."
+    } ]
+  },
+  "urlName" : "ordertotals"
+}

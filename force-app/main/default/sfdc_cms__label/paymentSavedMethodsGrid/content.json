@@ -1,0 +1,44 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentSavedMethodsGrid",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "DeleteActionFailed",
+      "value" : "Payment method '{0}' couldn’t be deleted. Contact your store admin."
+    }, {
+      "name" : "DeleteActionSucceed",
+      "value" : "Payment method '{0}' was deleted."
+    }, {
+      "name" : "DefaultActionFailed",
+      "value" : "Payment method '{0}' couldn’t make this method as default one. Contact your store admin."
+    }, {
+      "name" : "DefaultActionSucceed",
+      "value" : "Payment method '{0}' was made as default one."
+    }, {
+      "name" : "shareActionSucceed",
+      "value" : "Payment method '{0}' was shared."
+    }, {
+      "name" : "unshareActionSucceed",
+      "value" : "Shared access on payment method '{0}' was revoked."
+    }, {
+      "name" : "shareActionFailed",
+      "value" : "We couldn't share the payment '{0}'. Contact customer support for help."
+    }, {
+      "name" : "unshareActionFailed",
+      "value" : "We couldn't revoke the shared access on '{0}'. Contact customer support for help."
+    }, {
+      "name" : "missingPaymentMethodSetKeyTitle",
+      "value" : "Add a Payment Method Set"
+    }, {
+      "name" : "missingPaymentMethodSetKeyDescription",
+      "value" : "Group accepted payment methods that will be available to buyers during store checkout."
+    }, {
+      "name" : "defaultComponentErrorTitle",
+      "value" : "Salesforce Payments Error"
+    }, {
+      "name" : "defaultComponentErrorDescription",
+      "value" : "Please contact your administrator for additional details."
+    } ]
+  },
+  "urlName" : "paymentsavedmethodsgrid"
+}

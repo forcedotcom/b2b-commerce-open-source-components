@@ -1,0 +1,125 @@
+<template lwc:render-mode="light">
+    <div class="card slds-m-bottom_x-large slds-p-vertical_large">
+        <div
+            lwc:if={_showNonOtpContent}
+            class="slds-m-bottom_small slds-p-horizontal_large">
+            <p class="slds-text-heading_medium slds-m-bottom_small">{header}</p>
+            <p class="slds-text-body_small">{description}</p>
+        </div>
+        <div
+            lwc:ref="otpContainer"
+            class="slds-m-bottom_large otp-container"
+            role="group">
+            <input
+                lwc:ref="input"
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="1" />
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="2" />
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="3" />
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="4" />
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="5" />
+            <input
+                type="text"
+                inputmode="numeric"
+                maxlength="1"
+                oninput={handleInput}
+                onkeydown={handleKeyDown}
+                onpaste={handlePaste}
+                class="otp-input"
+                aria-label={_otpInputAriaLabel}
+                data-segment="6" />
+            <div
+                lwc:if={showOtpSpinner}
+                class="spinner-container slds-m-left_medium">
+                <div class="slds-spinner_container">
+                    <div
+                        role="status"
+                        class="slds-spinner slds-spinner_small slds-spinner_brand">
+                        <span class="slds-assistive-text">{_loaderAssistiveText}</span>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div
+            lwc:if={showOtpError}
+            class="slds-m-horizontal_large slds-m-vertical_small slds-text-color_error">
+            {otpErrorMessage}
+        </div>
+        <div class="slds-p-horizontal_large">
+            <site-common-field
+                lwc:if={_showNonOtpContent}
+                type="STRING"
+                value={_reCaptchaDisclaimer}></site-common-field>
+        </div>
+        <div
+            lwc:if={_showNonOtpContent}
+            class="action-container slds-p-horizontal_large">
+            <p
+                lwc:if={_showResendWaitMessage}
+                class="dxp-text-heading-x-small wait-text slds-m-top_medium">
+                {_resendWaitMessage}
+            </p>
+            <site-common-button-ui
+                lwc:if={showResendCodeButton}
+                data-automation="resend"
+                onclick={handleResendActionClick}
+                class="button-width"
+                variant="tertiary">
+                {_resendCodeButtonLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:if={showChangeAuthenticationMethodButton}
+                data-automation="changeauthenticationmethod"
+                class="button-width"
+                onclick={handleChangeAuthenticationMethodButtonClick}
+                variant="tertiary">
+                {changeAuthenticationMethodButtonLabel}
+            </site-common-button-ui>
+        </div>
+    </div>
+</template>

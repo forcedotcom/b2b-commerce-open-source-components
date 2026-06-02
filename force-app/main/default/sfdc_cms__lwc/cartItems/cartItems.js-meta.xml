@@ -28,7 +28,7 @@
       <property name="showProductVariants" type="Boolean" default="true" label="Show product variants"></property>
       <property name="showCountInName" type="Boolean" default="false" label="Show quantity next to product name"></property>
       <property name="removeProductLinks" type="Boolean" default="false" label="Remove product page links" description="By default, product names and images link to corresponding product pages."></property>
-      <property name="productFieldMapping" type="String" translatable="true" label="Fields" description="Select the fields to show with each product."></property>
+      <property name="productFieldMapping" type="ProductFieldMapping" translatable="true" label="Fields" description="Select the fields to show with each product."></property>
       <property name="productDescriptionFontColor" type="Color"></property>
       <property name="productDetailsPillFontColor" type="Color" label="Product Details Pill Text Color"></property>
       <property name="productDetailsPillFontSize" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource" label="Product Details Pill Text Size"></property>

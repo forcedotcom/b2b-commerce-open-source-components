@@ -15,6 +15,8 @@ export default class SearchPagingControl extends LightningElement {
   totalItemCount;
   @api
   maximumPagesDisplayed;
+  @api
+  paginationType;
   label = {
     previous,
     next

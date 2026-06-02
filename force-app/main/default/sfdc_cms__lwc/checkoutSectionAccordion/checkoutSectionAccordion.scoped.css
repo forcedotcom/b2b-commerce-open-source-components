@@ -1,0 +1,117 @@
+:host {
+    position: relative;
+    display: block;
+    --dxp-s-button-font-size: 1rem;
+}
+
+.is-collapsed div[data-automation='content'],
+.is-collapsed div[data-automation='proceed'] {
+    display: none;
+}
+.is-expanded div[data-automation='content'],
+.is-expanded div[data-automation='proceed'] {
+    display: block;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 2rem;
+}
+
+header > .title {
+    min-width: 10rem;
+}
+
+.collapsed-title,
+.summary-title {
+    display: none;
+}
+
+.a11y-legend {
+    position: absolute;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+fieldset {
+    min-width: 0;
+}
+
+/**
+.separators class is used for theme2+
+ */
+fieldset.separators {
+    padding: var(--dxp-g-spacing-medium) 0;
+    border-bottom-color: var(--com-c-checkout-section-accordion-separators-border-bottom-color, #707275);
+    border-bottom-width: var(--com-c-checkout-section-accordion-separators-border-bottom-width, 1px);
+    border-bottom-style: var(--com-c-checkout-section-accordion-separators-border-bottom-style, solid);
+}
+
+fieldset.separators.summary {
+    border-color: var(--com-c-checkout-section-accordion-separators-summary-border-color, #707275);
+    border-width: var(--com-c-checkout-section-accordion-separators-summary-border-width, 1px);
+    border-style: var(---com-c-checkout-section-accordion-separators-summary-border-style, solid);
+    border-radius: var(--com-c-checkout-section-accordion-separators-summary-border-radius, 0.25rem);
+    padding: var(--dxp-g-spacing-large);
+    margin-top: var(--dxp-g-spacing-medium);
+}
+
+/* for summary "change" slds-button padding-top needs to be 0 rather than 10px */
+fieldset.separators.summary header {
+    --slds-c-button-spacing-block-start: 0;
+    --sds-c-button-spacing-block-start: 0;
+}
+
+/*
+Edit section title is bold
+Summary section title is small no bold
+Collapsed section title is lighter no bold
+ */
+
+fieldset.collapsed header > .title,
+fieldset.summary header > .title {
+    display: none;
+    padding-bottom: var(--dxp-g-spacing-small, 0.75rem);
+}
+
+div[data-automation='title'] {
+    font-weight: var(--dxp-c-strong-text-weight);
+}
+
+div[data-automation='title'].title {
+    padding-bottom: var(--dxp-g-spacing-medium, 1rem);
+}
+
+fieldset.separators div[data-automation='edit'] {
+    font-size: var(--dxp-g-font-size-5, 1rem);
+    font-weight: var(--dxp-c-strong-text-weight);
+    line-height: var(--dxp-c-title-line-height);
+}
+
+fieldset.separators.summary {
+    font-size: var(--dxp-g-font-size-5);
+}
+
+fieldset.summary header > .summary-title {
+    display: inline-block;
+    font-size: var(--dxp-g-font-size-5, 1rem);
+    font-weight: var(--dxp-c-strong-text-weight);
+    line-height: var(--dxp-c-title-line-height);
+}
+
+fieldset.collapsed header > .collapsed-title {
+    display: inline-block;
+    font-size: var(--dxp-g-font-size-7);
+    color: var(--com-c-label-text-color, #707275);
+}
+
+.cart-spinner {
+    position: fixed;
+}
+
+.cart-spinner.slds-spinner_container {
+    background-color: #1c1c1c20;
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Summary</masterLabel>
+  <description>Displays a summary of an order, including order fields, products, and reorder action.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="order" label="Expression" type="String" default="{!OrderSummary}"></property>
+      <property name="viewDetailsLinkLabel" label="View Details Link Text" type="String" default="View Details" translatable="true"></property>
+      <property name="showReorderButton" label="Show reorder button" type="Boolean" default="true"></property>
+      <property name="reorderButtonLabel" label="Reorder Button Text" type="String" default="Start Reorder" translatable="true"></property>
+      <property name="orderSummaryFieldMapping" label="Fields" type="String" default="[]" translatable="true" description="Select the fields to show on the order summary card."></property>
+      <property name="headerBgColor" label="Header Background Color" type="Color" default="#F7F9FA"></property>
+      <property name="borderColor" label="Border Color" type="Color" default="#ecebea"></property>
+      <property name="imageSize" label="Image Size" type="String" default="contain" datasource="cover,contain"></property>
+      <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="order"></designLayoutProperty>
+            <designLayoutProperty name="borderColor"></designLayoutProperty>
+            <designLayoutProperty name="headerBgColor"></designLayoutProperty>
+            <designLayoutProperty name="viewDetailsLinkLabel"></designLayoutProperty>
+            <designLayoutProperty name="showReorderButton"></designLayoutProperty>
+            <designLayoutProperty name="reorderButtonLabel" cbVisibleIf="showReorderButton"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
+            <designLayoutProperty name="imageSize"></designLayoutProperty>
+            <designLayoutProperty name="orderSummaryFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

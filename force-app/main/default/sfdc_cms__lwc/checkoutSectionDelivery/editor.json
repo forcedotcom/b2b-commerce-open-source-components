@@ -1,0 +1,69 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutSectionDelivery",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Shipping Method",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Change",
+                                    "variant": "tertiary",
+                                    "alignment": "right"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutDeliverymethod",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "proceed",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue to Payment",
+                                    "buttonBorderRadius": "4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>My Profile</masterLabel>
+  <description>Displays the customer&apos;s profile details, allowing the customer to edit and verify their personal details, email
+        address, and phone number.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="profile" label="My Profile Expression" type="String" default="{!MyProfile.Details}"></property>
+      <property name="clientState" label="My Profile Data Provider Client State Expression" type="String" default="{!MyProfile.ClientState}"></property>
+      <property name="errors" label="Errors" type="String" default="{!MyProfile.errors}"></property>
+      <property name="profileCardBorderColor" label="Profile Card Border Color" type="Color" default="#D9DFE7"></property>
+      <property name="profileCardBorderRadius" label="Profile Card Border Radius" type="Integer" min="0" max="20" default="4"></property>
+      <property name="firstNameLabel" label="First Name Label" type="String" default="First Name" translatable="true"></property>
+      <property name="lastNameLabel" label="Last Name Label" type="String" default="Last Name" translatable="true"></property>
+      <property name="emailLabel" label="Email Label" type="String" default="Email Address" translatable="true"></property>
+      <property name="phoneLabel" label="Phone Label" type="String" default="Phone Number" translatable="true"></property>
+      <property name="showPhoneDetails" label="Show Phone Details" type="Boolean" default="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="profile"></designLayoutProperty>
+            <designLayoutProperty name="clientState"></designLayoutProperty>
+            <designLayoutProperty name="profileCardBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="profileCardBorderRadius"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Personal Details">
+          <designLayoutItems>
+            <designLayoutProperty name="firstNameLabel"></designLayoutProperty>
+            <designLayoutProperty name="lastNameLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Email Details">
+          <designLayoutItems>
+            <designLayoutProperty name="emailLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Phone Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showPhoneDetails"></designLayoutProperty>
+            <designLayoutProperty name="phoneLabel" cbVisibleIf="showPhoneDetails"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

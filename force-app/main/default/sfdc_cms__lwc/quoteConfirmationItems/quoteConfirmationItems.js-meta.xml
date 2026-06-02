@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Quote Confirmation Items</masterLabel>
+  <description>Displays the line items included in a quote confirmation.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="items" type="String" label="Items" default="{!QuoteDetail.LineItems}"></property>
+      <property name="currencyIsoCode" type="String" label="Currency ISO Code" default="{!QuoteDetail.fields.CurrencyIsoCode.text}"></property>
+      <property name="totalPrice" type="String" label="Total Price" default="{!QuoteDetail.fields.TotalPrice.text}"></property>
+      <property name="pageSize" type="Integer" min="0" default="10" label="Page Size"></property>
+      <property name="productFieldMapping" type="QuoteConfirmationItemsFieldMapping" translatable="true" label="Product Field Mapping"></property>
+      <property name="showProductImage" type="Boolean" default="true" label="Show Product Image"></property>
+      <property name="removeProductLinks" type="Boolean" default="true" label="Remove Product Links" description="By default, product names and images link to corresponding product pages."></property>
+      <property name="imageAspectRatio" type="String" default="1" label="Image Aspect Ratio"></property>
+      <property name="imageSize" type="String" default="contain" datasource="cover,contain" label="Image Fit"></property>
+      <property name="productDetailsPillFontColor" type="Color" label="Product Details Pill Text Color"></property>
+      <property name="productDetailsPillFontSize" type="String" default="small" datasource="x-small,small,medium,large" label="Product Details Pill Text Size"></property>
+      <property name="productDetailsPillBackgroundColor" type="Color" default="rgb(217, 223, 231)" label="Product Details Pill Background Color"></property>
+      <property name="productDetailsPillBorderColor" type="Color" default="rgb(217, 223, 231)" label="Product Details Pill Border Color"></property>
+      <property name="productDetailsPillBorderRadius" type="Integer" min="0" max="50" default="8" label="Product Details Pill Border Radius (0px - 50px)" description="A value of 0 will follow the regular button theme border radius setting."></property>
+      <property name="showViewBundleDetail" type="Boolean" default="false" label="Show View Bundle Detail"></property>
+      <property name="viewBundleDetailLabel" type="String" translatable="true" label="View Bundle Detail Label"></property>
+      <property name="productUnavailableMessage" translatable="true" type="String" default="(Not Available)" label="Product Unavailable Message"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="items"></designLayoutProperty>
+            <designLayoutProperty name="currencyIsoCode"></designLayoutProperty>
+            <designLayoutProperty name="totalPrice"></designLayoutProperty>
+            <designLayoutProperty name="pageSize"></designLayoutProperty>
+            <designLayoutProperty name="productUnavailableMessage"></designLayoutProperty>
+            <designLayoutProperty name="productFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Image">
+          <designLayoutItems>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+            <designLayoutProperty name="imageSize" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Details Pill">
+          <designLayoutItems>
+            <designLayoutProperty name="productDetailsPillFontColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillFontSize"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="productDetailsPillBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="removeProductLinks"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Bundle Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showViewBundleDetail"></designLayoutProperty>
+            <designLayoutProperty name="viewBundleDetailLabel" cbVisibleIf="showViewBundleDetail=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

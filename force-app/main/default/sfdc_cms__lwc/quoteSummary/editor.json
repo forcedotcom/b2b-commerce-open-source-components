@@ -1,0 +1,43 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:quoteSummary",
+                "type": "component",
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "Quote Number: ",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "quoteNumberLabel",
+                        "title": "Quote Number Label",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "{!QuoteSummary.quoteNumber}",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\"}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "quoteNumber",
+                        "title": "Quote Number",
+                        "type": "region"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <div class="address-footer-style">
+        <button
+            aria-label={ariaEditLabel}
+            class="slds-button address-footer-button-style"
+            disabled={disable}
+            data-edit-address
+            lwc:ref="editAddressButton"
+            onclick={handleEditAddressClick}>
+            {editLabel}
+        </button>
+        <button
+            aria-label={ariaDeleteLabel}
+            class="slds-button address-footer-button-style"
+            disabled={disable}
+            data-delete-address
+            onclick={handleDeleteAddressClick}>
+            {deleteLabel}
+        </button>
+    </div>
+</template>

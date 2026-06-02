@@ -1,0 +1,25 @@
+<template lwc:render-mode="light">
+    <div class="header-container">
+        <div class="slds-align_absolute-center slds-p-around_small">
+            <h3 class="slds-text-heading_large">{headerText}</h3>
+        </div>
+    </div>
+
+    <div class="menu-container slds-p-top_small">
+        <div class="menu">
+            <experience-carousel-v2
+                items={carouselItems}
+                layout="reel"
+                onshowproduct={handleProductClick}>
+                <template
+                    slot="sfdcRepeaterItem"
+                    lwc:slot-data="item">
+                    <site-search-product-card
+                        display-data={item.data}
+                        data-id={item.data.id}
+                        configuration={config}></site-search-product-card>
+                </template>
+            </experience-carousel-v2>
+        </div>
+    </div>
+</template>

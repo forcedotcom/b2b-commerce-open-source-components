@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartSplitshipmentItemsUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "digitalGoodsScopedNotificationLabel",
+      "value" : "Digital orders don't display on the split shipping page, but they're still in your cart and will display again at checkout."
+    } ]
+  },
+  "urlName" : "cartsplitshipmentitemsui"
+}

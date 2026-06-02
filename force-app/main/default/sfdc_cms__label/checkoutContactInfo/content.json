@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutContactInfo",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "emailMessageWhenPatternMismatch",
+      "value" : "Please enter a valid email address: e.g. user@example.com"
+    }, {
+      "name" : "reCaptchaDisclaimer",
+      "value" : "This site is protected by reCAPTCHA and the Google &lt;b&gt;&lt;a href=&quot;{0}&quot;&gt;Privacy Policy&lt;/a&gt;&lt;/b&gt; and &lt;b&gt;&lt;a href=&quot;{1}&quot;&gt;Terms of Service&lt;/a&gt;&lt;/b&gt; apply."
+    } ]
+  },
+  "urlName" : "checkoutcontactinfo"
+}

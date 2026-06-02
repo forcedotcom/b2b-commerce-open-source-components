@@ -1,0 +1,47 @@
+<template>
+    <lightning-modal-header label={titleText}></lightning-modal-header>
+    <lightning-modal-body>
+        <template lwc:if={_isNotLoading}>
+            <div class="quote-to-cart-modal-body slds-p-around_medium">
+                <p class="description-text slds-m-bottom_medium">{descriptionLabel}</p>
+                <div class="info-box slds-m-bottom_medium">
+                    <span class="slds-assistive-text">Info</span>
+                    <lightning-icon
+                        icon-name="utility:info"
+                        alternative-text="Information"
+                        size="small"
+                        class="slds-m-right_small"></lightning-icon>
+                    <span class="info-box-text">{infoText}</span>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <div class="slds-p-vertical_x-large slds-align_absolute-center">
+                <lightning-spinner
+                    alternative-text="Loading"
+                    size="medium"
+                    variant="brand"></lightning-spinner>
+            </div>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div>
+            <div class="slds-grid slds-grid_align-end">
+                <button
+                    onclick={handleCloseClick}
+                    name="cancelButton"
+                    class="slds-button slds-button_neutral slds-m-right_small"
+                    disabled={_isLoading}>
+                    {cancelButtonLabel}
+                </button>
+                <button
+                    onclick={handleConfirmClick}
+                    name="confirmButton"
+                    class="slds-button slds-button_brand"
+                    disabled={_isLoading}>
+                    {sendRequestButtonLabel}
+                </button>
+            </div>
+        </div>
+    </lightning-modal-footer>
+</template>

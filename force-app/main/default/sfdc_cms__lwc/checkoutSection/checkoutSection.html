@@ -1,0 +1,47 @@
+<template lwc:render-mode="light">
+    <section
+        data-checkout-section
+        class={customClasses}
+        style={customStyles}>
+        <template lwc:if={_isAccordion}>
+            <site-checkout-section-accordion
+                expanded-mode={expandedMode}
+                a11y-title={a11yTitle}
+                proceed-button-alignment={proceedButtonAlignment}>
+                <div
+                    slot="title"
+                    data-automation="title"
+                    class="title">
+                    <slot name="title"></slot>
+                </div>
+                <div
+                    slot="edit"
+                    class="edit">
+                    <slot name="edit"></slot>
+                </div>
+                <div slot="content">
+                    <slot name="content"></slot>
+                </div>
+                <div slot="proceed">
+                    <slot name="proceed"></slot>
+                </div>
+            </site-checkout-section-accordion>
+        </template>
+
+        <template lwc:if={_isOnePage}>
+            <site-checkout-section-one-page
+                expanded-mode={expandedMode}
+                a11y-title={a11yTitle}>
+                <div slot="title">
+                    <slot name="title"></slot>
+                </div>
+                <div slot="edit">
+                    <slot name="edit"></slot>
+                </div>
+                <div slot="content">
+                    <slot name="content"></slot>
+                </div>
+            </site-checkout-section-one-page>
+        </template>
+    </section>
+</template>

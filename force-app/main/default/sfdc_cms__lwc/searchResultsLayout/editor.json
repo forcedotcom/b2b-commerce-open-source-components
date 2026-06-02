@@ -1,0 +1,144 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:searchResultsLayout",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "categoryHeader",
+                        "title": "Category Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!Route.term}",
+                                    "textDisplayInfo": "{\"headingTag\": \"h1\", \"textStyle\": \"heading-xlarge\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "searchHeader",
+                        "title": "Results Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!Search.Results.description}",
+                                    "textAlign": "left",
+                                    "paddingHorizontal": "none",
+                                    "paddingVertical": "small",
+                                    "textDisplayInfo": "{\"headingTag\": \"h4\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "sortingMenu",
+                        "title": "Sorting Menu",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:searchSortMenu",
+                                "type": "component",
+                                "attributes": {
+                                    "sortRules": "{!Search.SortRules.rules}",
+                                    "sortRuleId": "{!Search.SortRules.currentSortRuleId}"
+                                },
+                                "children": [
+                                    {
+                                        "name": "sortMenuLabel",
+                                        "title": "Sort Menu Label",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "{!Label.B2B_Search_Results.sortBy}",
+                                                    "textAlign": "right",
+                                                    "paddingHorizontal": "none",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "searchResult",
+                        "title": "Results",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:searchResultsGrid",
+                                "type": "component",
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__expressionDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "Item",
+                                        "attributes": {
+                                            "listSource": "{!Search.Results.cardCollection}"
+                                        }
+                                    }
+                                ],
+                                "attributes": {
+                                    "searchResults": "{!Search.Results}",
+                                    "total": "{!Search.Results.total}",
+                                    "pageSize": "{!Search.Results.pageSize}",
+                                    "currentPage": "{!Search.Pagination.currentPage}",
+                                    "searchResultsLoading": "{!Search.ClientState.loading}",
+                                    "resultNavigationType": "slidingWindow"
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:productCard",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "item": "{!Item}",
+                                                    "cardLayout": "grid"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "searchFilters",
+                        "title": "Filters",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:searchFilters",
+                                "type": "component",
+                                "attributes": {
+                                    "searchResults": "{!Search.Results}",
+                                    "searchTerm": "{!Route.term}",
+                                    "showFilters": "{!Search.ClientState.showFilters}",
+                                    "sortRules": "{!Search.SortRules.rules}",
+                                    "sortRuleId": "{!Search.SortRules.currentSortRuleId}",
+                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

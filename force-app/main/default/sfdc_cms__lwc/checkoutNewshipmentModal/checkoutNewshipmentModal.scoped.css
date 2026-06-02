@@ -1,0 +1,30 @@
+.footer {
+    display: flex;
+    justify-content: flex-end;
+    background: var(--Foundation-Gray-Neutral-95, #f3f3f3);
+}
+site-common-button-ui {
+    margin-right: 0.681rem;
+}
+@media only screen and (max-width: 30em) {
+    .footer {
+        display: block;
+        margin-left: 10.9px;
+        background: none;
+    }
+}
+.solid {
+    margin: var(--dxp-g-spacing-xxlarge) 0 0 0;
+}
+div:has(+ .body-contents) {
+    overflow: visible;
+}
+.dropdown-item {
+    padding: 0rem var(--dxp-g-spacing-xxlarge) var(--dxp-g-spacing-xxlarge) var(--dxp-g-spacing-xxlarge);
+}
+.body-contents {
+    margin: -1rem;
+}
+.body-heading {
+    font-size: var(--dxp-g-font-size-6);
+}

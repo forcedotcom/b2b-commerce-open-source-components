@@ -1,0 +1,25 @@
+ul {
+    border-width: var(--sds-c-accordion-sizing-border);
+    border-style: solid;
+    border-color: var(--dxp-g-neutral);
+    border-radius: var(--dxp-s-form-border-radius, 0.25rem);
+}
+.button-container {
+    margin-bottom: var(--dxp-g-spacing-medium);
+}
+.button-container button {
+    display: block;
+}
+.button-container button svg {
+    fill: var(--dxp-g-root-3);
+}
+.button-container button.active svg {
+    fill: var(--dxp-g-root);
+}
+.billing-address-heading {
+    font-size: var(--dxp-s-text-heading-medium-font-size, 1.25rem);
+    font-weight: bold;
+    padding-top: var(--dxp-g-spacing-medium);
+    padding-bottom: var(--dxp-g-spacing-medium);
+    text-align: left;
+}

@@ -1,0 +1,38 @@
+<template lwc:render-mode="light">
+    <site-common-scoped-notification
+        lwc:if={hasDigitalProducts}
+        type="info"
+        body-text={digitalGoodsScopedNotification}
+        class="slds-p-vertical_x-small"></site-common-scoped-notification>
+    <ul>
+        <template
+            lwc:if={products}
+            for:each={products}
+            for:item="product">
+            <li key={product.productDetails.productId}>
+                <site-cart-splitshipment-item-ui
+                    product={product}
+                    delivery-groups={deliveryGroups}
+                    currency-iso-code={currencyIsoCode}
+                    show-sku={showSku}
+                    sku-label={skuLabel}
+                    show-product-image={showProductImage}
+                    show-product-variants={showProductVariants}
+                    minimum-value-guide-text={minimumValueGuideText}
+                    maximum-value-guide-text={maximumValueGuideText}
+                    increment-value-guide-text={incrementValueGuideText}
+                    raw-internationalization-data={rawInternationalizationData}
+                    show-empty-split-shipment-modal={showEmptySplitShipmentModal}></site-cart-splitshipment-item-ui>
+            </li>
+        </template>
+    </ul>
+    <site-search-paging-control
+        class="slds-p-top_x-large slds-p-bottom_medium"
+        current-page-number={currentPageNumber}
+        page-size={pageSize}
+        maximum-pages-displayed={pagesDisplayed}
+        total-item-count={totalItemCount}
+        onpagegoto={handleGotoPageEvent}
+        onpageprevious={handlePreviousPageEvent}
+        onpagenext={handleNextPageEvent}></site-search-paging-control>
+</template>

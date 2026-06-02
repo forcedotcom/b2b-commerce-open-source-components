@@ -1,0 +1,129 @@
+<template lwc:render-mode="light">
+    <div
+        class="search-bar"
+        style={customStyles}>
+        <div class="slds-input slds-input-has-icon search-input-container">
+            <svg
+                tabindex="-1"
+                aria-hidden="true"
+                class="slds-input__icon">
+                <use href={searchIconPath}></use>
+            </svg>
+            <input
+                part="searchInput"
+                lwc:ref="searchInput"
+                data-automation="searchInput"
+                type="search"
+                class="slds-input"
+                placeholder={placeholderText}
+                aria-label={ariaSearchInputLabel}
+                value={inputSearchTerm}
+                onkeyup={handleKeyUp}
+                onkeydown={handleKeyDown}
+                onfocus={handleFocus}
+                oninput={handleChangeTerm}
+                onclick={handleInputClick} />
+            <button
+                lwc:if={isActive}
+                data-automation="clearButton"
+                class="clear slds-truncate"
+                type="button"
+                onclick={handleClear}
+                aria-label={ariaClearButtonLabel}>
+                {clearButtonLabel}
+            </button>
+            <div
+                class="search-spinner"
+                lwc:if={isLoadingSearchSuggestions}>
+                <lightning-spinner
+                    alternative-text={alternativeSearchInputSpinnerText}
+                    size="small"></lightning-spinner>
+            </div>
+        </div>
+        <div
+            class="search-suggestions"
+            data-automation="searchSuggestionsContainer"
+            lwc:if={isSearchSuggestionsVisible}>
+            <site-search-suggestions-ui
+                lwc:ref="searchSuggestions"
+                show-stencils={isLoadingSearchSuggestions}
+                term={searchSuggestionsWiredTerm}
+                match-type="fuzzy"
+                highlight-type="nonmatching"
+                onsuggestionsfocusoutend={handleSuggestionsFocusOutEnd}
+                onsuggestionsfocusoutstart={handleSuggestionsFocusOutStart}
+                onsuggestionfocus={handleSuggestionFocus}
+                onsuggestionselect={handleSuggestionSelect}
+                onfocusout={handleSuggestionsFocusOut}
+                suggestions={searchSuggestionsData}
+                suggested-products={productSuggestionsData}
+                product-suggestions-header={normalizedProductSuggestionsHeader}>
+                <template
+                    slot="header"
+                    lwc:slot-data="category">
+                    <div class="suggestions-header">{normalizedSearchSuggestionsHeader}</div>
+                </template>
+                <template
+                    lwc:slot-data="item"
+                    slot="resultItemStart">
+                    <svg
+                        aria-hidden="true"
+                        class="slds-icon_x-small suggestions-result-start">
+                        <use href={searchIconPath}></use>
+                    </svg>
+                </template>
+                <template
+                    lwc:slot-data="item"
+                    slot="resultItemEnd">
+                    <svg
+                        onclick={handleResultItemEndClick}
+                        onkeyup={handleResultItemEndKeyUp}
+                        onfocus={handleResultItemEndFocus}
+                        data-value={item.value}
+                        tabindex="0"
+                        aria-hidden="true"
+                        role="button"
+                        aria-label={item.value}
+                        data-automation="searchSuggestionsResultEnd"
+                        class="slds-icon_xx-small suggestions-result-end">
+                        <use href={suggestionsEndIconPath}></use>
+                    </svg>
+                </template>
+                <template
+                    lwc:slot-data="category"
+                    slot="categoryEnd">
+                    <button
+                        onclick={handleSuggestedAllResultsClick}
+                        lwc:if={category.isSuggestedSearch}
+                        lwc:ref="suggestionsSeeAllResults"
+                        onkeydown={handleCategoryEndKeyDown}
+                        onfocus={handleCategoryEndFocus}
+                        data-automation="searchSuggestionsAllResults"
+                        class="suggestions-result-list-end">
+                        <span
+                            for:each={seeAllResultsLabelParts}
+                            for:item="part"
+                            key={part.text}
+                            class={part.classes}>
+                            {part.text}
+                        </span>
+                    </button>
+                </template>
+            </site-search-suggestions-ui>
+        </div>
+    </div>
+
+    <button
+        class="search-icon"
+        data-automation="searchIcon"
+        onclick={handleSearchIconClick}
+        part="searchIcon">
+        <svg
+            tabindex="-1"
+            aria-hidden="true"
+            class="slds-icon_small">
+            <use href={searchIconPath}></use>
+        </svg>
+        <span class="slds-assistive-text">{ariaSearchIconLabel}</span>
+    </button>
+</template>

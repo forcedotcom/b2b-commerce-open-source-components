@@ -1,0 +1,64 @@
+<template lwc:render-mode="light">
+    <site-common-scoped-notification
+        type={_notificationType}
+        body-text={_notificationMessage}></site-common-scoped-notification>
+    <template if:true={showNoPaymentMethodSetMessage}>
+        <div class="slds-grid slds-grid_vertical slds-align_absolute-center builderEmptyState">
+            <div class="slds-col">
+                <img
+                    src="/sfsites/assets/proto/emptystate.svg"
+                    alt={emptyMessageTitle} />
+            </div>
+            <div class="slds-col">
+                <p class="emptyStateTitle">{_emptyStateTitle}</p>
+            </div>
+            <div class="slds-col">
+                <p class="emptyStateDescription">{_emptyStateDescription}</p>
+            </div>
+        </div>
+    </template>
+    <template if:true={showCardsGrid}>
+        <site-payment-saved-methods-grid-ui
+            records-data={recordsData}
+            has-access={hasAccess}
+            saved-payment-methods={savedPaymentMethods}
+            items-per-page={itemsPerPage}
+            has-next-page={hasNextPage}
+            payment-method-set={paymentMethodSet}
+            effective-account-id={effectiveAccountId}
+            disable-actions={showAllStates}
+            item-spacing={itemSpacing}
+            empty-message-title={emptyMessageTitle}
+            card-default-badge-color={cardDefaultBadgeColor}
+            card-default-border-radius={cardDefaultBorderRadius}
+            card-default-label={cardDefaultLabel}
+            card-expired-badge-color={cardExpiredBadgeColor}
+            card-expired-border-radius={cardExpiredBorderRadius}
+            card-expired-label={cardExpiredLabel}
+            expires-on-label={expiresOnLabel}
+            footer-delete-label={footerDeleteLabel}
+            footer-default-label={footerDefaultLabel}
+            show-more-button-label={showMoreButtonLabel}
+            show-more-button-size={showMoreButtonSize}
+            show-more-button-width={showMoreButtonWidth}
+            show-more-button-align={showMoreButtonAlign}
+            show-more-button-style={showMoreButtonStyle}
+            sepa-debit-mandate={sepaDebitMandate}
+            header-label={headerLabel}
+            display-add-button={displayAddButton}
+            add-button-label={addButtonLabel}
+            user-account-id={effectiveAccountId}
+            default-country={_defaultCountry}
+            raw-internationalization-data={_rawInternationalizationData}
+            user-email={_userEmail}
+            onshowmoresavedpaymentmethods={handleShowMoreItems}
+            onspmadded={handleNewSPMAdded}
+            billing-details={billingDetails}
+            prefer-legacy-forms={preferLegacyForms}
+            disable-save={disableSave}></site-payment-saved-methods-grid-ui>
+    </template>
+    <lightning-spinner
+        class="loading-spinner"
+        if:true={showPageSpinner}
+        size="large"></lightning-spinner>
+</template>

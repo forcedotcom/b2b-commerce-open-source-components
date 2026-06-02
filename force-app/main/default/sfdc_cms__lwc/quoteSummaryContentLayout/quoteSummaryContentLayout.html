@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <div class="quote-summary-content-layout">
+        <site-quote-summary-error-message
+            if:true={showError}
+            error-heading-text={errorComponentHeadingText}
+            error-sub-heading-text={errorComponentSubHeadingText}
+            error-button-text={errorComponentButtonText}></site-quote-summary-error-message>
+        <div
+            if:true={showContent}
+            class="content">
+            <slot name="content"></slot>
+        </div>
+        <div
+            if:true={showLoader}
+            class="slds-align_absolute-center">
+            <lightning-spinner
+                alternative-text={labels.spinnerAltText}
+                size="large"
+                variant="brand"></lightning-spinner>
+        </div>
+    </div>
+</template>

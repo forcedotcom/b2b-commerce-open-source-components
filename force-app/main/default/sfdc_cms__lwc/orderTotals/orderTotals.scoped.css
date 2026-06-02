@@ -1,0 +1,22 @@
+.field-item {
+    flex: auto;
+    font-size: var(--com-c-order-totals-font-size, var(--dxp-g-font-size-3));
+}
+.field-item lightning-formatted-rich-text,
+.field-item site-common-field {
+    text-decoration: var(--com-c-order-totals-text-decoration);
+}
+.spinner-container {
+    width: 5rem;
+    height: 5rem;
+}
+.totals-card {
+    background-color: var(--com-c-order-totals-background-color, var(--dxp-g-root));
+    color: var(--com-c-order-totals-text-color, var(--dxp-g-root-contrast));
+    border-color: var(--com-c-order-totals-border-color, var(--dxp-s-form-element-color-border));
+    border-radius: var(--com-c-order-totals-border-radius, 0px);
+    word-break: break-word;
+}
+.totals-card header {
+    margin: 0;
+}

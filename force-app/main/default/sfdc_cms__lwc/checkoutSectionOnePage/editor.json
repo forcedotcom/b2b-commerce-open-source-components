@@ -1,0 +1,39 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutSectionOnePage",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Title",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": []
+                    },
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": []
+                    }
+                ]
+            }
+        }
+    ]
+}

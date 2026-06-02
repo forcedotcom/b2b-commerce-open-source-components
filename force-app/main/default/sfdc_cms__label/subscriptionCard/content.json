@@ -1,0 +1,65 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "cancelStatusInProgressText",
+      "value" : "Canceling..."
+    }, {
+      "name" : "cancelStatusSuccessMainText",
+      "value" : "Canceled"
+    }, {
+      "name" : "cancelStatusSuccessSupportText",
+      "value" : "Your subscription will end on {endDate}."
+    }, {
+      "name" : "cancelStatusFailedMainText",
+      "value" : "We couldn't cancel your subscription."
+    }, {
+      "name" : "cancelStatusFailedSupportText",
+      "value" : "Try again. If the problem persists, contact support."
+    }, {
+      "name" : "expiringInNDaysPillText",
+      "value" : "Expires in {0} days"
+    }, {
+      "name" : "expiringIn1DayPillText",
+      "value" : "Expires in 1 day"
+    }, {
+      "name" : "expiringTodayPillText",
+      "value" : "Expires today"
+    }, {
+      "name" : "month",
+      "value" : "Month"
+    }, {
+      "name" : "year",
+      "value" : "Year"
+    }, {
+      "name" : "perBillingTermUnit",
+      "value" : "/{billingTermUnit}"
+    }, {
+      "name" : "paymentMethodsLoadError",
+      "value" : "We couldn't retrieve your saved payment methods. Refresh the page, and if the issue persists, contact support."
+    }, {
+      "name" : "paymentMethodAddNew",
+      "value" : "Add Payment Method"
+    }, {
+      "name" : "updatePaymentText",
+      "value" : "Select Payment Method"
+    }, {
+      "name" : "savedPaymentMethodDeletedText",
+      "value" : "Payment method was deleted. To ensure your subscription is not interrupted, update payment method."
+    }, {
+      "name" : "paymentFailureText",
+      "value" : "Payment failed. To ensure your subscription is not interrupted, contact support."
+    }, {
+      "name" : "subscriptionBundleExpandedLabel",
+      "value" : "Subscriptions in Bundle ({0})"
+    }, {
+      "name" : "childSubscriptionsLoadError",
+      "value" : "We couldn't load the bundled subscriptions. Refresh the page."
+    }, {
+      "name" : "childSubscriptionQuantityLabel",
+      "value" : "Quantity"
+    } ]
+  },
+  "urlName" : "subscriptioncard"
+}

@@ -1,0 +1,63 @@
+<template lwc:render-mode="light">
+    <div class="slds-grid container slds-wrap">
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_3-of-4 slds-large-size_3-of-4 slds-order_1">
+            <site-cart-item-dropdown
+                item-type={_itemType}
+                item-list={deliveryGroups}
+                onvaluechange={handleDeliveryGroupChanged}
+                raw-internationalization-data={rawInternationalizationData}
+                selected-item-id={deliveryGroupId}
+                cart-item-id={cartItemId}></site-cart-item-dropdown>
+
+            <site-common-button-ui
+                variant="tertiary"
+                width="stretch"
+                alignment="left"
+                assistive-text={labels.additionalAddressSplitItemText}
+                lwc:if={isSplittable}
+                onclick={handleSplitCartItem}>
+                {labels.additionalAddressSplitItemText}
+            </site-common-button-ui>
+
+            <div
+                lwc:if={showIncreaseQuantityInfoLabel}
+                class="info-padding">
+                <lightning-icon
+                    icon-name="utility:info"
+                    size="xx-small"
+                    class="icon slds-current-color"></lightning-icon>
+                <lightning-formatted-rich-text
+                    data-test-id="quantity-split-shipping-text"
+                    value={labels.increaseQuantitySplitShipText}></lightning-formatted-rich-text>
+            </div>
+        </div>
+
+        <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4 slds-large-size_1-of-4 slds-order_2">
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-1 slds-large-size_1-of-1 quantity-button">
+                    <site-common-quantity-selector
+                        onvaluechanged={handleQtyChanged}
+                        value={quantity}
+                        disabled={disableQuantitySelector}
+                        hide-label></site-common-quantity-selector>
+                </div>
+                <div class="slds-col slds-size_1-of-2 slds-medium-size_1-of-1 slds-large-size_1-of-1 remove-button">
+                    <site-common-button-ui
+                        lwc:if={showRemoveButton}
+                        variant="tertiary"
+                        width="stretch"
+                        alignment="left"
+                        size="standard"
+                        assistive-text={labels.removeShipmentButtonText}
+                        onclick={handleDeleteCartItem}>
+                        <lightning-icon
+                            class="icon slds-current-color"
+                            icon-name="utility:delete"
+                            size="xx-small"></lightning-icon>
+                        {labels.removeShipmentButtonText}
+                    </site-common-button-ui>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

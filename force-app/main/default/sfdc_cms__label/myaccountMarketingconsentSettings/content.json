@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myaccountMarketingconsentSettings",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "successToastMessage",
+      "value" : "Preference was updated."
+    }, {
+      "name" : "errorToastMessage",
+      "value" : "We couldn't update the preferences. Try again later."
+    }, {
+      "name" : "updatingStencilAssistiveText",
+      "value" : "Updating your consent preferences..."
+    } ]
+  },
+  "urlName" : "myaccountmarketingconsentsettings"
+}

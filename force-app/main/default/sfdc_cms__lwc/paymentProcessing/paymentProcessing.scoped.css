@@ -1,0 +1,16 @@
+lightning-button {
+    min-width: 27rem;
+}
+
+.error-header {
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: var(--dxp-s-spacing-small, 0.75rem) 0;
+}
+
+.error-body {
+    text-align: center;
+    margin: 0;
+    padding: var(--dxp-s-spacing-small, 0.75rem) 0;
+}

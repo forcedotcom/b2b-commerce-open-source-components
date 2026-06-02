@@ -23,6 +23,24 @@
     }, {
       "name" : "preserveGuestCartErrorMessage",
       "value" : "{0} items are no longer in your cart. Review your cart and re-add items if necessary."
+    }, {
+      "name" : "viewAllCartsLabel",
+      "value" : "View All Carts"
+    }, {
+      "name" : "itemsLabel",
+      "value" : "Items"
+    }, {
+      "name" : "defaultCartTypePillLabel",
+      "value" : "Default"
+    }, {
+      "name" : "loadingCarts",
+      "value" : "Loading..."
+    }, {
+      "name" : "fetchSecondaryCartsErrorLine1",
+      "value" : "We couldn't retrieve the list of carts."
+    }, {
+      "name" : "fetchSecondaryCartsErrorLine2",
+      "value" : "Refresh the page and try again."
     } ]
   },
   "urlName" : "cartbadgeui"

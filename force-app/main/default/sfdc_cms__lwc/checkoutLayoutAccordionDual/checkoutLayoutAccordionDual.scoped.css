@@ -1,0 +1,13 @@
+:host {
+    display: block;
+}
+.suggest-proceed {
+    border-color: var(--dxp-g-destructive);
+    box-shadow: var(--dxp-g-destructive) 0 0 0 1px inset;
+    --border-color: var(--sds-c-input-color-border, var(--dxp-s-form-element-color-border, var(--dxp-g-neutral-3)));
+    --border-width: var(--dxp-c-input-width-border, var(--dxp-s-form-element-width-border, 1px));
+    border-color: var(--border-color);
+    border-width: var(--border-width);
+    border-style: solid;
+    border-radius: var(--sds-c-input-radius-border, var(--dxp-s-form-element-radius-border, 4px));
+}

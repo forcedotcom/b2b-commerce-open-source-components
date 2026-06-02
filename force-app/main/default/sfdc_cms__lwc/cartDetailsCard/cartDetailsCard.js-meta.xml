@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Cart Details Card</masterLabel>
+  <description>Displays cart information in a card layout including name, item count, total price, description, status
+        pill, and options menu</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+</LightningComponentBundle>

@@ -1,0 +1,105 @@
+<template lwc:render-mode="light">
+    <div class="card slds-m-bottom_x-large slds-p-around_medium">
+        <div class="slds-m-bottom_large slds-m-around_small">
+            <div class="slds-m-bottom_large slds-m-bottom_small">
+                <p class="slds-text-heading_medium slds-m-bottom_x-small">{header}</p>
+                <p
+                    lwc:if={passwordLessLoginEnabled}
+                    class="slds-text-body_small slds-m-bottom_small">
+                    {description}
+                </p>
+            </div>
+            <div
+                lwc:if={_isPersonalDetailsEditable}
+                class="card-body slds-m-bottom_large"
+                data-automation="personalDetailsEditor">
+                <lightning-input
+                    lwc:ref="input"
+                    data-validate
+                    data-automation="firstname"
+                    label={firstNameLabel}
+                    value={_firstName}
+                    oncommit={handleFirstNameChange}
+                    required
+                    class="slds-size_1-of-2 slds-m-right_xx-small"></lightning-input>
+                <lightning-input
+                    data-validate
+                    data-automation="lastname"
+                    label={lastNameLabel}
+                    value={_lastName}
+                    oncommit={handleLastNameChange}
+                    required
+                    class="slds-size_1-of-2 slds-m-right_xx-small"></lightning-input>
+            </div>
+            <div
+                lwc:if={_isEmailEditable}
+                class="input-width"
+                data-automation="emailEditor">
+                <lightning-input
+                    lwc:ref="input"
+                    data-validate
+                    data-automation="email"
+                    autocomplete="email"
+                    label={emailLabel}
+                    type="email"
+                    required
+                    onchange={handleEmailChange}></lightning-input>
+                <lightning-input
+                    data-validate
+                    data-automation="confirmEmail"
+                    autocomplete="email"
+                    label={_confirmEmailLabel}
+                    type="email"
+                    required
+                    onpaste={handlePaste}
+                    onchange={handleConfirmEmailChange}></lightning-input>
+            </div>
+            <div
+                lwc:if={_isPhoneEditable}
+                class="input-width"
+                data-automation="phoneEditor">
+                <site-checkout-multi-country-phone-field
+                    lwc:ref="input"
+                    data-validate
+                    data-phone-number
+                    data-automation="phone"
+                    phone-number-label={phoneLabel}
+                    raw-internationalization-data={_rawInternationalizationData}
+                    country={_defaultCountry}
+                    phone-number={phoneNumberValue}
+                    phone-number-required
+                    oncommit={handlePhoneNumberChange}></site-checkout-multi-country-phone-field>
+                <site-checkout-multi-country-phone-field
+                    data-validate
+                    data-phone-number
+                    data-automation="confirmPhone"
+                    phone-number-label={_confirmPhoneLabel}
+                    raw-internationalization-data={_rawInternationalizationData}
+                    country={_defaultCountry}
+                    phone-number={phoneNumberValue}
+                    phone-number-required
+                    onpaste={handlePaste}
+                    oncommit={handleConfirmPhoneNumberChange}></site-checkout-multi-country-phone-field>
+            </div>
+            <div
+                lwc:if={_showErrorMessage}
+                class="slds-m-bottom_medium slds-text-color_error">
+                {_errorMessage}
+            </div>
+            <div class="actions">
+                <site-common-button-ui
+                    class="slds-m-right_small"
+                    variant="secondary"
+                    onclick={handleCancel}>
+                    {_cancelActionLabel}
+                </site-common-button-ui>
+                <site-common-button-ui
+                    variant="primary"
+                    onclick={handleSave}
+                    disabled={_isSaveDisabled}>
+                    {_saveActionLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+    </div>
+</template>

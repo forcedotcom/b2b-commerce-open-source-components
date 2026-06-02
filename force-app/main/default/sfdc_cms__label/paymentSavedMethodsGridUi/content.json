@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentSavedMethodsGridUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "NoAccess",
+      "value" : "You don’t have permission to view your saved payment methods. Contact the store admin."
+    }, {
+      "name" : "mySPMTabLabel",
+      "value" : "My payment methods"
+    }, {
+      "name" : "sharedSPMTabLabel",
+      "value" : "Payment methods shared with me"
+    } ]
+  },
+  "urlName" : "paymentsavedmethodsgridui"
+}

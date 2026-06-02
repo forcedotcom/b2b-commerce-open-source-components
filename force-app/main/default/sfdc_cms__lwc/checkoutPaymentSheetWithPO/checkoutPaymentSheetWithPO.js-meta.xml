@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Salesforce Payments with Purchase Order</masterLabel>
+  <description>Collect payment information with Purchase Order as an option. Requires Salesforce Payments.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="cartDetails" label="Cart Details Binding Expression" type="String" default="{!Checkout.CartDetails}" description="Access cart details data. {!Checkout.CartDetails} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="cartTotals" label="Cart Totals Binding Expression" type="String" default="{!Checkout.CartTotals}" description="Access cart totals data. {!Checkout.CartTotals} is the fixed text for this expression. Do not change or delete."></property>
+      <property label="Heading" name="cardPaymentLabel" type="String" default="Card, Other Methods" translatable="true"></property>
+      <property name="paymentMethodSetId" label="Payment Method Set Key" type="String" default="" required="true" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource" description="Shows a configured set of payment methods at checkout. Find the key on the Merchant Account related list page."></property>
+      <property name="useManualCapture" label="Use Manual Capture" type="Boolean" default="true" description="Places a hold on authorized payments before capturing them at a later time. Some payment methods do not support manual capture and continue to process automatically."></property>
+      <property label="Allow Saved Payment Method" name="enableSavedPaymentMethods" type="Boolean" default="false" description="Lets logged-in buyers save their payment information at checkout."></property>
+      <property name="enableBusinessAch" label="Allow Business ACH Accounts" type="Boolean" default="false" description="Lets buyers use business bank accounts for ACH payments."></property>
+      <property label="SEPA Debit Mandate" name="sepaDebitMandate" type="String" required="false" description="Use this field to customize the text of the SEPA mandate. If you leave this field blank, the default text is used."></property>
+      <property label="Show Purchase Order" name="isPurchaseOrderAvailable" type="Boolean" default="true"></property>
+      <property label="Purchase Order Heading" name="purchaseOrderLabel" type="String" default="Purchase Order" translatable="true"></property>
+      <property label="Purchase Order Number Field" name="inputLabel" type="String" default="Purchase Order Number" translatable="true"></property>
+      <property label="Purchase Order Number Placeholder Text" name="placeholderLabel" type="String" default="" translatable="true"></property>
+      <property label="Require Billing Address for Purchase Order" name="requireBillingAddress" type="Boolean" default="true"></property>
+      <property label="Billing Address" name="billingAddressLabel" type="String" default="Billing Address" translatable="true"></property>
+      <property label="Same Billing and Shipping Address Checkbox" name="billingAddressSameAsShippingAddressLabel" type="String" default="Same as shipping address" translatable="true"></property>
+      <property label="Phone Number" name="phoneNumberLabel" type="String" default="Phone Number" translatable="true"></property>
+      <property label="Phone Number Placeholder Text" name="phoneNumberPlaceholderText" type="String" default="" translatable="true"></property>
+      <designLayout>
+        <designSection name="Salesforce Payment Information">
+          <designLayoutItems>
+            <designLayoutProperty name="cardPaymentLabel"></designLayoutProperty>
+            <designLayoutProperty name="paymentMethodSetId"></designLayoutProperty>
+            <designLayoutProperty name="useManualCapture"></designLayoutProperty>
+            <designLayoutProperty name="enableSavedPaymentMethods"></designLayoutProperty>
+            <designLayoutProperty name="enableBusinessAch"></designLayoutProperty>
+            <designLayoutProperty name="sepaDebitMandate"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Purchase Order">
+          <designLayoutItems>
+            <designLayoutProperty name="isPurchaseOrderAvailable"></designLayoutProperty>
+            <designLayoutProperty name="purchaseOrderLabel"></designLayoutProperty>
+            <designLayoutProperty name="inputLabel"></designLayoutProperty>
+            <designLayoutProperty name="placeholderLabel"></designLayoutProperty>
+            <designLayoutProperty name="requireBillingAddress"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Billing Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="billingAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="billingAddressSameAsShippingAddressLabel"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberLabel"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberPlaceholderText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails"></designLayoutProperty>
+            <designLayoutProperty name="cartTotals"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,5 +1,5 @@
 <LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
-  <apiVersion>66</apiVersion>
+  <apiVersion>67</apiVersion>
   <isExposed>true</isExposed>
   <masterLabel>Order Summary Details</masterLabel>
   <targets>
@@ -17,7 +17,7 @@
       <property name="highlightsCardBorderColor" type="Color"></property>
       <property name="highlightsCardTextColor" type="Color"></property>
       <property name="highlightsCardBorderRadius" type="Integer" min="0" max="20" default="0"></property>
-      <property name="orderSummaryHighlightsFieldMapping" type="String" translatable="true"></property>
+      <property name="orderSummaryHighlightsFieldMapping" type="CommerceOrderSummaryHighlightsFieldMapping" translatable="true"></property>
       <designLayout>
         <designSection>
           <designLayoutItems>

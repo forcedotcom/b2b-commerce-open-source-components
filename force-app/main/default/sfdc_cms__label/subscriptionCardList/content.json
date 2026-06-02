@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionCardList",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "quantityPrefixText",
+      "value" : "Qty:"
+    }, {
+      "name" : "taxLabel",
+      "value" : "Tax Calculation"
+    }, {
+      "name" : "singleSubscriptionWarningTitle",
+      "value" : "{0} is linked to 1 active subscription."
+    }, {
+      "name" : "multipleSubscriptionsWarningTitle",
+      "value" : "{0} is linked to {1} active subscriptions."
+    }, {
+      "name" : "warningDescription",
+      "value" : "If you delete this, future subscription payments will fail."
+    }, {
+      "name" : "warningAction",
+      "value" : "To prevent this, update your subscription's payment method."
+    } ]
+  },
+  "urlName" : "subscriptioncardlist"
+}

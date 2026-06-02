@@ -1,0 +1,130 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:quoteList",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "dateFilter",
+                        "title": "dateFilter",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:quoteListDatefilter",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "emptyBody",
+                        "title": "emptyBody",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "We couldn't find any quotes from that period of time.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h3\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Try changing your filter settings.",
+                                    "textDisplayInfo": "{\"headingTag\": \"h4\", \"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "textAlign": "center"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:button",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue Shopping",
+                                    "url": "/"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "quoteListRepeater",
+                        "title": "quoteListRepeater",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "Repeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:quoteSummary",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "quoteNumberLabel",
+                                                        "title": "quoteNumberLabel",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Quote Request Number: ",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\", \"enableOverride\":true}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "quoteNumber",
+                                                        "title": "quoteNumber",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "{!QuoteSummary.quoteNumber}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\", \"enableOverride\":true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "itemSpacing": "small",
+                                    "listType": "unformatted",
+                                    "showPagination": true,
+                                    "autoScrollToMostRecent": true
+                                },
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__commerceQuoteSummaryListDataProvider",
+                                        "type": "dataProvider",
+                                        "sfdcExpressionKey": "QuoteSummary",
+                                        "attributes": {}
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

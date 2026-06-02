@@ -5,4 +5,10 @@ import productTypeInCart from '@salesforce/label/site.cartBadgeUi.productTypeInC
 import emptyCart from '@salesforce/label/site.cartBadgeUi.emptyCart';
 import preserveGuestCartErrorTitle from '@salesforce/label/site.cartBadgeUi.preserveGuestCartErrorTitle';
 import preserveGuestCartErrorMessage from '@salesforce/label/site.cartBadgeUi.preserveGuestCartErrorMessage';
-export { itemsInCart, itemInCart, productTypesInCart, productTypeInCart, emptyCart, preserveGuestCartErrorTitle, preserveGuestCartErrorMessage };
+import viewAllCartsLabel from '@salesforce/label/site.cartBadgeUi.viewAllCartsLabel';
+import itemsLabel from '@salesforce/label/site.cartBadgeUi.itemsLabel';
+import defaultCartLabel from '@salesforce/label/site.cartBadgeUi.defaultCartTypePillLabel';
+import loadingCartsLabel from '@salesforce/label/site.cartBadgeUi.loadingCarts';
+import loadCartsErrorLine1 from '@salesforce/label/site.cartBadgeUi.fetchSecondaryCartsErrorLine1';
+import loadCartsErrorLine2 from '@salesforce/label/site.cartBadgeUi.fetchSecondaryCartsErrorLine2';
+export { itemsInCart, itemInCart, productTypesInCart, productTypeInCart, emptyCart, preserveGuestCartErrorTitle, preserveGuestCartErrorMessage, viewAllCartsLabel, itemsLabel, defaultCartLabel, loadingCartsLabel, loadCartsErrorLine1, loadCartsErrorLine2 };

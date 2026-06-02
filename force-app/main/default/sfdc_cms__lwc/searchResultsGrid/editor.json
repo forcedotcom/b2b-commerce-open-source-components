@@ -1,0 +1,13 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:searchResultsGrid",
+                "type": "component",
+                "attributes": {
+                    "searchResults": "{!Search.Results}"
+                }
+            }
+        }
+    ]
+}

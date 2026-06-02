@@ -1,0 +1,77 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartOptions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "optionsMenuLabel",
+      "value" : "View Options"
+    }, {
+      "name" : "editCart",
+      "value" : "Edit Cart Details"
+    }, {
+      "name" : "clearCart",
+      "value" : "Clear Cart"
+    }, {
+      "name" : "deleteCart",
+      "value" : "Delete Cart"
+    }, {
+      "name" : "setAsDefault",
+      "value" : "Set As Default"
+    }, {
+      "name" : "clearCartConfirmMessage",
+      "value" : "Are you sure, you want to clear this cart."
+    }, {
+      "name" : "clearCartConfirmButton",
+      "value" : "Yes, clear"
+    }, {
+      "name" : "clearCartSuccessMessage",
+      "value" : "{cartName} was cleared."
+    }, {
+      "name" : "clearCartErrorMessage",
+      "value" : "Unable to clear cart, please try again."
+    }, {
+      "name" : "clearCartSpinnerHelpText",
+      "value" : "Clearing cart"
+    }, {
+      "name" : "deleteCartConfirmTitle",
+      "value" : "Delete cart?"
+    }, {
+      "name" : "deleteCartConfirmMessage",
+      "value" : "Deleting the cart removes all its items."
+    }, {
+      "name" : "deleteCartConfirmButton",
+      "value" : "Delete"
+    }, {
+      "name" : "cancelButton",
+      "value" : "Cancel"
+    }, {
+      "name" : "deleteCartSuccessMessage",
+      "value" : "Cart \"{cartName}\" was deleted."
+    }, {
+      "name" : "deleteCartErrorMessage",
+      "value" : "We couldn't delete the cart. Try again later."
+    }, {
+      "name" : "setAsDefaultTitle",
+      "value" : "Set As Default?"
+    }, {
+      "name" : "setAsDefaultConfirmMessage",
+      "value" : "Setting this cart as default replaces your current default cart."
+    }, {
+      "name" : "setAsDefaultConfirmButton",
+      "value" : "Set As Default"
+    }, {
+      "name" : "setAsDefaultSuccessMessage",
+      "value" : "\"{cartName}\" was set as the default cart."
+    }, {
+      "name" : "setAsDefaultErrorMessage",
+      "value" : "We couldn't set the cart as default. Try again later."
+    }, {
+      "name" : "deleteCartSpinnerHelpText",
+      "value" : "Deleting..."
+    }, {
+      "name" : "setAsDefaultSpinnerHelpText",
+      "value" : "Saving..."
+    } ]
+  },
+  "urlName" : "cartoptions"
+}

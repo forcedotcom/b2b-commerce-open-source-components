@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <description>Show an accordion layout at checkout.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Checkout Layout Accordion</masterLabel>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="showSummaryColumn" type="Boolean" default="false" label="Show the checkout summary column"></property>
+      <property name="checkoutSummaryColumnBackgroundColor" type="Color" label="Checkout Summary Background Color"></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

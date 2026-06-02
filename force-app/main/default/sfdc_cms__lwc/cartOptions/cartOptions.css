@@ -1,0 +1,21 @@
+.options-menu-container {
+    --slds-c-button-text-color: var(--dxp-g-root-contrast, #181818);
+    --sds-c-button-text-color: var(--dxp-g-root-contrast, #181818);
+    --slds-c-button-text-color-hover: var(--dxp-g-root-contrast, #181818);
+    --sds-c-button-text-color-hover: var(--dxp-g-root-contrast, #181818);
+    --slds-c-button-text-decoration: none;
+    --sds-c-button-text-decoration: none;
+    --dxp-s-link-text-color: var(--dxp-g-root-contrast, #181818);
+    --dxp-s-link-text-decoration: none;
+}
+
+.destructive-menu-item {
+    --slds-c-button-text-color: var(--dxp-g-destructive, #ba0517);
+    --sds-c-button-text-color: var(--dxp-g-destructive, #ba0517);
+    color: var(--dxp-g-destructive, #ba0517);
+}
+
+.destructive-menu-item a,
+.destructive-menu-item span {
+    color: var(--dxp-g-destructive, #ba0517);
+}

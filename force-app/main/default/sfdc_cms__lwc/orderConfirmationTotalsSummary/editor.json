@@ -1,0 +1,133 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationTotalsSummary",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "headerText",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Total Paid",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h2\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "originalPriceLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Original Price",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "promotionsLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Promotions",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "shippingLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Shipping",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "subtotalLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Subtotal",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "taxIncludedLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Tax included",
+                                    "textAlign": "right",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "taxLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Tax",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "totalLabel",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Total",
+                                    "textAlign": "left",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountAddressFooter",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "editLabel",
+      "value" : "{editLabel} {addressName}"
+    }, {
+      "name" : "deleteLabel",
+      "value" : "{deleteLabel} {addressName}"
+    } ]
+  },
+  "urlName" : "myaccountaddressfooter"
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <isExposed>true</isExposed>
+  <apiVersion>67</apiVersion>
+  <masterLabel>Quote Decline Renegotiate Modal UI</masterLabel>
+  <description>Modal UI component for declining or requesting renegotiation of quotes</description>
+</LightningComponentBundle>

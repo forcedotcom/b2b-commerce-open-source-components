@@ -1,0 +1,7 @@
+.action-buttons {
+    margin-top: var(--dxp-g-spacing-xxlarge);
+}
+.footer-content-container {
+    display: flex;
+    justify-content: end;
+}

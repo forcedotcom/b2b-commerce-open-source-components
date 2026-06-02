@@ -1,0 +1,39 @@
+:host {
+    flex: 1;
+}
+commerce-product-card {
+    --com-c-product-card-border-width: calc(var(--dxp-c-l-card-border-weight) * 1px);
+    --com-c-product-card-border-radius: calc(var(--dxp-c-l-card-border-radius) * 1px);
+    --com-c-product-card-image-object-fit: var(--dxp-c-l-card-image-size);
+    --com-c-product-card-text-align: var(--dxp-c-l-card-text-align);
+    --com-c-product-card-align-product-info-items: var(--com-c-product-card-l-align-product-info-items);
+    --com-c-product-card-product-name-color: var(--dxp-s-text-heading-medium-color);
+    --com-c-commerce-product-variant-swatch-border-radius: var(--com-c-commerce-product-card-swatch-border-radius);
+    --com-c-commerce-product-variant-swatch-border-color: var(--com-c-commerce-product-card-swatch-border-color);
+    --com-c-commerce-product-variant-swatch-border-selected-color: var(
+        --com-c-commerce-product-card-swatch-border-selected-color
+    );
+    --com-c-commerce-product-variant-swatch-border-hover-color: var(
+        --com-c-commerce-product-card-swatch-border-hover-color
+    );
+    --com-c-commerce-product-card-swatch-color-size: 40px;
+}
+@media only screen and (max-width: 64em) {
+    commerce-product-card {
+        --com-c-product-card-border-width: calc(var(--dxp-c-m-card-border-weight) * 1px);
+        --com-c-product-card-border-radius: calc(var(--dxp-c-m-card-border-radius) * 1px);
+        --com-c-product-card-image-object-fit: var(--dxp-c-m-card-image-size);
+        --com-c-product-card-text-align: var(--dxp-c-m-card-text-align);
+        --com-c-product-card-align-product-info-items: var(--com-c-product-card-m-align-product-info-items);
+    }
+}
+@media only screen and (max-width: 47.9375em) {
+    commerce-product-card {
+        --com-c-product-card-border-width: calc(var(--dxp-c-s-card-border-weight) * 1px);
+        --com-c-product-card-border-radius: calc(var(--dxp-c-s-card-border-radius) * 1px);
+        --com-c-product-card-image-object-fit: var(--dxp-c-s-card-image-size);
+        --com-c-product-card-text-align: var(--dxp-c-s-card-text-align);
+        --com-c-product-card-align-product-info-items: var(--com-c-product-card-s-align-product-info-items);
+        --com-c-commerce-product-card-swatch-color-size: 24px;
+    }
+}

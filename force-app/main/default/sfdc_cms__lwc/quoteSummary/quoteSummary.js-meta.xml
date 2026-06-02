@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Quote Summary</masterLabel>
+  <description>Displays a summary of a quote with quote details, product images, and a link to view full details.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="quote" label="Quote Data Expression" type="String" default="{!QuoteSummary}" description="The quote summary data to display"></property>
+      <property name="viewDetailsLinkLabel" label="View Details Link Text" type="String" default="View Quote Request Details" translatable="true" description="Text displayed for the link to view full quote details"></property>
+      <property name="quoteSummaryFieldMapping" label="Quote Summary Fields" type="QuoteSummaryFieldMapping" default="[]" translatable="true" description="JSON array of fields to display in the quote summary"></property>
+      <property name="headerBgColor" label="Header Background Color" type="Color" default="#F7F9FA" description="Background color for the quote summary header"></property>
+      <property name="borderColor" label="Border Color" type="Color" default="#ecebea" description="Border color for the quote summary card"></property>
+      <property name="imageSize" label="Image Size" type="String" default="contain" datasource="cover,contain" description="How product images should be sized (cover or contain)"></property>
+      <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1" description="Aspect ratio for product images (e.g., 1 for square, 1.5 for 3:2)"></property>
+      <designLayout>
+        <designSection name="quoteData">
+          <designLayoutItems>
+            <designLayoutProperty name="quote"></designLayoutProperty>
+            <designLayoutProperty name="quoteSummaryFieldMapping"></designLayoutProperty>
+            <designLayoutProperty name="viewDetailsLinkLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="appearance">
+          <designLayoutItems>
+            <designLayoutProperty name="borderColor"></designLayoutProperty>
+            <designLayoutProperty name="headerBgColor"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
+            <designLayoutProperty name="imageSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

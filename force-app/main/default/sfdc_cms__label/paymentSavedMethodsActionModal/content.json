@@ -1,0 +1,47 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentSavedMethodsActionModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "cancelLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "deleteLabel",
+      "value" : "Delete"
+    }, {
+      "name" : "deleteHeaderText",
+      "value" : "Delete Payment Method?"
+    }, {
+      "name" : "deleteText",
+      "value" : "Deleting this '{0}' payment method removes it as a payment option during checkout."
+    }, {
+      "name" : "defaultLabel",
+      "value" : "Set Default"
+    }, {
+      "name" : "defaultHeaderText",
+      "value" : "Set default payment method?"
+    }, {
+      "name" : "defaultText",
+      "value" : "'{0}' will be the default at checkout."
+    }, {
+      "name" : "shareLabel",
+      "value" : "Sharing '{0}' lets other contacts in this account view and use it for transactions."
+    }, {
+      "name" : "unshareLabel",
+      "value" : "If you remove shared access, other contacts in this account can't view or use '{0}'."
+    }, {
+      "name" : "shareModalHeaderText",
+      "value" : "Share the payment method?"
+    }, {
+      "name" : "unshareModalHeaderText",
+      "value" : "Stop sharing the payment method?"
+    }, {
+      "name" : "shareButtonLabel",
+      "value" : "Share"
+    }, {
+      "name" : "unShareButtonLabel",
+      "value" : "Stop Sharing"
+    } ]
+  },
+  "urlName" : "paymentsavedmethodsactionmodal"
+}

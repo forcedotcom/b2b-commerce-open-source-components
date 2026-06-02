@@ -1,0 +1,57 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myaccountMarketingconsentSettings",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "consentOptionsHeaderText",
+                        "title": "Consent Options Header Text",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Marketing Communication Preferences",
+                                    "paddingVertical": "xx-small",
+                                    "paddingHorizontal": "none",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "consentOptionsFooterText",
+                        "title": "Consent Options Footer Text",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Read the Privacy Policy to learn how we handle your data.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"body-small\", \"headingTag\": \"p\"}"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceMarketingConsentDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Marketing",
+                        "attributes": {
+                            "consentExperience": "ProfileAndRegistration",
+                            "contactFromUserContext": true
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

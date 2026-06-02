@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Order Delivery Group</masterLabel>
+  <description>Order Delivery Group</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderDeliveryGroup" label="Expression" type="String" default="{!OrderDeliveryGroup}"></property>
+      <property name="prefixToShippingGroup" type="String" default="" translatable="true" label="Delivery Prefix"></property>
+      <property name="shippingGroupFieldMapping" type="CommerceB2bShippingGroupSummaryFieldMapping" default="[]" translatable="true" label="Fields"></property>
+      <property name="productCountTitle" type="String" default="{0} Products" translatable="true" label="Product Count Title"></property>
+      <property name="giftOrderLabel" type="String" default="This is a gift" translatable="true" label="Gift Order Field Label"></property>
+      <property name="giftMessageLabel" type="String" default="Gift Message" translatable="true" label="Gift Message Field Label"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderDeliveryGroup"></designLayoutProperty>
+            <designLayoutProperty name="prefixToShippingGroup"></designLayoutProperty>
+            <designLayoutProperty name="shippingGroupFieldMapping"></designLayoutProperty>
+            <designLayoutProperty name="productCountTitle"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Gifting">
+          <designLayoutItems>
+            <designLayoutProperty name="giftOrderLabel"></designLayoutProperty>
+            <designLayoutProperty name="giftMessageLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

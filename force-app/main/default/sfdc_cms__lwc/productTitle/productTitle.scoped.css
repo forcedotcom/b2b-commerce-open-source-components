@@ -1,0 +1,11 @@
+h3 {
+    font-size: var(--com-c-order-product-title-font-size);
+    font-weight: var(--com-c-order-product-title-font-weight);
+    line-height: var(--com-c-order-product-title-line-height);
+}
+h3 a,
+h3 span {
+    white-space: normal;
+    word-break: break-all;
+    font-weight: var(--com-c-order-product-title-font-weight, var(--slds-g-font-weight-7, bold));
+}

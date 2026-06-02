@@ -1,0 +1,11 @@
+import DeleteLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.deleteLabel';
+import CancelLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.cancelLabel';
+import DeleteHeaderText from '@salesforce/label/site.paymentSavedMethodsCardFooter.deleteHeaderText';
+import DeleteText from '@salesforce/label/site.paymentSavedMethodsCardFooter.deleteText';
+import AriaDeleteLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.deleteLabel';
+import AriaDefaultLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.defaultLabel';
+import ShareCheckboxLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.shareCheckboxLabel';
+import DefaultLabel from '@salesforce/label/site.paymentSavedMethodsCardFooter.defaultLabel';
+import DefaultHeaderText from '@salesforce/label/site.paymentSavedMethodsCardFooter.defaultHeaderText';
+import DefaultText from '@salesforce/label/site.paymentSavedMethodsCardFooter.defaultText';
+export { CancelLabel, DeleteLabel, DeleteHeaderText, DeleteText, AriaDeleteLabel, AriaDefaultLabel, DefaultLabel, DefaultHeaderText, DefaultText, ShareCheckboxLabel };

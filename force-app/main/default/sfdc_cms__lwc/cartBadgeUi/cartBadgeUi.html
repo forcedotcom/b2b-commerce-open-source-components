@@ -21,6 +21,76 @@
                 </span>
             </button>
         </template>
+        <template lwc:elseif={showCartsList}>
+            <span
+                class={_cartListWrapperClass}
+                style={_cartsListIconStyle}>
+                <lightning-button-menu
+                    icon-name="utility:cart"
+                    variant="bare"
+                    alternative-text={iconAssistiveText}
+                    title={iconAssistiveText}
+                    menu-alignment="right"
+                    class="cart-list-menu"
+                    onopen={handleCartsListOpen}
+                    onclose={handleCartsListClose}>
+                    <!-- Loading State -->
+                    <template lwc:if={_isCartsLoading}>
+                        <div
+                            class="cart-list-menu-item cart-list-menu-item_loading"
+                            role="status"
+                            aria-live="polite">
+                            <lightning-spinner
+                                alternative-text={_loadingCartsLabel}
+                                size="x-small"></lightning-spinner>
+                            <span>{_loadingCartsLabel}</span>
+                        </div>
+                    </template>
+
+                    <!-- Error State -->
+                    <template lwc:elseif={_isCartsError}>
+                        <div
+                            class="cart-list-state-container cart-list-error cart-list-error_vertical"
+                            role="alert"
+                            aria-live="assertive">
+                            <span class="cart-list-state-message">{_loadCartsErrorLine1}</span>
+                            <span class="cart-list-state-message">{_loadCartsErrorLine2}</span>
+                        </div>
+                    </template>
+
+                    <!-- Success State -->
+                    <template lwc:elseif={_hasCartsLoaded}>
+                        <template
+                            for:each={_cartMenuItems}
+                            for:item="cart">
+                            <div
+                                key={cart.id}
+                                class="slds-dropdown__item cart-list-item"
+                                role="menuitem"
+                                tabindex="0"
+                                data-value={cart.id}
+                                onclick={handleCartSelect}
+                                onkeydown={handleKeyboardClick}>
+                                <span class="slds-truncate cart-list-item-label">{cart.label}</span>
+                                <site-common-pill
+                                    lwc:if={cart.isDefault}
+                                    label-text={_defaultPillLabel}
+                                    class="cart-list-default-pill"></site-common-pill>
+                            </div>
+                        </template>
+                        <div
+                            class={_viewAllCartsClass}
+                            role="menuitem"
+                            tabindex="0"
+                            data-value="viewAll"
+                            onclick={handleCartSelect}
+                            onkeydown={handleKeyboardClick}>
+                            <span class="slds-truncate">{_viewAllCartsLabel}</span>
+                        </div>
+                    </template>
+                </lightning-button-menu>
+            </span>
+        </template>
         <template lwc:else>
             <a
                 onclick={handleCartButtonIconClick}

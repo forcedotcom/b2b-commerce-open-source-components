@@ -1,0 +1,56 @@
+<template lwc:render-mode="light">
+    <div class="payment-saved-payment-methods-card">
+        <div class="payment-saved-payment-methods-card-body">
+            <div class="slds-grid slds-grid_align-spread">
+                <div class="slds-grid slds-p-vertical_x-small">
+                    <div class="slds-col slds-p-around_x-small slds-p-bottom_small card-details">
+                        <img
+                            src={iconUrl}
+                            alt={iconTitle}
+                            height="54px"
+                            width="54px" />
+                    </div>
+                    <div class="slds-col card-details-class">
+                        <span class="slds-p-left_x-small">{maskedCardNumber}</span>
+                    </div>
+                </div>
+
+                <div class="slds-col card-details-class">
+                    <lightning-badge
+                        if:true={showDefaultLabel}
+                        label={defaultBadgeLabel}
+                        class="default-badge slds-truncate"
+                        style={defaultBadgeStyle}></lightning-badge>
+                    <lightning-badge
+                        if:true={showExpiredLabel}
+                        label={expiredBadgeLabel}
+                        class="expired-badge slds-truncate"
+                        style={expiredBadgeStyle}></lightning-badge>
+                </div>
+            </div>
+            <div class="dxp-text-body-regular slds-grid slds-wrap">
+                <div class="slds-col slds-size_12-of-12 slds-text-align_left">
+                    <div class="slds-grid slds-grid_vertical">
+                        <p class="slds-p-top_small slds-text-title_bold">{bankName}</p>
+                        <p class="slds-p-top_xx-small">{accountHolderName}</p>
+                        <template if:true={showFormattedExpiredDateLabel}>
+                            <p class="slds-p-top_xx-small">{formattedDateDisplay}</p>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <site-payment-saved-methods-card-footer
+            record-title={recordTitle}
+            delete-label={deleteLabel}
+            default-label={defaultLabel}
+            is-default={isDefault}
+            is-expired={isExpired}
+            record-id={recordId}
+            reference-owner-id={referenceOwnerId}
+            is-spm-sharing-enabled={isSpmSharingEnabled}
+            is-saved-payment-method-shared={isSavedPaymentMethodShared}
+            is-owner={isOwner}
+            disabled={disabled}></site-payment-saved-methods-card-footer>
+    </div>
+</template>

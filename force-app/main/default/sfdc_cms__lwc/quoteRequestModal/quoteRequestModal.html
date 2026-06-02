@@ -1,0 +1,120 @@
+<template>
+    <!-- When header is visible -->
+    <template lwc:if={showTitle}>
+        <lightning-modal-header label={titleText}></lightning-modal-header>
+    </template>
+
+    <lightning-modal-body>
+        <template lwc:if={isNotSubmitting}>
+            <div class="slds-grid slds-wrap slds-p-around_medium">
+                <!-- Required By Date Field -->
+                <div
+                    lwc:if={showQuoteRequiredByDate}
+                    class="slds-col slds-size_1-of-1 slds-m-bottom_medium">
+                    <lightning-input
+                        type="date"
+                        name="quoteRequiredByDate"
+                        label={quoteRequiredByDateLabel}
+                        value={requiredByDate}
+                        onchange={handleDateChange}
+                        required={isRequiredQuoteRequiredByDate}
+                        min={currentDate}
+                        class="quote-date-input"></lightning-input>
+                </div>
+
+                <!-- Quantity: label on top, then selector below -->
+                <div
+                    lwc:if={showQuantitySelector}
+                    class="slds-col slds-size_1-of-1 slds-m-bottom_medium quote-quantity-field">
+                    <div class="slds-form-element">
+                        <span class="slds-form-element__label">{quantityLabel}</span>
+                        <div class="slds-form-element__control">
+                            <site-common-quantity-selector
+                                value={quantity}
+                                minimum={quantityRuleMinimum}
+                                maximum={quantityRuleMaximum}
+                                step={quantityRuleIncrement}
+                                hide-label
+                                onvaluechanged={handleQuantityChange}
+                                onvaliditychanged={handleQuantityValidityChange}></site-common-quantity-selector>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description Field -->
+                <div
+                    lwc:if={showDescription}
+                    class="slds-col slds-size_1-of-1 slds-m-bottom_medium">
+                    <lightning-textarea
+                        name="description"
+                        label={descriptionLabel}
+                        placeholder
+                        value={description}
+                        onchange={handleDescriptionChange}
+                        required={isRequiredDescription}
+                        class="quote-description-input"></lightning-textarea>
+                </div>
+
+                <!-- Custom Fields -->
+                <template
+                    for:each={additionalFields}
+                    for:item="customField">
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-m-bottom_medium"
+                        key={customField.name}>
+                        <lightning-input
+                            name={customField.name}
+                            onchange={handleCustomFieldChange}
+                            class="quote-custom-field-input"
+                            label={customField.label}></lightning-input>
+                    </div>
+                </template>
+
+                <!-- Notification Message -->
+                <div
+                    lwc:if={showInfotext}
+                    class="slds-col slds-size_1-of-1 slds-m-bottom_medium">
+                    <div class="notification-container">
+                        <span class="slds-assistive-text">Info</span>
+                        <lightning-icon
+                            icon-name="utility:info"
+                            alternative-text="Information"
+                            size="small"
+                            class="slds-m-right_small"></lightning-icon>
+                        <div class="slds-notify__content">
+                            <h2 class="slds-text-heading_small slds-truncate">{infoText}</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <div class="slds-p-vertical_x-large slds-align_absolute-center">
+                <lightning-spinner
+                    alternative-text="Loading"
+                    size="medium"
+                    variant="brand"></lightning-spinner>
+            </div>
+        </template>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div>
+            <div class="slds-grid slds-grid_align-end">
+                <button
+                    onclick={handleCloseClick}
+                    name="cancelButton"
+                    class="slds-button slds-button_neutral slds-m-right_small"
+                    disabled={isSubmitting}>
+                    {cancelButtonLabel}
+                </button>
+                <button
+                    onclick={handleAcceptClick}
+                    name="confirmationButton"
+                    class="slds-button slds-button_brand"
+                    disabled={isSendButtonDisabled}>
+                    {sendRequestButtonLabel}
+                </button>
+            </div>
+        </div>
+    </lightning-modal-footer>
+</template>

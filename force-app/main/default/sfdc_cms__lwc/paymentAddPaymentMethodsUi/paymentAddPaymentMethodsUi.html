@@ -1,0 +1,51 @@
+<template lwc:render-mode="light">
+    <h1 class="addPaymentMethodHeader slds-text-align_left slds-m-vertical_medium">{_addPaymentMethodHeader}</h1>
+    <template lwc:if={paymentMethodSet}>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_2-of-12"></div>
+            <div class="slds-col slds-size_1-of-1">
+                <div class="slds-m-top_medium">
+                    <experience-payment-my-account-payment-sheet
+                        lwc:ref="paymentSheet"
+                        payment-method-set={paymentMethodSet}
+                        user-account-id={userAccountId}
+                        sepa-debit-mandate={sepaDebitMandate}
+                        prefer-legacy-forms={preferLegacyForms}
+                        billing-details={billingDetails}></experience-payment-my-account-payment-sheet>
+                </div>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-m-top_large">
+                <div class="addPaymentSubHeader slds-p-bottom_small slds-m-bottom_small">
+                    {_billingAddressSubHeader}
+                </div>
+                <site-checkout-input-address
+                    show-address-lookup
+                    data-billing-input-address
+                    disabled={_readOnly}
+                    show-person-name={_showName}
+                    address={defaultaddress}
+                    default-country={defaultCountry}
+                    raw-internationalization-data={rawInternationalizationData}
+                    show-all-countries={_showAllCountries}
+                    onaddresschanged={handleAddressChange}
+                    onaddressdirty={handleAddressDirty}></site-checkout-input-address>
+                <div class="slds-text-align_right btnGroups slds-m-top_x-large">
+                    <lightning-button
+                        variant="neutral"
+                        label={_cancelLabel}
+                        title={_cancelLabel}
+                        onclick={handleCancelClick}
+                        class="slds-m-left_x-small"></lightning-button>
+                    <lightning-button
+                        variant="brand"
+                        label={_saveLabel}
+                        title={_saveLabel}
+                        onclick={handleSaveClick}
+                        disabled={disableSave}
+                        class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12"></div>
+        </div>
+    </template>
+</template>

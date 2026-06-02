@@ -1,0 +1,9 @@
+.quote-summary-error-message {
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.text-title_bold {
+    font-weight: 700;
+}

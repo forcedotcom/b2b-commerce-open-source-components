@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productPricingUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "strikethroughAssistiveText",
+      "value" : "Crossed Out"
+    } ]
+  },
+  "urlName" : "productpricingui"
+}

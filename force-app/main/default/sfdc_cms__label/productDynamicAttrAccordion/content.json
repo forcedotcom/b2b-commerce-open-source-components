@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productDynamicAttrAccordion",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "dynamicAttributeAccordionTitlePlural",
+      "value" : "{0} Attributes"
+    }, {
+      "name" : "dynamicAttributeAccordionTitleSingular",
+      "value" : "1 Attribute"
+    } ]
+  },
+  "urlName" : "productdynamicattraccordion"
+}

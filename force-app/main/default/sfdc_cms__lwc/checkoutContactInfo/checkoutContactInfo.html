@@ -1,0 +1,88 @@
+<template lwc:render-mode="light">
+    <div data-contact>
+        <!-- stencil and summary mode here, else use stateful container -->
+        <template lwc:if={_showStencil}>
+            <site-checkout-stencil
+                data-contact-stencil
+                stencil-type={_stencilType}
+                item-count={_stencilItemCount}></site-checkout-stencil>
+        </template>
+
+        <template lwc:if={_showSummary}>
+            <div data-contact-summary>
+                <div class="slds-m-bottom_medium">
+                    <p>{email}</p>
+                    <p>{formattedPhoneNumber}</p>
+                </div>
+            </div>
+        </template>
+
+        <template lwc:if={_showEdit}>
+            <div data-contact-edit>
+                <!-- consider a generic input BB here -->
+                <div class="input-container">
+                    <lightning-input
+                        data-email
+                        lwc:ref="emailInput"
+                        read-only={_emailReadOnly}
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        label={emailLabel}
+                        message-when-type-mismatch={_emailMessageWhenPatternMismatchLabel}
+                        oncommit={handleEmailChange}
+                        onblur={handleUserLookup}
+                        value={email}
+                        required></lightning-input>
+                    <template lwc:if={_showSpinner}>
+                        <div class={spinnerClass}>
+                            <lightning-spinner
+                                variant="brand"
+                                size="x-small"></lightning-spinner>
+                        </div>
+                    </template>
+                </div>
+                <template lwc:if={_showRequiredPhoneNumberField}>
+                    <template lwc:if={_skipPhoneNumberValidationEnabled}>
+                        <lightning-input
+                            data-validate
+                            data-phonenumber
+                            lwc:ref="phoneInput"
+                            read-only={_phoneReadOnly}
+                            placeholder={phoneNumberPlaceholderText}
+                            label={phoneNumberLabel}
+                            type="tel"
+                            name="phonenumber"
+                            autocomplete="tel"
+                            oncommit={handlePhoneNumberChange}
+                            required={_showRequiredPhoneNumberField}
+                            value={phoneNumber}
+                            id="phone-number-field"
+                            minlength="3"
+                            maxlength="40"
+                            pattern="^[0-9\s\-\(\)\.\/\+]*$"></lightning-input>
+                    </template>
+                    <template lwc:else>
+                        <site-checkout-multi-country-phone-field
+                            data-multiphonenumberfield
+                            lwc:ref="multiPhoneField"
+                            phone-number-label={phoneNumberLabel}
+                            phone-number-placeholder-text={phoneNumberPlaceholderText}
+                            raw-internationalization-data={_rawInternationalizationData}
+                            country={_defaultCountry}
+                            phone-number={phoneNumber}
+                            phone-number-required={_showRequiredPhoneNumberField}
+                            read-only={_phoneReadOnly}
+                            oncommit={handlePhoneNumberChange}></site-checkout-multi-country-phone-field>
+                    </template>
+                </template>
+                <template lwc:if={enableUserLookup}>
+                    <div class="recaptcha-disclaimer">
+                        <lightning-formatted-rich-text
+                            value={_reCaptchaDisclaimerLabel}></lightning-formatted-rich-text>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteDuplicateToCartButton",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "duplicateToCartButtonLabel",
+      "value" : "Duplicate to Cart"
+    } ]
+  },
+  "urlName" : "quoteduplicatetocartbutton"
+}

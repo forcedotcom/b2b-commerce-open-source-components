@@ -1,0 +1,213 @@
+<template lwc:render-mode="light">
+    <div
+        class={subscriptionCardStyles}
+        lwc:ref="subscriptionCard">
+        <div class="subscription-main-content">
+            <div class="product-image">
+                <figure>
+                    <span>
+                        <experience-picture
+                            alternative-text={_productName}
+                            url={_resolvedUrl}></experience-picture>
+                    </span>
+                </figure>
+            </div>
+
+            <div class="subscription-information">
+                <div class="column column1">
+                    <div class="bold slds-text-heading_small product-name">
+                        <a
+                            lwc:if={productUrl}
+                            href={productUrl}
+                            title={_productName}
+                            onclick={handleProductNavigation}>
+                            {_productName}
+                        </a>
+                        <span lwc:else>{_productName}</span>
+                    </div>
+
+                    <div class="dxp-text-body product-quantity">
+                        <p
+                            class="product-quantity"
+                            lwc:if={showQuantity}>
+                            {quantityLabel} {_quantity}
+                        </p>
+                    </div>
+
+                    <!-- Subscription Term Pill-->
+                    <site-subscription-term-details-pill
+                        lwc:if={_showSubscriptionTermPill}
+                        selling-model-type={_sellingModelType}
+                        pricing-term={_pricingTerm}
+                        pricing-term-unit={_pricingTermUnit}
+                        subscription-term={_subscriptionTerm}></site-subscription-term-details-pill>
+                    <site-common-pill
+                        class="expiring-soon-pill"
+                        lwc:if={_showExpiringInNDaysPill}
+                        label-text={_expiringInNDaysLabel}></site-common-pill>
+                    <site-common-pill
+                        class="expired-pill"
+                        lwc:if={_showExpiredPill}
+                        label-text={expiredPillLabel}></site-common-pill>
+                    <site-common-pill
+                        class="cancelled-pill"
+                        lwc:if={_showCancelledPill}
+                        label-text={cancelledPillLabel}></site-common-pill>
+
+                    <div lwc:if={_hasPaymentFailureExceptions}>
+                        <p class="payment-failure-text">{_paymentFailureText}</p>
+                    </div>
+                    <div lwc:if={_showPaymentMethodDeletedMessage}>
+                        <p class="payment-method-delete-text">{_savedPaymentMethodDeletedText}</p>
+                    </div>
+                    <!-- Subscription Cancellation Status -->
+                    <div
+                        lwc:if={_showCancellationStatusDetails}
+                        class="cancel-status">
+                        <div lwc:if={_customCancelStatusIcon}>
+                            <svg
+                                class="slds-icon slds-icon_small"
+                                aria-hidden="true">
+                                <use xlink:href={_customCancelStatusIcon}></use>
+                            </svg>
+                        </div>
+                        <div class="dxp-text-body">
+                            <p class={_cancelStatusMainTextClasses}>{_cancelStatusMainText}</p>
+                            <p lwc:if={_cancelStatusSupportText}>{_cancelStatusSupportText}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="dxp-text-body column column2"
+                    lwc:if={_displayDates}>
+                    <p
+                        class="start-date"
+                        lwc:if={showStartDate}>
+                        {startDateLabel} {_startDate}
+                    </p>
+                    <p
+                        class="end-date"
+                        lwc:if={_showEndDate}>
+                        {endDateLabel} {_endDate}
+                    </p>
+                    <p
+                        class="next-billing-date"
+                        lwc:if={_showNextBillingDate}>
+                        {nextBillingDateLabel} {_nextBillingDate}
+                    </p>
+                </div>
+
+                <div
+                    class="column column3"
+                    lwc:if={_isSubscriptionActive}>
+                    <div
+                        class="slds-text-heading_small price-details"
+                        lwc:if={_billingPeriodAmount}>
+                        <site-common-formatted-price
+                            currency-code={_currencyCode}
+                            display-currency-as="symbol"
+                            value={_billingPeriodAmount}></site-common-formatted-price>
+                        <span
+                            class="billing-frequency"
+                            lwc:if={_billingFrequency}>
+                            {_billingFrequency}
+                        </span>
+                        <span class="tax-label slds-p-left_xx-small">{taxLabel}</span>
+                    </div>
+                    <div
+                        lwc:if={showSubscriptionActions}
+                        class="subscription-actions">
+                        <!-- Payment Method Dropdown -->
+                        <div
+                            lwc:if={_showPaymentMethodDropdown}
+                            class="dxp-text-body slds-grid slds-grid_vertical-align-center payment-method-dropdown">
+                            <img
+                                class={_paymentMethodImageClasses}
+                                src={_iconUrl}
+                                alt />
+                            <site-common-dropdown
+                                disabled={_disablePaymentMethodDropdown}
+                                options={_savedPaymentMethodOptions}
+                                selected={_selectedPaymentMethod}
+                                ondropdownselect={handlePaymentMethodChange}
+                                menu-alignment={_paymentsDropdownMenuAlignment}></site-common-dropdown>
+                        </div>
+
+                        <!-- Payment Method Text -->
+                        <div lwc:else>
+                            <div class="dxp-text-body slds-grid slds-grid_vertical-align-center payment-method-text">
+                                <img
+                                    src={_iconUrl}
+                                    alt />
+                                <p>{_paymentMethodName}</p>
+                            </div>
+                        </div>
+
+                        <!-- Payment Methods Load Error -->
+                        <div
+                            class="dxp-text-body"
+                            lwc:if={_showPaymentMethodsLoadError}>
+                            <p class="payment-methods-load-error">{_paymentMethodsLoadErrorMessage}</p>
+                        </div>
+
+                        <!-- Cancel Button -->
+                        <button
+                            lwc:if={_showCancelButton}
+                            disabled={_disableCancelButton}
+                            onclick={handleCancelClick}
+                            class="slds-button cancel-button">
+                            {_cancelButtonLabel}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Child Subscriptions Section -->
+        <div
+            lwc:if={_showChildSubscriptions}
+            class="child-subscriptions slds-p-top_small">
+            <button
+                aria-expanded={_isChildSubscriptionsExpanded}
+                class="toggle-button slds-button slds-button_neutral"
+                onclick={toggleChildSubscriptions}>
+                <div class="subscriptions-count slds-p-bottom_xx-small slds-text-heading_x-small">
+                    {_subscriptionsBundleExpandedLabel}
+                    <lightning-icon
+                        lwc:if={_isChildSubscriptionsExpanded}
+                        icon-name="utility:chevronup"
+                        size="x-small"></lightning-icon>
+                    <lightning-icon
+                        lwc:else
+                        icon-name="utility:chevrondown"
+                        size="x-small"></lightning-icon>
+                </div>
+            </button>
+
+            <ul lwc:if={_isChildSubscriptionsExpanded}>
+                <template
+                    for:each={_convertedChildSubscriptions}
+                    for:item="orderItem">
+                    <li
+                        class="slds-p-vertical_small"
+                        key={orderItem.productId}>
+                        <site-order-item-info
+                            currency-code={_currencyCode}
+                            order-item={orderItem}
+                            show-image="true"
+                            show-total="false"
+                            show-cgx-styles="false"></site-order-item-info>
+                    </li>
+                </template>
+            </ul>
+        </div>
+
+        <!-- Child Subscriptions Error -->
+        <div
+            lwc:if={_showChildSubscriptionsError}
+            class="child-subscriptions-error slds-p-top_small">
+            <p class="error-message">{_childSubscriptionsErrorMessage}</p>
+        </div>
+    </div>
+</template>

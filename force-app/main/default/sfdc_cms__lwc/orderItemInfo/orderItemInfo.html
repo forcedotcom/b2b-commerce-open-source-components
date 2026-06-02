@@ -1,0 +1,146 @@
+<template lwc:render-mode="light">
+    <!-- Show Order Item -->
+    <div
+        if:true={_showOrderItem}
+        class={_orderItemClasses}>
+        <figure
+            if:true={_showImage}
+            class="slds-no-flex"
+            aria-hidden="true">
+            <a
+                if:true={orderItem.isValid}
+                href={_productUrl}
+                data-productid={orderItem.productId}
+                onclick={navigateToProductDetailPage}
+                tabindex="-1">
+                <experience-picture url={_resolvedUrl}></experience-picture>
+            </a>
+            <!-- if item is not valid we still show the image 
+            but the image is not clickable -->
+            <experience-picture
+                if:false={orderItem.isValid}
+                url={_resolvedUrl}></experience-picture>
+        </figure>
+
+        <div class="slds-col slds-grid slds-grid_vertical item-details">
+            <!-- product title -->
+            <site-product-title
+                if:true={_showProductTitle}
+                is-available={orderItem.isValid}
+                url={_productUrl}
+                name={orderItem.name}
+                product-id={_productId}
+                product-unavailable-message={productUnavailableMessage}
+                class="item-name"></site-product-title>
+            <!-- product variant -->
+            <site-product-variant-attributes-display
+                if:true={_showVariants}
+                attributes={orderItem.variants}
+                class="variants"
+                dot-separator={showCgxStyles}
+                mobile-stack={showCgxStyles}></site-product-variant-attributes-display>
+            <!-- product fields -->
+            <div class="slds-grid slds-p-top_x-small">
+                <div class="slds-col slds-wrap slds-gutters">
+                    <div
+                        lwc:if={_showSubscriptionActivationStatus}
+                        class="slds-col slds-wrap slds-m-bottom_xx-small subscription-activation-status">
+                        <div lwc:if={_customSubscriptionActivationStatusIcon}>
+                            <svg
+                                class="slds-icon slds-icon_small"
+                                aria-hidden="true">
+                                <use xlink:href={_customSubscriptionActivationStatusIcon}></use>
+                            </svg>
+                        </div>
+                        <div
+                            lwc:if={_subscriptionActivationStatusLabel}
+                            class="dxp-text-body">
+                            <p>{_subscriptionActivationStatusLabel}</p>
+                        </div>
+                    </div>
+                    <!-- Subscription term pill -->
+                    <div
+                        lwc:if={_isItemASubscriptionProduct}
+                        class="slds-col slds-wrap slds-m-bottom_xx-small">
+                        <site-subscription-term-details-pill
+                            selling-model-type={_sellingModelType}
+                            pricing-term={_pricingTerm}
+                            pricing-term-unit={_pricingTermUnit}
+                            subscription-term={_subscriptionTerm}></site-subscription-term-details-pill>
+                    </div>
+                    <div
+                        if:true={_showFields}
+                        class="slds-col slds-grid slds-wrap slds-gutters">
+                        <site-common-item-fields
+                            class={_classesForColumnOne}
+                            fields={_fieldsForColumnOne}
+                            currency-code={currencyCode}
+                            adjustments={orderItem.adjustments}></site-common-item-fields>
+                        <site-common-item-fields
+                            if:true={_showFieldsInSecondColumn}
+                            class={_classesForColumnTwo}
+                            fields={_fieldsForColumnTwo}
+                            currency-code={currencyCode}
+                            adjustments={orderItem.adjustments}></site-common-item-fields>
+                    </div>
+                </div>
+                <!-- The total price and price per unit field are shown in the right most column -->
+                <div
+                    if:true={_showTotalPrice}
+                    class="slds-col text-block total-price">
+                    <p
+                        class={_totalPriceClasses}
+                        style={_totalPriceStyle}>
+                        {_formattedTotalPriceValue}
+                    </p>
+                </div>
+            </div>
+            <site-product-dynamic-attr-accordion
+                lwc:if={_showDynamicAttributes}
+                class="dynamic-attributes"
+                dynamic-attributes={_dynamicAttributes}
+                currency-code={currencyCode}></site-product-dynamic-attr-accordion>
+        </div>
+    </div>
+
+    <div
+        lwc:if={showBundleChildren}
+        class="bundle-children slds-p-top_small">
+        <button
+            aria-controls={bundleSectionId}
+            aria-expanded={isBundleExpanded}
+            class="toggle-button"
+            onclick={toggleChildren}>
+            <div class="product-count slds-p-bottom_xx-small slds-text-heading_x-small">
+                {childProductsExpandBtnLabel}
+                <lightning-icon
+                    icon-name={expandBtnIcon}
+                    size="x-small"></lightning-icon>
+            </div>
+            <div
+                class="with-product"
+                if:true={_showProductTitle}>
+                <lightning-formatted-rich-text value={withProductLabel}></lightning-formatted-rich-text>
+            </div>
+        </button>
+
+        <section id={bundleSectionId}>
+            <site-order-item-info
+                lwc:if={isBundleExpanded}
+                for:each={orderItem.associatedOrderItems}
+                for:item="associatedOrderItem"
+                key={associatedOrderItem.id}
+                class="slds-m-top_small"
+                bundle-expand-collapse-label={bundleExpandCollapseLabel}
+                currency-code={currencyCode}
+                order-item={associatedOrderItem}
+                product-unavailable-message={productUnavailableMessage}
+                show-image={showChildImage}
+                show-child-image={showChildImage}
+                show-total={showTotal}
+                total-price-text-color={totalPriceTextColor}
+                text-display-info={textDisplayInfo}
+                show-cgx-styles={showCgxStyles}></site-order-item-info>
+        </section>
+    </div>
+</template>

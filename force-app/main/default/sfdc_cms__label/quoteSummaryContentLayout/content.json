@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteSummaryContentLayout",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "spinnerAltText",
+      "value" : "Loading quote details..."
+    } ]
+  },
+  "urlName" : "quotesummarycontentlayout"
+}

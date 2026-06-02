@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderSummaryContentlayout",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "spinnerAltText",
+      "value" : "Loading order details..."
+    } ]
+  },
+  "urlName" : "ordersummarycontentlayout"
+}

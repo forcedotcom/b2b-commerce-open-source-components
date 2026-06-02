@@ -1,0 +1,24 @@
+<template lwc:render-mode="light">
+    <site-layout-header-ui
+        hide-promo-banner={hidePromoBanner}
+        hide-wishlist-shortcut={hideWishlistShortcut}
+        show-copilot-shortcut={showCopilotShortcut}
+        layout={layout}>
+        <div
+            slot="promoBanner"
+            class="promo-banner">
+            <slot name="promoBanner"></slot>
+        </div>
+        <div slot="storeLogo"><slot name="storeLogo"></slot></div>
+        <div slot="navigation"><slot name="navigation"></slot></div>
+        <div slot="searchInput"><slot name="searchInput"></slot></div>
+        <template lwc:if={showCopilotShortcut}>
+            <div slot="shopperCopilot"><slot name="shopperCopilot"></slot></div>
+        </template>
+        <div slot="myAccount"><slot name="myAccount"></slot></div>
+        <template if:false={hideWishlistShortcut}>
+            <div slot="wishlist"><slot name="wishlist"></slot></div>
+        </template>
+        <div slot="cart"><slot name="cart"></slot></div>
+    </site-layout-header-ui>
+</template>

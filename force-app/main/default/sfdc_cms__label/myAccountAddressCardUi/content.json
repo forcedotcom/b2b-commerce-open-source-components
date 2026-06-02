@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountAddressCardUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addressLabel",
+      "value" : "Address"
+    }, {
+      "name" : "phoneNumberLabel",
+      "value" : "Phone Number:"
+    } ]
+  },
+  "urlName" : "myaccountaddresscardui"
+}

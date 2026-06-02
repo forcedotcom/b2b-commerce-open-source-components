@@ -1,0 +1,35 @@
+<template lwc:render-mode="light">
+    <div
+        class="quote-confirmation-content-layout slds-is-relative"
+        tabindex="-1">
+        <template lwc:if={showLoader}>
+            <div class="slds-spinner_container">
+                <div
+                    role="status"
+                    class="slds-spinner slds-spinner_large"
+                    aria-live="polite">
+                    <span class="slds-assistive-text">{loaderAltText}</span>
+                    <div class="slds-spinner__dot-a"></div>
+                    <div class="slds-spinner__dot-b"></div>
+                </div>
+            </div>
+        </template>
+        <template lwc:else>
+            <template lwc:if={showContent}>
+                <site-common-transact-layout>
+                    <div slot="content">
+                        <slot name="content"></slot>
+                    </div>
+                    <div slot="summary">
+                        <slot name="summary"></slot>
+                    </div>
+                </site-common-transact-layout>
+            </template>
+            <template lwc:if={showError}>
+                <div class="quote-confirmation-content-layout_error slds-p-vertical_xx-large slds-p-horizontal_small">
+                    <slot name="error"></slot>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

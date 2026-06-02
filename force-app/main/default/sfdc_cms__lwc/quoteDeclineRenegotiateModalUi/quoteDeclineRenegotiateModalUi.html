@@ -1,0 +1,57 @@
+<template>
+    <div class="modal-container">
+        <lightning-modal-header
+            class="modal-header"
+            label={headerText}></lightning-modal-header>
+
+        <lightning-modal-body>
+            <template lwc:if={isNotSubmitting}>
+                <div class="slds-grid slds-wrap modal-body-content">
+                    <!-- Subheading -->
+                    <div class="slds-col slds-size_1-of-1 slds-m-bottom_small">
+                        <p class="modal-subheading">{subheadingText}</p>
+                    </div>
+
+                    <!-- Notes Textarea -->
+                    <div class="slds-col slds-size_1-of-1">
+                        <lightning-textarea
+                            name="notes"
+                            label="Notes"
+                            variant="label-hidden"
+                            placeholder={notesPlaceholder}
+                            value={notes}
+                            onchange={handleNotesChange}
+                            class="notes-textarea"></lightning-textarea>
+                    </div>
+                </div>
+            </template>
+            <template lwc:else>
+                <div class="slds-p-vertical_x-large slds-align_absolute-center">
+                    <lightning-spinner
+                        alternative-text="Loading"
+                        size="medium"
+                        variant="brand"></lightning-spinner>
+                </div>
+            </template>
+        </lightning-modal-body>
+
+        <lightning-modal-footer>
+            <div class="slds-grid slds-grid_align-end">
+                <button
+                    onclick={handleDeclineClick}
+                    name="declineButton"
+                    disabled={isSubmitting}
+                    class="slds-button slds-button_neutral slds-m-right_small">
+                    {declineButtonLabel}
+                </button>
+                <button
+                    onclick={handleRenegotiateClick}
+                    name="renegotiateButton"
+                    disabled={isSubmitting}
+                    class="slds-button slds-button_brand">
+                    {renegotiateButtonLabel}
+                </button>
+            </div>
+        </lightning-modal-footer>
+    </div>
+</template>

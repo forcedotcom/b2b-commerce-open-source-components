@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutNewshipmentModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "headerLabel",
+      "value" : "New Shipment"
+    }, {
+      "name" : "cancelActionLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "saveNewShipmentLabel",
+      "value" : "Save Shipment"
+    } ]
+  },
+  "urlName" : "checkoutnewshipmentmodal"
+}

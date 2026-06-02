@@ -1,0 +1,11 @@
+:host {
+    --com-c-layout-header-min-height: var(--com-c-builder-layout-header-min-height, 80px);
+}
+@media (min-device-width: 1200px) and (min-width: 1em) and (max-width: 60em) {
+    site-layout-header-ui > .promo-banner {
+        display: none;
+    }
+}
+.promo-banner {
+    background-color: var(--com-c-layout-header-background-color, var(--dxp-g-root, #fff));
+}

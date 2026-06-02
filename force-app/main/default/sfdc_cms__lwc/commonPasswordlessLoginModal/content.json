@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "commonPasswordlessLoginModal",
+  "contentBody" : { },
+  "urlName" : "commonpasswordlessloginmodal"
+}

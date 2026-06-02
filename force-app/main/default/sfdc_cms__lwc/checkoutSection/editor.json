@@ -1,0 +1,63 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutSection",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Title",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Change",
+                                    "variant": "tertiary",
+                                    "alignment": "right"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": []
+                    },
+                    {
+                        "name": "proceed",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Proceed",
+                                    "buttonBorderRadius": "4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

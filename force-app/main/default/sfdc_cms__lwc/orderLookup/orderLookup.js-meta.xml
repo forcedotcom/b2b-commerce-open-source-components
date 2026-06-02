@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Lookup</masterLabel>
+  <description>Allows customers to look up order details by entering order information.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Email Validation Label" name="emailFieldLabel" type="String" translatable="true" default="Email"></property>
+      <property label="Input Border Color" name="inputFieldBorderColor" type="Color"></property>
+      <property label="Hide Last Name" name="hideLastName" type="Boolean" default="false"></property>
+      <property label="Last Name Validation Label" name="lastNameFieldLabel" type="String" translatable="true" default="Last Name"></property>
+      <property label="Order Number Field Label" name="orderNumberFieldLabel" type="String" translatable="true" default="Order Number"></property>
+      <property label="Order Number Field Tooltip" name="orderNumberFieldTooltip" type="String" translatable="true" default="Enter the order number from your confirmation email."></property>
+      <property label="Phone Number Validation Label" name="phoneNumberFieldLabel" type="String" translatable="true" default="Phone Number"></property>
+      <property label="Validation Failure Message" name="validationFailureMessage" type="String" translatable="true" default="Something is not right. Check your info and try again."></property>
+      <property label="Width" name="width" type="Integer" default="25" min="25" max="100" screenResponsive="true" exposedTo="css"></property>
+      <designLayout>
+        <designSection name="Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="orderNumberFieldLabel"></designLayoutProperty>
+            <designLayoutProperty name="orderNumberFieldTooltip"></designLayoutProperty>
+            <designLayoutProperty name="emailFieldLabel"></designLayoutProperty>
+            <designLayoutProperty name="hideLastName"></designLayoutProperty>
+            <designLayoutProperty name="lastNameFieldLabel" cbVisibleIf="hideLastName=false"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberFieldLabel"></designLayoutProperty>
+            <designLayoutProperty name="validationFailureMessage"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Styling">
+          <designLayoutItems>
+            <designLayoutProperty name="inputFieldBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

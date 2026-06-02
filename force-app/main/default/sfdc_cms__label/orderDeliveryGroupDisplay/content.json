@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderDeliveryGroupDisplay",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "showMore",
+      "value" : "Show More"
+    }, {
+      "name" : "keyValueSeparatorWithSpace",
+      "value" : ": "
+    }, {
+      "name" : "spinnerText",
+      "value" : "Data Loading.."
+    } ]
+  },
+  "urlName" : "orderdeliverygroupdisplay"
+}

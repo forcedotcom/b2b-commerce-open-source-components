@@ -1,0 +1,49 @@
+.payment-saved-payment-methods-footer {
+    display: inline-block;
+    margin-top: var(--dxp-g-spacing-xxsmall);
+}
+
+.payment-saved-payment-methods-footer-button {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    margin-top: -5px;
+}
+
+.make-it-default-class {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.make-it-default-label-class {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.payment-saved-payment-methods-footer button:nth-child(1) {
+    text-decoration-line: var(--com-c-payment-saved-payment-methods-card-footer-text-decoration, underline);
+}
+
+.payment-saved-payment-methods-footer button:nth-child(2) {
+    text-decoration-line: var(--com-c-payment-saved-payment-methods-card-footer-text-decoration, underline);
+    margin-left: var(--dxp-g-spacing-small);
+}
+
+.modal-body-content {
+    padding-block-start: var(--dxp-c-hr-margin-block-start);
+    padding-block-end: var(--dxp-c-hr-margin-block-end);
+}
+
+@media only screen and (max-width: 47.9375em) {
+    .payment-saved-payment-methods-footer {
+        max-width: 47.9375em;
+    }
+
+    .payment-saved-payment-methods-footer button {
+        text-decoration-line: var(--com-c-payment-saved-payment-methods-card-footer-text-decoration, underline);
+    }
+}

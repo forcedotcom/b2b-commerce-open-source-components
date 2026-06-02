@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteDeclineRenegotiateModalUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "declineOperationFailedMessage",
+      "value" : "We couldn't decline the quote. Try again. If the issue persists, contact customer support."
+    }, {
+      "name" : "renegotiateOperationFailedMessage",
+      "value" : "We couldn't start the renegotiation. Try again. If the issue persists, contact customer support."
+    } ]
+  },
+  "urlName" : "quotedeclinerenegotiatemodalui"
+}

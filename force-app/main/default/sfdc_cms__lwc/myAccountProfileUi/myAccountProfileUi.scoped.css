@@ -1,0 +1,93 @@
+.card {
+    border: 1px solid var(--com-c-my-profile-border-color, #d9dfe7);
+    border-radius: var(--com-c-my-profile-border-radius, 3px);
+    padding: var(--dxp-g-spacing-large, 1.5rem);
+}
+.card:focus {
+    outline: 0;
+}
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.action-container-footer {
+    display: none;
+}
+.action-container-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.field-group {
+    display: flex;
+    flex-direction: row;
+}
+.field-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.label {
+    color: var(--dxp-s-form-element-label-color, #707275);
+}
+.pill {
+    --com-c-pill-background-color: var(--com-c-my-profile-pill-bg-color, #d9dfe7);
+    --com-c-pill-border-color: var(--dxp-g-root-1, #fff);
+    border-radius: var(--com-c-my-profile-pill-border-radius, 8px);
+    --com-c-pill-font-size: var(--com-c-my-profile-pill-font-size, var(--dxp-g-font-size-3, 14px));
+    --slds-c-pill-sizing-border: 0;
+    height: 100%;
+    width: fit-content;
+}
+.unverified-pill {
+    --com-c-pill-background-color: var(--com-c-my-profile-unverified-pill-bg-color, #707275);
+    --com-c-pill-text-color: var(--com-c-my-profile-pill-font-color, #fff);
+}
+.card-header {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+.header-text {
+    display: inline-block;
+    max-width: 65%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+.button-width {
+    width: fit-content;
+}
+@media only screen and (max-width: 47.9375em) {
+    .field-group {
+        display: block;
+    }
+    .card {
+        padding: var(--dxp-g-spacing-medium, 1rem);
+    }
+    .card-header {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .action-container-header {
+        display: none;
+    }
+    .action-container-footer {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        --slds-c-button-neutral-spacing-inline-start: 0;
+        width: 40%;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+    }
+}
+@media only screen and (max-width: 64.0625em) and (min-width: 47.9375em) {
+    .card-header {
+        width: 70%;
+    }
+}

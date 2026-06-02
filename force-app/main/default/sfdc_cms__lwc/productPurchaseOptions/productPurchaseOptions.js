@@ -5,7 +5,7 @@ import { computePurchaseRuleSet } from './utils';
 import { handleAddToCartErrorWithToast } from 'site/productAddToCartUtils';
 import { handleAddToWishlistSuccessWithToast, handleAddToWishlistErrorWithToast } from 'site/productWishlistUtil';
 import { toCommerceError } from 'commerce/checkoutCartApi';
-import { SessionContextAdapter } from 'commerce/contextApi';
+import { SessionContextAdapter, AppContextAdapter } from 'commerce/contextApi';
 import { generateStyleProperties } from 'experience/styling';
 import { ProductErrors } from 'site/commerceErrors';
 import { createCartItemAddAction, createProductQuantityUpdateAction, createWishlistItemAddAction, dispatchAction } from 'commerce/actionApi';
@@ -20,6 +20,8 @@ export default class ProductPurchaseOptions extends LightningElement {
   navContext;
   @wire(SessionContextAdapter)
   sessionContext;
+  @wire(AppContextAdapter)
+  appContext;
   @api
   product;
   @api
@@ -92,6 +94,12 @@ export default class ProductPurchaseOptions extends LightningElement {
   maximumValueGuideText;
   @api
   incrementValueGuideText;
+  @api
+  showAddToSecondaryCartMenu;
+  @api
+  showSecondaryCartItemCount;
+  @api
+  secondaryCartCountType;
   @api
   outOfStockText;
   get quantity() {
@@ -209,6 +217,21 @@ export default class ProductPurchaseOptions extends LightningElement {
   }
   get displayAddQuantity() {
     return this.product !== undefined && this.product !== null;
+  }
+  get displayAddToSecondaryCartMenu() {
+    return this.showAddToSecondaryCartMenu !== false && this.product !== undefined && this.product !== null && !this.product?.isConfigurationAllowed;
+  }
+  get isAddToSecondaryCartMenuDisabled() {
+    const hasPricing = this.productPricing && Object.keys(this.productPricing).length > 0;
+    const invalidVariant = this.productVariant?.isValid === false;
+    const isVariationParent = this.product?.productClass === 'VariationParent';
+    return this.isAddToCartButtonDisabled || hasPricing && this.productPricing.error !== undefined || invalidVariant && !isVariationParent;
+  }
+  get productId() {
+    return this.product?.id;
+  }
+  get productName() {
+    return this.product?.fields?.Name;
   }
   get isDisplayable() {
     return this.product?.productClass !== 'Set';

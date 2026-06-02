@@ -1,0 +1,77 @@
+<template lwc:render-mode="light">
+    <site-common-error
+        if:true={_hasError}
+        error-label={orderDeliveryGroup.orderItemsErrorMessage}
+        error-type="warning"
+        class="slds-grid slds-p-bottom_x-small"></site-common-error>
+    <div
+        if:true={_showShippingFields}
+        class="field-properties slds-border_bottom slds-grid slds-wrap slds-p-bottom_x-small slds-p-left_large">
+        <!-- Display the shipping fields -->
+        <template
+            for:each={_transformedShippingFields}
+            for:item="field">
+            <div
+                key={field.id}
+                class="shipping-field-item slds-grid slds-m-bottom_xx-small slds-wrap">
+                <span if:true={field.hasFieldName}>
+                    <span class="slds-truncate_container_75">{field.label}</span>
+                    <lightning-formatted-rich-text
+                        value={_labels.keyValueSeparatorWithSpace}
+                        aria-hidden="true"></lightning-formatted-rich-text>
+                </span>
+                <span>
+                    <site-common-field
+                        currency-code={currencyCode}
+                        type={field.type}
+                        value={field.text}></site-common-field>
+                </span>
+            </div>
+        </template>
+    </div>
+
+    <!-- go over the order items -->
+    <ul if:true={_hasItems}>
+        <template
+            for:each={_visibleProducts}
+            for:item="item">
+            <li
+                class="slds-p-vertical_small slds-border_bottom"
+                key={item.productId}
+                item-id={item.productId}>
+                <site-order-item-info
+                    bundle-expand-collapse-label={bundleExpandCollapseLabel}
+                    currency-code={currencyCode}
+                    order-item={item}
+                    product-unavailable-message={productUnavailableMessage}
+                    show-image={showProductImage}
+                    show-child-image={showChildProductImage}
+                    show-total={showTotal}
+                    total-price-text-color={totalPriceTextColor}
+                    text-display-info={textDisplayInfo}></site-order-item-info>
+            </li>
+        </template>
+    </ul>
+
+    <!-- loading spinner -->
+    <template if:true={_isItemListIndeterminate}>
+        <div class="slds-align_absolute-center slds-is-relative spinner-container">
+            <lightning-spinner
+                variant="brand"
+                alternative-text={_labels.spinnerText}></lightning-spinner>
+        </div>
+    </template>
+
+    <!-- show more button when there are more items available -->
+    <footer
+        if:false={_allProductsLoaded}
+        class="slds-p-around_small slds-align_absolute-center">
+        <lightning-button
+            variant="Neutral"
+            label={showMoreProductLabel}
+            onclick={handleShowMoreItems}
+            class="show-more">
+            <span class="slds-assistive-text">{showMoreProductLabel}</span>
+        </lightning-button>
+    </footer>
+</template>

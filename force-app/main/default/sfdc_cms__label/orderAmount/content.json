@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderAmount",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "TotalProductAmount",
+      "value" : "Product Subtotal"
+    }, {
+      "name" : "TotalAdjustedDeliveryAmount",
+      "value" : "Shipping"
+    }, {
+      "name" : "TotalTaxAmount",
+      "value" : "Tax"
+    }, {
+      "name" : "GrandTotalAmount",
+      "value" : "Total"
+    }, {
+      "name" : "TotalProductAmountWithTax",
+      "value" : "Product Subtotal with Tax"
+    }, {
+      "name" : "TotalAdjDeliveryAmtWithTax",
+      "value" : "Shipping with Tax"
+    }, {
+      "name" : "TotalProductPromotionDistAmount",
+      "value" : "Order Level Promotions"
+    }, {
+      "name" : "TotalProductPromotionDiscount",
+      "value" : "Promotions"
+    } ]
+  },
+  "urlName" : "orderamount"
+}

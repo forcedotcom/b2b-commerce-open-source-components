@@ -1,0 +1,45 @@
+<template lwc:render-mode="light">
+    <template lwc:if={renderAllowedUserActions}>
+        <div class="payment-saved-payment-methods-footer slds-p-top_x-small make-it-default-class">
+            <div class="slds-p-right_small">
+                <template lwc:if={renderDefaultButton}>
+                    <label class="slds-grid slds-grid_align-center">
+                        <input
+                            type="checkbox"
+                            aria-label={ariaDefaultLabel}
+                            disabled={disabled}
+                            checked={isDefaultCheckBoxChecked}
+                            class="slds-m-right_x-small make-it-default-label-class"
+                            onclick={handleDefaultClick} />
+                        <span class="slds-m-left_x-small">{defaultLabel}</span>
+                    </label>
+                </template>
+            </div>
+            <template lwc:if={renderAllowedUserActions}>
+                <button
+                    aria-label={ariaDeleteLabel}
+                    class="slds-button payment-saved-payment-methods-footer-button"
+                    disabled={disabled}
+                    onclick={handleDeleteClick}>
+                    {deleteLabel}
+                </button>
+            </template>
+        </div>
+        <template lwc:if={renderShareOption}>
+            <div
+                class="payment-saved-payment-methods-footer slds-var-p-top_x-small slds-var-p-bottom_x-small make-it-default-class slds-border_top">
+                <div class>
+                    <label class="slds-grid_vertical-align-center">
+                        <input
+                            type="checkbox"
+                            aria-label={shareCheckboxLabel}
+                            checked={isSavedPaymentMethodShared}
+                            onclick={handleShareClick}
+                            class="slds-var-m-right_x-small make-it-default-label-class share-action-checkbox" />
+                        <span class="slds-var-m-left_x-small">{shareCheckboxLabel}</span>
+                    </label>
+                </div>
+            </div>
+        </template>
+    </template>
+</template>

@@ -2,3 +2,97 @@
     -webkit-transform: translateX(-3em);
     transform: translateX(-3em);
 }
+
+.slds-form-element:focus-within .slds-form-element__label,
+.slds-form-element
+    .slds-form-element__label:has(~ .slds-form-element__control .slds-form-element input:-webkit-autofill),
+.slds-form-element .slds-form-element__label:has(~ .slds-form-element__control .slds-form-element input:autofill),
+.slds-form-element
+    .slds-form-element__label:has(~ .slds-form-element__control .slds-form-element div[part='input-text'][populated]),
+lightning-input[populated]::part(label) {
+    font-size: var(--dxp-s-body-small-font-size);
+    top: 6px;
+    cursor: default;
+}
+
+.slds-form-element .slds-form-element__control .slds-combobox_container {
+    min-height: var(--var-form-input-element-min-height, 54px);
+    border: var(--dxp-s-form-element-width-border) solid var(--dxp-s-form-element-color-border);
+    border-radius: var(--dxp-s-form-element-radius-border) 0 0 var(--dxp-s-form-element-radius-border);
+    position: relative;
+    min-width: 85px;
+    width: 85px;
+    background-color: var(
+        --sds-c-input-color-background,
+        var(--dxp-s-form-element-color-background, var(--dxp-g-root))
+    );
+    top: 0;
+}
+
+.slds-form-element .slds-form-element__control .slds-combobox_container:focus-within,
+.slds-form-element .slds-form-element__control .slds-combobox_container:has(button.slds-has-focus) {
+    background-color: var(
+        --sds-c-input-color-background-focus,
+        var(--dxp-s-form-element-color-background-active, var(--dxp-s-form-element-color-background, var(--dxp-g-root)))
+    );
+}
+
+.slds-form-element .slds-form-element__control .slds-combobox_container:focus-within {
+    border-color: var(--dxp-s-form-element-color-border-focus);
+}
+
+.slds-form-element .slds-form-element__control .slds-combobox__input.slds-has-focus,
+.slds-form-element .slds-form-element__control .slds-combobox__input:focus {
+    border: none;
+    box-shadow: none;
+    --slds-c-input-shadow: none;
+}
+
+.slds-form-element .slds-form-element__control div[part='input-text'],
+lightning-input::part(input-text) {
+    border-radius: 0 var(--dxp-s-form-element-radius-border) var(--dxp-s-form-element-radius-border) 0;
+    border-left: 0;
+}
+
+.slds-form-element .slds-form-element__control .slds-input,
+lightning-input::part(input) {
+    border-radius: 0 calc(var(--dxp-s-form-element-radius-border) - var(--dxp-s-form-element-width-border))
+        calc(var(--dxp-s-form-element-radius-border) - var(--dxp-s-form-element-width-border)) 0;
+    border-left: 0;
+}
+
+.slds-form-element .slds-form-element__control .slds-combobox__input {
+    border-radius: var(--dxp-s-form-element-radius-border) 0 0 var(--dxp-s-form-element-radius-border);
+    min-height: var(--var-form-input-element-min-height, 54px);
+    padding-top: 4px;
+}
+
+.slds-form-element label.slds-form-element__label {
+    position: absolute;
+    left: 12px;
+}
+
+.slds-form-element .slds-form-element__control .slds-grid {
+    column-gap: 0;
+    flex-wrap: nowrap;
+}
+
+.slds-form-element .slds-form-element__control .slds-grid > .slds-col,
+.slds-form-element .slds-form-element__control .slds-grid > .slds-no-flex {
+    padding: 0;
+    margin: 0;
+}
+
+.slds-form-element .slds-form-element__control .slds-grid > .slds-col {
+    margin-left: calc(-1 * var(--dxp-s-form-element-width-border, 1px));
+}
+
+.slds-form-element .slds-form-element__control .slds-grid > .slds-col lightning-input,
+.slds-form-element .slds-form-element__control .slds-grid > .slds-col lightning-input > .slds-form-element {
+    margin: 0;
+    padding: 0;
+}
+
+.slds-form-element .slds-form-element__control .slds-grid > .slds-col lightning-input .slds-form-element__control {
+    padding: 0;
+}

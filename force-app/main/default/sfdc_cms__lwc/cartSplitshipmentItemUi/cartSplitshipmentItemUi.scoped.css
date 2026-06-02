@@ -1,0 +1,63 @@
+:host {
+    --com-c-variant-attribute-color: var(--dxp-g-neutral-3);
+    --com-c-variant-attribute-font-size: var(--dxp-g-font-size-4);
+}
+.item-card {
+    padding-top: var(--dxp-g-spacing-medium);
+}
+.product-image {
+    margin-right: var(--dxp-g-spacing-small);
+    aspect-ratio: var(--com-c-split-shipment-item-image-aspect-ratio, 1);
+}
+experience-picture {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: var(--com-c-split-shipment-item-image-object-fit, contain);
+}
+.unit-price {
+    color: var(--com-c-cart-item-unit-price-font-color, var(--dxp-g-root-contrast));
+    font-size: var(--com-c-cart-item-unit-price-font-size, var(--dxp-g-font-size-5));
+}
+.item-details-description {
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+}
+.price {
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+.item-details-description-fields {
+    font-size: var(--dxp-g-font-size-4);
+    color: var(--dxp-g-neutral-3);
+}
+.product-sku,
+.bundle-details lightning-formatted-rich-text {
+    color: var(--dxp-g-neutral-3, #76716b);
+}
+div.product-details {
+    padding-right: var(--dxp-g-spacing-large);
+}
+@media only screen and (min-width: 48em) and (max-width: 64.0625em) {
+    .column-spacing-right {
+        padding-left: 3.5rem;
+    }
+    div.product-details {
+        padding-right: var(--dxp-g-spacing-xxsmall);
+    }
+}
+@media only screen and (max-width: 30em) {
+    .slds-col.slds-size_1-of-3 {
+        flex: 1 1 100%;
+    }
+    .slds-col.slds-size_2-of-3 {
+        flex: 1 1 100%;
+    }
+    .item-card {
+        border-bottom: var(--com-c-cart-item-border-width, var(--dxp-s-form-element-width-border))
+            var(--com-c-cart-item-border-color, var(--dxp-s-dropdown-color-border)) solid;
+        padding-bottom: var(--dxp-g-spacing-xlarge);
+    }
+    div.product-details {
+        padding-right: 0;
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteSummaryUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "detailsAssistiveText",
+      "value" : "View details for quote {quoteNumber}"
+    }, {
+      "name" : "keyValueSeparatorWithSpace",
+      "value" : ":&nbsp;"
+    }, {
+      "name" : "startReorderAssistiveText",
+      "value" : "Start reorder for {orderNumber}."
+    } ]
+  },
+  "urlName" : "quotesummaryui"
+}

@@ -1,0 +1,12 @@
+<template lwc:render-mode="light">
+    <div class="slds-grid container">
+        <div class={containerClass}>
+            <div class="slds-align-middle slds-m-right_small slds-text-heading_small bold">{_filterByLabel}</div>
+            <site-common-dropdown
+                options={_dateFilterByOptions}
+                selected={defaultSelected}
+                ondropdownselect={dropdownSelectHandler}
+                menu-alignment={menuAlignment}></site-common-dropdown>
+        </div>
+    </div>
+</template>

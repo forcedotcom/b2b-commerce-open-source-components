@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartDeliverygroupItem",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "removeShipmentButtonText",
+      "value" : "Remove Item"
+    }, {
+      "name" : "additionalAddressSplitItemText",
+      "value" : "Ship to multiple addresses"
+    }, {
+      "name" : "increaseQuantitySplitShipText",
+      "value" : "To ship to multiple addresses, increase the quantity."
+    } ]
+  },
+  "urlName" : "cartdeliverygroupitem"
+}

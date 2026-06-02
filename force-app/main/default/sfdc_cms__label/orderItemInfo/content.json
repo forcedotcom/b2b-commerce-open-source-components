@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderItemInfo",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "withProduct",
+      "value" : "In {productName}"
+    }, {
+      "name" : "subscriptionPriceMonthlyLabel",
+      "value" : "{price}/month"
+    }, {
+      "name" : "subscriptionPriceYearlyLabel",
+      "value" : "{price}/year"
+    } ]
+  },
+  "urlName" : "orderiteminfo"
+}

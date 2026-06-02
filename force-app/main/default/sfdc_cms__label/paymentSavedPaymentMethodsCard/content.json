@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "paymentSavedPaymentMethodsCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "cardTypeIconTitle",
+      "value" : "{0} icon"
+    }, {
+      "name" : "cardExpiredDateLabel",
+      "value" : "{0}/{1}"
+    } ]
+  },
+  "urlName" : "paymentsavedpaymentmethodscard"
+}

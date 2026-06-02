@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartItemDropdown",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addressSingleLineBreak",
+      "value" : ","
+    }, {
+      "name" : "newShipmentButtonText",
+      "value" : "New Shipment..."
+    }, {
+      "name" : "deliveryGroupSelectorLabel",
+      "value" : "Split Shipment Address Selector"
+    }, {
+      "name" : "deliveryAddressSelectorLabel",
+      "value" : "Shipping Address"
+    }, {
+      "name" : "createNewAddressLabel",
+      "value" : "New Address"
+    }, {
+      "name" : "defaultDropdownTextForShipmentModal",
+      "value" : "Select..."
+    }, {
+      "name" : "dropdownDisplayValue",
+      "value" : "{0} | {1}, {2}"
+    }, {
+      "name" : "deliveryGroupDataLoading",
+      "value" : "Shipment..."
+    }, {
+      "name" : "deliveryGroupDataLoadingAssistiveTextLabel",
+      "value" : "Loading"
+    } ]
+  },
+  "urlName" : "cartitemdropdown"
+}

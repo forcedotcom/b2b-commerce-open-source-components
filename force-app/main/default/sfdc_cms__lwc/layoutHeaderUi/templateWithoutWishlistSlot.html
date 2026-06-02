@@ -1,0 +1,100 @@
+<template lwc:render-mode="light">
+    <template lwc:if={showPromoBanner}>
+        <div class="header-promo-banner">
+            <slot name="promoBanner"></slot>
+        </div>
+    </template>
+    <header
+        class={headerClass}
+        ref="header">
+        <div class="header-content">
+            <!-- mobile layout -->
+            <div
+                lwc:if={isMobile}
+                class="layout-header-mobile slds-is-relative slds-grid slds-wrap slds-grid_vertical-align-center">
+                <!-- Hide mobile navigation -->
+                <template lwc:if={hideMobileNavigation}>
+                    <div class="header-logo slds-col slds-size_6-of-12 slds-p-right_medium">
+                        <slot name="storeLogo"></slot>
+                    </div>
+                </template>
+
+                <!-- Show mobile navigation -->
+                <template lwc:else>
+                    <div class="header-navigation slds-col slds-size_1-of-12">
+                        <slot name="navigation"></slot>
+                    </div>
+                    <div class="header-logo slds-col slds-size_5-of-12 slds-p-left_medium slds-p-right_medium">
+                        <slot name="storeLogo"></slot>
+                    </div>
+                </template>
+
+                <div
+                    class="header-badge-icons slds-col slds-grid slds-grid_align-end slds-size_5-of-12 slds-p-top_small">
+                    <div class="header-account slds-col">
+                        <slot name="myAccount"></slot>
+                    </div>
+                    <div class="header-cart slds-col">
+                        <slot name="cart"></slot>
+                    </div>
+                </div>
+                <div class="header-search slds-col slds-size_12-of-12 slds-m-top_none">
+                    <slot name="searchInput"></slot>
+                </div>
+            </div>
+
+            <!-- tablet layout -->
+            <div
+                lwc:if={isTablet}
+                class="layout-header-tablet slds-m-horizontal_xx-small slds-is-relative slds-grid slds-wrap slds-gutters_direct-small slds-grid_vertical-align-center">
+                <div class="header-logo slds-col slds-size_3-of-12 slds-p-top_x-small slds-p-bottom_small">
+                    <slot name="storeLogo"></slot>
+                </div>
+                <div class="header-navigation slds-col slds-size_7-of-12">
+                    <slot name="navigation"></slot>
+                </div>
+                <div
+                    class="header-badge-icons slds-col slds-grid slds-grid_align-end slds-grid_vertical-align-start slds-size_2-of-12 slds-p-top_small">
+                    <div class="header-account slds-col">
+                        <slot name="myAccount"></slot>
+                    </div>
+                    <div class="header-cart slds-col">
+                        <slot name="cart"></slot>
+                    </div>
+                </div>
+                <div class="header-search slds-col slds-size_12-of-12 slds-m-top_none">
+                    <slot name="searchInput"></slot>
+                </div>
+            </div>
+
+            <!-- desktop layout -->
+            <div
+                lwc:if={isDesktop}
+                class="layout-header-desktop slds-p-horizontal_xx-large slds-is-relative slds-grid slds-wrap slds-gutters_direct-small slds-grid_vertical-align-center">
+                <div class="header-logo slds-col slds-size_2-of-12">
+                    <slot name="storeLogo"></slot>
+                </div>
+                <div class="header-navigation slds-col slds-size_4-of-12">
+                    <slot name="navigation"></slot>
+                </div>
+                <div class="header-search slds-col slds-size_4-of-12">
+                    <slot name="searchInput"></slot>
+                </div>
+                <div
+                    class="header-badge-icons slds-col slds-grid slds-grid_align-end slds-grid_vertical-align-center slds-size_2-of-12">
+                    <div
+                        lwc:if={showCopilotShortcut}
+                        class="header-copilot slds-col">
+                        <slot name="shopperCopilot"></slot>
+                    </div>
+                    <div class="header-account slds-col">
+                        <slot name="myAccount"></slot>
+                    </div>
+                    <div class="header-cart slds-col">
+                        <slot name="cart"></slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</template>

@@ -1,0 +1,9 @@
+<template lwc:render-mode="light">
+    <template if:true={_showAppliedAdjustments}>
+        <site-promotion-summary-ui
+            style={defaultOrderAppliedPromotionsStyle}
+            applied-promotions={_adjustments}
+            header-text={promotionTitle}
+            currency-code={_currencyIsoCode}></site-promotion-summary-ui>
+    </template>
+</template>

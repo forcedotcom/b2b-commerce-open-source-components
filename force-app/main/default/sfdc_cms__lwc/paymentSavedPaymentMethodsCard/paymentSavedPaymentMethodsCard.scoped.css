@@ -1,0 +1,44 @@
+.payment-saved-payment-methods-card .payment-saved-payment-methods-card-body {
+    min-height: 70%;
+}
+
+.payment-saved-payment-methods-card .payment-saved-payment-methods-card-body lightning-badge.slds-badge {
+    font-weight: var(--dxp-c-strong-text-weight, 700);
+}
+
+.payment-saved-payment-methods-card {
+    height: 100%;
+    background-color: var(--com-c-payment-saved-payment-methods-card-background-color, var(--dxp-g-root));
+    border: solid 1px var(--com-c-payment-saved-payment-methods-card-border-color, var(--dxp-g-neutral-1));
+    border-radius: var(--com-c-payment-saved-payment-methods-card-border-radius, 0.5rem);
+    text-align: var(--com-c-payment-saved-payment-methods-card-text-align, left);
+    color: var(--com-c-payment-saved-payment-methods-card-text-color, var(--dxp-g-root-contrast));
+    padding-top: var(--com-c-payment-saved-payment-methods-card-padding-vertical, var(--dxp-g-spacing-medium));
+    padding-bottom: var(--com-c-payment-saved-payment-methods-card-padding-vertical, var(--dxp-g-spacing-medium));
+    padding-left: var(--com-c-payment-saved-payment-methods-card-padding-horizontal, var(--dxp-g-spacing-medium));
+    padding-right: var(--com-c-payment-saved-payment-methods-card-padding-horizontal, var(--dxp-g-spacing-medium));
+}
+
+.name-decoration {
+    font-weight: var(--com-c-payment-saved-payment-methods-card-name-font-weight, var(--dxp-c-strong-text-weight, 700));
+    font-style: var(--com-c-payment-saved-payment-methods-card-name-font-style, normal);
+    text-decoration: var(--com-c-payment-saved-payment-methods-card-name-text-decoration, none);
+}
+
+.default-badge-style-class,
+.expire-badge-style-class {
+    display: block;
+}
+
+.card-details {
+    display: flex;
+    align-items: center;
+    height: 3.35rem;
+    margin-left: -0.5rem;
+}
+
+.card-details-class {
+    display: flex;
+    align-items: center;
+    margin-left: 0.5rem;
+}

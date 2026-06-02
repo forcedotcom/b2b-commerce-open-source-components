@@ -1,0 +1,28 @@
+<template lwc:render-mode="light">
+    <div lwc:if={isConsentOptionPresent}>
+        <slot name="consentOptionsHeaderText"></slot>
+        <div class="slds-var-m-top_large slds-var-m-bottom_medium">
+            <div
+                lwc:if={_isUpdatingConsent}
+                class="spinner-container">
+                <div class="slds-spinner_container">
+                    <div
+                        role="status"
+                        class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                        <div class="slds-assistive-text">{updatingStencilAssistiveText}</div>
+                        <div class="slds-spinner__dot-a"></div>
+                        <div class="slds-spinner__dot-b"></div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="consent-list-box"
+                style={customStyles}>
+                <site-legal-consent-options
+                    consent-items={consentOptions}
+                    onconsentchange={handleConsentOptionUpdated}></site-legal-consent-options>
+            </div>
+        </div>
+        <slot name="consentOptionsFooterText"></slot>
+    </div>
+</template>

@@ -1,0 +1,83 @@
+<template lwc:render-mode="light">
+    <section
+        class="wrapper"
+        aria-label="Search results">
+        <!-- Load Previous - load previous navigation -->
+        <nav
+            class="load-previous-button"
+            aria-label={loadPreviousLabel}>
+            <button
+                lwc:if={showLoadPrevious}
+                load-previous-label={loadPreviousLabel}
+                class="slds-m-horizontal_small slds-button slds-button_neutral"
+                onclick={handleLoadPrevious}>
+                {loadPreviousLabel}
+            </button>
+        </nav>
+
+        <ul
+            data-automation="results-grid"
+            class="product-grid-container"
+            style={layoutCustomStyles}>
+            <template
+                for:each={collection}
+                for:item="item"
+                for:index="index">
+                <li
+                    key={item.key}
+                    class="grid-item slds-border_bottom">
+                    <div class={layoutSpacingClasses}>
+                        <!-- Inline product card replaces the previous sfdcRepeaterItem slot; props are driven by editor.json design properties. -->
+                        <site-product-card
+                            item={item.data}
+                            card-layout="grid"
+                            show-product-image={showProductImage}
+                            price-type={priceType}
+                            show-add-to-cart-button={showCallToActionButton}
+                            show-button-on-desktop={showCallToActionButton}
+                            show-button-on-mobile={showCallToActionButton}
+                            add-to-cart-button-label={addToCartButtonText}
+                            add-to-cart-button-style={addToCartButtonStyle}
+                            view-product-options-button-label={viewOptionsButtonText}
+                            card-content-mapping={cardContentMapping}></site-product-card>
+                    </div>
+                </li>
+            </template>
+        </ul>
+        <div
+            lwc:if={searchResultsLoading}
+            class="search-loading"
+            role="status"
+            aria-live="polite">
+            <lightning-spinner
+                variant="brand"
+                size="large"
+                alternative-text={loadingLabel}></lightning-spinner>
+        </div>
+
+        <!-- Show More - show more navigation -->
+        <nav
+            class="load-more-button"
+            aria-label={loadMoreLabel}>
+            <button
+                lwc:if={showLoadMore}
+                load-more-label={loadMoreLabel}
+                class="slds-m-horizontal_small slds-button slds-button_neutral"
+                onclick={handleLoadMore}>
+                {loadMoreLabel}
+            </button>
+        </nav>
+
+        <!-- Paging Control - paging navigation -->
+        <site-search-paging-control
+            class="paging-control"
+            lwc:if={showPagingControl}
+            current-page-number={_currentPageNumber}
+            page-size={pageSize}
+            total-item-count={totalItemCount}
+            pagination-type={resolvedResultNavigationType}
+            onpageprevious={handlePreviousPageEvent}
+            onpagenext={handleNextPageEvent}
+            onpagegoto={handleGotoPageEvent}></site-search-paging-control>
+    </section>
+</template>

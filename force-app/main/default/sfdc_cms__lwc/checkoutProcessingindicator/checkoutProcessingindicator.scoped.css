@@ -1,0 +1,23 @@
+.spinner-container {
+    text-align: center;
+}
+.spinner {
+    display: inline-block;
+    border: solid 0.1em var(--dxp-g-brand);
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    border-right-color: transparent;
+    animation: spinner-border 1s linear infinite;
+}
+h3,
+p,
+.spinner {
+    margin: var(--dxp-s-component-wrapper-spacer-size, 0.5em);
+}
+@keyframes spinner-border {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}

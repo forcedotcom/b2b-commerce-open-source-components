@@ -1,0 +1,64 @@
+<!--
+  ~ Copyright 2020 salesforce.com, inc.
+  ~ All Rights Reserved
+  ~ Company Confidential
+  -->
+
+<template lwc:render-mode="light">
+    <section
+        aria-label={titleText}
+        class="slds-card totals-card">
+        <header class="slds-card__header">
+            <h2
+                lwc:if={showTitle}
+                class="slds-text-title_bold slds-m-bottom_x-small">
+                {titleText}
+            </h2>
+        </header>
+        <template if:false={dataLoaded}>
+            <div class="slds-align_absolute-center slds-is-relative spinner-container">
+                <lightning-spinner
+                    alternative-text={_labels.spinnerText}
+                    variant="brand"></lightning-spinner>
+            </div>
+        </template>
+
+        <template if:true={dataLoaded}>
+            <dl class="slds-dl_inline slds-m-bottom_x-small slds-p-horizontal_medium">
+                <template
+                    for:each={displayableFields}
+                    for:item="item">
+                    <template lwc:if={item.isDiscount}>
+                        <div
+                            key={item.name}
+                            class="field-item slds-m-bottom_xx-small">
+                            <site-order-discounts
+                                discounts={discounts}
+                                discounts-label={item.label}
+                                currency-code={currencyCode}
+                                total-discount={totalDiscount}></site-order-discounts>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <div
+                            class={item.cssClasses}
+                            key={item.name}>
+                            <dt class="slds-dl_inline__label">
+                                <lightning-formatted-rich-text
+                                    value={item.label}
+                                    class="slds-truncate_container_75 slds-show_inline"></lightning-formatted-rich-text>
+                            </dt>
+                            <dd class="slds-dl_inline__detail">
+                                <site-common-field
+                                    class="slds-show_inline-block"
+                                    value={item.value}
+                                    type="Currency"
+                                    currency-code={currencyCode}></site-common-field>
+                            </dd>
+                        </div>
+                    </template>
+                </template>
+            </dl>
+        </template>
+    </section>
+</template>

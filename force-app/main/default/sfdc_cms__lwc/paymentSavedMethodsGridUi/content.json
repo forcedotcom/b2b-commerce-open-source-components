@@ -1,0 +1,6 @@
+{
+  "type" : "sfdc_cms__lwc",
+  "title" : "paymentSavedMethodsGridUi",
+  "contentBody" : { },
+  "urlName" : "paymentsavedmethodsgridui"
+}

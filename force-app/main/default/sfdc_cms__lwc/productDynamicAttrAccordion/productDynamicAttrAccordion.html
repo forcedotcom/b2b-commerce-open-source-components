@@ -1,0 +1,43 @@
+<template lwc:render-mode="light">
+    <div class="slds-large-size_1-of-1">
+        <button
+            class="slds-media_center section-header"
+            aria-expanded={_isExpanded}
+            aria-controls="dynamic-attribute-section"
+            onclick={handleTitleClick}>
+            <lightning-icon
+                icon-name={iconName}
+                size="x-small"
+                class="slds-align_absolute-center"></lightning-icon>
+            {accordionTitle}
+        </button>
+        <div
+            lwc:if={_isExpanded}
+            id="dynamic-attribute-section"
+            class="slds-var-m-top_small content"
+            aria-hidden={contentAriaHidden}>
+            <div class="slds-var-p-around_xx-small accordion-body">
+                <ul class="slds-grid slds-wrap slds-p-around_none slds-m-around_none">
+                    <template
+                        for:each={_slicedDynamicAttributes}
+                        for:item="attr">
+                        <li
+                            key={attr.key}
+                            class="slds-col slds-size_1-of-2">
+                            <span>
+                                {attr.label}:
+                                <site-common-field
+                                    class="slds-var-p-left_xx-small"
+                                    title={attr.label}
+                                    currency-code={currencyCode}
+                                    type={attr.type}
+                                    unit-of-measure={attr.unitOfMeasure}
+                                    value={attr.value}></site-common-field>
+                            </span>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

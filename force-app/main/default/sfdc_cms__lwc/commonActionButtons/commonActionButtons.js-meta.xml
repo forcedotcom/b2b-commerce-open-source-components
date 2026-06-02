@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Action Buttons</masterLabel>
+  <description>Renders a pair of action buttons that emit firstaction and secondaction events.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Size" name="size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property label="Spacing between buttons" name="buttonSpacing" type="String" default="medium" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource"></property>
+      <property label="Horizontal Alignment" name="alignment" type="String"></property>
+      <property label="Button Text" name="firstActionButtonText" type="String" translatable="true"></property>
+      <property label="Button Text" name="secondActionButtonText" type="String" translatable="true"></property>
+      <property label="Button Style" name="firstButtonVariant" type="String" default="secondary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property label="Button Style" name="secondButtonVariant" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="buttonSpacing"></designLayoutProperty>
+            <designLayoutProperty name="alignment"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="firstButton">
+          <designLayoutItems>
+            <designLayoutProperty name="firstActionButtonText"></designLayoutProperty>
+            <designLayoutProperty name="firstButtonVariant"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="secondButton">
+          <designLayoutItems>
+            <designLayoutProperty name="secondActionButtonText"></designLayoutProperty>
+            <designLayoutProperty name="secondButtonVariant"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

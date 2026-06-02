@@ -1,0 +1,35 @@
+<template lwc:render-mode="light">
+    <experience-popup-source
+        lwc:ref="popupSource"
+        aria-describedby="terms-conditions-popover-body"
+        aria-labelledby="terms-conditions-popover-heading"
+        onclickout={closePopup}>
+        <lightning-button-icon
+            alternative-text={labels.infoBubbleAltText}
+            class="slds-m-right_x-small"
+            icon-name="utility:info"
+            onclick={openPopup}
+            slot="source"
+            size="small"
+            variant="bare"></lightning-button-icon>
+        <div class="popover-header slds-popover__header slds-border_bottom slds-p-vertical_x-small">
+            <h3
+                id="terms-conditions-popover-heading"
+                class="slds-text-heading_small slds-p-vertical_x-small">
+                {headerText}
+            </h3>
+            <lightning-button-icon
+                alternative-text={labels.closeButtonAltText}
+                class="slds-float_right slds-popover__close"
+                icon-name="utility:close"
+                onclick={closePopup}
+                size="large"
+                variant="bare"></lightning-button-icon>
+        </div>
+        <div
+            id="terms-conditions-popover-body"
+            class="slds-popover__body slds-popover__body_small">
+            <lightning-formatted-rich-text value={bodyText}></lightning-formatted-rich-text>
+        </div>
+    </experience-popup-source>
+</template>

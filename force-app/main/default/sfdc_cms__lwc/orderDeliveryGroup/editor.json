@@ -1,0 +1,26 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderDeliveryGroup",
+                "type": "component",
+                "attributes": {
+                    "orderDeliveryGroup": "{!OrderDeliveryGroup}",
+                    "prefixToShippingGroup": "",
+                    "shippingGroupFieldMapping": "[]",
+                    "productCountTitle": "{0} Products",
+                    "giftOrderLabel": "This is a gift",
+                    "giftMessageLabel": "Gift Message"
+                },
+                "children": [
+                    {
+                        "name": "orderItemsRepeater",
+                        "title": "Order Items",
+                        "type": "region",
+                        "children": []
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,27 @@
+<template>
+    <lightning-modal-header
+        label={labels.confirmDeleteAddressHeaderText}
+        lwc:ref="confirmModal"></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="modal-body-content">{labels.confirmDeleteAddressText}</div>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <div>
+            <button
+                class="slds-button slds-button_neutral"
+                onclick={closeModal}
+                aria-label={labels.cancelLabel}>
+                {labels.cancelLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                onclick={handleConfirmDeleteAddress}>
+                {labels.deleteLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+    <lightning-spinner
+        if:true={_showPageSpinner}
+        alternative-text={labels.deleteLabel}
+        size="large"></lightning-spinner>
+</template>

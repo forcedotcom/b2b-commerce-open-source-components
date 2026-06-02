@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <masterLabel>Add to Secondary Cart</masterLabel>
+  <description>Provides a dropdown menu to add products to secondary (named) carts, with authentication checks, cart
+        fetching, and toast notifications.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="disabled" type="Boolean" default="false" label="Disabled" description="If true, the dropdown button is disabled."></property>
+      <property name="productId" type="String" label="Product ID" description="The ID of the product to add to the secondary cart."></property>
+      <property name="quantity" type="Integer" label="Quantity" description="The quantity of the product to add."></property>
+      <property name="productName" type="String" label="Product Name" description="The name of the product to add (used in toast messages)."></property>
+      <property name="showItemCount" type="Boolean" default="true" label="Show Item Count" description="Show the number of items in each cart."></property>
+      <property name="countType" type="String" translatable="false" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount" label="Shows the total quantity or the number of unique products in the cart."></property>
+      <designLayout>
+        <designSection name="itemCount">
+          <designLayoutItems>
+            <designLayoutProperty name="showItemCount"></designLayoutProperty>
+            <designLayoutProperty name="countType" cbVisibleIf="showItemCount=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

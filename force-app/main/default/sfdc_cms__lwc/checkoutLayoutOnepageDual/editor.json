@@ -1,0 +1,332 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutLayoutOnepageDual",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutSectionContactInformation",
+                                "type": "component",
+                                "attributes": {},
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Contact Information",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "paddingVertical": "none",
+                                                    "alignment": "left"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "edit",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Change",
+                                                    "variant": "tertiary",
+                                                    "alignment": "right"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:checkoutContactInfo",
+                                                "type": "component",
+                                                "attributes": {}
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "proceed",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Continue to Shipping Address",
+                                                    "buttonBorderRadius": "4"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "site:checkoutSectionShipping",
+                                "type": "component",
+                                "attributes": {},
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Shipping Address",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "paddingVertical": "none",
+                                                    "alignment": "left"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "edit",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:checkoutShippingAddressEditButton",
+                                                "type": "component",
+                                                "attributes": {},
+                                                "children": [
+                                                    {
+                                                        "name": "edit",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "site:commonButton",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Change",
+                                                                    "variant": "tertiary",
+                                                                    "alignment": "right"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:checkoutDeliveryAddress",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "showAddressLookup": true
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "proceed",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Continue to Shipping Method",
+                                                    "buttonBorderRadius": "4"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "site:checkoutSectionDelivery",
+                                "type": "component",
+                                "attributes": {},
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Shipping Method",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "paddingVertical": "none",
+                                                    "alignment": "left"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "edit",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Change",
+                                                    "variant": "tertiary",
+                                                    "alignment": "right"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:checkoutDeliverymethod",
+                                                "type": "component",
+                                                "attributes": {}
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "proceed",
+                                        "type": "region",
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "site:checkoutSectionPaymentDual",
+                                "type": "component",
+                                "attributes": {},
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Payment",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "paddingVertical": "none",
+                                                    "alignment": "left"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "edit",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Change",
+                                                    "variant": "tertiary",
+                                                    "alignment": "right"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "content",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:checkoutDualPayment",
+                                                "type": "component",
+                                                "attributes": {},
+                                                "children": [
+                                                    {
+                                                        "name": "creditCardBillingHeading",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Billing Address",
+                                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "paddingVertical": "medium",
+                                                                    "alignment": "left"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "purchaseOrderBillingHeading",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Billing Address",
+                                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "paddingVertical": "medium",
+                                                                    "alignment": "left"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "soloBillingHeading",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Billing Address",
+                                                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "paddingVertical": "medium",
+                                                                    "alignment": "left"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "definition": "site:checkoutPlaceOrder",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "width": "standard",
+                                                    "alignment": "right"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "proceed",
+                                        "type": "region",
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

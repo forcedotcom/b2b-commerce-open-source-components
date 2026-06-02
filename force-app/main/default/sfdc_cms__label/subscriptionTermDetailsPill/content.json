@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionTermDetailsPill",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "termDefinedEveryMonthPillText",
+      "value" : "Every month for {subscriptionTerm} months"
+    }, {
+      "name" : "termDefinedEveryNMonthsPillText",
+      "value" : "Every {pricingTerm} months for {subscriptionTerm} months"
+    }, {
+      "name" : "termDefinedEveryYearPillText",
+      "value" : "Every year for {subscriptionTerm} years"
+    }, {
+      "name" : "termDefinedEveryNYearsPillText",
+      "value" : "Every {pricingTerm} years for {subscriptionTerm} years"
+    }, {
+      "name" : "evergreenEveryMonthPillText",
+      "value" : "Monthly"
+    }, {
+      "name" : "evergreenEveryNMonthsPillText",
+      "value" : "Every {pricingTerm} months"
+    }, {
+      "name" : "evergreenEveryYearPillText",
+      "value" : "Yearly"
+    }, {
+      "name" : "evergreenEveryNYearsPillText",
+      "value" : "Every {pricingTerm} years"
+    } ]
+  },
+  "urlName" : "subscriptiontermdetailspill"
+}

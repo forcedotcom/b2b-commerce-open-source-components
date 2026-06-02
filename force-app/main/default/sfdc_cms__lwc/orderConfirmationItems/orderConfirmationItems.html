@@ -1,0 +1,36 @@
+<template lwc:render-mode="light">
+    <div
+        style={cartItemsStyles}
+        class="order-confirmation-items">
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-col">
+                <slot name="header"></slot>
+            </div>
+            <div class="slds-col">
+                <slot name="subtotal"></slot>
+            </div>
+        </div>
+        <section class={showMoreSectionClass}>
+            <slot name="showMore"></slot>
+        </section>
+        <template lwc:if={showItems}>
+            <site-cart-items-ui
+                items={itemsData}
+                currency-iso-code={_currencyIsoCode}
+                show-product-image={showProductImage}
+                product-field-mapping={productFieldMappingValue}
+                show-product-variants
+                show-total-prices
+                show-original-price
+                show-actual-price
+                remove-product-links
+                hide-quantity-selector
+                show-count-in-name
+                oncartshowmore={handleShowMore}
+                pagination-type={paginationType}
+                show-view-bundle-detail={showViewBundleDetail}
+                view-bundle-detail-label={viewBundleDetailLabel}
+                onseeconfiguration={handleSeeConfiguration}></site-cart-items-ui>
+        </template>
+    </div>
+</template>

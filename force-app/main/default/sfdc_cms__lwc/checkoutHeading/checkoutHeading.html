@@ -1,0 +1,32 @@
+<template lwc:render-mode="light">
+    <div class="checkout-heading">
+        <header
+            class="desktop"
+            lwc:if={showDesktop}>
+            <div
+                slot="desktop"
+                data-automation="desktop">
+                <slot name="desktop"></slot>
+            </div>
+        </header>
+        <header
+            class="mobile"
+            lwc:if={showMobile}>
+            <div
+                slot="mobile"
+                data-automation="mobile">
+                <slot name="mobile"></slot>
+            </div>
+            <div
+                class="total"
+                lwc:if={hasTotal}>
+                <lightning-formatted-number
+                    class="total-price"
+                    currency-code={cartDetails.currencyIsoCode}
+                    format-style="currency"
+                    maximum-fraction-digits="20"
+                    value={cartTotals.grandTotal}></lightning-formatted-number>
+            </div>
+        </header>
+    </div>
+</template>

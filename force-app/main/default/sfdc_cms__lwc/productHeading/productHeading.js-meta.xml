@@ -17,7 +17,7 @@
     </targetConfig>
     <targetConfig targets="lightningCommunity__Default">
       <property label="SKU Field Label" name="identifierName" type="String" default="SKU#" translatable="true"></property>
-      <property label="Fields" name="productDetailSummaryFieldMapping" type="ProductFieldMapping" default="[]" translatable="true" description="Select the fields to show with each product."></property>
+      <property label="Fields" name="productDetailSummaryFieldMapping" type="ProductDetailSummaryFieldMapping" default="[]" translatable="true" description="Select the fields to show with each product."></property>
       <property label="Show Additional Fields" name="showAdditionalFields" type="boolean" default="false"></property>
       <property label="Dynamic Attributes Text" name="dynamicAttributesAvailableText" type="String" default="{0} Configurable Attributes" translatable="true"></property>
       <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>

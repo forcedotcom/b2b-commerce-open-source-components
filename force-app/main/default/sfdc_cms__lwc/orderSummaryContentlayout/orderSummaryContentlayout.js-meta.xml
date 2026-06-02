@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="orderSummaryContentLayout">
+  <masterLabel>Order Content Layout</masterLabel>
+  <description>The Order Layout component validates if the shopper has access to the order. If they do not have access to the
+        order, the shopper will be redirected to the Order Lookup page.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderSummaryDetails" type="String" label="Order Details Expression" default="{!Order.Details}"></property>
+      <property name="errorComponentHeadingText" type="String" label="Error Component Header Text" default="We couldn&apos;t find any order" translatable="true"></property>
+      <property name="errorComponentSubHeadingText" type="String" label="Error Component Description Text" default="Check the order ID and try again. If the problem persists, contact customer support." translatable="true"></property>
+      <property name="errorComponentButtonText" type="String" label="Error Component Button Text" default="Continue Shopping" translatable="true"></property>
+      <property name="clientState" type="String" label="Order Data Provider Client State Expression" default="{!Order.ClientState}"></property>
+      <property name="errors" type="String" label="Order Data Provider Errors Expression" default="{!Order.Errors}"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderSummaryDetails"></designLayoutProperty>
+            <designLayoutProperty name="clientState"></designLayoutProperty>
+            <designLayoutProperty name="errors"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Error Component Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="errorComponentHeadingText"></designLayoutProperty>
+            <designLayoutProperty name="errorComponentSubHeadingText"></designLayoutProperty>
+            <designLayoutProperty name="errorComponentButtonText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

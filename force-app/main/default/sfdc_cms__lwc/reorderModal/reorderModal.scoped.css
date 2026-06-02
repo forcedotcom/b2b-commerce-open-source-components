@@ -1,0 +1,23 @@
+.footer-content-container {
+    display: flex;
+    justify-content: end;
+    gap: var(--com-c-reorder-modal-footer-button-gap, 0.8rem);
+}
+
+.close-button {
+    color: var(--dxp-g-brand);
+}
+
+.primary-action-button {
+    background-color: var(--dxp-g-brand);
+    border-color: var(--dxp-g-brand);
+}
+
+.continue-shopping {
+    background-color: var(--dxp-g-brand);
+    border-color: var(--dxp-g-brand);
+}
+
+.view-cart {
+    color: var(--dxp-g-brand);
+}

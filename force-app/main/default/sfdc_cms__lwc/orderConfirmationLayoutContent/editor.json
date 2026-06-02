@@ -1,0 +1,609 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationLayoutContent",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceOrderDetailDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Order",
+                        "attributes": {
+                            "recordId": "{!Route.orderNumber}"
+                        }
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "content",
+                        "title": "Content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderConfirmationMessageSuccess",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "title",
+                                        "title": "title",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Thank you for your purchase!",
+                                                    "textAlign": "center",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}"
+                                                },
+                                                "mobileAttributes": {
+                                                    "textDisplayInfo": "{\"textStyle\":\"heading-medium\",\"headingTag\":\"h2\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "description",
+                                        "title": "description",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Your Order Number is {!Route.orderNumber}. Use this order number to track your purchase.",
+                                                    "textAlign": "left",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}"
+                                                }
+                                            },
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "You'll receive an email with your order details soon.",
+                                                    "textAlign": "left",
+                                                    "textDecoration": "{\"bold\": false}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"p\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "dxp_base:horizontalLine",
+                                "type": "component",
+                                "attributes": {
+                                    "dxpStyle": {
+                                        "margin": {
+                                            "bottom": "1rem",
+                                            "left": "0rem",
+                                            "right": "0rem",
+                                            "top": "1rem"
+                                        }
+                                    },
+                                    "size": 2
+                                }
+                            },
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "listType": "unformatted"
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "sfdcRepeaterItem",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:orderConfirmationDeliverygroup",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "header",
+                                                        "title": "header",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "{!DeliveryGroup.fields.Name.text}",
+                                                                    "textAlign": "left",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "giftingHeader",
+                                                        "title": "Gifting Header",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Gifting",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    },
+                                                    {
+                                                        "name": "deliveryItems",
+                                                        "title": "deliveryItems",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "site:orderConfirmationItems",
+                                                                "type": "component",
+                                                                "children": [
+                                                                    {
+                                                                        "name": "header",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "Items Ordered",
+                                                                                    "textAlign": "left",
+                                                                                    "textDecoration": "{\"bold\": true}",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "name": "showMore",
+                                                                        "title": "showMore",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "dxp_base:textBlock",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "text": "Show more",
+                                                                                    "textAlign": "center",
+                                                                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\", \"headingTag\": \"p\"}"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "definition": "dxp_base:horizontalLine",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "dxpStyle": {
+                                                        "margin": {
+                                                            "bottom": "1rem",
+                                                            "left": "0rem",
+                                                            "right": "0rem",
+                                                            "top": "1rem"
+                                                        }
+                                                    },
+                                                    "size": 2
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "pagination",
+                                        "title": "pagination",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:paginator2",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "placeholder",
+                                                        "title": "placeholder",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_page_layout:placeHolder",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__expressionDataProvider",
+                                        "sfdcExpressionKey": "DeliveryGroup",
+                                        "attributes": {
+                                            "listSource": "{!Order.DeliveryGroups}"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "dxp_content_layout:list",
+                                "type": "component",
+                                "attributes": {
+                                    "listType": "unformatted"
+                                },
+                                "children": [
+                                    {
+                                        "name": "sfdcRepeaterItem",
+                                        "title": "sfdcRepeaterItem",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:orderConfirmationDetailsBilling",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "header",
+                                                        "title": "Header",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "text": "Billing Details",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h2\"}",
+                                                                    "textDecoration": "{\"bold\": true}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "pagination",
+                                        "title": "pagination",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:paginator2",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "placeholder",
+                                                        "title": "placeholder",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_page_layout:placeHolder",
+                                                                "type": "component"
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dataProviders": [
+                                    {
+                                        "definition": "sfdc_cms__expressionDataProvider",
+                                        "sfdcExpressionKey": "BillingDetails",
+                                        "attributes": {
+                                            "listSource": "{!Order.Payments}"
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "dxp_base:horizontalLine",
+                                "type": "component",
+                                "attributes": {
+                                    "dxpStyle": {
+                                        "margin": {
+                                            "bottom": "1rem",
+                                            "left": "0rem",
+                                            "right": "0rem",
+                                            "top": "1rem"
+                                        }
+                                    },
+                                    "size": 2
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:button",
+                                "type": "component",
+                                "attributes": {
+                                    "alignment": "right",
+                                    "text": "Continue Shopping",
+                                    "url": "{\"linkInfo\":{\"pageReference\":{\"type\":\"comm__namedPage\",\"attributes\":{\"name\":\"Home\"}}}}"
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "summary",
+                        "title": "Summary",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderConfirmationTotalsSummary",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "headerText",
+                                        "title": "Heading",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Total Paid",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h2\"}"
+                                                },
+                                                "tabletAttributes": {
+                                                    "textDisplayInfo": "{\"textStyle\":\"heading-small\",\"headingTag\":\"h2\"}"
+                                                },
+                                                "mobileAttributes": {
+                                                    "textDisplayInfo": "{\"textStyle\":\"heading-small\",\"headingTag\":\"h2\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "originalPriceLabel",
+                                        "title": "originalPriceLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Original Price",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "promotionsLabel",
+                                        "title": "promotionsLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Promotions",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "shippingLabel",
+                                        "title": "shippingLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Shipping",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "subtotalLabel",
+                                        "title": "subtotalLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Subtotal",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "taxIncludedLabel",
+                                        "title": "taxIncludedLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Tax included",
+                                                    "textAlign": "right",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "taxLabel",
+                                        "title": "taxLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Tax",
+                                                    "textAlign": "left",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "totalLabel",
+                                        "title": "totalLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Total",
+                                                    "textAlign": "left",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "textDisplayInfo": "{ \"headingTag\": \"p\", \"textStyle\": \"heading-small\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "dxp_base:horizontalLine",
+                                "type": "component",
+                                "attributes": {
+                                    "dxpStyle": {
+                                        "margin": {
+                                            "bottom": "1rem",
+                                            "left": "0rem",
+                                            "right": "0rem",
+                                            "top": "1rem"
+                                        }
+                                    },
+                                    "size": 2
+                                }
+                            },
+                            {
+                                "definition": "site:orderPromotions",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "promotionsTitle",
+                                        "title": "promotionsTitle",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Promotions Applied",
+                                                    "textAlign": "left",
+                                                    "textDecoration": "{\"bold\": false}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "dxp_base:button",
+                                "type": "component",
+                                "attributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    },
+                                    "size": "standard",
+                                    "stretch": "stretch",
+                                    "text": "Continue Shopping",
+                                    "url": "{\"linkInfo\":{\"pageReference\":{\"type\":\"comm__namedPage\",\"attributes\":{\"name\":\"Home\"}}}}"
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": true
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": true
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "error",
+                        "title": "Error",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderConfirmationMessageError",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "errorMessageText",
+                                        "title": "errorMessageText",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "This page isn't available.",
+                                                    "textAlign": "center",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h1\"}"
+                                                }
+                                            },
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "paddingVertical": "x-small",
+                                                    "text": "But no worries! You can still find your order details.",
+                                                    "textAlign": "center",
+                                                    "textDecoration": "{\"bold\": false}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"p\"}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+.comm-self-register__container {
+    margin: 0px auto;
+    min-width: 18rem;
+    max-width: 25rem;
+    color: var(--lwc-colorTextDefault, var(--dxp-g-root-contrast-1));
+    background-color: var(--lwc-cardBackgroundColor, --dxp-g-root-1);
+}
+.comm-self-register__submit-button {
+    color: var(--dxp-g-brand-contrast);
+    text-shadow: none;
+    background-color: var(--dxp-g-brand);
+    font-family: var(--dxp-g-root-font-family);
+}
+.comm-self-register__submit-button:hover {
+    background-color: var(--dxp-g-brand);
+}
+.comm-self-register__submit-button:focus {
+    background-color: var(--dxp-g-brand);
+}
+.comm-self-register__cancel-link {
+    text-align: center;
+    color: var(--dxp-g-brand);
+}
+.comm-self-register-form__spinner {
+    background-color: rgba(255, 255, 255, 0.75);
+}

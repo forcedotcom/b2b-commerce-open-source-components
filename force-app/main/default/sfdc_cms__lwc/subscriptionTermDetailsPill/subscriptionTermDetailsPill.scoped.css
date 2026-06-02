@@ -1,0 +1,18 @@
+.subscription_pill {
+    --com-c-pill-background-color: var(
+        --com-c-cart-item-product-details-pill-background-color,
+        var(--com-c-subscription-card-pill-background-color, var(--dxp-g-neutral-1))
+    );
+    --com-c-pill-border-color: var(--com-c-cart-item-product-details-pill-border-color, var(--dxp-g-root-1));
+    --com-c-pill-border-radius: var(
+        --com-c-cart-item-product-details-pill-border-radius,
+        var(--com-c-subscription-card-pill-border-radius, var(--dxp-s-form-element-radius-border))
+    );
+    --com-c-pill-text-color: var(
+        --com-c-cart-item-product-details-pill-text-color,
+        var(--com-c-subscription-card-pill-font-color, var(--dxp-g-root-contrast))
+    );
+    --com-c-pill-font-size: var(
+        var(--com-c-cart-item-product-details-pill-font-size, var(--dxp-s-body-small-font-size))
+    );
+}

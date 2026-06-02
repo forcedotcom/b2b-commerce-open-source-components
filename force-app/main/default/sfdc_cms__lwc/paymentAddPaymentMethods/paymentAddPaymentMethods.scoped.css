@@ -1,0 +1,15 @@
+.addPaymentMethodHeader {
+    font-size: var(--dxp-g-font-size-9, 1.75rem);
+}
+.addPaymentSubHeader {
+    font-size: var(--dxp-g-font-size-6, 1.25rem);
+}
+.btnGroups {
+    display: flex;
+    justify-content: end;
+}
+@media only screen and (max-width: 48em) {
+    .addPaymentMethodHeader {
+        font-size: var(--dxp-g-font-size-8, 1.5rem);
+    }
+}

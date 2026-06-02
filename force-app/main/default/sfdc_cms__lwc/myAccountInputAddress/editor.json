@@ -1,0 +1,28 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myAccountInputAddress",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "actionButtons",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonActionButtons",
+                                "type": "component",
+                                "attributes": {
+                                    "firstActionButtonText": "Cancel",
+                                    "secondActionButtonText": "Save",
+                                    "firstButtonVariant": "secondary",
+                                    "secondButtonVariant": "primary"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

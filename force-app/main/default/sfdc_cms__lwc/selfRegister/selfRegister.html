@@ -1,0 +1,32 @@
+<template lwc:render-mode="light">
+    <site-self-register-ui
+        lwc:ref="selfRegisterUi"
+        firstname-label={firstnameLabel}
+        lastname-label={lastnameLabel}
+        email-label={emailLabel}
+        phone-number-label={phoneNumberLabel}
+        show-phone-number-field={showPhoneNumberField}
+        phone-number-required={phoneNumberRequired}
+        include-password-field={includePasswordField}
+        password-label={createPasswordLabel}
+        confirm-password-label={confirmPasswordLabel}
+        submit-button-label={submitButtonLabel}
+        cancel-link-label={cancelLinkLabel}
+        start-url={startUrl}
+        reg-confirm-url={regConfirmUrl}
+        raw-internationalization-data={rawInternationalizationData}
+        is-loading={_isLoading}
+        show-error={showError}
+        error-message={errorMessage}
+        onsubmit={handleSubmit}
+        oncancel={handleCancel}
+        onconsentchange={handleConsentOptionUpdated}
+        extra-fields-json-array={extraFieldsJsonArray}
+        email-consent-options={emailConsentOptions}>
+        <div
+            slot="footer"
+            class="slds-m-top_large">
+            <slot name="emailConsentOptionsFooterText"></slot>
+        </div>
+    </site-self-register-ui>
+</template>

@@ -57,30 +57,32 @@ export default class CommonPrimitiveFocusTrapManager extends LightningElement {
   deactivateFocusTrap({
     deferFocus = false
   } = {}) {
-    if (!this._focusTrapActive) {
-      return;
-    }
-    this.removeEventListener('keydown', this.boundKeyDownHandler);
-    if (this.focusTriggerElement) {
-      this.focusTriggerElement.focus();
-    } else if (!this.noFocusNextOnDisable) {
-      if (deferFocus) {
-        Promise.resolve().then(() => this.focusNextElement());
-      } else {
-        this.focusNextElement();
+    if (!import.meta.env.SSR) {
+      if (!this._focusTrapActive) {
+        return;
       }
-    }
-    this._focusTrapActive = false;
-    this.dispatchEvent(new CustomEvent('focustrapdeactivated', {
-      detail: {
-        id: this.focusId
+      this.removeEventListener('keydown', this.boundKeyDownHandler);
+      if (this.focusTriggerElement) {
+        this.focusTriggerElement.focus();
+      } else if (!this.noFocusNextOnDisable) {
+        if (deferFocus) {
+          Promise.resolve().then(() => this.focusNextElement());
+        } else {
+          this.focusNextElement();
+        }
       }
-    }));
+      this._focusTrapActive = false;
+      this.dispatchEvent(new CustomEvent('focustrapdeactivated', {
+        detail: {
+          id: this.focusId
+        }
+      }));
+    }
   }
   handleKeyDown(event) {
     const focusableElements = this.getFocusableElements();
     const totalFocusable = focusableElements.length;
-    let currentActiveElement = document.activeElement;
+    let currentActiveElement = globalThis.document?.activeElement;
     function findInnermostActiveElement(element) {
       while (element?.shadowRoot?.activeElement) {
         element = element.shadowRoot.activeElement;
@@ -123,8 +125,9 @@ export default class CommonPrimitiveFocusTrapManager extends LightningElement {
     return [...new Set(elements.filter(el => !el.disabled && el.getAttribute('tabindex') !== '-1' && el.checkVisibility()))];
   }
   getNextFocusableElement() {
-    const allFocusableElements = [...document.querySelectorAll('a, button, input, textarea, select, [tabindex]')].filter(el => !el.disabled && el.getAttribute('tabindex') !== '-1');
-    const currentIndex = allFocusableElements.indexOf(document.activeElement);
+    const queryResult = globalThis.document?.querySelectorAll('a, button, input, textarea, select, [tabindex]') ?? [];
+    const allFocusableElements = Array.from(queryResult).filter(el => !el.disabled && el.getAttribute('tabindex') !== '-1');
+    const currentIndex = allFocusableElements.indexOf(globalThis.document?.activeElement);
     return allFocusableElements[currentIndex + 1] || allFocusableElements[0];
   }
   focusNextElement() {

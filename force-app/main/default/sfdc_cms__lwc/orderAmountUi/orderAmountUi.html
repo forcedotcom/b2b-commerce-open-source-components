@@ -1,0 +1,22 @@
+<template lwc:render-mode="light">
+    <div>
+        <template if:false={_hasError}>
+            <site-order-totals-with-fields
+                title-text={totalsCardTitle}
+                net-tax-fields={netTaxOrdersFieldMapping}
+                gross-tax-fields={grossTaxOrdersFieldMapping}
+                totals-data={orderSummaryDetails}
+                discounts={filteredOrderDiscounts}
+                show-horizontal-line-above-last-field={showHorizontalLineAboveLastField}
+                show-last-field-as-bold={showLastFieldAsBold}
+                hide-title={hideTitle}
+                hide-field-value-separator={hideFieldValueSeparator}
+                style={totalsCustomCssStyles}></site-order-totals-with-fields>
+        </template>
+        <template if:true={_hasError}>
+            <site-common-error
+                error-label={_errorMessage}
+                error-type="warning"></site-common-error>
+        </template>
+    </div>
+</template>

@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "splitShipmentLayout",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "summaryText",
+      "value" : "Summary"
+    }, {
+      "name" : "originalPrice",
+      "value" : "Original Price"
+    }, {
+      "name" : "promotions",
+      "value" : "Promotions"
+    }, {
+      "name" : "shipping",
+      "value" : "Shipping"
+    }, {
+      "name" : "subtotal",
+      "value" : "Subtotal"
+    }, {
+      "name" : "taxIncluded",
+      "value" : "Tax included"
+    }, {
+      "name" : "tax",
+      "value" : "Tax"
+    }, {
+      "name" : "total",
+      "value" : "Total"
+    }, {
+      "name" : "headerText",
+      "value" : "Split Shipment"
+    } ]
+  },
+  "urlName" : "splitshipmentlayout"
+}

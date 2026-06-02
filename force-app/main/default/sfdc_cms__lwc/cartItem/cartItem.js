@@ -5,14 +5,14 @@ import canDisplayOriginalPrice from 'site/cartEvaluatePriceOriginal';
 import currencyFormatter from 'site/commonFormatterCurrency';
 import { getPriceLabel, getProductCountNameLabel, getProductLabel, getTermDefinedSubscriptionLabel, getBundleChildProductCountLabel } from './labelGenerators';
 import { changeSign } from './transformers';
-import { MODIFY_ITEM_EVENT, DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, PRODUCT_DETAIL_FIELDS, CART_UPDATE_STATUS_EVENT, UPDATE_QUANTITY_DEBOUNCE } from './constants';
+import { MODIFY_ITEM_EVENT, DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, PRODUCT_DETAIL_FIELDS, CART_UPDATE_STATUS_EVENT, SEE_CONFIG_EVENT, UPDATE_QUANTITY_DEBOUNCE } from './constants';
 import { Labels } from './labels';
 import { NavigationContext, generateUrl } from 'lightning/navigation';
 import { resolve as resourceResolver } from 'experience/resourceResolver';
 import sanitizeValue from 'site/commonRichtextsanitizerUtils';
 import { createImageDataMap } from 'experience/picture';
 export { getBundleChildProductCountLabel } from './labelGenerators';
-export { DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, CART_UPDATE_STATUS_EVENT } from './constants';
+export { DELETE_ITEM_EVENT, UPDATE_ITEM_EVENT, NAVIGATE_PRODUCT_EVENT, CART_UPDATE_STATUS_EVENT, SEE_CONFIG_EVENT } from './constants';
 export { Labels } from './labels';
 export default class CartItem extends LightningElement {
   static renderMode = 'light';
@@ -45,6 +45,8 @@ export default class CartItem extends LightningElement {
   @api
   disableQuantitySelector = false;
   @api
+  disableModifyButton = false;
+  @api
   showProductImage = false;
   @api
   showProductVariants = false;
@@ -68,6 +70,10 @@ export default class CartItem extends LightningElement {
   promotionsAppliedSavingsButtonText;
   @api
   showSku = false;
+  @api
+  showViewBundleDetail = false;
+  @api
+  viewBundleDetailLabel;
   @api
   skuLabel;
   @api
@@ -109,6 +115,18 @@ export default class CartItem extends LightningElement {
   }
   get _showQuantitySelector() {
     return !this.hideQuantitySelector;
+  }
+  get _isAssociatedWithQuoteLineItem() {
+    return this.item?.quoteLineItemId != null;
+  }
+  get _disableQuantitySelector() {
+    return this.disableQuantitySelector || this._isAssociatedWithQuoteLineItem;
+  }
+  get _disableDeleteButton() {
+    return this._isAssociatedWithQuoteLineItem;
+  }
+  get _disableModifyButton() {
+    return this.disableModifyButton || this._isAssociatedWithQuoteLineItem;
   }
   get quantity() {
     if (this.item?.quantity === undefined) {
@@ -173,13 +191,21 @@ export default class CartItem extends LightningElement {
     return this.item?.ProductDetails?.thumbnailImage?.alternateText || '';
   }
   handleModifyItem() {
+    if (this._disableModifyButton) {
+      return;
+    }
     this.dispatchEvent(new CustomEvent(MODIFY_ITEM_EVENT, {
-      detail: this.item?.id,
+      detail: {
+        itemData: this.item
+      },
       bubbles: true,
       composed: true
     }));
   }
   handleDeleteItem() {
+    if (this._disableDeleteButton) {
+      return;
+    }
     this.clearDebounce();
     this.dispatchEvent(new CustomEvent(DELETE_ITEM_EVENT, {
       detail: this.item?.id,
@@ -415,11 +441,35 @@ export default class CartItem extends LightningElement {
   get _isBundleCartItem() {
     return Boolean(this.item?.productClass === 'Bundle');
   }
+  get _isConfigurableCartItem() {
+    return Boolean(this.item?.isConfigurationAllowed);
+  }
   get _bundleProductCountText() {
     if (this.item?.childProductCount) {
       return getBundleChildProductCountLabel(this.item.childProductCount);
     }
     return '';
+  }
+  get _configuredText() {
+    return Labels.ConfiguredText;
+  }
+  get textDisplayInfo() {
+    return JSON.stringify({
+      textStyle: 'body-regular',
+      headingTag: 'p'
+    });
+  }
+  get _showViewBundleButton() {
+    return this.showViewBundleDetail && (this._isBundleCartItem || this._isConfigurableCartItem);
+  }
+  handleSeeConfiguration() {
+    this.dispatchEvent(new CustomEvent(SEE_CONFIG_EVENT, {
+      detail: {
+        cartItemId: this.item?.id
+      },
+      composed: true,
+      bubbles: true
+    }));
   }
   get images() {
     return createImageDataMap(this.imageUrl, this.imageSizes);

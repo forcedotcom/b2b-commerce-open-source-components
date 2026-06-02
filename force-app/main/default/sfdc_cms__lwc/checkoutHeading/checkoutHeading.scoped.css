@@ -1,0 +1,38 @@
+:host {
+    display: block;
+    background-color: var(--dxp-g-root);
+}
+header {
+    display: none;
+}
+header.desktop {
+    padding: var(--dxp-g-spacing-small) 0;
+}
+div[data-automation='desktop'],
+div[data-automation='mobile'] {
+    flex: auto;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+.total {
+    display: flex;
+    flex-shrink: 0;
+    font-size: var(--dxp-s-text-heading-medium-font-size, var(--dxp-g-font-size-5));
+    font-weight: var(--dxp-c-strong-text-weight);
+    line-height: 2.5rem;
+    padding: 0;
+    margin: 0;
+    vertical-align: middle;
+}
+@media (max-width: 78em) {
+    header.mobile {
+        display: flex;
+        height: 3rem;
+    }
+}
+@media (min-width: 78em) {
+    header.desktop {
+        display: block;
+    }
+}

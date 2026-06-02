@@ -1,0 +1,9 @@
+import termDefinedEveryMonthPillText from '@salesforce/label/site.subscriptionTermDetailsPill.termDefinedEveryMonthPillText';
+import termDefinedEveryNMonthsPillText from '@salesforce/label/site.subscriptionTermDetailsPill.termDefinedEveryNMonthsPillText';
+import termDefinedEveryYearPillText from '@salesforce/label/site.subscriptionTermDetailsPill.termDefinedEveryYearPillText';
+import termDefinedEveryNYearsPillText from '@salesforce/label/site.subscriptionTermDetailsPill.termDefinedEveryNYearsPillText';
+import evergreenEveryMonthPillText from '@salesforce/label/site.subscriptionTermDetailsPill.evergreenEveryMonthPillText';
+import evergreenEveryNMonthsPillText from '@salesforce/label/site.subscriptionTermDetailsPill.evergreenEveryNMonthsPillText';
+import evergreenEveryYearPillText from '@salesforce/label/site.subscriptionTermDetailsPill.evergreenEveryYearPillText';
+import evergreenEveryNYearsPillText from '@salesforce/label/site.subscriptionTermDetailsPill.evergreenEveryNYearsPillText';
+export { termDefinedEveryMonthPillText, termDefinedEveryNMonthsPillText, termDefinedEveryYearPillText, termDefinedEveryNYearsPillText, evergreenEveryMonthPillText, evergreenEveryNMonthsPillText, evergreenEveryYearPillText, evergreenEveryNYearsPillText };

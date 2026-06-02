@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteSummary",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "LastModified",
+      "value" : "Last Modified"
+    }, {
+      "name" : "TotalPrice",
+      "value" : "Total Price"
+    } ]
+  },
+  "urlName" : "quotesummary"
+}

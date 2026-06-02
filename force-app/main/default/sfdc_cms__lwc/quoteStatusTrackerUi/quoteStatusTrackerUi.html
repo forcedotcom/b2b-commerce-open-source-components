@@ -1,0 +1,41 @@
+<template lwc:render-mode="light">
+    <template lwc:if={showShipmentTracker}>
+        <div class="container slds-p-horizontal_xx-small slds-p-vertical_large slds-m-bottom_medium">
+            <div class="track">
+                <template
+                    for:each={normalizedStatus}
+                    for:item="status">
+                    <template lwc:if={status.completed}>
+                        <div
+                            key={status.apiName}
+                            class={status.widthCssClass}
+                            data-status-type={status.dataStatusType}
+                            data-leads-to-error={status.dataLeadsToError}
+                            data-error-trailing-pending={status.dataErrorTrailingPending}>
+                            <span
+                                class={status.iconCssClass}
+                                data-current-status={status.isCurrentStatus}>
+                                <svg
+                                    class="slds-icon slds-icon_medium icon-offset-left icon-clipping"
+                                    aria-hidden="true">
+                                    <use xlink:href={status.iconPath}></use>
+                                </svg>
+                            </span>
+                            <span class="slds-assistive-text">{status.assistiveText}</span>
+                            <span class={status.textCssClass}>{status.displayValue}</span>
+                        </div>
+                    </template>
+                    <template lwc:else>
+                        <div
+                            key={status.apiName}
+                            class={status.widthCssClass}>
+                            <span class="icon v-align-middle"></span>
+                            <span class="slds-assistive-text">{status.displayValue}</span>
+                            <span class={status.textCssClass}>{status.displayValue}</span>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </div>
+    </template>
+</template>

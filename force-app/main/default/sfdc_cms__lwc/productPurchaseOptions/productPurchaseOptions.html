@@ -38,5 +38,18 @@
                 {addToListButtonText}
             </site-common-button-ui>
         </div>
+
+        <!--Add to secondary carts menu-->
+        <div
+            class="secondary-cart-menu slds-p-left_small"
+            if:true={displayAddToSecondaryCartMenu}>
+            <site-cart-add-to-secondary-cart
+                disabled={isAddToSecondaryCartMenuDisabled}
+                product-id={productId}
+                product-name={productName}
+                quantity={quantity}
+                show-item-count={showSecondaryCartItemCount}
+                count-type={secondaryCartCountType}></site-cart-add-to-secondary-cart>
+        </div>
     </div>
 </template>

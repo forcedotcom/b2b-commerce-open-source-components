@@ -1,0 +1,45 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderConfirmationItems",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "header",
+                        "title": "Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Items Ordered",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-small\", \"headingTag\": \"h4\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "showMore",
+                        "title": "Show More",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Show more",
+                                    "textAlign": "center",
+                                    "textDisplayInfo": "{\"textStyle\": \"body-regular\", \"headingTag\": \"p\"}"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

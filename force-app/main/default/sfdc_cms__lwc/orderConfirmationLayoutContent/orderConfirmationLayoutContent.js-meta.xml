@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Order Confirmation Layout</masterLabel>
+  <description>Displays order confirmation content with loading and error states after a successful checkout.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="clientState" type="String" label="Order Confirmation Data Provider Client State Expression" default="{!Order.ClientState}"></property>
+      <property name="loaderAltText" type="String" label="Loader Alternative Text" default="Loading order confirmation details..."></property>
+      <designLayout>
+        <designSection name="Loading State Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="loaderAltText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="clientState" cbVisibleIf="clientState=false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

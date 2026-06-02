@@ -1,0 +1,102 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:myAccountProfile",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceMyProfileDataProvider",
+                        "sfdcExpressionKey": "MyProfile",
+                        "type": "dataProvider",
+                        "attributes": {}
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "header",
+                        "title": "Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "My Profile",
+                                    "paddingVertical": "xx-small",
+                                    "paddingHorizontal": "none",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "personalDetailsHeaderLabel",
+                        "title": "Personal Details Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Name",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "emailHeaderLabel",
+                        "title": "Email Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Email Address",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "phoneHeaderLabel",
+                        "title": "Phone Header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Phone Number",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "changePasswordButton",
+                        "title": "Change Password Button",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Change Password",
+                                    "alignment": "left",
+                                    "variant": "secondary"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

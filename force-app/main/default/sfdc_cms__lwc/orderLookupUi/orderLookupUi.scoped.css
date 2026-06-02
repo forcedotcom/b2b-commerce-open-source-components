@@ -1,0 +1,27 @@
+:host {
+    --sds-c-input-color-border: var(--com-c-order-lookup-form-element-border);
+}
+
+.order-lookup__form__error {
+    min-width: 50%;
+}
+
+.order-lookup__form__error,
+.order-lookup__form__fields {
+    margin: auto;
+    width: var(--dxp-c-l-width, var(--com-c-order-lookup-form-width));
+}
+
+@media only screen and (max-width: 64em) {
+    .order-lookup__form__error,
+    .order-lookup__form__fields {
+        width: var(--dxp-c-m-width, var(--com-c-order-lookup-form-width));
+    }
+}
+
+@media only screen and (max-width: 47.9375em) {
+    .order-lookup__form__error,
+    .order-lookup__form__fields {
+        width: 100%;
+    }
+}

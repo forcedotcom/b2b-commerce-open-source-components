@@ -1,0 +1,3 @@
+div {
+    border-color: var(--com-c-order-products-separator-color, var(--slds-g-color-border-base-1));
+}

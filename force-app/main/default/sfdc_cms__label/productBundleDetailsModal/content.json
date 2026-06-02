@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productBundleDetailsModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "bundleExpandCollapseLabelSingular",
+      "value" : "1 product included"
+    }, {
+      "name" : "bundleExpandCollapseLabelPlural",
+      "value" : "{0} products included"
+    } ]
+  },
+  "urlName" : "productbundledetailsmodal"
+}

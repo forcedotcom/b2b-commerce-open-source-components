@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Checkout Section Delivery</masterLabel>
+  <description>A checkout section seeded with default delivery method content.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="proceedButtonAlignment" type="String" default="right" label="Proceed Button Alignment" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource"></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

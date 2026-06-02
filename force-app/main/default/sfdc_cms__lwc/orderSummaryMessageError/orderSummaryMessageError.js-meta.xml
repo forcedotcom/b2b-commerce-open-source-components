@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata" fqn="orderSummaryErrorMessage">
+  <masterLabel>Order Summary Error Message</masterLabel>
+  <description>Displays an error message when order details cannot be loaded, with a button to return to the home page.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="errorHeadingText" type="String" label="Error Header Text" description="The heading text shown when the order cannot be loaded." translatable="true"></property>
+      <property name="errorSubHeadingText" type="String" label="Error Description Text" description="The subheading text shown when the order cannot be loaded." translatable="true"></property>
+      <property name="errorButtonText" type="String" label="Error Button Text" description="The label for the action button that redirects the shopper." translatable="true"></property>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

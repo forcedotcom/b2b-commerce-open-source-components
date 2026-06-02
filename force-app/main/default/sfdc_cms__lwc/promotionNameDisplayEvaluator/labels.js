@@ -1,0 +1,2 @@
+import couponCodeValueWithPromotionNameSeparator from '@salesforce/label/site.promotionNameDisplayEvaluator.couponCodeValueWithPromotionNameSeparator';
+export { couponCodeValueWithPromotionNameSeparator };

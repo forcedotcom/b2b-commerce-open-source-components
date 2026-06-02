@@ -5,7 +5,7 @@ import { createCheckoutAddressesPageChangeAction, createCheckoutAddressesCreateA
 import { AppContextAdapter, SessionContextAdapter } from 'commerce/contextApi';
 import { CheckoutComponentBase } from 'commerce/checkoutApi';
 import { CheckoutStage } from 'commerce/checkoutApi';
-import { getFormFactor, FORM_FACTOR_LARGE } from 'experience/clientApi';
+import { getFormFactor, FORM_FACTOR_LARGE, isPreviewMode } from 'experience/clientApi';
 import { CheckoutStencilType } from 'site/checkoutStencil';
 import { CheckoutError } from 'site/checkoutErrorHandler';
 import { checkoutStatusIsReady } from './utils';
@@ -669,6 +669,9 @@ export default class CheckoutDeliveryAddress extends CheckoutComponentBase {
     this.shippingAddressFormComponent = this.refs.shippingAddressForm;
   }
   connectedCallback() {
+    if (isPreviewMode) {
+      this._showStencil = false;
+    }
     this.onSetProperties();
   }
   constructor() {

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Saved Payment Methods Grid</masterLabel>
+  <description>Displays a list of a buyer&apos;s saved payment methods.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Payment Method Set Key" name="paymentMethodSetId" type="String" default="" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource"></property>
+      <property label="Sepa Debit Mandate" name="sepaDebitMandate" type="String"></property>
+      <property label="Prefer Legacy Forms" name="preferLegacyForms" type="Boolean" default="false"></property>
+      <property label="Header Label" name="headerLabel" type="String" translatable="true" default="Saved Payment Methods"></property>
+      <property label="Display header" name="displayAddButton" type="Boolean"></property>
+      <property label="Add Button Label" name="addButtonLabel" type="String" translatable="true" default="Add Payment Method"></property>
+      <property label="Card Spacing" name="itemSpacing" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSSpacingDataSource"></property>
+      <property label="Payment Cards Per Page" type="String" name="itemsPerPage" default="10" datasource="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20"></property>
+      <property label="Preview State" type="String" name="previewState" default="withSavedPaymentMethods" datasource="java://siteforce.customComponent.datasource.SavedPaymentMethodGridPreviewStatesDataSource"></property>
+      <property label="No Saved Payment Methods" name="emptyMessageTitle" type="String" default="No payments saved yet. To save time during checkout, add a payment." translatable="true"></property>
+      <property label="Default Badge Color" name="cardDefaultBadgeColor" type="Color" default="rgb(223,223,223)"></property>
+      <property label="Default Badge Radius" name="cardDefaultBorderRadius" type="String" default="50"></property>
+      <property label="Default Badge Label" name="cardDefaultLabel" type="String" default="Default" translatable="true"></property>
+      <property label="Expired Badge Color" name="cardExpiredBadgeColor" type="Color" default="rgb(254, 147, 57)"></property>
+      <property label="Expired Badge Radius" name="cardExpiredBorderRadius" type="String" default="50"></property>
+      <property label="Expired Badge Label" name="cardExpiredLabel" type="String" default="Expired" translatable="true"></property>
+      <property label="Expires On Label" name="expiresOnLabel" type="String" default="Expiration Date" translatable="true"></property>
+      <property label="Delete Label" name="footerDeleteLabel" type="String" default="Delete" translatable="true"></property>
+      <property label="Make it Default Label" name="footerDefaultLabel" type="String" default="Make Default" translatable="true"></property>
+      <property label="Label" name="showMoreButtonLabel" type="String" default="Show More" translatable="true"></property>
+      <property label="Button Style" name="showMoreButtonStyle" type="String" default="secondary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property label="Size" name="showMoreButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property label="Width" name="showMoreButtonWidth" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property label="Alignment" name="showMoreButtonAlign" type="String" default="center" datasource="java://siteforce.customComponent.datasource.DxpFormAlignmentDataSource"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="paymentMethodSetId"></designLayoutProperty>
+            <designLayoutProperty name="sepaDebitMandate"></designLayoutProperty>
+            <designLayoutProperty name="preferLegacyForms"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Header">
+          <designLayoutItems>
+            <designLayoutProperty name="displayAddButton"></designLayoutProperty>
+            <designLayoutProperty name="headerLabel"></designLayoutProperty>
+            <designLayoutProperty name="addButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Card List">
+          <designLayoutItems>
+            <designLayoutProperty name="previewState"></designLayoutProperty>
+            <designLayoutProperty name="itemsPerPage"></designLayoutProperty>
+            <designLayoutProperty name="itemSpacing"></designLayoutProperty>
+            <designLayoutProperty name="emptyMessageTitle"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Expired Badge">
+          <designLayoutItems>
+            <designLayoutProperty name="cardExpiredBadgeColor"></designLayoutProperty>
+            <designLayoutProperty name="cardExpiredBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="cardExpiredLabel"></designLayoutProperty>
+            <designLayoutProperty name="expiresOnLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Default Badge">
+          <designLayoutItems>
+            <designLayoutProperty name="cardDefaultBadgeColor"></designLayoutProperty>
+            <designLayoutProperty name="cardDefaultBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="cardDefaultLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Card Footer">
+          <designLayoutItems>
+            <designLayoutProperty name="footerDeleteLabel"></designLayoutProperty>
+            <designLayoutProperty name="footerDefaultLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Show More Button">
+          <designLayoutItems>
+            <designLayoutProperty name="showMoreButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="showMoreButtonStyle"></designLayoutProperty>
+            <designLayoutProperty name="showMoreButtonSize"></designLayoutProperty>
+            <designLayoutProperty name="showMoreButtonWidth"></designLayoutProperty>
+            <designLayoutProperty name="showMoreButtonAlign"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,79 @@
+<template lwc:render-mode="light">
+    <div class="order-ctn">
+        <div class="order-header slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <span class="slds-p-right_xx-small">
+                    <slot name="orderNumberLabel"></slot>
+                </span>
+                <span>
+                    <slot name="orderNumber"></slot>
+                </span>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center order-actions">
+                <site-common-record-link
+                    lwc:if={_showViewDetailsLink}
+                    record-id={orderId}
+                    label={viewDetailsLinkLabel}
+                    object-api-name="OrderSummary"
+                    assistive-text={_viewDetailAssistiveText}></site-common-record-link>
+                <site-common-button-ui
+                    lwc:if={_showReorderButton}
+                    class="slds-show_large"
+                    variant="secondary"
+                    width="standard"
+                    assistive-text={_reorderButtonAssistiveText}
+                    onclick={handleReorder}>
+                    {reorderButtonLabel}
+                </site-common-button-ui>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_vertical slds-p-around_medium order-detail">
+            <site-common-button-ui
+                lwc:if={_showReorderButton}
+                class="slds-hide_large"
+                variant="secondary"
+                width="stretch"
+                assistive-text={_reorderButtonAssistiveText}
+                onclick={handleReorder}>
+                {reorderButtonLabel}
+            </site-common-button-ui>
+            <lightning-formatted-text
+                class="bold slds-text-heading_medium"
+                value={status}></lightning-formatted-text>
+            <site-common-field
+                class="bold slds-text-heading_small"
+                value={orderedDate}
+                type="DATETIME"></site-common-field>
+            <div class="slds-grid slds-wrap slds-text-heading_small field-ctn">
+                <template
+                    for:each={_updatedFields}
+                    for:item="field">
+                    <div key={field.id}>
+                        <span
+                            lwc:if={field.showFieldName}
+                            class="slds-no-space">
+                            <span>{field.name}</span>
+                            <lightning-formatted-rich-text
+                                value={_labels.keyValueSeparatorWithSpace}
+                                aria-hidden="true"></lightning-formatted-rich-text>
+                        </span>
+                        <site-common-record-field-value
+                            lwc:if={field.isReference}
+                            record-id={field.value}
+                            field={field.fieldName}></site-common-record-field-value>
+                        <site-common-field
+                            lwc:else
+                            value={field.value}
+                            type={field.type}
+                            currency-code={currencyCode}></site-common-field>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <site-order-summary-product-media
+            order-summary-id={orderId}
+            product-media-list={productMedia}
+            product-count={productCount}
+            order-detail-url={orderDetailUrl}></site-order-summary-product-media>
+    </div>
+</template>

@@ -1,0 +1,21 @@
+.order-ctn {
+    border: 1px solid var(--com-c-order-history-card-border-color, #ecebea);
+    border-radius: var(--com-c-order-history-card-border-radius, 5px 5px 0px 0px);
+    overflow: hidden;
+}
+.order-header {
+    background-color: var(--com-c-order-history-card-header-bg-color, #f7f9fa);
+}
+.order-actions {
+    gap: var(--dxp-g-spacing-small);
+}
+.order-detail {
+    gap: var(--dxp-g-spacing-small);
+}
+.field-ctn {
+    gap: var(--dxp-g-spacing-medium);
+    align-self: stretch;
+}
+.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+}

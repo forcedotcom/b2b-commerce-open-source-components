@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+div[data-automation='title'] {
+    font-weight: var(--dxp-s-body-font-weight);
+}

@@ -1,6 +1,9 @@
 import { month, months, year, years, monthly, yearly } from './labels';
+function safeToLowerCase(value) {
+  return value == null ? '' : String(value).toLowerCase();
+}
 export const frequencyLableMap = new Map([['Months', monthly], ['Annual', yearly]]);
-export const priceTermUnitMap = new Map([['Months', month.toLowerCase()], ['Annual', year.toLowerCase()]]);
+export const priceTermUnitMap = new Map([['Months', safeToLowerCase(month)], ['Annual', safeToLowerCase(year)]]);
 export const subscriptionPriceTermUnitMap = new Map([['Months', month], ['Annual', year]]);
 export const pluralSubscriptionPriceTermUnitMap = new Map([['Months', months], ['Annual', years]]);
 export function getPriceTermUnitFrequencyLabel(priceTermUnit) {

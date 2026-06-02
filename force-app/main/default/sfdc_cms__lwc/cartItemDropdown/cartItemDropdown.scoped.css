@@ -1,0 +1,10 @@
+button.slds-input {
+    line-height: 2.375rem;
+}
+label.dropdown-label {
+    color: var(--slds-g-color-neutral-base-30, #444);
+    font-size: 0.75rem;
+}
+.slds-combobox_container .slds-input__icon-group .slds-spinner {
+    z-index: 8050;
+}

@@ -1,0 +1,21 @@
+.quote-ctn {
+    border: 1px solid var(--com-c-quote-history-card-border-color, #ecebea);
+    border-radius: var(--com-c-quote-history-card-border-radius, 5px 5px 0px 0px);
+    overflow: hidden;
+}
+.quote-header {
+    background-color: var(--com-c-quote-history-card-header-bg-color, #f7f9fa);
+}
+.quote-actions {
+    gap: var(--dxp-g-spacing-small);
+}
+.quote-detail {
+    gap: var(--dxp-g-spacing-small);
+}
+.field-ctn {
+    gap: var(--dxp-g-spacing-medium);
+    align-self: stretch;
+}
+.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+}

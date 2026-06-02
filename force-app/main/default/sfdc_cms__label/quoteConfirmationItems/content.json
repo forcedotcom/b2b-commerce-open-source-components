@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteConfirmationItems",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "StockKeepingUnit",
+      "value" : "Product SKU"
+    }, {
+      "name" : "totalPrice",
+      "value" : "Total "
+    }, {
+      "name" : "productBundleDetailsModalHeaderTitle",
+      "value" : "Bundle Configuration Details"
+    } ]
+  },
+  "urlName" : "quoteconfirmationitems"
+}

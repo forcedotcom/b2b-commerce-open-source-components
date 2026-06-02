@@ -1,0 +1,4 @@
+.modal-body-content {
+    padding-top: var(--dxp-c-hr-margin-block-start);
+    padding-bottom: var(--dxp-c-hr-margin-block-end);
+}

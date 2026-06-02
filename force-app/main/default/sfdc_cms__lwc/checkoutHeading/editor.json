@@ -1,0 +1,47 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutHeading",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "desktop",
+                        "title": "Desktop",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Checkout",
+                                    "textDisplayInfo": "{\"headingTag\": \"h1\", \"textStyle\": \"heading-large\"}",
+                                    "paddingVertical": "none",
+                                    "paddingHorizontal": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "mobile",
+                        "title": "Mobile",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Checkout",
+                                    "textDisplayInfo": "{\"headingTag\": \"h3\", \"textStyle\": \"heading-medium\"}",
+                                    "paddingVertical": "xx-small",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

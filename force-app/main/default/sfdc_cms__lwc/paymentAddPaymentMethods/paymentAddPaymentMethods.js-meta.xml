@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Add Payment Method</masterLabel>
+  <description>Provides interface for adding new payment methods in My Account</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property label="Payment Method Set Key" name="paymentMethodSetId" type="String" default="" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource" description="Payment Method Set Id for My Account Payment Sheet"></property>
+      <property label="Sepa Debit Mandate" name="sepaDebitMandate" type="String" description="Sepa Debit Mandate for My Account Payment Sheet"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="paymentMethodSetId"></designLayoutProperty>
+            <designLayoutProperty name="sepaDebitMandate"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,24 @@
+<template lwc:render-mode="light">
+    <div class="options-menu-container">
+        <lightning-button-menu
+            label={_optionsLabel}
+            icon-name="utility:chevrondown"
+            menu-alignment="right"
+            variant={variant}
+            disabled={isLoading}
+            onselect={handleSelect}>
+            <template
+                for:each={options}
+                for:item="option">
+                <lightning-menu-item
+                    key={option.value}
+                    value={option.value}
+                    label={option.label}></lightning-menu-item>
+            </template>
+            <lightning-menu-item
+                class="destructive-menu-item"
+                value="delete"
+                label={_deleteCartLabel}></lightning-menu-item>
+        </lightning-button-menu>
+    </div>
+</template>

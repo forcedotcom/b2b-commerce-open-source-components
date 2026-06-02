@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteSummaryProductMedia",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "lastTileText",
+      "value" : "+{count} more"
+    } ]
+  },
+  "urlName" : "quotesummaryproductmedia"
+}

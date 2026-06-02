@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "cartSplitshipmentContents",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addressModalDescriptionLabel",
+      "value" : "Form to create or edit a shipping address."
+    }, {
+      "name" : "genericApiErrorMessage",
+      "value" : "Something went wrong. Try again or contact customer support for help."
+    }, {
+      "name" : "shipmentModalDescriptionLabel",
+      "value" : "Form to create a new delivery group."
+    }, {
+      "name" : "newDeliveryGroupName",
+      "value" : "Shipment {0}"
+    }, {
+      "name" : "headerLabel",
+      "value" : "New Shipment"
+    }, {
+      "name" : "saveNewShipmentLabel",
+      "value" : "Save Shipment"
+    } ]
+  },
+  "urlName" : "cartsplitshipmentcontents"
+}

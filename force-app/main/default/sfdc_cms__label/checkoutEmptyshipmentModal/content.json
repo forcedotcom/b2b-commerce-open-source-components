@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutEmptyshipmentModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "cancelActionLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "removeShipmentButtonText",
+      "value" : "Remove Item"
+    }, {
+      "name" : "removeLastItemMessage",
+      "value" : "You're removing the last item and will be redirected back to your cart."
+    }, {
+      "name" : "removeShipmentModalDescriptionLabel",
+      "value" : "Remove last product in split shipment."
+    }, {
+      "name" : "headerLabel",
+      "value" : "Remove all cart items?"
+    } ]
+  },
+  "urlName" : "checkoutemptyshipmentmodal"
+}

@@ -1,0 +1,88 @@
+:host {
+    display: block;
+    min-height: calc(100vh - 6rem);
+    --com-c-checkout-summary-container-mobile-collapse-height: 6rem;
+    --checkout-summary-background-color: var(
+        --com-c-checkout-summary-container-background-color,
+        rgba(242, 245, 249, 1)
+    );
+}
+.expander {
+    display: none;
+    cursor: pointer;
+}
+.container {
+    width: 100%;
+}
+.container.show-summary-column {
+    display: flex;
+}
+.container.show-summary-column > .checkout-column > .column-content {
+    min-width: 44rem;
+    width: 44rem;
+}
+.container.show-summary-column > .summary-column > .column-content {
+    width: 21.375rem;
+    min-width: 21.375rem;
+    min-height: 100%;
+}
+.container.show-summary-column > .checkout-column {
+    display: flex;
+    height: 100%;
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding: 1.5rem 3.5rem;
+}
+.container.show-summary-column > .summary-column {
+    display: flex;
+    background-color: var(--checkout-summary-background-color);
+    flex-grow: 1;
+    justify-content: flex-start;
+    padding: 1.5rem 4.5rem;
+}
+@media (max-width: 78em) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .container.show-summary-column > .summary-column {
+        display: flex;
+        background-color: var(--dxp-g-root);
+    }
+    .container > .checkout-column > .column-content,
+    .container.show-summary-column > .checkout-column > .column-content,
+    .container.show-summary-column > .summary-column > .column-content,
+    .container.show-summary-column > .summary-column > .column-content.show {
+        min-width: auto;
+        max-width: 100%;
+        width: 100%;
+    }
+    .container > .checkout-column,
+    .container.show-summary-column > .checkout-column {
+        display: inline;
+        padding: 0 var(--dxp-g-spacing-xsmall);
+    }
+    .container.show-summary-column > .summary-column {
+        cursor: pointer;
+        padding: 0;
+        margin: 0.25rem;
+    }
+    .container.show-summary-column > .summary-column > .column-content {
+        max-height: var(--com-c-checkout-summary-container-mobile-collapse-height);
+    }
+    .container.show-summary-column > .summary-column > .column-content,
+    .container.show-summary-column > .summary-column > .column-content.show {
+        overflow-y: hidden;
+        padding: 0;
+        margin: 0.25rem;
+    }
+    .container.show-summary-column > .summary-column > .column-content.show {
+        display: inline;
+        max-height: 100%;
+        transition: max-height 2s ease-in-out;
+    }
+}
+@media (min-width: 48em) {
+    :host {
+        display: flex;
+    }
+}

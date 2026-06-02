@@ -1,0 +1,436 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderSummaryContentlayout",
+                "type": "component",
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceOrderDetailDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Order",
+                        "attributes": {
+                            "recordId": "{!Route.recordId}"
+                        }
+                    }
+                ],
+                "children": [
+                    {
+                        "name": "content",
+                        "title": "Content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonBreadcrumbs",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "hideOnMobile": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 12
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Order: {!Order.Details.orderNumber}",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h1\"}",
+                                                    "textDecoration": "{\"bold\": true}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "col2",
+                                        "title": "Column 2",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:reorderButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "orderSummaryId": "{!Route.recordId}"
+                                                },
+                                                "mobileAttributes": {
+                                                    "dxpStyle": {
+                                                        "isVisible": false
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 6
+                                            },
+                                            {
+                                                "columnKey": "col2",
+                                                "columnName": "Column 2",
+                                                "columnWidth": 6
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:horizontalLine",
+                                                "type": "component"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 12
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    }
+                                },
+                                "tabletAttributes": {
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                },
+                                "mobileAttributes": {
+                                    "dxpStyle": {
+                                        "isVisible": false
+                                    }
+                                }
+                            },
+                            {
+                                "definition": "community_layout:section",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "col1",
+                                        "title": "Column 1",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:orderShipmentTracker",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "orderStatus": "{!Order.Details.status}"
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "orderStatus",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_base:textBlock",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "paddingHorizontal": "none",
+                                                                    "paddingVertical": "none",
+                                                                    "text": "{!Order.Details.status}",
+                                                                    "textAlign": "left",
+                                                                    "textDecoration": "{\"bold\": true}",
+                                                                    "textColor": "#0D825D",
+                                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h3\"}"
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "definition": "site:orderProducts",
+                                                "type": "component",
+                                                "children": [
+                                                    {
+                                                        "name": "orderProductsInfoRepeater",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "dxp_content_layout:list",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "itemSpacing": "none",
+                                                                    "listType": "unformatted",
+                                                                    "showPagination": false,
+                                                                    "autoScrollToMostRecent": true
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "name": "sfdcRepeaterItem",
+                                                                        "title": "Repeater",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "site:orderDeliveryGroup",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "shippingGroupFieldMapping": "[{\"entity\": \"OrderDeliveryMethod\",\"name\": \"Name\",\"label\": \"Name\",\"type\": \"Text(255)\",\"expression\": \"{!Order.OrderDeliveryMethod.Name}\"},{\"entity\": \"OrderDeliveryGroupSummary\",\"name\": \"TotalLineAmount\",\"label\": \"Shipping Subtotal\",\"type\": \"Currency(16, 2)\",\"expression\": \"{!Order.OrderDeliveryGroupSummary.TotalLineAmount}\"}]"
+                                                                                },
+                                                                                "children": [
+                                                                                    {
+                                                                                        "name": "orderItemsRepeater",
+                                                                                        "type": "region",
+                                                                                        "children": [
+                                                                                            {
+                                                                                                "definition": "dxp_content_layout:list",
+                                                                                                "type": "component",
+                                                                                                "attributes": {
+                                                                                                    "itemSpacing": "none",
+                                                                                                    "listType": "unformatted",
+                                                                                                    "showPagination": true,
+                                                                                                    "autoScrollToMostRecent": true
+                                                                                                },
+                                                                                                "children": [
+                                                                                                    {
+                                                                                                        "name": "sfdcRepeaterItem",
+                                                                                                        "title": "Repeater",
+                                                                                                        "type": "region",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "definition": "site:orderLineitem",
+                                                                                                                "type": "component",
+                                                                                                                "attributes": {
+                                                                                                                    "productUnavailableMessage": "",
+                                                                                                                    "productFieldMapping": "[{\"entity\":\"OrderItemSummary\",\"name\":\"StockKeepingUnit\",\"label\":\"Product Sku\",\"type\":\"Text(255)\",\"expression\":\"{!Order.OrderItemSummary.StockKeepingUnit}\"},{\"entity\":\"OrderItemSummary\",\"name\":\"Quantity\",\"label\":\"Quantity\",\"type\":\"Number(18, 0)\",\"expression\":\"{!Order.OrderItemSummary.Quantity}\"}]",
+                                                                                                                    "childProductFieldMapping": "[{\"entity\":\"OrderItemSummary\",\"name\":\"StockKeepingUnit\",\"label\":\"Product Sku\",\"type\":\"Text(255)\",\"expression\":\"{!Order.OrderItemSummary.StockKeepingUnit}\"},{\"entity\":\"OrderItemSummary\",\"name\":\"Quantity\",\"label\":\"Quantity\",\"type\":\"Number(18, 0)\",\"expression\":\"{!Order.OrderItemSummary.Quantity}\"}]",
+                                                                                                                    "showChildProductImage": true,
+                                                                                                                    "bundleExpandCollapseLabel": "{0} Products Included"
+                                                                                                                }
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "name": "pagination",
+                                                                                                        "title": "pagination",
+                                                                                                        "type": "region",
+                                                                                                        "children": [
+                                                                                                            {
+                                                                                                                "definition": "dxp_content_layout:paginator2",
+                                                                                                                "type": "component",
+                                                                                                                "attributes": {
+                                                                                                                    "variant": "showmore",
+                                                                                                                    "paginatorAttributes": "{\"nested\":{\"componentName\":\"dxp_content_layout:paginatorShowMore\",\"attributes\":{\"label\":\"Show More\",\"textDecoration\":\"{}\",\"buttonStyle\":\"secondary\",\"size\":\"standard\",\"width\":\"standard\",\"verticalPadding\":\"none\",\"horizontalAlignment\":\"center\"}}}",
+                                                                                                                    "dxpStyle": {
+                                                                                                                        "margin": {
+                                                                                                                            "top": "0rem",
+                                                                                                                            "left": "0rem",
+                                                                                                                            "right": "0rem",
+                                                                                                                            "bottom": "1.5rem"
+                                                                                                                        }
+                                                                                                                    }
+                                                                                                                }
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ],
+                                                                                                "dataProviders": [
+                                                                                                    {
+                                                                                                        "definition": "sfdc_cms__commerceOrderLineItemsDataProvider",
+                                                                                                        "type": "dataProvider",
+                                                                                                        "sfdcExpressionKey": "OrderLineItem",
+                                                                                                        "attributes": {
+                                                                                                            "lineItems": "{!OrderDeliveryGroup.lineItems}"
+                                                                                                        }
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ],
+                                                                "dataProviders": [
+                                                                    {
+                                                                        "definition": "sfdc_cms__commerceOrderDeliveryGroupsDataProvider",
+                                                                        "type": "dataProvider",
+                                                                        "sfdcExpressionKey": "OrderDeliveryGroup",
+                                                                        "attributes": {
+                                                                            "deliveryGroups": "{!Order.DeliveryGroups}"
+                                                                        }
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "col2",
+                                        "title": "Column 2",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:orderAmount",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "orderSummaryDetails": "{!Order.Details}",
+                                                    "netTaxOrdersFieldMapping": "[{\"entity\": \"OrderSummary\",\"name\": \"TotalProductAmount\",\"label\": \"Subtotal\",\"type\": \"Roll-Up Summary ( Order Product Summary)\",\"expression\": \"{!Order.OrderSummary.TotalProductAmount}\"},{\"entity\": \"OrderAdjustmentAggregateSummary\",\"name\": \"TotalProductPromotionDiscount\",\"label\": \"Promotions\",\"type\": \"Currency\",\"expression\": \"{!Order.OrderAdjustmentAggregateSummary.TotalProductPromotionDiscount}\"},{\"entity\": \"OrderSummary\",\"name\": \"TotalAdjustedDeliveryAmount\",\"label\": \"Shipping\",\"type\": \"Roll-Up Summary ( Order Product Summary)\",\"expression\": \"{!Order.OrderSummary.TotalAdjustedDeliveryAmount}\"},{\"entity\": \"OrderSummary\",\"name\": \"TotalTaxAmount\",\"label\": \"Tax\",\"type\": \"Roll-Up Summary (SUM Order Product Summary)\",\"expression\": \"{!Order.OrderSummary.TotalTaxAmount}\"},{\"entity\": \"OrderSummary\",\"name\": \"GrandTotalAmount\",\"label\": \"Total\",\"type\": \"Formula (Currency)\",\"expression\": \"{!Order.OrderSummary.GrandTotalAmount}\"}]",
+                                                    "grossTaxOrdersFieldMapping": "[{\"entity\": \"OrderSummary\",\"name\": \"TotalProductAmountWithTax\",\"label\": \"Subtotal\",\"type\": \"Formula (Currency)\",\"expression\": \"{!Order.OrderSummary.TotalProductAmountWithTax}\"},{\"entity\": \"OrderAdjustmentAggregateSummary\",\"name\": \"TotalProductPromotionDiscount\",\"label\": \"Promotions\",\"type\": \"Currency\",\"expression\": \"{!Order.OrderAdjustmentAggregateSummary.TotalProductPromotionDiscount}\"},{\"entity\": \"OrderSummary\",\"name\": \"TotalAdjDeliveryAmtWithTax\",\"label\": \"Shipping\",\"type\": \"Formula (Currency)\",\"expression\": \"{!Order.OrderSummary.TotalAdjDeliveryAmtWithTax}\"},{\"entity\": \"OrderSummary\",\"name\": \"TotalTaxAmount\",\"label\": \"Tax\",\"type\": \"Roll-Up Summary (SUM Order Product Summary)\",\"expression\": \"{!Order.OrderSummary.TotalTaxAmount}\"},{\"entity\": \"OrderSummary\",\"name\": \"GrandTotalAmount\",\"label\": \"Total\",\"type\": \"Formula (Currency)\",\"expression\": \"{!Order.OrderSummary.GrandTotalAmount}\"}]"
+                                                }
+                                            },
+                                            {
+                                                "definition": "site:reorderButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "orderSummaryId": "{!Route.recordId}",
+                                                    "dxpStyle": {
+                                                        "isVisible": false
+                                                    }
+                                                },
+                                                "tabletAttributes": {
+                                                    "dxpStyle": {
+                                                        "isVisible": false
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "attributes": {
+                                    "sectionConfig": {
+                                        "columns": [
+                                            {
+                                                "columnKey": "col1",
+                                                "columnName": "Column 1",
+                                                "columnWidth": 8
+                                            },
+                                            {
+                                                "columnKey": "col2",
+                                                "columnName": "Column 2",
+                                                "columnWidth": 4
+                                            }
+                                        ]
+                                    },
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "1rem",
+                                            "bottom": "1rem",
+                                            "left": "1rem",
+                                            "right": "1rem"
+                                        }
+                                    },
+                                    "sectionColumnGutterWidth": "3rem"
+                                },
+                                "tabletAttributes": {
+                                    "sectionColumnGutterWidth": "0rem",
+                                    "dxpStyle": {
+                                        "padding": {
+                                            "top": "0.5rem",
+                                            "bottom": "0.5rem",
+                                            "left": "0.75rem",
+                                            "right": "0.75rem"
+                                        }
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

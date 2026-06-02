@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Request Quote (Product)</masterLabel>
+  <description>Provide an option for buyers to request a quote directly from the product detail page.</description>
+  <isExposed>true</isExposed>
+  <apiVersion>67</apiVersion>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="buttonText" type="String" default="Request Quote" translatable="true" label="Button Text"></property>
+      <property label="Product Data Binding" name="product" type="String" default="{!Product.Details}"></property>
+      <property label="Product Inventory Data Binding" name="productInventory" type="String" default="{!Product.Inventory}"></property>
+      <property name="variant" type="String" default="secondary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource" label="Button Style"></property>
+      <property name="size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="width" type="String" default="stretch" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource" label="Max Button Width"></property>
+      <property name="showTitle" type="Boolean" default="true" label="Show Title"></property>
+      <property name="titleText" type="String" default="New Quote Request" translatable="true" label="Title"></property>
+      <property name="showQuoteRequiredByDate" type="Boolean" default="true" label="Show Field"></property>
+      <property name="isRequiredQuoteRequiredByDate" type="Boolean" default="false" label="Required"></property>
+      <property name="quoteRequiredByDateLabel" type="String" default="Quote Needed By" translatable="true" label="Final Quote Required By Date Label"></property>
+      <property name="showDescription" type="Boolean" default="true" label="Show Field"></property>
+      <property name="isRequiredDescription" type="Boolean" default="false" label="Required"></property>
+      <property name="descriptionLabel" type="String" default="Describe the reason for a new quote, include important information for us to consider your request." translatable="true" label="Description Label"></property>
+      <property name="quantityLabel" type="String" default="Quantity" translatable="true" label="Quantity Label"></property>
+      <property name="showInfotext" type="Boolean" default="true" label="Show Field"></property>
+      <property name="infoText" type="String" default="You can view and track this quote later on the My Quotes page." translatable="true" label="Info Text"></property>
+      <property name="additionalFields" type="QuoteRequestFieldMapping" label="Additional Fields Configuration"></property>
+      <property name="sendRequestButtonLabel" type="String" default="Send Request" translatable="true" label="Button Text"></property>
+      <property name="sendRequestButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <property name="cancelButtonLabel" type="String" default="Cancel" translatable="true" label="Button Text"></property>
+      <property name="cancelButtonSize" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource" label="Button Size"></property>
+      <designLayout>
+        <designSection name="Action Button">
+          <designLayoutItems>
+            <designLayoutProperty name="product" cbVisibleIf="product=false"></designLayoutProperty>
+            <designLayoutProperty name="productInventory" cbVisibleIf="productInventory=false"></designLayoutProperty>
+            <designLayoutProperty name="buttonText"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Title">
+          <designLayoutItems>
+            <designLayoutProperty name="showTitle"></designLayoutProperty>
+            <designLayoutProperty name="titleText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Final Quote Required By">
+          <designLayoutItems>
+            <designLayoutProperty name="showQuoteRequiredByDate"></designLayoutProperty>
+            <designLayoutProperty name="isRequiredQuoteRequiredByDate"></designLayoutProperty>
+            <designLayoutProperty name="quoteRequiredByDateLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Description">
+          <designLayoutItems>
+            <designLayoutProperty name="showDescription"></designLayoutProperty>
+            <designLayoutProperty name="isRequiredDescription"></designLayoutProperty>
+            <designLayoutProperty name="descriptionLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity">
+          <designLayoutItems>
+            <designLayoutProperty name="quantityLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Info Text">
+          <designLayoutItems>
+            <designLayoutProperty name="showInfotext"></designLayoutProperty>
+            <designLayoutProperty name="infoText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Additional Fields">
+          <designLayoutItems>
+            <designLayoutProperty name="additionalFields"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Send Request Button">
+          <designLayoutItems>
+            <designLayoutProperty name="sendRequestButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="sendRequestButtonSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Cancel Button">
+          <designLayoutItems>
+            <designLayoutProperty name="cancelButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="cancelButtonSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

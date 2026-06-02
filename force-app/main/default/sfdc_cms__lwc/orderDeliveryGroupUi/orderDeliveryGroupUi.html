@@ -1,0 +1,138 @@
+<template lwc:render-mode="light">
+    <div class="delivery-group slds-border_bottom">
+        <template lwc:if={_hasMoreThanOneOrderDeliveryGroup}>
+            <h4 class="slds-m-bottom_medium slds-m-top_medium">
+                <button
+                    class="slds-button slds-wrap slds-grid slds-p-bottom_none slds-p-top_none slds-m-bottom_small delivery-address-container"
+                    onclick={handleClick}
+                    aria-expanded={_isExpanded}
+                    aria-controls={_deliveryGroupSummarySectionId}
+                    title={_groupTitle}>
+                    <span lwc:if={_hasMoreThanOneOrderDeliveryGroup}>
+                        <lightning-icon
+                            lwc:if={_isExpanded}
+                            icon-name="utility:chevrondown"
+                            variant="bare"
+                            size="xx-small"
+                            class="slds-current-color slds-p-left_xx-small"></lightning-icon>
+                        <lightning-icon
+                            lwc:else
+                            icon-name="utility:chevronright"
+                            variant="bare"
+                            size="xx-small"
+                            class="slds-current-color slds-p-left_xx-small"></lightning-icon>
+                    </span>
+                    <span class="icon-color slds-icon-text-default slds-p-left_xx-small">
+                        <lightning-icon
+                            src={fetchIcon}
+                            size="small"></lightning-icon>
+                    </span>
+                    <span class="delivery-city">
+                        {_formattedPrefixToShippingGroup}
+                        <b>{_shipToCity}</b>
+                    </span>
+                    <span class="delivery-address">{_deliveryGroupAddress}</span>
+                </button>
+                <div
+                    lwc:if={shippingPhoneNumber}
+                    class="shiping-phone-number slds-p-left_large">
+                    <svg
+                        class="slds-icon slds-icon_small slds-m-right_xx-small"
+                        aria-label={shippingPhoneNumberLabel}>
+                        <use xlink:href={fetchPhoneIcon}></use>
+                    </svg>
+                    {shippingPhoneNumber}
+                </div>
+            </h4>
+        </template>
+        <template lwc:else>
+            <h4 class="slds-m-bottom_medium slds-m-top_medium">
+                <div
+                    class="slds-p-bottom_none slds-p-top_none slds-m-bottom_small slds-wrap slds-grid delivery-address-container">
+                    <span class="icon-color slds-icon-text-default slds-p-left_xx-small">
+                        <lightning-icon
+                            src={fetchIcon}
+                            size="small"></lightning-icon>
+                    </span>
+                    <span class="delivery-city">
+                        {_formattedPrefixToShippingGroup}
+                        <b>{_shipToCity}</b>
+                    </span>
+                    <span class="single-delivery-address">{_deliveryGroupAddress}</span>
+                </div>
+                <div
+                    lwc:if={shippingPhoneNumber}
+                    class="shiping-phone-number slds-p-left_x-small">
+                    <svg
+                        class="slds-icon slds-icon_small slds-m-right_xx-small"
+                        aria-label={shippingPhoneNumberLabel}>
+                        <use xlink:href={fetchPhoneIcon}></use>
+                    </svg>
+                    {shippingPhoneNumber}
+                </div>
+            </h4>
+        </template>
+        <div
+            id={_deliveryGroupSummarySectionId}
+            lwc:if={_isExpanded}
+            class={expandedSectionClasses}>
+            <div
+                lwc:if={_showShippingFields}
+                class="field-properties slds-border_top slds-wrap slds-p-top_medium slds-p-bottom_medium">
+                <!-- Display the shipping fields -->
+                <template
+                    for:each={_transformedShippingFields}
+                    for:item="field">
+                    <div
+                        key={field.id}
+                        class="shipping-field-item slds-m-bottom_xx-small">
+                        <span lwc:if={field.hasFieldName}>
+                            <span class="delivery-group-fields slds-truncate_container_75">{field.label}</span>
+                            <lightning-formatted-rich-text
+                                value={_labels.keyValueSeparatorWithSpace}
+                                aria-hidden="true"></lightning-formatted-rich-text>
+                        </span>
+                        <span>
+                            <site-common-field
+                                currency-code={currencyCode}
+                                type={field.type}
+                                value={field.text}></site-common-field>
+                        </span>
+                    </div>
+                </template>
+            </div>
+            <!-- Gifting Details -->
+            <div
+                lwc:if={_showGiftingDetails}
+                class="field-properties gifting-details slds-border_top slds-p-vertical_medium">
+                <div
+                    lwc:if={_showIsGift}
+                    class="gifting-field-item gift-order-label slds-m-bottom_xx-small slds-no-flex slds-truncate_container_50">
+                    <span class="delivery-group-fields slds-truncate_container_75">{giftOrderLabel}</span>
+                </div>
+                <div
+                    lwc:if={_showIsGift}
+                    class="dot-separator-container slds-no-flex slds-m-top_x-small"></div>
+                <div
+                    lwc:if={_giftMessage}
+                    class="gifting-field-item gift-message-label slds-m-bottom_xx-small">
+                    <span lwc:if={giftMessageLabel}>
+                        <span class="delivery-group-fields slds-truncate_container_75">{giftMessageLabel}</span>
+                        <lightning-formatted-rich-text
+                            value={_labels.keyValueSeparatorWithSpace}
+                            aria-hidden="true"></lightning-formatted-rich-text>
+                    </span>
+                    <span>
+                        <site-common-field
+                            type="text"
+                            value={_giftMessage}></site-common-field>
+                    </span>
+                </div>
+            </div>
+            <div class="product-count slds-p-bottom_medium slds-text-heading_x-small">{totalProductsCountLabel}</div>
+            <span>
+                <slot name="orderItemsRepeater"></slot>
+            </span>
+        </div>
+    </div>
+</template>

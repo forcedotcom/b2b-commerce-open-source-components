@@ -37,9 +37,12 @@
       <property label="Button Border Color" name="addToListButtonBorderColor" type="Color"></property>
       <property label="Button Border Radius" name="addToListButtonBorderRadius" type="Integer" min="0" max="50" default="0"></property>
       <property label="Quantity Selector Label" name="quantitySelectorLabel" type="String" translatable="true" default="QTY"></property>
-      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy {0} to start”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
-      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Buy up to {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
-      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, “Sold in increments of {0}”. The text is shown on the product and as hover text for the quantity selector’s information icon."></property>
+      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
+      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
+      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
+      <property label="Show Add to a Saved Cart" name="showAddToSecondaryCartMenu" type="Boolean" default="false"></property>
+      <property label="Show Item Count" name="showSecondaryCartItemCount" type="Boolean" default="true" description="Show the number of items in each cart."></property>
+      <property label="Shows the total quantity or the number of unique products in the cart." name="secondaryCartCountType" type="String" translatable="false" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount"></property>
       <designLayout>
         <designSection name="Add to Cart Button">
           <designLayoutItems>
@@ -72,6 +75,13 @@
             <designLayoutProperty name="maximumValueGuideText"></designLayoutProperty>
             <designLayoutProperty name="incrementValueGuideText"></designLayoutProperty>
             <designLayoutProperty name="quantitySelectorLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Multiple Carts">
+          <designLayoutItems>
+            <designLayoutProperty name="showAddToSecondaryCartMenu"></designLayoutProperty>
+            <designLayoutProperty name="showSecondaryCartItemCount" cbVisibleIf="showAddToSecondaryCartMenu=true"></designLayoutProperty>
+            <designLayoutProperty name="secondaryCartCountType" cbVisibleIf="showAddToSecondaryCartMenu=true;showSecondaryCartItemCount=true"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
         <designSection>

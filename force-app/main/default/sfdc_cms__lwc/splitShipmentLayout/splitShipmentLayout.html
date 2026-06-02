@@ -1,0 +1,46 @@
+<template lwc:render-mode="light">
+    <div class={containerClasses}>
+        <div class="checkout-column">
+            <div
+                slot="content"
+                data-automation="content"
+                class="column-content">
+                <slot name="content"></slot>
+            </div>
+        </div>
+        <div
+            class="summary-column"
+            style={summaryColumnStyles}
+            lwc:if={showSummaryColumn}
+            onsummarytoggle={handleSummaryToggle}>
+            <div
+                class={_summaryColumnClass}
+                slot="column"
+                data-automation="column">
+                <site-checkout-summary
+                    cart-details={cartDetails}
+                    checkout-details={checkoutDetails}
+                    hide-cart-items-title>
+                    <div slot="checkoutmobileheading">
+                        <site-checkout-heading
+                            cart-totals={cartTotals}
+                            cart-details={cartDetails}
+                            show-mobile-only>
+                            <div slot="desktop">
+                                <h2 class="heading-large">{headerText}</h2>
+                            </div>
+                            <div slot="mobile">
+                                <h3 class="heading-medium">{headerText}</h3>
+                            </div>
+                        </site-checkout-heading>
+                    </div>
+                    <div
+                        slot="summary"
+                        class="cart-item">
+                        <slot name="summary"></slot>
+                    </div>
+                </site-checkout-summary>
+            </div>
+        </div>
+    </div>
+</template>

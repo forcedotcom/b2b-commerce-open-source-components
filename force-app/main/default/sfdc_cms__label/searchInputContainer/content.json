@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchInputContainer",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "ariaClearButtonLabel",
+      "value" : "Clear search input text."
+    }, {
+      "name" : "ariaSearchInputLabel",
+      "value" : "Search throughout the site."
+    }, {
+      "name" : "ariaSearchIconLabel",
+      "value" : "Search"
+    }, {
+      "name" : "clearButtonLabel",
+      "value" : "Clear"
+    }, {
+      "name" : "seeAllResultsLabel",
+      "value" : "See all results for {0}"
+    }, {
+      "name" : "alternativeSearchInputSpinnerText",
+      "value" : "Loading"
+    }, {
+      "name" : "recentSearchDefaultText",
+      "value" : "Recent searches"
+    }, {
+      "name" : "bestSellerDefaultText",
+      "value" : "Bestsellers"
+    }, {
+      "name" : "productSuggestionsDefaultText",
+      "value" : "Suggested products"
+    } ]
+  },
+  "urlName" : "searchinputcontainer"
+}

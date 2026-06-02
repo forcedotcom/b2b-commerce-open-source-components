@@ -1,0 +1,21 @@
+<template lwc:render-mode="light">
+    <site-order-summary-ui
+        lwc:if={order}
+        style={_customStyles}
+        order-id={order.orderSummaryId}
+        order-number={order.orderNumber}
+        currency-code={order.currencyIsoCode}
+        status={order.status}
+        products={order.products}
+        product-count={productCount}
+        order-detail-url={_orderDetailUrl}
+        ordered-date={order.orderedDate}
+        fields={_orderFieldsData}
+        view-details-link-label={viewDetailsLinkLabel}
+        reorder-button-label={_reorderButtonLabel}
+        onreorder={handleReorder}
+        onnavigatetoorderdetail={handleOrderDetailNavigation}>
+        <span slot="orderNumberLabel"><slot name="orderNumberLabel"></slot></span>
+        <span slot="orderNumber"><slot name="orderNumber"></slot></span>
+    </site-order-summary-ui>
+</template>

@@ -1,0 +1,47 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:selfRegister",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "emailConsentOptionsFooterText",
+                        "title": "Email Consent Options Footer Text",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Read the Privacy Policy to learn how we handle your data.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"textStyle\": \"body-small\", \"headingTag\": \"p\"}"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceMarketingConsentDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Marketing",
+                        "attributes": {
+                            "consentExperience": "ProfileAndRegistration",
+                            "contactFromUserContext": false
+                        }
+                    },
+                    {
+                        "definition": "sfdc_cms__commerceI18nDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "I18n",
+                        "attributes": {
+                            "excludeCountries": false
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

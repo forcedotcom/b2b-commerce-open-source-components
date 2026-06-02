@@ -14,7 +14,7 @@
     </targetConfig>
     <targetConfig targets="lightningCommunity__Default">
       <property name="showCount" type="Boolean" label="Show number of items in cart"></property>
-      <property name="countType" translatable="false" type="String" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount" label="Show total items or number or unique items"></property>
+      <property name="countType" translatable="false" type="String" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount" label="Shows the total quantity or the number of unique products in the cart."></property>
       <property name="showMiniCartProperties" type="Boolean" default="true"></property>
       <property name="showMiniCart" type="Boolean" default="true" label="Enable Mini Cart" description="Enables a sliding mini cart that showcases cart items."></property>
       <property name="headerText" translatable="true" type="String" default="My Cart" label="Header Text"></property>

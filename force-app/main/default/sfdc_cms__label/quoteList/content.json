@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteList",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "errorHeading",
+      "value" : "We couldn’t retrieve the quote details"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Refresh the page. If the issue persists, contact support."
+    } ]
+  },
+  "urlName" : "quotelist"
+}

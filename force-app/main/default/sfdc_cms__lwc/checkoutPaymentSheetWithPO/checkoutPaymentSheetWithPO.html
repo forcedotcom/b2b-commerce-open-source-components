@@ -1,0 +1,117 @@
+<template lwc:render-mode="light">
+    <template lwc:if={_showPurchaseOrder}>
+        <div class="button-container slds-grid slds-wrap">
+            <!-- ---------------------------------------------------- -->
+            <!-- Toggle Buttons for Show SF Payment or PurchaseOrder -->
+            <!-- ---------------------------------------------------- -->
+            <button
+                data-payment-type-btn="purchase-order"
+                class={purchaseOrderButtonStyling}
+                onclick={handleSelectPayment}>
+                <span class="slds-icon_container slds-icon__svg--default">
+                    <svg
+                        class="slds-icon slds-icon-text-default"
+                        aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#page"></use>
+                    </svg>
+                </span>
+                <p>{purchaseOrderLabel}</p>
+            </button>
+            <button
+                data-payment-type-btn="credit-card"
+                class={creditCardButtonStyling}
+                onclick={handleSelectPayment}>
+                <span class="slds-icon_container slds-icon__svg--default">
+                    <svg
+                        class="slds-icon slds-icon-text-default"
+                        aria-hidden="true">
+                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#inspector_panel"></use>
+                    </svg>
+                </span>
+                <p>{cardPaymentLabel}</p>
+            </button>
+        </div>
+        <section lwc:if={isCreditCardExpanded}>
+            <site-checkout-payment-sheet
+                checkout-details={checkoutDetails}
+                cart-details={cartDetails}
+                cart-totals={cartTotals}
+                data-payment-key="credit-card"
+                payment-method-set-id={paymentMethodSetId}
+                expanded-mode={expandedMode}
+                use-manual-capture={useManualCapture}
+                enable-saved-payment-methods={enableSavedPaymentMethods}
+                enable-business-ach={enableBusinessAch}
+                sepa-debit-mandate={sepaDebitMandate}
+                is-payment-sheet-initialized={_isPaymentSheetInitialized}>
+                <site-checkout-billing-info
+                    slot="billingAddress"
+                    checkout-details={checkoutDetails}
+                    expanded-mode={expandedMode}
+                    billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                    phone-number-label={phoneNumberLabel}
+                    phone-number-placeholder-text={phoneNumberPlaceholderText}
+                    show-address-lookup>
+                    <div
+                        slot="heading"
+                        data-automation="heading">
+                        <h2 class="billing-address-heading">{billingAddressLabel}</h2>
+                    </div>
+                </site-checkout-billing-info>
+            </site-checkout-payment-sheet>
+        </section>
+        <section lwc:if={isPurchaseOrderExpanded}>
+            <site-checkout-purchase-order
+                checkout-details={checkoutDetails}
+                data-payment-key="purchase-order"
+                expanded-mode={expandedMode}
+                input-label={inputLabel}
+                placeholder-label={placeholderLabel}
+                require-billing-address={requireBillingAddress}>
+                <site-checkout-billing-info
+                    slot="billingAddress"
+                    checkout-details={checkoutDetails}
+                    expanded-mode={expandedMode}
+                    billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                    phone-number-label={phoneNumberLabel}
+                    phone-number-placeholder-text={phoneNumberPlaceholderText}
+                    show-address-lookup>
+                    <div
+                        slot="heading"
+                        data-automation="heading">
+                        <h2 class="billing-address-heading">{billingAddressLabel}</h2>
+                    </div>
+                </site-checkout-billing-info>
+            </site-checkout-purchase-order>
+        </section>
+    </template>
+    <template if:false={_showPurchaseOrder}>
+        <site-checkout-payment-sheet
+            data-solo-credit-card
+            checkout-details={checkoutDetails}
+            cart-details={cartDetails}
+            cart-totals={cartTotals}
+            expanded-mode={expandedMode}
+            payment-method-set-id={paymentMethodSetId}
+            use-manual-capture={useManualCapture}
+            enable-saved-payment-methods={enableSavedPaymentMethods}
+            enable-business-ach={enableBusinessAch}
+            sepa-debit-mandate={sepaDebitMandate}
+            is-payment-sheet-initialized={_isPaymentSheetInitialized}>
+            <site-checkout-billing-info
+                slot="billingAddress"
+                checkout-details={checkoutDetails}
+                expanded-mode={expandedMode}
+                billing-address-same-as-shipping-address-label={billingAddressSameAsShippingAddressLabel}
+                phone-number-label={phoneNumberLabel}
+                phone-number-placeholder-text={phoneNumberPlaceholderText}
+                show-address-lookup>
+                <div
+                    slot="heading"
+                    data-automation="heading">
+                    <h2 class="billing-address-heading">{billingAddressLabel}</h2>
+                </div>
+            </site-checkout-billing-info>
+        </site-checkout-payment-sheet>
+    </template>
+</template>

@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <site-quote-summary-ui
+        lwc:if={quote}
+        style={_customStyles}
+        quote-id={quote.id}
+        quote-number={quote.quoteNumber}
+        currency-code={currencyIsoCode}
+        status={quote.status}
+        products={quote.products}
+        product-count={productCount}
+        quote-detail-url={_quoteDetailUrl}
+        fields={_quoteFieldsData}
+        view-details-link-label={viewDetailsLinkLabel}
+        onnavigatetoquotedetail={handleQuoteDetailNavigation}>
+        <span slot="quoteNumberLabel"><slot name="quoteNumberLabel"></slot></span>
+        <span slot="quoteNumber"><slot name="quoteNumber"></slot></span>
+    </site-quote-summary-ui>
+</template>

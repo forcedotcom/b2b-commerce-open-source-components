@@ -1,0 +1,74 @@
+<template lwc:render-mode="light">
+    <div class="suggestions-container">
+        <div
+            lwc:if={isSearchSuggestionsVisible}
+            class="search-suggestions-container suggestions">
+            <div
+                class="category"
+                for:each={categories}
+                key={category.id}
+                data-automation="searchSuggestionCategory"
+                for:item="category">
+                <template lwc:if={category.items.length}>
+                    <div class="results-title">
+                        <slot
+                            name="header"
+                            lwc:slot-bind={category}></slot>
+                    </div>
+                    <ul
+                        role="listbox"
+                        onkeydown={handleKeyDown}
+                        aria-label={category.title}>
+                        <li
+                            for:each={category.items}
+                            for:item="item"
+                            role="option"
+                            class="result-item"
+                            tabindex="0"
+                            title={item.attributeText}
+                            aria-label={item.attributeText}
+                            data-index={item.index}
+                            data-category={category.id}
+                            onkeyup={handleItemKeyUp}
+                            onfocus={handleItemFocus}
+                            onclick={handleClick}
+                            data-automation="searchSuggestionItem"
+                            key={item.id}>
+                            <div class="result-item-start">
+                                <slot
+                                    name="resultItemStart"
+                                    lwc:slot-bind={item}></slot>
+                            </div>
+                            <div class="result slds-truncate">
+                                <span
+                                    key={part.id}
+                                    for:each={item.parts}
+                                    class={part.classes}
+                                    for:item="part">
+                                    {part.value}
+                                </span>
+                            </div>
+                            <div class="result-item-end">
+                                <slot
+                                    name="resultItemEnd"
+                                    lwc:slot-bind={item}></slot>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="category-end">
+                        <slot
+                            name="categoryEnd"
+                            lwc:slot-bind={category}></slot>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div
+            lwc:if={isProductSuggestionsVisible}
+            class="product-suggestions-container suggestions">
+            <site-search-product-suggestions-grid-ui
+                product-suggestions={suggestedProducts}
+                header={suggestedProductsHeader}></site-search-product-suggestions-grid-ui>
+        </div>
+    </div>
+</template>

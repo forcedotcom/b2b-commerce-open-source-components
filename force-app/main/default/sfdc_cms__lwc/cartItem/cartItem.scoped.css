@@ -82,6 +82,44 @@
 .delete-button {
     margin-left: -1rem;
 }
+button.bundle-details-link {
+    --slds-c-button-spacing-block-start: 0;
+    --slds-c-button-spacing-block-end: 0;
+    --slds-c-button-spacing-inline-start: 0;
+    --slds-c-button-spacing-inline-end: 0;
+    --slds-c-button-neutral-spacing-inline-start: 0;
+    --slds-c-button-neutral-spacing-inline-end: 0;
+    --slds-c-button-neutral-color-background: transparent;
+    --slds-c-button-neutral-color-background-hover: transparent;
+    --slds-c-button-neutral-color-background-active: transparent;
+    --slds-c-button-neutral-color-border: transparent;
+    --slds-c-button-neutral-color-border-hover: transparent;
+    --slds-c-button-neutral-color-border-active: transparent;
+
+    align-self: flex-start;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    line-height: inherit;
+    color: var(--dxp-g-root-contrast, #000);
+    font-weight: 700;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    text-decoration: underline;
+    cursor: pointer;
+}
+button.bundle-details-link:hover,
+button.bundle-details-link:focus,
+button.bundle-details-link:active {
+    background: transparent;
+    border: 0;
+    text-decoration: underline;
+    color: var(--dxp-g-root-contrast, #000);
+    box-shadow: none;
+}
 .item_details_currency {
     display: flex;
     align-items: center;

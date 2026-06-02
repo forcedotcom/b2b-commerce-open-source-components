@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderDeliveryGroupUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "keyValueSeparatorWithSpace",
+      "value" : ":&nbsp;"
+    } ]
+  },
+  "urlName" : "orderdeliverygroupui"
+}

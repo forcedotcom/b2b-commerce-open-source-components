@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "checkoutPaymentSheet",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "requiredFieldError",
+      "value" : "{field} is required."
+    }, {
+      "name" : "duplicateUserError",
+      "value" : "Unable to register buyer, duplicate user"
+    } ]
+  },
+  "urlName" : "checkoutpaymentsheet"
+}

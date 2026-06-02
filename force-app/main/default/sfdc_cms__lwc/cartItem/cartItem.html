@@ -92,6 +92,12 @@
                     class="bundle-child-product-count"
                     value={_bundleProductCountText}></lightning-formatted-rich-text>
             </div>
+            <button
+                lwc:if={_showViewBundleButton}
+                class="slds-button slds-button_neutral bundle-details-link"
+                onclick={handleSeeConfiguration}>
+                {viewBundleDetailLabel}
+            </button>
             <lightning-formatted-rich-text
                 lwc:if={displaySku}
                 class="product-sku"
@@ -141,7 +147,7 @@
                 onvaliditychanged={handleValidityChanged}
                 onvaluechanged={handleValueChanged}
                 custom-error-message={errorMessage}
-                disabled={disableQuantitySelector}></site-common-quantity-selector>
+                disabled={_disableQuantitySelector}></site-common-quantity-selector>
         </div>
         <!-- Price per unit -->
         <div
@@ -189,6 +195,7 @@
                 title={modifyButtonAssistiveText}
                 assistive-text={modifyButtonAssistiveText}
                 onclick={handleModifyItem}
+                disabled={_disableModifyButton}
                 variant="tertiary"
                 class="modify-button">
                 {modifyButtonText}
@@ -198,6 +205,7 @@
                 title={removeButtonAssistiveText}
                 assistive-text={removeButtonAssistiveText}
                 onclick={handleDeleteItem}
+                disabled={_disableDeleteButton}
                 variant="tertiary"
                 class="delete-button">
                 {removeButtonText}

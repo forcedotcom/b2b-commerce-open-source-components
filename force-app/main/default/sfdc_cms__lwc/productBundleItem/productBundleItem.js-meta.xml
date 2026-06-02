@@ -18,7 +18,7 @@
     <targetConfig targets="lightningCommunity__Default">
       <property label="Quantity Text" name="quantityText" type="String" default="Qty"></property>
       <property label="Hide quantity when quantity is 1" name="hideQuantityWhenItsOne" type="Boolean" default="false"></property>
-      <property label="Fields" name="productDetailSummaryFieldMapping" type="ProductFieldMapping" default="[]" translatable="true"></property>
+      <property label="Fields" name="productDetailSummaryFieldMapping" type="ProductDetailSummaryFieldMapping" default="[]" translatable="true"></property>
       <property name="item" type="String" default="{!Item.data}"></property>
       <property label="Parent Product Details" name="parentProductDetails" type="String"></property>
       <property label="Dynamic Attributes Text" name="dynamicAttributesAvailableText" type="String" default="{0} Configurable Attributes" translatable="true"></property>

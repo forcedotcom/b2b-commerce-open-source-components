@@ -1,0 +1,105 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={showEmailSignup}
+        data-automation="marketingEmailSignupContainer">
+        <slot name="header"></slot>
+        <label
+            for="email"
+            class="slds-form-element__label slds-p-top_large slds-p-bottom_x-small email-label">
+            {inputFieldLabel}
+        </label>
+        <div class={inputContainerClasses}>
+            <input
+                data-automation="marketingEmailSignupInput"
+                oninput={handleOnInput}
+                lwc:ref="emailInput"
+                class="slds-input email-input"
+                type="email"
+                name="email"
+                aria-label={inputFieldLabel}
+                aria-required="true"
+                aria-describedby="error-message"
+                placeholder={placeholderText}
+                value={_email} />
+        </div>
+        <div
+            lwc:if={errorMessages.length}
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+            data-automation="errorMessage"
+            id="error-message"
+            class="slds-has-error">
+            <template
+                for:each={errorMessages}
+                for:item="error">
+                <span
+                    key={error.id}
+                    class="slds-form-element__help">
+                    {error.message}
+                </span>
+            </template>
+        </div>
+        <div
+            lwc:if={showCheckboxes}
+            class={checkboxClasses}
+            data-automation="marketingEmailSignupSubscriptions">
+            <template
+                for:each={_subscriptionCheckboxes}
+                for:item="subscription">
+                <div
+                    class="slds-checkbox"
+                    key={subscription.id}>
+                    <label
+                        for={subscription.id}
+                        class="slds-checkbox__label consent-item">
+                        <input
+                            id={subscription.id}
+                            type="checkbox"
+                            checked={subscription.value}
+                            onchange={handleCheckboxChange} />
+                        <span class="slds-checkbox_faux"></span>
+                        <span class="consent-text">
+                            {subscription.title}
+                            <template lwc:if={subscription.description}>
+                                <div class="consent-description">{subscription.description}</div>
+                            </template>
+                        </span>
+                    </label>
+                </div>
+            </template>
+        </div>
+        <div
+            lwc:if={showSingleSubscription}
+            class="consent-list"
+            lwc:ref="marketingEmailSignupSubscriptions"
+            data-automation="marketingEmailSignupSubscriptions">
+            <span class="consent-text">
+                {singleSubscription.title}
+                <template lwc:if={singleSubscription.description}>
+                    <div class="consent-description">{singleSubscription.description}</div>
+                </template>
+            </span>
+        </div>
+        <slot name="footer"></slot>
+        <button
+            data-automation="marketingEmailSignupSubscribeButton"
+            type="submit"
+            aria-label={buttonText}
+            aria-describedby="error-message success-message"
+            onclick={handleButtonClick}
+            class="slds-button slds-button_brand slds-m-top_medium slds-m-bottom_x-small submit-button">
+            {buttonText}
+        </button>
+        <span
+            lwc:if={successMessageContent}
+            role="alert"
+            aria-live="polite"
+            aria-atomic="true"
+            data-automation="successMessage"
+            id="success-message"
+            class="slds-text-body_regular">
+            {successMessageContent}
+        </span>
+    </div>
+</template>

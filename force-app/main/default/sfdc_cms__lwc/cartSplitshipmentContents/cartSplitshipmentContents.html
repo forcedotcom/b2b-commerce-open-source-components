@@ -1,0 +1,23 @@
+<template lwc:render-mode="light">
+    <site-cart-splitshipment-items-ui
+        style={itemsStyles}
+        products={products}
+        delivery-group-cart-props={deliveryGroupCartProps}
+        split-ship-pagination={splitShipPagination}
+        delivery-groups={deliveryGroups}
+        currency-iso-code={_currencyIsoCode}
+        show-sku={showSku}
+        sku-label={skuLabel}
+        show-product-image={showProductImage}
+        show-product-variants={showProductVariants}
+        minimum-value-guide-text={minimumValueGuideText}
+        maximum-value-guide-text={maximumValueGuideText}
+        increment-value-guide-text={incrementValueGuideText}
+        raw-internationalization-data={_rawInternationalizationData}
+        onchangedeliverygroup={handleChangeDeliveryGroup}
+        onchangequantity={handleChangeQty}
+        ondeletecartitem={handleDeleteCartItem}
+        onsplitcartitem={handleSplitCartItem}
+        onopennewshipmentmodal={openNewShipmentModal}
+        onsplitshipgotopage={handleSplitShipGoToPage}></site-cart-splitshipment-items-ui>
+</template>

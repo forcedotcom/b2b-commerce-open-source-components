@@ -1,0 +1,47 @@
+<template lwc:render-mode="light">
+    <section>
+        <div class="discount-title">
+            <span onclick={handleExpandCollapseClick}>
+                {discountsLabel}
+                <lightning-icon
+                    lwc:if={isExpanded}
+                    icon-name="utility:up"
+                    variant="bare"
+                    size="xx-small"
+                    class="slds-current-color slds-p-left_xx-small"></lightning-icon>
+                <lightning-icon
+                    lwc:else
+                    icon-name="utility:down"
+                    variant="bare"
+                    size="xx-small"
+                    class="slds-current-color slds-p-left_xx-small"></lightning-icon>
+            </span>
+            <site-common-formatted-price
+                currency-code={currencyCode}
+                display-currency-as="symbol"
+                value={totalDiscount}></site-common-formatted-price>
+        </div>
+        <div
+            lwc:if={isExpanded}
+            class="discount-content">
+            <template
+                for:each={orderDiscountsList}
+                for:item="discount">
+                <dl
+                    class="order-discount slds-p-top_x-small slds-p-left_small dxp-text-body-small"
+                    key={discount.displayName}>
+                    <dt class="slds-p-right_medium">
+                        <span title={discount.displayName}>{discount.displayName}</span>
+                    </dt>
+                    <dd class="slds-text-align_right">
+                        <site-common-formatted-price
+                            lwc:if={discount.amount}
+                            currency-code={currencyCode}
+                            display-currency-as="symbol"
+                            value={discount.amount}></site-common-formatted-price>
+                    </dd>
+                </dl>
+            </template>
+        </div>
+    </section>
+</template>

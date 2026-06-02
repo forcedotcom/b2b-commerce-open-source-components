@@ -1,0 +1,6 @@
+:host {
+    --com-c-transact-layout-summary-bg-color: transparent;
+}
+.quote-confirmation-content-layout {
+    min-height: 20rem;
+}

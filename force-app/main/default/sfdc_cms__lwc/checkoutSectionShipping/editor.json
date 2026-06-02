@@ -1,0 +1,84 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:checkoutSectionShipping",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "title",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Shipping Address",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-medium\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "paddingVertical": "none",
+                                    "alignment": "left"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "edit",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutShippingAddressEditButton",
+                                "type": "component",
+                                "attributes": {},
+                                "children": [
+                                    {
+                                        "name": "edit",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Change",
+                                                    "variant": "tertiary",
+                                                    "alignment": "right"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "content",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutDeliveryAddress",
+                                "type": "component",
+                                "attributes": {
+                                    "showAddressLookup": true
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "proceed",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:commonButton",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Continue to Shipping Method",
+                                    "buttonBorderRadius": "4"
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

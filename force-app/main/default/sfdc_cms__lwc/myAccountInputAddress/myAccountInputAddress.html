@@ -1,0 +1,163 @@
+<template lwc:render-mode="light">
+    <template if:true={_errorMessage}>
+        <site-common-scoped-notification
+            type="error"
+            message-body={_errorMessage}
+            dismissible="true"
+            ondismissnotification={handleDismissNotification}></site-common-scoped-notification>
+    </template>
+    <template if:true={showAddressForm}>
+        <div class="slds-form-element slds-p-around_medium">
+            <h2
+                if:true={showComponentHeader}
+                class="address-header">
+                <span if:true={isNewAddressMode}>{componentHeaderNewAddressLabel}</span>
+                <span if:false={isNewAddressMode}>{componentHeaderEditAddressLabel}</span>
+            </h2>
+            <div
+                class="address-form-align"
+                style={formStyle}>
+                <div
+                    class="slds-p-bottom_large address-type"
+                    if:true={showDifferentAddressTypes}
+                    role="radiogroup">
+                    <template
+                        for:each={addressTypeOptions}
+                        for:item="addressType">
+                        <span
+                            key={addressType.value}
+                            class="slds-p-right_medium">
+                            <label class="radio-container slds-radio">
+                                <input
+                                    type="radio"
+                                    value={addressType.value}
+                                    name="addressType"
+                                    id={addressType.value}
+                                    required
+                                    checked={addressType.isChecked}
+                                    onchange={handleAddressTypeChange} />
+                                <span class="slds-radio_faux"></span>
+                            </label>
+                            <label
+                                class="slds-p-right_xx-small"
+                                for={addressType.value}>
+                                {addressType.label}
+                            </label>
+                        </span>
+                    </template>
+                </div>
+                <div class="slds-form-element__row name-fields">
+                    <lightning-input
+                        if:true={isLastNameFirst}
+                        data-lastname-field
+                        data-validate
+                        class="slds-size_1-of-2 name-field"
+                        label={labels.lastNameLabel}
+                        name="lastname"
+                        autocomplete="family-name"
+                        oncommit={handleLastNameChange}
+                        required
+                        maxlength="255"
+                        value={lastName}></lightning-input>
+                    <lightning-input
+                        data-firstname-field
+                        data-validate
+                        class="slds-size_1-of-2 name-field"
+                        label={labels.firstNameLabel}
+                        name="firstname"
+                        autocomplete="given-name"
+                        oncommit={handleFirstNameChange}
+                        required
+                        maxlength="255"
+                        value={firstName}></lightning-input>
+                    <lightning-input
+                        if:false={isLastNameFirst}
+                        data-lastname-field
+                        data-validate
+                        class="slds-size_1-of-2 name-field"
+                        label={labels.lastNameLabel}
+                        name="lastname"
+                        autocomplete="family-name"
+                        oncommit={handleLastNameChange}
+                        required
+                        maxlength="255"
+                        value={lastName}></lightning-input>
+                </div>
+                <lightning-input
+                    if:true={showCompanyName}
+                    data-companyname-field
+                    data-validate
+                    class="company-name-field"
+                    label={labels.companyNameLabel}
+                    name="companyName"
+                    autocomplete="organization"
+                    oncommit={handleCompanyNameChange}
+                    maxlength="255"
+                    value={companyName}></lightning-input>
+                <lightning-input-address
+                    show-address-lookup
+                    show-compact-address
+                    required
+                    data-validate
+                    data-address-fields
+                    onchange={handleAddressChange}
+                    country={normalizedCountry}
+                    country-label={labels.countryLabel}
+                    country-options={countryOptions}
+                    city={city}
+                    city-label={labels.cityLabel}
+                    postal-code={postalCode}
+                    postal-code-label={labels.postalCodeLabel}
+                    province={province}
+                    province-label={labels.provinceLabel}
+                    province-options={provinceOptions}
+                    street={_streetAddress}
+                    street-label={labels.addressLineOneLabel}
+                    subpremise={_subpremise}
+                    subpremise-label={labels.addressLineTwoLabel}
+                    variant="label-hidden"
+                    locale={customLocale}
+                    street-placeholder=""></lightning-input-address>
+                <template lwc:if={showPhoneNumber}>
+                    <template lwc:if={skipPhoneNumberValidationEnabled}>
+                        <lightning-input
+                            data-phone-number
+                            data-validate
+                            label={labels.phoneNumberLabel}
+                            type="tel"
+                            name="phonenumber"
+                            autocomplete="tel"
+                            oncommit={handlePhoneNumberChange}
+                            required={makePhoneNumberRequired}
+                            value={phoneNumber}
+                            minlength="3"
+                            maxlength="40"
+                            pattern="^[0-9\s\-\(\)\.\/\+]*$"></lightning-input>
+                    </template>
+                    <template lwc:else>
+                        <site-checkout-multi-country-phone-field
+                            data-phone-field
+                            data-validate
+                            phone-number-label={labels.phoneNumberLabel}
+                            raw-internationalization-data={rawInternationalizationData}
+                            country={phoneDefaultCountry}
+                            phone-number={phoneNumber}
+                            phone-number-required={makePhoneNumberRequired}
+                            oncommit={handlePhoneNumberChange}></site-checkout-multi-country-phone-field>
+                    </template>
+                </template>
+                <lightning-input
+                    data-default-address-checkbox
+                    label={makeDefaultAddressLabel}
+                    type="checkbox"
+                    onchange={handleIsDefaultAddressChange}
+                    checked={isDefaultAddress}></lightning-input>
+                <slot name="actionButtons"></slot>
+            </div>
+        </div>
+    </template>
+    <lightning-spinner
+        if:true={_showPageSpinner}
+        alternative-text={labels.saveLabel}
+        size="large"></lightning-spinner>
+</template>

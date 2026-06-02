@@ -1,0 +1,13 @@
+<template lwc:render-mode="light">
+    <site-common-button-ui
+        lwc:if={displayPlaceOrderButton}
+        class={customButtonClasses}
+        variant={variant}
+        size={size}
+        width={width}
+        onclick={handleButtonClick}
+        style={buttonStyle}
+        disabled={disabled}>
+        {content}
+    </site-common-button-ui>
+</template>

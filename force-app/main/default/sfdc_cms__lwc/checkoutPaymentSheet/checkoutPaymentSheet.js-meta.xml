@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Salesforce Payments</masterLabel>
+  <description>Add a form to collect payment details using Salesforce Payments at checkout.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="checkoutDetails" label="Checkout Binding Expression" type="String" default="{!Checkout.Details}" description="Access checkout data. {!Checkout.Details} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="cartDetails" label="Cart Details Binding Expression" type="String" default="{!Checkout.CartDetails}" description="Access cart details data. {!Checkout.CartDetails} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="cartTotals" label="Cart Totals Binding Expression" type="String" default="{!Checkout.CartTotals}" description="Access cart totals data. {!Checkout.CartTotals} is the fixed text for this expression. Do not change or delete."></property>
+      <property name="paymentMethodSetId" label="Payment Method Set Key" type="String" default="" required="true" datasource="java://siteforce.customComponent.datasource.PaymentsPaymentMethodSetDataSource" description="Shows a configured set of payment methods at checkout. Find the key on the Merchant Account related list page."></property>
+      <property name="useManualCapture" label="Use Manual Capture" type="Boolean" default="true" description="Places a hold on authorized payments before capturing them at a later time. Some payment methods do not support manual capture and continue to process automatically."></property>
+      <property label="Allow Saved Payment Method" name="enableSavedPaymentMethods" type="Boolean" default="false" description="Lets logged-in buyers save their payment information at checkout."></property>
+      <property name="enableBusinessAch" label="Allow Business ACH Accounts" type="Boolean" default="false" description="Lets buyers use business bank accounts for ACH payments."></property>
+      <property label="SEPA Debit Mandate" name="sepaDebitMandate" type="String" required="false" description="Use this field to customize the text of the SEPA mandate. If you leave this field blank, the default text is used."></property>
+      <designLayout>
+        <designSection name="Payment Method Set">
+          <designLayoutItems>
+            <designLayoutProperty name="paymentMethodSetId"></designLayoutProperty>
+            <designLayoutProperty name="useManualCapture"></designLayoutProperty>
+            <designLayoutProperty name="enableSavedPaymentMethods"></designLayoutProperty>
+            <designLayoutProperty name="enableBusinessAch"></designLayoutProperty>
+            <designLayoutProperty name="sepaDebitMandate"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Binding Expressions">
+          <designLayoutItems>
+            <designLayoutProperty name="checkoutDetails"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails"></designLayoutProperty>
+            <designLayoutProperty name="cartTotals"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

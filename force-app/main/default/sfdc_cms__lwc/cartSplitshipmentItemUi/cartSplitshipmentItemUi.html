@@ -1,0 +1,80 @@
+<template lwc:render-mode="light">
+    <ul>
+        <template
+            for:each={product.cartItems}
+            for:item="cartItem">
+            <li
+                key={cartItem.id}
+                class="slds-grid slds-wrap item-card">
+                <!-- Product Image and Details Container -->
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                    <div class="slds-grid slds-wrap">
+                        <!-- Product Image -->
+                        <div class={imageStyles}>
+                            <figure
+                                class="product-image"
+                                lwc:if={showProductImage}>
+                                <experience-picture
+                                    alternative-text={imgAltText}
+                                    images={images}
+                                    url={thumbnailImageUrl}></experience-picture>
+                            </figure>
+                        </div>
+
+                        <!-- Product Name, Price, and Details -->
+                        <div class={productNameStyles}>
+                            <template lwc:if={htmlProductNameGate}>
+                                <h1 class="item-details-description">
+                                    <lightning-formatted-rich-text value={productName}></lightning-formatted-rich-text>
+                                </h1>
+                            </template>
+                            <template lwc:else>
+                                <h1 class="item-details-description">{productName}</h1>
+                            </template>
+
+                            <!-- Unit Price -->
+                            <div class="slds-p-top_small">
+                                <div class="unit-price">
+                                    <span class="slds-assistive-text">{pricePerItemAssistiveText}</span>
+                                    <span class="price">{pricePerItemText}</span>
+                                </div>
+                                <div
+                                    lwc:if={hasChildProductCount}
+                                    class="bundle-details">
+                                    <lightning-formatted-rich-text
+                                        data-test-id="bundle-child-product-count"
+                                        value={bundleProductCountText}></lightning-formatted-rich-text>
+                                </div>
+
+                                <!-- Product Fields and Variants -->
+                                <div>
+                                    <lightning-formatted-rich-text
+                                        lwc:if={showSku}
+                                        value={generatedSkuLabel}
+                                        class="product-sku"></lightning-formatted-rich-text>
+                                    <site-product-variant-attributes-display
+                                        lwc:if={_showProductVariants}
+                                        attributes={productVariants}></site-product-variant-attributes-display>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delivery Group Details and Quantity Selector -->
+                <div
+                    class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3 slds-large-size_2-of-3 column-spacing-right">
+                    <site-cart-deliverygroup-item
+                        product={product}
+                        cart-item-id={cartItem.id}
+                        delivery-group-id={cartItem.deliveryGroupId}
+                        delivery-groups={deliveryGroups}
+                        quantity={cartItem.quantity}
+                        show-empty-split-shipment-modal={showEmptySplitShipmentModal}
+                        raw-internationalization-data={rawInternationalizationData}
+                        sub-type={cartItem.subType}></site-cart-deliverygroup-item>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>

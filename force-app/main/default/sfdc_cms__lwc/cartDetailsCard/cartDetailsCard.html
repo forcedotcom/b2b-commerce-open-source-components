@@ -1,0 +1,52 @@
+<template lwc:render-mode="light">
+    <div class={cartCardStyles}>
+        <div class="cart-main">
+            <div class="cart-information">
+                <div class="column column1 slds-p-top_small">
+                    <div class="bold slds-text-heading_small cart-name slds-p-bottom_x-small">
+                        <span>{_cartName}</span>
+                    </div>
+                    <div
+                        class="dxp-text-body items-and-total slds-p-bottom_x-small"
+                        lwc:if={_showItemsAndTotal}>
+                        <span class="items-count">{_itemsLabel}</span>
+                        <site-common-formatted-price
+                            class="total-price"
+                            currency-code={_currencyCode}
+                            format-style="currency"
+                            maximum-fraction-digits="2"
+                            display-currency-as="symbol"
+                            value={_priceValue}></site-common-formatted-price>
+                    </div>
+                    <div
+                        class="dxp-text-body cart-description"
+                        lwc:if={_showDescription}>
+                        <p>{_cartDescription}</p>
+                    </div>
+                </div>
+                <div
+                    class="column column2 cart-type-pill slds-p-top_small"
+                    lwc:if={_showCartTypePill}>
+                    <site-common-pill
+                        label-text={_cartTypePillLabel}
+                        class="cart-header-pill cart-pill-desktop"></site-common-pill>
+                </div>
+                <div class="column column3 slds-p-top_x-small">
+                    <site-cart-options
+                        cart-data={cartSummaryData}
+                        variant="container"
+                        cart-name-label={cartNameLabel}
+                        cart-description-label={cartDescriptionLabel}
+                        options-dropdown-label={optionsDropdownLabel}
+                        edit-cart-label={editCartLabel}
+                        mark-as-default-label={markAsDefaultLabel}
+                        delete-cart-label={deleteCartLabel}
+                        oncartupdated={handleCartUpdated}
+                        oncartdeleted={handleCartDeleted}
+                        oncartcleared={handleCartCleared}
+                        oncartprimarychanged={handleCartPrimaryChanged}></site-cart-options>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

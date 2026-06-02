@@ -1,0 +1,67 @@
+<template lwc:render-mode="light">
+    <div class="order-lookup slds-is-relative">
+        <div class="slds-form order-lookup__form">
+            <div class="slds-text-align_center order-lookup__form__error">
+                <site-common-error
+                    if:true={errorMessage}
+                    aria-live="assertive"
+                    error-label={errorMessage}
+                    error-type="error"></site-common-error>
+            </div>
+            <div class="order-lookup__form__fields">
+                <lightning-input
+                    data-validate
+                    data-order-number
+                    field-level-help={orderNumberFieldTooltip}
+                    label={orderNumberFieldLabel}
+                    type="text"
+                    required
+                    value={orderNumber}
+                    oncommit={handleOrderNumberChange}></lightning-input>
+                <lightning-input
+                    data-validate
+                    data-email
+                    label={emailFieldLabel}
+                    type="email"
+                    required={emailRequired}
+                    value={email}
+                    oncommit={handleEmailChange}></lightning-input>
+                <lightning-input
+                    lwc:if={showLastName}
+                    data-validate
+                    data-last-name
+                    label={lastNameFieldLabel}
+                    type="text"
+                    required={lastNameRequired}
+                    value={lastName}
+                    oncommit={handleLastNameChange}></lightning-input>
+                <site-checkout-multi-country-phone-field
+                    data-validate
+                    data-phone-number
+                    phone-number-label={phoneNumberFieldLabel}
+                    raw-internationalization-data={rawInternationalizationData}
+                    country={phoneDefaultCountry}
+                    phone-number={phoneNumber}
+                    phone-number-required={phoneNumberRequired}
+                    oncommit={handlePhoneNumberChange}></site-checkout-multi-country-phone-field>
+                <div
+                    class="actions"
+                    onclick={handleActionClick}>
+                    <slot name="actions">
+                        <div class="slds-text-align_center">
+                            <lightning-button
+                                data-action
+                                label="View Order Details"
+                                variant="brand"></lightning-button>
+                        </div>
+                    </slot>
+                </div>
+            </div>
+        </div>
+        <lightning-spinner
+            if:true={_showLoader}
+            alternative-text="Confirming order details"
+            aria-live="polite"
+            variant="brand"></lightning-spinner>
+    </div>
+</template>

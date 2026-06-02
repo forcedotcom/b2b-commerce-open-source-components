@@ -1,4 +1,5 @@
 import { api, wire } from 'lwc';
+import { isPreviewMode } from 'experience/clientApi';
 import { SessionContextAdapter } from 'commerce/contextApi';
 import { simplePurchaseOrderPayment, CheckoutComponentBase } from 'commerce/checkoutApi';
 import { CheckoutStage } from 'commerce/checkoutApi';
@@ -15,14 +16,8 @@ const Locators = {
 export default class CheckoutPurchaseOrder extends CheckoutComponentBase {
   static renderMode = 'light';
   _isLoggedIn = false;
-  _expandedMode = false;
   @api
-  set expandedMode(value) {
-    this._expandedMode = value;
-  }
-  get expandedMode() {
-    return this._expandedMode;
-  }
+  expandedMode = false;
   @api
   inputLabel;
   @api
@@ -31,7 +26,7 @@ export default class CheckoutPurchaseOrder extends CheckoutComponentBase {
   requireBillingAddress = false;
   @wire(SessionContextAdapter)
   sessionHandler(response) {
-    if (!this.expandedMode && response?.data && !response.loading) {
+    if (!this._expandedMode && response?.data && !response.loading) {
       this._isLoggedIn = response?.data?.isLoggedIn;
     }
   }
@@ -102,14 +97,17 @@ export default class CheckoutPurchaseOrder extends CheckoutComponentBase {
     }
     return purchaseOrderInput.reportValidity() && this.isAddressValid(this.checkoutDetails?.billingInfo?.address);
   }
+  get _expandedMode() {
+    return this.expandedMode || isPreviewMode;
+  }
   get _showComponent() {
-    return this.expandedMode || this._isLoggedIn;
+    return this._expandedMode || this._isLoggedIn;
   }
   get showStencil() {
-    return !this.checkoutDetails;
+    return !this._expandedMode && !this.checkoutDetails;
   }
   get _showEditLayoutClass() {
-    return this.expandedMode || !this.showStencil ? '' : 'slds-hide';
+    return this._expandedMode || !this.showStencil ? '' : 'slds-hide';
   }
   connectedCallback() {
     this.dispatchUpdateAsync({

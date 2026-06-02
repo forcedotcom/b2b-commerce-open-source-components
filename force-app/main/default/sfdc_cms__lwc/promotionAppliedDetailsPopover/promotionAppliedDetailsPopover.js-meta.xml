@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Promotion Applied Details Popover</masterLabel>
+  <description>Popover that surfaces the details of an applied promotion.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+</LightningComponentBundle>

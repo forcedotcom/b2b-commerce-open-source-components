@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Split Shipping Cart Item</masterLabel>
+  <description>Show a list of cart items and their shipment details.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="products" label="Products Binding Expression" type="string" default="{!SplitShipment.Cart.items}"></property>
+      <property name="deliveryGroupCartProps" label="Delivery Group Cart Properties Binding Expression" type="string" default="{!SplitShipment.DeliveryGroupCartProps}"></property>
+      <property name="splitShipPagination" label="Pagination Binding Expression" type="String" default="{!SplitShipment.Cart.pagination}" translatable="true"></property>
+      <property name="deliveryGroups" label="Delivery Groups Binding Expression" type="string" default="{!SplitShipment.DeliveryGroups.items}"></property>
+      <property name="addresses" label="Addresses Binding Expression" type="string" default="{!SplitShipment.Addresses.items}"></property>
+      <property name="showSku" label="Show SKU" description="Show each product&apos;s SKU ID." type="Boolean" default="false"></property>
+      <property name="skuLabel" label="SKU Label" type="string" default="SKU# {0}" translatable="true"></property>
+      <property name="showProductImage" label="Show Product Image" type="Boolean" default="true"></property>
+      <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1"></property>
+      <property name="imageSize" label="Image Fit" type="String" default="contain" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource"></property>
+      <property name="showProductVariants" label="Show Product Variants" type="Boolean" default="true"></property>
+      <property name="priceTextColor" label="Price per Unit Text Color" type="Color"></property>
+      <property name="priceTextSize" label="Price per Unit Text Size" type="String" default="small" datasource="java://siteforce.customComponent.datasource.SLDSFontSizeDataSource"></property>
+      <property name="minimumValueGuideText" label="Minimum Text" description="Display text for this rule. The value for {0} populates from product settings." type="String" default="Minimum quantity is {0}" translatable="true"></property>
+      <property name="maximumValueGuideText" label="Maximum Text" description="Display text for this rule. The value for {0} populates from product settings." type="String" default="Maximum quantity is {0}" translatable="true"></property>
+      <property name="incrementValueGuideText" label="Increment Text" description="Display text for this rule. The value for {0} populates from product settings." type="String" default="Sold in increments of {0}" translatable="true"></property>
+      <property name="showPhoneNumber" label="Show Shipping Phone Number Field" type="Boolean" default="false"></property>
+      <property name="phoneNumberRequired" label="Make Shipping Phone Number Field Required" type="Boolean" default="false"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="products" cbVisibleIf="products=false"></designLayoutProperty>
+            <designLayoutProperty name="deliveryGroupCartProps" cbVisibleIf="deliveryGroupCartProps=false"></designLayoutProperty>
+            <designLayoutProperty name="splitShipPagination" cbVisibleIf="splitShipPagination=false"></designLayoutProperty>
+            <designLayoutProperty name="deliveryGroups" cbVisibleIf="deliveryGroups=false"></designLayoutProperty>
+            <designLayoutProperty name="addresses" cbVisibleIf="addresses=false"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Product Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showSku"></designLayoutProperty>
+            <designLayoutProperty name="skuLabel" cbVisibleIf="showSku=true"></designLayoutProperty>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="imageAspectRatio" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+            <designLayoutProperty name="imageSize" cbVisibleIf="showProductImage=true"></designLayoutProperty>
+            <designLayoutProperty name="showProductVariants"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Price Per Unit">
+          <designLayoutItems>
+            <designLayoutProperty name="priceTextColor"></designLayoutProperty>
+            <designLayoutProperty name="priceTextSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Quantity Selector">
+          <designLayoutItems>
+            <designLayoutProperty name="minimumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="maximumValueGuideText"></designLayoutProperty>
+            <designLayoutProperty name="incrementValueGuideText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Address Form">
+          <designLayoutItems>
+            <designLayoutProperty name="showPhoneNumber"></designLayoutProperty>
+            <designLayoutProperty name="phoneNumberRequired" cbVisibleIf="showPhoneNumber"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

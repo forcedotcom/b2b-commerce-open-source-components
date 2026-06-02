@@ -1,0 +1,3 @@
+import dynamicAttributeAccordionTitlePlural from '@salesforce/label/site.productDynamicAttrAccordion.dynamicAttributeAccordionTitlePlural';
+import dynamicAttributeAccordionTitleSingular from '@salesforce/label/site.productDynamicAttrAccordion.dynamicAttributeAccordionTitleSingular';
+export { dynamicAttributeAccordionTitlePlural, dynamicAttributeAccordionTitleSingular };

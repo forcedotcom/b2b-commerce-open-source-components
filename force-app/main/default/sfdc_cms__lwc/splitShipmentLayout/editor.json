@@ -1,0 +1,191 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:splitShipmentLayout",
+                "type": "component",
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "definition": "site:cartSplitshipmentHeader",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "splitShipmentTitle",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Split Shipment",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h1\", \"textStyle\": \"heading-medium\"}",
+                                                    "paddingVertical": "none",
+                                                    "alignment": "left"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "saveAndCheckoutButton",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Continue to Shipping Method",
+                                                    "buttonBorderRadius": 4,
+                                                    "width": "stretch"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "shipToOneAddressButton",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:commonButton",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "< Ship to Single Address",
+                                                    "size": "standard",
+                                                    "variant": "tertiary",
+                                                    "buttonBorderRadius": 4,
+                                                    "width": "stretch"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "definition": "site:cartSplitshipmentContents",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "content",
+                        "title": "Content",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "definition": "site:cartSummary",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "headerText",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Summary",
+                                                    "textDisplayInfo": "{\"textStyle\": \"heading-medium\", \"headingTag\": \"h2\"}",
+                                                    "textDecoration": "{\"bold\": true}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "promotionsLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Promotions",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "shippingLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Shipping",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "subtotalLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Subtotal",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "taxIncludedLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Tax included",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}",
+                                                    "textAlign": "right"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "taxLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Tax",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "totalLabel",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "Total",
+                                                    "textDisplayInfo": "{ \"headingTag\": \"p\", \"textStyle\": \"heading-small\"}",
+                                                    "textDecoration": "{\"bold\": true}"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "name": "summary",
+                        "title": "Summary",
+                        "type": "region"
+                    }
+                ]
+            }
+        }
+    ]
+}

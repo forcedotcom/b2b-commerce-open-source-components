@@ -1,0 +1,23 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:paymentProcessing",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "processingIndicator",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:checkoutProcessingindicator",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

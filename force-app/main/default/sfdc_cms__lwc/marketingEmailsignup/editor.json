@@ -1,0 +1,65 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:marketingEmailsignup",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "header",
+                        "title": "header",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Sign Up to Stay Updated",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"h4\", \"textStyle\": \"heading-small\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                }
+                            },
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Sign up now and be the first to know about latest offers, news, tips, and more.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "footer",
+                        "title": "footer",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "By submitting this, I agree to the Terms & Conditions and Privacy Policy.",
+                                    "textAlign": "left",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-small\"}"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceMarketingConsentDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "Marketing",
+                        "attributes": {
+                            "consentExperience": "EmailCaptureComponent",
+                            "contactFromUserContext": false
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}

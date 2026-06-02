@@ -1,0 +1,30 @@
+<template lwc:render-mode="light">
+    <div class="scrollable slds-p-right_x-small">
+        <div class="warning-container slds-p-bottom_small">
+            <div class="warning-title">
+                <h2 class="slds-text-heading_small"><b>{_getWarningTitle}</b></h2>
+            </div>
+            <div class="warning-description">
+                <h3 class="slds-text-body_regular">{_labels.warningDescription}</h3>
+            </div>
+            <div class="warning-action">
+                <h3 class="slds-text-body_regular">{_labels.warningAction}</h3>
+            </div>
+        </div>
+        <ol>
+            <template
+                for:each={items}
+                for:item="item">
+                <li key={item.id}>
+                    <site-subscription-card
+                        item={item}
+                        show-quantity
+                        is-rendered-in-modal
+                        quantity-label={_labels.quantityPrefixText}
+                        tax-label={_labels.taxLabel}
+                        rlm-subscription-enabled={_rlmSubscriptionEnabled}></site-subscription-card>
+                </li>
+            </template>
+        </ol>
+    </div>
+</template>

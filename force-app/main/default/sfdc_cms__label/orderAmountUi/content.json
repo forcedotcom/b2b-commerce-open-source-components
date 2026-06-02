@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderAmountUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "genericErrorMessage",
+      "value" : "Something went wrong. Refresh the page or contact us for assistance."
+    } ]
+  },
+  "urlName" : "orderamountui"
+}

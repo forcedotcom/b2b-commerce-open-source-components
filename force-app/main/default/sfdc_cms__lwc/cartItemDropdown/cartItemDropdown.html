@@ -1,0 +1,132 @@
+<template lwc:render-mode="light">
+    <div class="slds-form-element slds-m-bottom_none">
+        <label
+            class={dropdownLabelClassList}
+            id="dropdown-label"
+            for="dropdown-container">
+            <abbr
+                class="slds-required"
+                title="required">
+                *
+            </abbr>
+            {dropdownLabel}
+        </label>
+        <div
+            class="slds-form-element__control"
+            id="dropdown-container">
+            <div class="slds-combobox_container">
+                <div class={comboboxClassList}>
+                    <div
+                        class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right"
+                        role="none">
+                        <button
+                            id="item-dropdown"
+                            type="button"
+                            class="slds-input slds-combobox__input slds-text-align_left slds-truncate"
+                            aria-expanded={_dropDownOpen}
+                            aria-haspopup="listbox"
+                            onclick={toggleDropdown}
+                            onblur={handleBlur}
+                            onkeydown={handleKeyDown}
+                            aria-labelledby="dropdown-label"
+                            aria-controls="listbox">
+                            {dropDownDisplayValue}
+                        </button>
+                        <div
+                            lwc:if={_deliveryGroupDataLoading}
+                            class="slds-input__icon-group slds-input__icon-group_right">
+                            <div class="slds-spinner slds-spinner_brand slds-spinner_x-small slds-input__spinner">
+                                <span class="slds-assistive-text">
+                                    {labels.deliveryGroupDataLoadingAssistiveTextLabel}
+                                </span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                        <div class="slds-input__icon-group slds-input__icon-group_right">
+                            <lightning-icon
+                                class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
+                                size="xx-small"
+                                src={chevronDownIconPath}></lightning-icon>
+                        </div>
+                    </div>
+                    <div
+                        class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                        role="listbox"
+                        id="listbox"
+                        aria-labelledby="item-dropdown"
+                        onmousedown={preventScrollBarClickClose}>
+                        <ul
+                            class="slds-listbox slds-listbox_vertical"
+                            role="presentation">
+                            <template
+                                for:each={itemOptions}
+                                for:item="option">
+                                <li
+                                    role="presentation"
+                                    class="slds-listbox__item"
+                                    key={option.value}
+                                    data-value={option.value}
+                                    onmousedown={selectOption}>
+                                    <div
+                                        aria-checked={option.selected}
+                                        aria-selected={option.selected}
+                                        class={option.classList}
+                                        role="option">
+                                        <div class="slds-media__figure slds-listbox__option-icon">
+                                            <div
+                                                lwc:if={option.selected}
+                                                class="slds-icon_container slds-icon-utility-check slds-current-color">
+                                                <svg
+                                                    class="slds-icon slds-icon_x-small"
+                                                    aria-hidden="true">
+                                                    <use
+                                                        xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#check"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div
+                                            lwc:if={isDeliveryGroupType}
+                                            class="slds-media__body">
+                                            <div
+                                                class="slds-text-title_bold"
+                                                title={option.label}>
+                                                {option.label}
+                                            </div>
+                                            <div title={option.recipient}>{option.recipient}</div>
+                                            <div title={option.address}>{option.address}</div>
+                                        </div>
+                                        <div
+                                            lwc:if={isDeliveryAddressType}
+                                            class="slds-media__body">
+                                            <p title={option.recipientNameAndAddress}>
+                                                {option.recipientNameAndAddress}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </template>
+                            <li
+                                role="presentation"
+                                class="slds-listbox__item">
+                                <div
+                                    class={actionOptionClassList}
+                                    aria-selected={_actionButtonSelected}
+                                    role="option">
+                                    <span class="slds-media__figure slds-listbox__option-icon"></span>
+                                    <span class="slds-media__body">
+                                        <site-common-button-ui
+                                            onmousedown={handleActionButton}
+                                            data-test-id="action-button">
+                                            {actionButtonLabel}
+                                        </site-common-button-ui>
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

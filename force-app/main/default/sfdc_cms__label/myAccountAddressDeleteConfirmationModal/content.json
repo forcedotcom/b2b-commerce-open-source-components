@@ -1,0 +1,32 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountAddressDeleteConfirmationModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "defaultErrorMessage",
+      "value" : "An unexpected error occurred. Try again later."
+    }, {
+      "name" : "insufficientAccessMessage",
+      "value" : "You need permission to complete this action."
+    }, {
+      "name" : "invalidApiInputMessage",
+      "value" : "Something went wrong. Check your configuration, and try again."
+    }, {
+      "name" : "opInvalidInPreviewMode",
+      "value" : "Addresses can't be modified in builder or preview mode"
+    }, {
+      "name" : "deleteLabel",
+      "value" : "Delete"
+    }, {
+      "name" : "cancelLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "deleteAddressHeaderText",
+      "value" : "Delete Address?"
+    }, {
+      "name" : "deleteAddressText",
+      "value" : "Deleting this address makes it unavailable as a shipping or billing address."
+    } ]
+  },
+  "urlName" : "myaccountaddressdeleteconfirmationmodal"
+}

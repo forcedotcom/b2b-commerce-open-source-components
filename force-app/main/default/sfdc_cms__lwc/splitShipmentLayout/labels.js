@@ -1,0 +1,10 @@
+import summaryText from '@salesforce/label/site.splitShipmentLayout.summaryText';
+import originalPrice from '@salesforce/label/site.splitShipmentLayout.originalPrice';
+import promotions from '@salesforce/label/site.splitShipmentLayout.promotions';
+import shipping from '@salesforce/label/site.splitShipmentLayout.shipping';
+import subtotal from '@salesforce/label/site.splitShipmentLayout.subtotal';
+import taxIncluded from '@salesforce/label/site.splitShipmentLayout.taxIncluded';
+import tax from '@salesforce/label/site.splitShipmentLayout.tax';
+import total from '@salesforce/label/site.splitShipmentLayout.total';
+import headerText from '@salesforce/label/site.splitShipmentLayout.headerText';
+export { summaryText, originalPrice, promotions, shipping, subtotal, taxIncluded, tax, total, headerText };

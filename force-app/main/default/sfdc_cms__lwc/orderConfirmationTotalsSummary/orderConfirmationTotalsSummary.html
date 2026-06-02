@@ -1,0 +1,28 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={displaySummary}
+        style={summaryCustomCssStyles}>
+        <site-cart-summary-ui
+            cart-totals={paymentSummaryTotals}
+            currency-code={currencyCode}>
+            <div slot="headerText"><slot name="headerText"></slot></div>
+            <div slot="originalPriceLabel"><slot name="originalPriceLabel"></slot></div>
+            <div
+                lwc:if={shippingMethodsEnabled}
+                slot="shippingLabel">
+                <slot name="shippingLabel"></slot>
+            </div>
+            <div slot="promotionsLabel"><slot name="promotionsLabel"></slot></div>
+            <div slot="subtotalLabel"><slot name="subtotalLabel"></slot></div>
+            <div
+                lwc:if={showTaxIncludedLabel}
+                class={taxIncludedLabelClass}
+                slot="taxIncludedLabel"
+                data-automation="taxIncludedLabel">
+                <slot name="taxIncludedLabel"></slot>
+            </div>
+            <div slot="taxLabel"><slot name="taxLabel"></slot></div>
+            <div slot="totalLabel"><slot name="totalLabel"></slot></div>
+        </site-cart-summary-ui>
+    </div>
+</template>

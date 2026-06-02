@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "quoteConfirmationErrorMessage",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "defaultButtonLabel",
+      "value" : "My Quotes"
+    } ]
+  },
+  "urlName" : "quoteconfirmationerrormessage"
+}

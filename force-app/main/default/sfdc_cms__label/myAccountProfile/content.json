@@ -1,0 +1,131 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountProfile",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "verifyEmailHeaderLabel",
+      "value" : "Verify email address"
+    }, {
+      "name" : "verifyPhoneHeaderLabel",
+      "value" : "Verify phone number"
+    }, {
+      "name" : "verifyEmailDescriptionLabel",
+      "value" : "We've sent a code to {0}"
+    }, {
+      "name" : "verifyPhoneDescriptionLabel",
+      "value" : "We've sent a code to {0}"
+    }, {
+      "name" : "verifyEmailSuccessfulMessage",
+      "value" : "Email address was verified."
+    }, {
+      "name" : "verifyPhoneSuccessfulMessage",
+      "value" : "Mobile number was verified."
+    }, {
+      "name" : "invalidIdentifierErrorMessage",
+      "value" : "Enter a valid identifier and try again."
+    }, {
+      "name" : "backActionLabel",
+      "value" : "Back to profile"
+    }, {
+      "name" : "invalidCodeErrorMessage",
+      "value" : "Enter a valid code and try again."
+    }, {
+      "name" : "expiredCodeErrorMessage",
+      "value" : "The code you entered has expired. Generate a new code and try again."
+    }, {
+      "name" : "tooManyAttemptsErrorMessage",
+      "value" : "You've reached the maximum number of attempts. Generate a new code and try again."
+    }, {
+      "name" : "defaultErrorMessage",
+      "value" : "Something went wrong. Try again."
+    }, {
+      "name" : "actionDisabledInPreviewMessage",
+      "value" : "This action is unavailable in preview mode."
+    }, {
+      "name" : "changePasswordSuccessfulMessage",
+      "value" : "We sent an email to {0}. Follow the instructions in the email to reset your password."
+    }, {
+      "name" : "otpGenerationErrorMessage",
+      "value" : "We couldn't generate a code. Try again after some time."
+    }, {
+      "name" : "reCaptchaGenerationErrorMessage",
+      "value" : "We couldn't generate the reCAPTCHA token. Try again later."
+    }, {
+      "name" : "personalDetailsUpdatedSuccessMessage",
+      "value" : "Personal details were updated."
+    }, {
+      "name" : "emailUpdatedSuccessMessage",
+      "value" : "The email address was updated."
+    }, {
+      "name" : "phoneUpdatedSuccessMessage",
+      "value" : "The phone number was updated."
+    }, {
+      "name" : "emailInitOtpSuccessMessage",
+      "value" : "A code was sent to your email address."
+    }, {
+      "name" : "phoneInitOtpSuccessMessage",
+      "value" : "A code was sent to your phone number."
+    }, {
+      "name" : "editPersonalDetailsHeaderLabel",
+      "value" : "Name"
+    }, {
+      "name" : "editEmailHeaderLabel",
+      "value" : "Change email address"
+    }, {
+      "name" : "editPhoneHeaderLabel",
+      "value" : "Change phone number"
+    }, {
+      "name" : "addPhoneHeaderLabel",
+      "value" : "Add phone number"
+    }, {
+      "name" : "editEmailDescriptionLabel",
+      "value" : "We'll send a code to the new email address."
+    }, {
+      "name" : "editPhoneDescriptionLabel",
+      "value" : "We'll send a code to the new phone number."
+    }, {
+      "name" : "editFirstNameLabel",
+      "value" : "First Name"
+    }, {
+      "name" : "editLastNameLabel",
+      "value" : "Last Name"
+    }, {
+      "name" : "editEmailLabel",
+      "value" : "Enter email address"
+    }, {
+      "name" : "editPhoneLabel",
+      "value" : "Enter phone number"
+    }, {
+      "name" : "authenticateHeaderLabel",
+      "value" : "Authenticate Your Account"
+    }, {
+      "name" : "authenticateEmailDescriptionLabel",
+      "value" : "We've sent an authentication code to {0}"
+    }, {
+      "name" : "authenticatePhoneDescriptionLabel",
+      "value" : "We've sent an authentication code to {0}"
+    }, {
+      "name" : "authenticateViaEmailButtonLabel",
+      "value" : "Authenticate with Email Address"
+    }, {
+      "name" : "authenticateViaMobileButtonLabel",
+      "value" : "Authenticate with Phone Number"
+    }, {
+      "name" : "authenticateSuccessfulMessage",
+      "value" : "Authentication was successful."
+    }, {
+      "name" : "addMobileErrorMessageIfEmailNotVerified",
+      "value" : "Verify your email address before adding a phone number."
+    }, {
+      "name" : "ProfileWithEmailUpdatedSuccess",
+      "value" : "Your data was updated except email. For security purposes, you must verify this email address change. You will receive an email at this new address with details on confirming the change."
+    }, {
+      "name" : "ProfileUpdatedFailed",
+      "value" : "We couldn't update your details. Try again later."
+    }, {
+      "name" : "loaderAssistiveText",
+      "value" : "Loading..."
+    } ]
+  },
+  "urlName" : "myaccountprofile"
+}

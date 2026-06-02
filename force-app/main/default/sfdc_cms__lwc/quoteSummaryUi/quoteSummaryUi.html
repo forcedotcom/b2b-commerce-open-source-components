@@ -1,0 +1,62 @@
+<template lwc:render-mode="light">
+    <div class="quote-ctn">
+        <div class="quote-header slds-grid slds-grid_align-spread slds-grid_vertical-align-center slds-p-around_medium">
+            <div class="slds-grid slds-wrap">
+                <span class="slds-p-right_xx-small">
+                    <slot name="quoteNumberLabel"></slot>
+                </span>
+                <span>
+                    <slot name="quoteNumber"></slot>
+                </span>
+            </div>
+            <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center quote-actions">
+                <a
+                    if:true={_showViewDetailsLink}
+                    href={quoteDetailUrl}
+                    aria-label={_viewDetailAssistiveText}
+                    onclick={handleQuoteDetailNavigation}>
+                    {viewDetailsLinkLabel}
+                </a>
+                <lightning-spinner
+                    if:false={_showViewDetailsLink}
+                    class="slds-is-relative slds-m-horizontal_large spinner"
+                    size="small"></lightning-spinner>
+            </div>
+        </div>
+        <div class="slds-grid slds-grid_vertical slds-p-around_medium quote-detail">
+            <lightning-formatted-text
+                class="bold slds-text-heading_medium"
+                value={status}></lightning-formatted-text>
+            <div class="slds-grid slds-wrap slds-text-heading_small field-ctn">
+                <template
+                    for:each={_updatedFields}
+                    for:item="field">
+                    <div key={field.id}>
+                        <span
+                            lwc:if={field.showFieldName}
+                            class="slds-no-space">
+                            <span>{field.name}</span>
+                            <lightning-formatted-rich-text
+                                value={_labels.keyValueSeparatorWithSpace}
+                                aria-hidden="true"></lightning-formatted-rich-text>
+                        </span>
+                        <site-common-record-field-value
+                            lwc:if={field.isReference}
+                            record-id={field.value}
+                            field={field.fieldName}></site-common-record-field-value>
+                        <site-common-field
+                            lwc:else
+                            value={field.value}
+                            type={field.type}
+                            currency-code={currencyCode}></site-common-field>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <site-quote-summary-product-media
+            quote-summary-id={quoteId}
+            product-media-list={productMedia}
+            product-count={productCount}
+            quote-detail-url={quoteDetailUrl}></site-quote-summary-product-media>
+    </div>
+</template>

@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderLineitem",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "StockKeepingUnit",
+      "value" : "SKU"
+    }, {
+      "name" : "Quantity",
+      "value" : "Quantity"
+    } ]
+  },
+  "urlName" : "orderlineitem"
+}

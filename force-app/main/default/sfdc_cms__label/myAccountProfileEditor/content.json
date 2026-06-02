@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "myAccountProfileEditor",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "ConfirmEmailMismatchError",
+      "value" : "The email addresses don't match. Enter the same email address in both the fields and try again."
+    }, {
+      "name" : "ConfirmPhoneMismatchError",
+      "value" : "The phone numbers don't match. Enter the same phone number in both the fields and try again."
+    }, {
+      "name" : "ExistingEmailError",
+      "value" : "This is your current email address. Enter a new one."
+    }, {
+      "name" : "ExistingPhoneError",
+      "value" : "This is your current phone number. Enter a new one."
+    }, {
+      "name" : "ConfirmEmailLabel",
+      "value" : "Confirm email address"
+    }, {
+      "name" : "ConfirmPhoneLabel",
+      "value" : "Confirm phone number"
+    }, {
+      "name" : "CancelActionLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "SaveActionLabel",
+      "value" : "Save"
+    }, {
+      "name" : "SaveAndVerifyActionLabel",
+      "value" : "Verify &amp; Save"
+    } ]
+  },
+  "urlName" : "myaccountprofileeditor"
+}

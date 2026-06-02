@@ -1,0 +1,62 @@
+<template lwc:render-mode="light">
+    <div class={_showEditLayoutClass}>
+        <div slot="heading">
+            <slot name="heading"></slot>
+        </div>
+
+        <template lwc:if={_showSummary}>
+            <div
+                data-payment-summary
+                class={paymentSummaryClass}>
+                <p class="paymentTitle">{paymentTitle}</p>
+                <p class="paymentDetails">{paymentDetails}</p>
+            </div>
+        </template>
+
+        <!-- ---------------------------------------------------------- -->
+        <!-- The Salesforce Payment Sheet component -->
+        <!-- ---------------------------------------------------------- -->
+        <experience-payment-sheet
+            lwc:if={_isPaymentSheetInitialized}
+            class={paymentSheetStyles}
+            payment-method-set-id={paymentMethodSetId}
+            use-manual-capture={_manualCapturePayments}
+            enable-saved-payment-methods={_enableSavedPaymentMethods}
+            enforce-saved-payment-method={_enforceSavedPaymentMethods}
+            enable-business-ach={_enableBusinessAch}
+            prefer-legacy-forms={_preferLegacyForms}
+            payment-initiation-source={_paymentInitiationSource}
+            entry-mode={_entryMode}
+            user-account-id={_effectiveAccountId}
+            account-registration-id={_userRegistrationId}
+            currency={_currencyCode}
+            amount={_totalPrice}
+            source-object-id={_cartId}
+            shipping-details={_shippingDetails}
+            sepa-debit-mandate={sepaDebitMandate}
+            unsupported-payment-methods={_unsupportedPaymentMethods}
+            payment-redirect-return-url={_paymentRedirectUrl}
+            enable-express={_enableExpress}
+            is-business-account-payment={isBusinessAccountPayment}
+            business-account-id={businessAccountId}
+            deferred-incurrence={_deferredIncurrence}></experience-payment-sheet>
+
+        <!-- slot intended to hold checkoutBillingInfo between payment and error -->
+        <div class="slds-p-top_medium">
+            <div
+                lwc:if={_showBillingDetailsSection}
+                slot="billingAddress"
+                data-automation="billingAddress">
+                <slot name="billingAddress"></slot>
+            </div>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------- -->
+    <!-- The Stencil while loading Cart Summary and Payment Sheet   -->
+    <!-- ---------------------------------------------------------- -->
+    <site-checkout-stencil
+        lwc:if={showStencil}
+        stencil-type={_stencilType}
+        item-count="3"></site-checkout-stencil>
+</template>

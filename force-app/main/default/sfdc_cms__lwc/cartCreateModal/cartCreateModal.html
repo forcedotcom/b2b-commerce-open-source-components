@@ -1,0 +1,58 @@
+<template>
+    <lightning-modal-header label={_headerLabel}></lightning-modal-header>
+
+    <lightning-modal-body>
+        <div
+            lwc:if={_isNotLoading}
+            class="slds-p-top_medium slds-p-left_medium slds-p-right_medium">
+            <lightning-input
+                data-name="name"
+                label={_cartNameLabelText}
+                value={name}
+                onchange={handleNameChange}
+                onblur={handleNameBlur}
+                required
+                class="slds-p-bottom_medium"
+                data-validate="true"></lightning-input>
+
+            <lightning-textarea
+                data-name="cartDescription"
+                label={_cartDescriptionLabelText}
+                value={cartDescription}
+                onchange={handleDescriptionChange}
+                data-validate="true"></lightning-textarea>
+        </div>
+        <div
+            lwc:else
+            class="modal-contents slds-p-vertical_x-large">
+            <div class="spinner-loading-group">
+                <div class="spinner-container">
+                    <lightning-spinner alternative-text={_spinnerHelpText}></lightning-spinner>
+                </div>
+                <div class="slds-text-align_center slds-text-heading_small">{_spinnerHelpText}</div>
+            </div>
+        </div>
+    </lightning-modal-body>
+
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <site-common-button-ui
+                variant="secondary"
+                width="stretch"
+                assistive-text={_labels.createCartCancelButtonLabel}
+                name="closeModalButton"
+                onclick={handleClose}>
+                {_labels.createCartCancelButtonLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                variant="primary"
+                width="stretch"
+                disabled={_isSaveButtonDisabled}
+                assistive-text={_saveButtonLabel}
+                name="saveCartButton"
+                onclick={handleSave}>
+                {_saveButtonLabel}
+            </site-common-button-ui>
+        </div>
+    </lightning-modal-footer>
+</template>

@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "searchResultsGrid",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "loading",
+      "value" : "Loading"
+    } ]
+  },
+  "urlName" : "searchresultsgrid"
+}

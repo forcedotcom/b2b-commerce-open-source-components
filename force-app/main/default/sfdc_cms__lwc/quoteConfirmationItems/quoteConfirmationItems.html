@@ -1,0 +1,54 @@
+<template lwc:render-mode="light">
+    <div
+        lwc:if={showItems}
+        style={cartItemsStyles}>
+        <div class="slds-grid slds-grid_align-spread">
+            <div class="slds-col slds-grid slds-grid_vertical-align-end">
+                <slot name="header"></slot>
+                <h4
+                    class="slds-text-heading_small slds-m-left_xx-small"
+                    style="font-weight: bold">
+                    ({itemsLength})
+                </h4>
+            </div>
+            <div class="slds-col">
+                <h4 class="slds-text-heading_small slds-text-align_right">
+                    {Labels.totalPrice}
+                    <lightning-formatted-number
+                        currency-code={_currencyIsoCode}
+                        format-style="currency"
+                        currency-display-as="symbol"
+                        maximum-fraction-digits="20"
+                        value={_totalPrice}></lightning-formatted-number>
+                </h4>
+            </div>
+        </div>
+        <site-cart-items-ui
+            items={itemsData}
+            pagination={pagination}
+            currency-iso-code={_currencyIsoCode}
+            show-product-image={showProductImage}
+            product-field-mapping={productFieldMappingValue}
+            show-product-variants
+            show-total-prices
+            show-original-price
+            show-actual-price
+            remove-product-links={removeProductLinks}
+            hide-quantity-selector={hideQuantitySelector}
+            quantity-selector-label={quantitySelectorLabel}
+            show-quantity-selector-label={showQuantitySelectorLabel}
+            oncartshowmore={handleShowMore}
+            onnavigatetoproduct={handleProductNavigation}
+            onseeconfiguration={handleSeeConfiguration}
+            pagination-type={paginationType}
+            show-view-bundle-detail={showViewBundleDetail}
+            view-bundle-detail-label={viewBundleDetailLabel}>
+            <section
+                lwc:if={displayShowMore}
+                slot="showMore"
+                class="show-more-btn">
+                <slot name="showMore"></slot>
+            </section>
+        </site-cart-items-ui>
+    </div>
+</template>

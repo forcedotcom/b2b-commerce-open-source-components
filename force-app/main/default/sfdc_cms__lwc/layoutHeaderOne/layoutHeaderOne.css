@@ -1,0 +1,8 @@
+site-layout-header-one .header-badge-icons [data-region-name='icons'],
+site-layout-header-one .header-badge-icons [data-region-name='icons'] .dropzone {
+    flex-direction: row;
+    align-items: center;
+}
+.promo-banner {
+    background-color: var(--com-c-layout-header-background-color, var(--dxp-g-root, #fff));
+}

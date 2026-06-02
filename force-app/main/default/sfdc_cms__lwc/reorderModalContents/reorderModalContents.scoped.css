@@ -1,0 +1,97 @@
+.border-styles {
+    --slds-c-modal-sizing-border: 0;
+}
+
+.spinner-container {
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.sub-heading-body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.success-icon {
+    --slds-c-icon-color-foreground: var(--com-c-reorder-success-icon-color-foreground, #0d825d);
+    --slds-c-icon-color-foreground-default: var(--com-c-reorder-success-icon-color-foreground, #0d825d);
+}
+
+.error-icon {
+    --slds-c-icon-color-foreground: var(--com-c-reorder-error-icon-color-foreground, #da0000);
+    --slds-c-icon-color-foreground-default: var(--com-c-reorder-error-icon-color-foreground, #da0000);
+}
+
+.sub-heading-helper-text {
+    font-size: var(--com-c-reorder-modal-sub-heading-helper-text-font-size, 0.875rem);
+}
+
+.scrollable {
+    height: inherit;
+    max-height: 20rem;
+    overflow-y: auto;
+}
+
+.unadded-product-list-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.unadded-product-text {
+    font-size: var(--com-c-reorder-modal-unadded-product-name-font-size, 0.875rem);
+}
+
+.unadded-product-heading-text {
+    font-weight: var(--com-c-reorder-modal-unadded-product-name-font-weight, 600);
+}
+
+.error-message {
+    color: var(--com-c-reorder-item-addition-failed-error-message-color, #da0000);
+}
+
+@media only screen and (max-width: 47.9375em) {
+    .scrollable {
+        max-height: 10rem;
+    }
+
+    .unadded-product-list-column lightning-formatted-rich-text {
+        padding-left: 0;
+    }
+
+    .unadded-product-line-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .unadded-product-list-column {
+        align-items: center;
+        text-align: center;
+    }
+
+    .sub-heading-helper-text {
+        font-size: var(--com-c-reorder-modal-sub-heading-helper-text-font-size, 0.875rem);
+        text-align: center;
+    }
+}
+
+.image-area {
+    height: 5rem;
+    min-width: 5rem;
+    aspect-ratio: 1/1;
+    border: var(--com-c-reorder-model-unadded-product-media-border-size, 0.25rem) solid
+        var(--com-c-reorder-model-unadded-product-media-bg-color, #f7f9fa);
+    background-color: var(--com-c-reorder-model-unadded-product-media-bg-color, #f7f9fa);
+    border-radius: var(--com-c-reorder-model-unadded-product-media-border-radius, 0.25rem);
+}
+
+.image-area figure {
+    width: 100%;
+    height: 100%;
+}
+
+.image-area experience-picture {
+    object-fit: contain;
+    display: flex;
+}
