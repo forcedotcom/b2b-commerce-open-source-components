@@ -1,0 +1,72 @@
+<template>
+    <div class="subscription-product-details-box">
+        <!-- Outer responsive grid: left = image+details, right = qty/date -->
+        <div class="slds-grid subscription-details-grid">
+            <!-- LEFT: Image + Details (always horizontal inside this block) -->
+            <div class="slds-col slds-size_1-of-1 slds-p-around_medium product-left-col">
+                <div class="image-and-details slds-grid slds-grid_vertical-align-center">
+                    <!-- Image -->
+                    <div class="slds-col slds-large-size_4-of-12 slds-p-right_small">
+                        <figure class="product-image-figure">
+                            <experience-picture
+                                alternative-text={_productName}
+                                url={_resolvedUrl}></experience-picture>
+                        </figure>
+                    </div>
+
+                    <div class="slds-col slds-large-size_8-of-12">
+                        <div class="slds-text-heading_small slds-p-bottom_x-small product-name">
+                            <strong>{_productName}</strong>
+                        </div>
+                        <div class="slds-text-body_regular slds-p-bottom_x-small product-quantity">
+                            {quantityLabel} {_quantity}
+                        </div>
+                        <div class="slds-p-bottom_x-small">
+                            <site-subscription-term-details-pill
+                                selling-model-type={_sellingModelType}
+                                pricing-term={_pricingTerm}
+                                pricing-term-unit={_pricingTermUnit}
+                                subscription-term={_subscriptionTerm}></site-subscription-term-details-pill>
+                        </div>
+                    </div>
+                </div>
+                <div class="slds-p-vertical_xx-small"><hr /></div>
+                <div class="slds-grid">
+                    <div
+                        class="slds-col slds-text-body_regular"
+                        lwc:if={_displayDates}>
+                        <p
+                            class="start-date slds-p-top_x-small"
+                            lwc:if={showStartDate}>
+                            {startDateLabel} {_startDate}
+                        </p>
+                        <p
+                            class="end-date slds-p-top_x-small"
+                            lwc:if={_showEndDate}>
+                            {endDateLabel} {_endDate}
+                        </p>
+                        <p
+                            class="next-billing-date slds-p-top_x-small"
+                            lwc:if={_showNextBillingDate}>
+                            {nextBillingDateLabel} {_nextBillingDate}
+                        </p>
+                    </div>
+                    <div
+                        class="slds-col slds-text-heading_small slds-text-align_right price-details slds-p-top_x-small"
+                        lwc:if={_billingPeriodAmount}>
+                        <site-common-formatted-price
+                            currency-code={_currencyCode}
+                            display-currency-as="symbol"
+                            value={_billingPeriodAmount}></site-common-formatted-price>
+                        <span
+                            class="billing-frequency"
+                            lwc:if={_billingFrequency}>
+                            {_billingFrequency}
+                        </span>
+                        <span class="tax-label slds-p-left_xx-small">{taxLabel}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

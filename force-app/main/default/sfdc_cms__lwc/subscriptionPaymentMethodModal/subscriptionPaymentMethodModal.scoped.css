@@ -1,0 +1,13 @@
+.footer-content-container {
+    display: flex;
+    justify-content: end;
+}
+.modal-contents {
+    text-align: center;
+}
+.spinner-container {
+    min-height: 2.25rem;
+}
+h2 {
+    font-weight: var(--dxp-c-strong-text-weight, 700);
+}

@@ -1,0 +1,120 @@
+:host {
+    --com-c-pill-text-color: var(
+        --com-c-subscription-card-pill-font-color,
+        var(--dxp-s-body-small-text-color, var(--dxp-g-root-contrast))
+    );
+    --com-c-pill-background-color: var(--com-c-subscription-card-pill-background-color, var(--dxp-g-neutral-1));
+    --com-c-pill-border-radius: var(
+        --com-c-subscription-card-pill-border-radius,
+        var(--dxp-s-form-element-radius-border)
+    );
+    --com-c-pill-font-size: var(--dxp-s-body-small-font-size);
+}
+.subscription-product-details-box {
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    border-radius: 8px;
+    gap: 24px;
+}
+.product-image figure {
+    width: 100px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--com-c-subscription-card-image-border-radius, 5px);
+    aspect-ratio: var(--com-c-subscription-card-image-aspect-ratio, 1);
+    border: var(--com-c-subscription-card-image-default-border-size, 0.5rem);
+    background-color: var(--com-c-subscription-card-image-bg-color, #f8f9fa);
+}
+.date-input {
+    width: 75% !important;
+}
+.product-image experience-picture {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    object-fit: var(--com-c-subscription-card-image-fit, contain);
+}
+.subscription-quantity-selector-grid {
+    background-color: var(--lwc-colorBackgroundAlt, #f7f9fa);
+    height: 210px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.footer-content-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+.footer-button button {
+    min-width: 120px;
+}
+.negative-amend-subscription-warning-msg {
+    background-color: #ffffff;
+    width: 95% !important;
+    border-radius: 8px;
+}
+.subscription-amend-warning-msg {
+    background-color: #eff8ff;
+    border-radius: 8px;
+}
+.image-and-details {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+.product-image-figure {
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lwc-colorBackgroundAlt, #f8f9fa);
+}
+.quantity-selector-full,
+.date-input {
+    width: 100%;
+    box-sizing: border-box;
+}
+.qty-date-grid .slds-col {
+    padding: 0.5rem 0.25rem;
+}
+@media (min-width: 64em) {
+    .product-right-col {
+        border-left: 1px solid rgba(0, 0, 0, 0.08);
+        padding-left: 1rem;
+        background-color: var(--lwc-colorBackgroundAlt, #f8f9fa);
+    }
+    .qty-date-grid {
+        flex-wrap: wrap;
+    }
+}
+@media (max-width: 64em) {
+    .product-image-figure {
+        width: 56px;
+        height: 56px;
+    }
+    .details-wrapper .product-name {
+        white-space: normal;
+    }
+    .product-right-col {
+        border-left: none;
+        border-top: 1px;
+        background-color: var(--lwc-colorBackgroundAlt, #f8f9fa);
+    }
+    .footer-content-container {
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    .footer-content-container button {
+        width: 100%;
+        margin-left: 0rem;
+    }
+    .subscription-details-grid {
+        flex-wrap: wrap;
+    }
+}

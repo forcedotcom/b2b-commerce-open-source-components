@@ -1,0 +1,56 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionAmendModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "headerText",
+      "value" : "Amend Subscription"
+    }, {
+      "name" : "amendBodyHeader",
+      "value" : "Adjust the quantity as needed."
+    }, {
+      "name" : "amendBodyDesc",
+      "value" : "Review your changes before confirming."
+    }, {
+      "name" : "amendSubscriptionQtyLabel",
+      "value" : "New Quantity"
+    }, {
+      "name" : "amendSubscriptionDateLabel",
+      "value" : "Select Start Date"
+    }, {
+      "name" : "amendCloseButtonLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "amendSubscriptionButtonLabel",
+      "value" : "Amend"
+    }, {
+      "name" : "negativeAmendSubscriptionDateLabel",
+      "value" : "Start Date"
+    }, {
+      "name" : "negativeAmendSubscriptionWarningText",
+      "value" : "Quantity reduction takes effect on the next billing date."
+    }, {
+      "name" : "amendSubscriptionWarningMsg",
+      "value" : "This change may affect your subscription price. Review your selections before confirming."
+    }, {
+      "name" : "amendSubscriptionSuccessMsg",
+      "value" : "Your subscription was amended. Changes in quantity will reflect on {amendStartDate}."
+    }, {
+      "name" : "amendSubscriptionErrorMsg",
+      "value" : "We couldn't process your amendment. Try again later."
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Amending your subscription..."
+    }, {
+      "name" : "month",
+      "value" : "Month"
+    }, {
+      "name" : "year",
+      "value" : "Year"
+    }, {
+      "name" : "perBillingTermUnit",
+      "value" : "/{billingTermUnit}"
+    } ]
+  },
+  "urlName" : "subscriptionamendmodal"
+}

@@ -1,0 +1,62 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionActionHistoryCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "subscriptionAmendQtyIncreaseInProgress",
+      "value" : "Quantity increase in progress"
+    }, {
+      "name" : "subscriptionAmendQtyDecreaseInProgress",
+      "value" : "Quantity decrease in progress"
+    }, {
+      "name" : "subscriptionAmendQtyIncreaseSuccessful",
+      "value" : "Quantity was increased"
+    }, {
+      "name" : "subscriptionAmendQtyDecreaseSuccessful",
+      "value" : "Quantity was decreased"
+    }, {
+      "name" : "subscriptionAmendQtyIncreaseFailed",
+      "value" : "Quantity increase failed"
+    }, {
+      "name" : "subscriptionAmendQtyDecreaseFailed",
+      "value" : "Quantity decrease failed"
+    }, {
+      "name" : "subscriptionCancelInProgress",
+      "value" : "Subscription cancellation in progress"
+    }, {
+      "name" : "subscriptionCancelSuccessful",
+      "value" : "Subscription was cancelled"
+    }, {
+      "name" : "subscriptionCancelFailed",
+      "value" : "Subscription cancellation failed"
+    }, {
+      "name" : "subscriptionRenewInProgress",
+      "value" : "Subscription renewal in progress"
+    }, {
+      "name" : "subscriptionRenewSuccessful",
+      "value" : "Subscription was renewed"
+    }, {
+      "name" : "subscriptionRenewFailed",
+      "value" : "Subscription renewal failed"
+    }, {
+      "name" : "subscriptionQtyAmendFrom",
+      "value" : "Current Qty:"
+    }, {
+      "name" : "subscriptionQtyAmendTo",
+      "value" : "New Qty:"
+    }, {
+      "name" : "subscriptionRenewFrom",
+      "value" : "Current Term:"
+    }, {
+      "name" : "subscriptionRenewTo",
+      "value" : "New Term:"
+    }, {
+      "name" : "subscriptionHistoryInitiatedDateLabel",
+      "value" : "Initiated Date"
+    }, {
+      "name" : "subscriptionHistoryEffectiveDateLabel",
+      "value" : "Effective Date"
+    } ]
+  },
+  "urlName" : "subscriptionactionhistorycard"
+}

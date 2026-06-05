@@ -1,0 +1,6 @@
+import viewHistoryPanelLabel from '@salesforce/label/site.subscriptionHistoryPanel.viewHistoryPanelLabel';
+import subscriptionHistoryEmptyHeader from '@salesforce/label/site.subscriptionHistoryPanel.subscriptionHistoryEmptyHeader';
+import subscriptionHistoryEmptyMessage from '@salesforce/label/site.subscriptionHistoryPanel.subscriptionHistoryEmptyMessage';
+import subscriptionHistoryLoadError from '@salesforce/label/site.subscriptionHistoryPanel.subscriptionHistoryLoadError';
+import subscriptionHistoryTryAgainButtonLabel from '@salesforce/label/site.subscriptionHistoryPanel.subscriptionHistoryTryAgainButtonLabel';
+export { viewHistoryPanelLabel, subscriptionHistoryEmptyHeader, subscriptionHistoryEmptyMessage, subscriptionHistoryLoadError, subscriptionHistoryTryAgainButtonLabel };

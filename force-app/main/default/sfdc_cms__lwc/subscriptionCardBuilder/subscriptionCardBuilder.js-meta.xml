@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Subscription Card</masterLabel>
+  <description>Show subscription product details including terms, pricing, billing, and a cancellation option.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="item" label="Subscription Data Binding" type="String" default="{!Subscription}"></property>
+      <property name="imageSize" label="Image Size" type="String" default="contain" datasource="java://siteforce.customComponent.datasource.DxpImageSizeDataSource"></property>
+      <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1"></property>
+      <property name="subscriptionPillFontColor" label="Text Color" type="Color"></property>
+      <property name="subscriptionPillBackgroundColor" label="Background Color" type="Color" default="#D9DFE7"></property>
+      <property name="subscriptionPillBorderRadius" label="Border Radius (0px-50px)" type="Integer" min="0" max="50" default="8"></property>
+      <property name="cancelledPillLabel" label="Cancelled Pill Label" type="String" default="Canceled"></property>
+      <property name="expiredPillLabel" label="Expired Pill Label" type="String" default="Expired"></property>
+      <property name="showQuantity" label="Show Quantity" type="Boolean" default="true"></property>
+      <property name="quantityLabel" label="Quantity Label" type="String" default="Quantity:" translatable="true"></property>
+      <property name="showStartDate" label="Show Start Date" type="Boolean" default="true"></property>
+      <property name="startDateLabel" label="Start Date Label" type="String" default="Start Date:" translatable="true"></property>
+      <property name="showEndDate" label="Show End Date" type="Boolean" default="true"></property>
+      <property name="endDateLabel" label="End Date Label" type="String" default="End Date:" translatable="true"></property>
+      <property name="showNextBillingDate" label="Show Next Billing Date" type="Boolean" default="true"></property>
+      <property name="nextBillingDateLabel" label="Next Billing Date Label" type="String" default="Next Billing Date:" translatable="true"></property>
+      <property name="subscriptionDetailColor" label="Color" type="Color"></property>
+      <property name="subscriptionPriceColor" label="Price Color" type="Color"></property>
+      <property name="subscriptionPriceTextEmphasis" label="Text Emphasis" type="String" default="{}"></property>
+      <property name="subscriptionTaxLabel" label="Tax label" type="String" default="+tax" translatable="true"></property>
+      <property name="cancelButtonLabel" label="Cancel Button Label" type="String" default="Cancel Subscription" translatable="true"></property>
+      <property name="amendButtonLabel" label="Amend Button Label" type="String" default="Amend" translatable="true"></property>
+      <property name="renewButtonLabel" label="Renew Button Label" type="String" default="Renew" translatable="true"></property>
+      <property name="renewSectionTitle" label="Renew Section Title" type="String" default="Renew Subscription" translatable="true"></property>
+      <property name="renewSectionDescription" label="Renew Section Description" type="String" default="Priority Support • Guaranteed Lock‑in Price • Uninterrupted Access" translatable="true"></property>
+      <property name="retryCancelButtonLabel" label="Retry Cancel Button Label" type="String" default="Retry Cancel" translatable="true"></property>
+      <property name="viewHistoryButtonLabel" label="View History Button Label" type="String" default="View History" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="item"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Image Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
+            <designLayoutProperty name="imageSize"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Subscription Pill">
+          <designLayoutItems>
+            <designLayoutProperty name="subscriptionPillFontColor"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionPillBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionPillBorderRadius"></designLayoutProperty>
+            <designLayoutProperty name="cancelledPillLabel"></designLayoutProperty>
+            <designLayoutProperty name="expiredPillLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Subscription Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showQuantity"></designLayoutProperty>
+            <designLayoutProperty name="quantityLabel" cbVisibleIf="showQuantity"></designLayoutProperty>
+            <designLayoutProperty name="showStartDate"></designLayoutProperty>
+            <designLayoutProperty name="startDateLabel" cbVisibleIf="showStartDate"></designLayoutProperty>
+            <designLayoutProperty name="showEndDate"></designLayoutProperty>
+            <designLayoutProperty name="endDateLabel" cbVisibleIf="showEndDate"></designLayoutProperty>
+            <designLayoutProperty name="showNextBillingDate"></designLayoutProperty>
+            <designLayoutProperty name="nextBillingDateLabel" cbVisibleIf="showNextBillingDate"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionDetailColor"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Pricing">
+          <designLayoutItems>
+            <designLayoutProperty name="subscriptionPriceColor"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionPriceTextEmphasis"></designLayoutProperty>
+            <designLayoutProperty name="subscriptionTaxLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Subscription Actions">
+          <designLayoutItems>
+            <designLayoutProperty name="amendButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="cancelButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="renewButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="renewSectionTitle"></designLayoutProperty>
+            <designLayoutProperty name="renewSectionDescription"></designLayoutProperty>
+            <designLayoutProperty name="retryCancelButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="viewHistoryButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

@@ -1,0 +1,23 @@
+<!--Component for displaying subscription status -->
+
+<template>
+    <div class={subscriptionStatusContainerClass}>
+        <!--Subscription status icon section-->
+        <div lwc:if={subscriptionStatusIcon}>
+            <svg
+                class={subscriptionStatusIconClass}
+                aria-hidden="true">
+                <use xlink:href={subscriptionStatusIcon}></use>
+            </svg>
+        </div>
+        <!--Subscription status text section-->
+        <div class={subscriptionStatusTextContainerClass}>
+            <p class={subscriptionStatusMainTextClass}>{subscriptionStatusMainText}</p>
+            <p
+                lwc:if={subscriptionStatusSupportText}
+                class={subscriptionStatusSupportTextClass}>
+                {subscriptionStatusSupportText}
+            </p>
+        </div>
+    </div>
+</template>

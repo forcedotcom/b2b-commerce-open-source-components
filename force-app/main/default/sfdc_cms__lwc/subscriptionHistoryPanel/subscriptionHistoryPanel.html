@@ -1,0 +1,73 @@
+<template lwc:render-mode="light">
+    <lightning-modal-header label={_subscriptionHistoryPanelHeaderLabel}></lightning-modal-header>
+    <lightning-modal-body>
+        <site-subscription-details-card
+            item={item}
+            show-quantity={showQuantity}
+            quantity-label={quantityLabel}
+            show-start-date={showStartDate}
+            start-date-label={startDateLabel}
+            show-end-date={showEndDate}
+            end-date-label={endDateLabel}
+            show-next-billing-date={showNextBillingDate}
+            tax-label={taxLabel}
+            next-billing-date-label={nextBillingDateLabel}></site-subscription-details-card>
+
+        <div lwc:if={showEmptyState}>
+            <div class="slds-align_absolute-center slds-p-top_xx-large slds-p-bottom_x-small image-svg">
+                <img src={emptySvg} />
+            </div>
+            <div class="slds-align_absolute-center slds-text-heading_medium slds-m-bottom_x-small">
+                <strong><h3>{emptyHeader}</h3></strong>
+            </div>
+            <div class="slds-align_absolute-center slds-text-align_center slds-text-heading_small empty-description">
+                <h5>
+                    <lightning-formatted-rich-text value={emptyDescription}></lightning-formatted-rich-text>
+                </h5>
+            </div>
+        </div>
+
+        <div
+            class="slds-p-top_xx-large"
+            lwc:if={hasWireError}>
+            <div class="slds-align_absolute-center error-icon-svg">
+                <img src={errorSvg} />
+            </div>
+            <div
+                class="slds-p-top_x-small slds-align_absolute-center slds-text-align_center slds-text-heading_small error-description">
+                <h5>
+                    <lightning-formatted-rich-text value={loadErrorMessage}></lightning-formatted-rich-text>
+                </h5>
+            </div>
+            <div class="slds-p-top_large slds-align_absolute-center">
+                <button
+                    class="slds-button slds-button_brand"
+                    aria-label={retryButtonLabel}
+                    name="retryButton"
+                    onclick={handleRetryClick}>
+                    {retryButtonLabel}
+                </button>
+            </div>
+        </div>
+
+        <ul
+            lwc:if={isNotEmpty}
+            class="slds-m-top_x-large">
+            <template
+                for:each={actionHistoryData}
+                for:item="actionHistoryRecord">
+                <li key={actionHistoryRecord.key}>
+                    <site-subscription-action-history-card
+                        action-history-record={actionHistoryRecord}
+                        item={item}></site-subscription-action-history-card>
+                </li>
+            </template>
+        </ul>
+
+        <div
+            class="spinner-container"
+            lwc:if={isLoading}>
+            <lightning-spinner variant="brand"></lightning-spinner>
+        </div>
+    </lightning-modal-body>
+</template>

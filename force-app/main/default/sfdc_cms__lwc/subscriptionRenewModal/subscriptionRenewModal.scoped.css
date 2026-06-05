@@ -1,0 +1,33 @@
+.subscription-product-details-box {
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    border-radius: 8px;
+    gap: 24px;
+}
+.footer-content-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+}
+.footer-button button {
+    min-width: 120px;
+}
+.subscription-duration-input {
+    width: 85% !important;
+}
+@media (max-width: 48em) {
+    .product-image-figure {
+        width: 56px;
+        height: 56px;
+    }
+    .footer-content-container {
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    .footer-content-container button {
+        width: 100%;
+        margin-left: 0rem;
+    }
+}

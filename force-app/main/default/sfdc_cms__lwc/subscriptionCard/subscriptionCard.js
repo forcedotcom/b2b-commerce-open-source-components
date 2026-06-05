@@ -249,7 +249,7 @@ export default class SubscriptionCard extends LightningElement {
   }
   get _subscriptionsBundleExpandedLabel() {
     const count = this._childSubscriptionsCount;
-    return subscriptionBundleExpandedLabel.replace('{0}', count.toString());
+    return (subscriptionBundleExpandedLabel ?? '').replace('{0}', count.toString());
   }
   get _childSubscriptions() {
     return this.childSubscriptionsData?.items || [];

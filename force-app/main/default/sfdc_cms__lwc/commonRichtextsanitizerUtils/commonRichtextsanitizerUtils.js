@@ -18,6 +18,6 @@ export function sanitizeValueAndDecodeEntities(richTextValue, allowedTags = []) 
   if (!sanitizedValue) {
     return '';
   }
-  const decodedValue = sanitizedValue.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&nbsp;/g, ' ');
+  const decodedValue = sanitizedValue.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/'/g, "'").replace(/&nbsp;/g, ' ');
   return decodedValue;
 }

@@ -1,0 +1,34 @@
+<template>
+    <lightning-modal-header label={_labels.headerText}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-p-vertical_x-large modal-contents">
+            <div lwc:if={_isNotLoading}>
+                <div class="slds-text-heading_small">{_labels.confirmationDescription}</div>
+            </div>
+            <div
+                lwc:else
+                class="modal-contents">
+                <div class="spinner-container">
+                    <lightning-spinner alternative-text={_labels.spinnerHelpText}></lightning-spinner>
+                </div>
+                <h2 class="slds-text-align_center slds-text-heading_small">{_labels.spinnerHelpText}</h2>
+            </div>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <button
+                class="slds-button slds-button_outline-brand"
+                onclick={handleClose}
+                name="closeModalButton">
+                {_labels.closeButtonLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                onclick={handleUpdateSavedPaymentMethod}
+                name="updateSavedPaymentMethod">
+                {_labels.updateSavedPaymentMethodButtonLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+</template>

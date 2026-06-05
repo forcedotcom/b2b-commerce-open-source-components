@@ -1,0 +1,168 @@
+<template>
+    <lightning-modal-header label={_labels.headerText}></lightning-modal-header>
+
+    <lightning-modal-body>
+        <div lwc:if={_isNotLoading}>
+            <div class="slds-p-around_small slds-text-heading_small slds-align_absolute-center">
+                <b>{_labels.amendBodyHeader}</b>
+            </div>
+
+            <div class="subscription-product-details-box">
+                <!-- Outer responsive grid: left = image+details, right = qty/date -->
+                <div class="slds-grid subscription-details-grid">
+                    <!-- LEFT: Image + Details (always horizontal inside this block) -->
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-large-size_7-of-12 slds-p-around_medium product-left-col">
+                        <div class="image-and-details slds-grid slds-grid_vertical-align-center">
+                            <!-- Image -->
+                            <div class="slds-col slds-p-right_small">
+                                <figure class="product-image-figure">
+                                    <experience-picture
+                                        alternative-text={_productName}
+                                        url={_resolvedUrl}></experience-picture>
+                                </figure>
+                            </div>
+
+                            <div class="slds-col">
+                                <div class="slds-text-heading_small slds-p-bottom_x-small product-name">
+                                    {_productName}
+                                </div>
+                                <div class="slds-text-heading_small slds-p-bottom_x-small product-quantity">
+                                    {quantityLabel} {_quantity}
+                                </div>
+
+                                <div class="slds-p-bottom_x-small">
+                                    <site-subscription-term-details-pill
+                                        selling-model-type={_sellingModelType}
+                                        pricing-term={_pricingTerm}
+                                        pricing-term-unit={_pricingTermUnit}
+                                        subscription-term={_subscriptionTerm}></site-subscription-term-details-pill>
+                                </div>
+
+                                <div
+                                    class="slds-text-heading_small price-details"
+                                    lwc:if={_billingPeriodAmount}>
+                                    <site-common-formatted-price
+                                        currency-code={_currencyCode}
+                                        display-currency-as="symbol"
+                                        value={_billingPeriodAmount}></site-common-formatted-price>
+                                    <span
+                                        class="billing-frequency"
+                                        lwc:if={_billingFrequency}>
+                                        {_billingFrequency}
+                                    </span>
+                                    <span class="tax-label slds-p-left_xx-small">{taxLabel}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: Quantity selector + Date (responsive inside) -->
+                    <div
+                        class="slds-col slds-size_1-of-1 slds-large-size_5-of-12 slds-p-around_medium product-right-col">
+                        <!-- Use slds-grid + slds-wrap: children take full width on mobile and half on medium+ -->
+                        <div class="qty-date-grid slds-grid_vertical-align-start">
+                            <!-- Quantity block -->
+                            <div class="qty-col">
+                                <div class="slds-text-heading_small slds-p-left_x-small slds-p-bottom_x-small">
+                                    {_labels.amendSubscriptionQtyLabel}
+                                </div>
+
+                                <div class="quantity-selector-wrapper">
+                                    <site-common-quantity-selector
+                                        class="quantity-selector-full"
+                                        onvaluechanged={handleValueChanged}
+                                        minimum={quantityRuleMinimum}
+                                        value={currentQuantity}
+                                        maximum={quantityRuleMaximum}
+                                        step={quantityRuleIncrement}></site-common-quantity-selector>
+                                </div>
+
+                                <div
+                                    lwc:if={isNegativeAmendment}
+                                    class="slds-text-heading_small slds-p-left_x-small slds-p-top_small slds-p-bottom_medium">
+                                    {_labels.negativeAmendSubscriptionDateLabel}: {_nextBillingDate}
+                                </div>
+
+                                <div
+                                    lwc:if={isNegativeAmendment}
+                                    class="negative-amend-subscription-warning-msg slds-m-left_x-small slds-p-top_x-small slds-p-bottom_x-small">
+                                    <site-subscription-status
+                                        main-text={_labels.negativeAmendSubscriptionWarningText}
+                                        icon-base-path="assets/icons/info-filled.svg#info-filled"
+                                        icon-class="slds-p-left_small slds-icon slds-icon_medium"
+                                        main-text-class="slds-p-left_small"></site-subscription-status>
+                                </div>
+                            </div>
+
+                            <!-- Date / scheduling block -->
+                            <div class="date-col slds-p-left_x-small slds-p-top_small">
+                                <div
+                                    lwc:if={isPositiveAmendment}
+                                    class="date-selection-section">
+                                    <div class="slds-text-heading_small slds-p-bottom_x-small">
+                                        {_labels.amendSubscriptionDateLabel}
+                                    </div>
+                                    <lightning-input
+                                        type="date"
+                                        class="date-input"
+                                        variant="label-hidden"
+                                        label={_labels.amendSubscriptionDateLabel}
+                                        value={_selectedDate}
+                                        min={minStartDate}
+                                        max={subscriptionEndDate}
+                                        onchange={handleDateSelect}></lightning-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Message -->
+            <div
+                lwc:if={enableAmendButton}
+                class="subscription-amend-warning-msg slds-m-top_small slds-p-left_x-small slds-p-top_x-small slds-p-bottom_x-small">
+                <site-subscription-status
+                    main-text={_labels.amendSubscriptionWarningMsg}
+                    icon-base-path="assets/icons/info-filled.svg#info-filled"
+                    icon-class="slds-p-left_small slds-icon slds-icon_medium"
+                    main-text-class="slds-p-left_small"></site-subscription-status>
+            </div>
+        </div>
+        <div
+            lwc:else
+            class="modal-contents slds-p-vertical_x-large">
+            <div class="spinner-container">
+                <lightning-spinner alternative-text={_labels.spinnerHelpText}></lightning-spinner>
+            </div>
+            <h2 class="slds-text-align_center slds-text-heading_small">{_labels.spinnerHelpText}</h2>
+        </div>
+    </lightning-modal-body>
+
+    <!-- Responsive Footer (stack mobile / side-by-side medium+) -->
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <div>
+                <button
+                    class="slds-button slds-button_outline-brand"
+                    aria-label={_labels.amendCloseButtonLabel}
+                    name="closeModalButton"
+                    onclick={handleClose}>
+                    {_labels.amendCloseButtonLabel}
+                </button>
+            </div>
+
+            <div>
+                <button
+                    class="slds-button slds-button_brand"
+                    aria-label={_amendButtonLabel}
+                    name="amendSubscriptionButton"
+                    onclick={handleAmendSubscription}
+                    disabled={disableAmendButton}>
+                    {_amendButtonLabel}
+                </button>
+            </div>
+        </div>
+    </lightning-modal-footer>
+</template>

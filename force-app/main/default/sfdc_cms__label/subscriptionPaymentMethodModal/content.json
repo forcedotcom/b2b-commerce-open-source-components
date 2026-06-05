@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionPaymentMethodModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "headerText",
+      "value" : "Update payment method?"
+    }, {
+      "name" : "confirmationDescription",
+      "value" : "This new payment method will be charged for future payments for this subscription."
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Updating your subscription payment method..."
+    }, {
+      "name" : "closeButtonLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "updateSavedPaymentMethodButtonLabel",
+      "value" : "Update"
+    }, {
+      "name" : "updateSavedPaymentMethodSuccessToastLabel",
+      "value" : "Payment method for subscription \"{subscriptionName}\" was updated."
+    }, {
+      "name" : "updateSavedPaymentMethodFailedToastLabel",
+      "value" : "We couldn't update the payment method. Try again later."
+    } ]
+  },
+  "urlName" : "subscriptionpaymentmethodmodal"
+}

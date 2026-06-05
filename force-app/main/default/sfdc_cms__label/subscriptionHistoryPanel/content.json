@@ -1,0 +1,23 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionHistoryPanel",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "viewHistoryPanelLabel",
+      "value" : "Subscription History"
+    }, {
+      "name" : "subscriptionHistoryEmptyHeader",
+      "value" : "No subscription history yet"
+    }, {
+      "name" : "subscriptionHistoryEmptyMessage",
+      "value" : "After you amend, renew, or cancel your subscription, you'll find the history here."
+    }, {
+      "name" : "subscriptionHistoryLoadError",
+      "value" : "We couldn't retrieve the subscription history."
+    }, {
+      "name" : "subscriptionHistoryTryAgainButtonLabel",
+      "value" : "Try Again"
+    } ]
+  },
+  "urlName" : "subscriptionhistorypanel"
+}

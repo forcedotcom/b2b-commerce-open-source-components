@@ -1,0 +1,66 @@
+<template>
+    <lightning-modal-header label={_labels.headerText}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-p-vertical_x-large modal-contents">
+            <div lwc:if={_isNotLoading}>
+                <div class="slds-m-bottom_large slds-m-top_small slds-text-heading_small slds-align_absolute-center">
+                    <b>{_formattedBodyHeader}</b>
+                </div>
+
+                <div class="slds-grid slds-p-around_large subscription-product-details-box">
+                    <!-- Image -->
+                    <div class="slds-col slds-size_1-of-3 slds-p-right_small">
+                        <figure
+                            aria-hidden="true"
+                            class="product-image-figure">
+                            <experience-picture url={_resolvedUrl}></experience-picture>
+                        </figure>
+                    </div>
+                    <div class="slds-col slds-size_2-of-3 slds-p-right_medium">
+                        <div class="slds-text-heading_small slds-p-bottom_small product-name">{_productName}</div>
+                        <div class="slds-text-heading_small slds-p-bottom_small product-quantity slds-border_bottom">
+                            {quantityLabel} {_quantity}
+                        </div>
+                        <div class="slds-text-heading_small slds-p-top_small slds-p-bottom_small">
+                            {_labels.subscriptionTerm}: {_subscriptionTermUnit}
+                        </div>
+                        <lightning-combobox
+                            name="subscriptionTerm"
+                            class="subscription-duration-input"
+                            label={_labels.subscriptionDuration}
+                            value={_selectedDuration}
+                            options={_subscriptionDurationOptions}
+                            onchange={handleSubscriptionDurationChange}></lightning-combobox>
+                    </div>
+                </div>
+            </div>
+            <div
+                lwc:else
+                class="modal-contents">
+                <div class="spinner-container">
+                    <lightning-spinner alternative-text={_labels.spinnerHelpText}></lightning-spinner>
+                </div>
+                <h2 class="slds-text-align_center slds-text-heading_small">{_labels.spinnerHelpText}</h2>
+            </div>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <button
+                class="slds-button slds-button_outline-brand"
+                name="closeModalButton"
+                aria-label={_labels.renewCloseButtonLabel}
+                onclick={handleClose}>
+                {_labels.renewCloseButtonLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                name="renewSubscriptionButton"
+                aria-label={_renewButtonLabel}
+                onclick={handleRenewSubscription}
+                disabled={_disableRenewButton}>
+                {_renewButtonLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+</template>

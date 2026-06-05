@@ -1,0 +1,20 @@
+.panel-element {
+    background-color: var(--slds-g-color-neutral-base-100, #ffffff);
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    z-index: 9001;
+}
+.panel-content {
+    padding: 1rem;
+}
+.panel-header {
+    border: none;
+    padding-right: 0rem;
+}
+@media (max-width: 48.063em) {
+    .panel-content {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,37 @@
+:host {
+    --com-c-pill-text-color: var(
+        --com-c-subscription-card-pill-font-color,
+        var(--dxp-s-body-small-text-color, var(--dxp-g-root-contrast))
+    );
+    --com-c-pill-background-color: var(--com-c-subscription-card-pill-background-color, var(--dxp-g-root-1));
+    --com-c-pill-border-radius: var(
+        --com-c-subscription-card-pill-border-radius,
+        var(--dxp-s-form-element-radius-border)
+    );
+    --com-c-pill-font-size: var(--dxp-s-body-small-font-size);
+}
+.subscription-product-details-box {
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    border-radius: 8px;
+    gap: 24px;
+}
+.product-image figure {
+    width: 100px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--com-c-subscription-card-image-border-radius, 5px);
+    aspect-ratio: var(--com-c-subscription-card-image-aspect-ratio, 1);
+    border: var(--com-c-subscription-card-image-default-border-size, 0.5rem);
+    background-color: var(--com-c-subscription-card-image-bg-color, #f8f9fa);
+}
+.product-image experience-picture {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    object-fit: var(--com-c-subscription-card-image-fit, contain);
+}
+hr {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}

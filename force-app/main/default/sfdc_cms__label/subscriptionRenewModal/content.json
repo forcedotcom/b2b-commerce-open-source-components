@@ -1,0 +1,47 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionRenewModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "headerText",
+      "value" : "Renew subscription?"
+    }, {
+      "name" : "renewBodyHeader",
+      "value" : "The renewal will take effect on {0}, the day after your current subscription expires."
+    }, {
+      "name" : "renewBodyDesc",
+      "value" : "Continue access to your subscription."
+    }, {
+      "name" : "amendSubscriptionQtyLabel",
+      "value" : "New Quantity"
+    }, {
+      "name" : "renewCloseButtonLabel",
+      "value" : "Renew Later"
+    }, {
+      "name" : "renewSubscriptionButtonLabel",
+      "value" : "Renew"
+    }, {
+      "name" : "subscriptionTerm",
+      "value" : "Frequency"
+    }, {
+      "name" : "renewSubscriptionErrorMessage",
+      "value" : "We couldn't renew the subscription. Try again later."
+    }, {
+      "name" : "renewSubscriptionSuccessMessage",
+      "value" : "Your renewal is being processed. Changes in quantities will reflect on {0}."
+    }, {
+      "name" : "subscriptionDuration",
+      "value" : "Select Duration"
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Renewing your subscription..."
+    }, {
+      "name" : "month",
+      "value" : "Month"
+    }, {
+      "name" : "year",
+      "value" : "Year"
+    } ]
+  },
+  "urlName" : "subscriptionrenewmodal"
+}

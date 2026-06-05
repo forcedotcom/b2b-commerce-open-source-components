@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Subscription Action History Card</masterLabel>
+  <description>Displays a single subscription action history item with details about the action, status, dates, and changes.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+</LightningComponentBundle>

@@ -1,0 +1,38 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "subscriptionCancelModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "headerText",
+      "value" : "Cancel subscription?"
+    }, {
+      "name" : "confirmationHeading",
+      "value" : "Cancellation takes a few minutes."
+    }, {
+      "name" : "confirmationDescription",
+      "value" : "You'll receive a notification when it's complete."
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Canceling your subscription..."
+    }, {
+      "name" : "closeButtonLabel",
+      "value" : "Close"
+    }, {
+      "name" : "cancelSubscriptionButtonLabel",
+      "value" : "Cancel Subscription"
+    }, {
+      "name" : "cancellationInitiationSuccessToastLabel",
+      "value" : "Your subscription cancellation was initiated."
+    }, {
+      "name" : "cancellationInitiationFailedToastLabel",
+      "value" : "We couldn't cancel your subscription."
+    }, {
+      "name" : "cancellationInitiationFailedToastMessage",
+      "value" : "Try again. If the problem persists, contact support."
+    }, {
+      "name" : "cancelConfirmationMsg",
+      "value" : "Your subscription will stay active till {nextBillingDate}."
+    } ]
+  },
+  "urlName" : "subscriptioncancelmodal"
+}

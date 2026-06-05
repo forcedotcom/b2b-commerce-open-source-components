@@ -1,0 +1,289 @@
+:host {
+    --com-c-pill-text-color: var(
+        --com-c-subscription-card-pill-font-color,
+        var(--dxp-s-body-small-text-color, var(--dxp-g-root-contrast))
+    );
+    --com-c-pill-background-color: var(--com-c-subscription-card-pill-background-color, var(--dxp-g-neutral-1));
+    --com-c-pill-border-radius: var(
+        --com-c-subscription-card-pill-border-radius,
+        var(--dxp-s-form-element-radius-border)
+    );
+    --com-c-pill-font-size: var(--dxp-s-body-small-font-size);
+    --com-c-renew-button-background: var(--dxp-g-neutral-contrast, #000000);
+    --com-c-renew-button-text: var(--dxp-g-root-1, #ffffff);
+    --com-c-renew-section-background: #f7f9fa;
+    --com-c-amendment-subscription-banner-background: #f7f9fa;
+    --com-c-renewal-subscription-banner-background: #f7f9fa;
+    --com-c-cancel-subscription-banner-background: #ffe1e1;
+}
+
+.subscription-card-border-box {
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    border-radius: 16px;
+    padding: 24px;
+    gap: 10px;
+}
+
+.subscription-card {
+    --subscription-card-payment-dropdown-menu-alignment: right;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription-card figure {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    border-radius: var(--com-c-subscription-card-image-border-radius, 5px);
+    aspect-ratio: var(--com-c-subscription-card-image-aspect-ratio, 1);
+    border: var(--com-c-subscription-card-image-default-border-size, 0.5rem) solid
+        var(--com-c-subscription-card-image-bg-color, #f7f9fa);
+    background-color: var(--com-c-subscription-card-image-bg-color, #f7f9fa);
+}
+
+.subscription-card figure span {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.subscription-card figure span experience-picture {
+    object-fit: var(--com-c-subscription-card-image-fit, contain);
+}
+
+.subscription-card .expiring-soon-text {
+    color: var(--dxp-g-destructive);
+}
+
+.subscription-card .amendment-subscription-banner-styles {
+    background-color: var(--com-c-amendment-subscription-banner-background, #f7f9fa);
+    padding: 12px 12px;
+    border-radius: 8px;
+}
+
+.subscription-card .renewal-subscription-banner-styles {
+    background-color: var(--com-c-renewal-subscription-banner-background, #f7f9fa);
+    padding: 12px 12px;
+    border-radius: 8px;
+}
+
+.subscription-card .cancel-subscription-banner-styles {
+    background-color: var(--com-c-cancel-subscription-banner-background, #ffe1e1);
+    padding: 12px 12px;
+    border-radius: 8px;
+}
+
+.subscription-card .subscription-main {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.subscription-card .subscription-information {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    gap: clamp(0.75rem, 1.5vw, 2rem);
+}
+
+.subscription-card .subscription-information > .column {
+    flex: 1;
+}
+
+.subscription-card .subscription-information > .column:last-child {
+    align-items: end;
+}
+
+.subscription-card .subscription-information .column1 {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.subscription-card .subscription-information .column1 .bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+}
+
+.subscription-card .subscription-information .column1 .success-status-main-text,
+.subscription-card .subscription-information .column1 .payment-failure-text,
+.subscription-card .subscription-information .column1 .payment-method-delete-text {
+    color: var(--dxp-g-destructive);
+}
+
+.subscription-card .subscription-information .column2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--com-c-subscription-card-detail-font-color, var(--dxp-s-body-text-color, var(--dxp-g-root-contrast)));
+}
+
+.subscription-card .subscription-information .column3 {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subscription-card .subscription-information .column3 .price-details {
+    font-weight: var(--com-c-subscription-card-price-font-weight);
+    font-style: var(--com-c-subscription-card-price-font-style);
+    text-decoration: var(--com-c-subscription-card-price-text-decoration);
+    color: var(--com-c-subscription-card-price-font-color);
+}
+
+.subscription-card .subscription-information .column3 .subscription-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.375rem;
+}
+
+.subscription-card .subscription-information .column3 .subscription-actions .payment-method-dropdown {
+    --slds-c-button-spacing-block-start: none;
+    --slds-c-button-spacing-block-end: none;
+    --com-c-dropdown-button-font-weight: 400;
+
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+}
+
+.subscription-card .subscription-information .column3 .subscription-actions .payment-method-dropdown img.opaque-50 {
+    opacity: 0.5;
+}
+
+.subscription-card .subscription-information .column3 .subscription-actions .payment-method-text {
+    gap: 0.5rem;
+}
+
+.subscription-card .subscription-information .column3 .subscription-actions .payment-methods-load-error {
+    color: var(--dxp-g-destructive);
+    text-align: right;
+    font-size: var(--dxp-g-font-size-3);
+}
+
+.subscription-card .renew-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    margin-bottom: -1.5rem;
+    background-color: var(--com-c-renew-section-background, #f7f9fa);
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.subscription-card .renew-section .renew-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.subscription-card .renew-section .renew-description {
+    font-size: var(--dxp-g-font-size-3);
+    color: var(--dxp-s-body-text-color, #1c1c1c);
+}
+
+.subscription-card .renew-section .renew-button {
+    --com-c-action-button-primary-color: var(--com-c-renew-button-text, #ffffff);
+    --com-c-action-button-background-color: var(--com-c-renew-button-background, #000000);
+    --com-c-action-button-border-radius: 999px;
+    --com-c-action-button-padding-inline: 2.5rem;
+    --com-c-action-button-height: 1.5rem;
+}
+
+@media (max-width: 64em) {
+    .subscription-main {
+        flex-direction: row;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .subscription-card {
+        --subscription-card-payment-dropdown-menu-alignment: center;
+        gap: 0.75rem;
+    }
+
+    .subscription-card .subscription-information {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .subscription-card .subscription-information > .column:last-child {
+        align-items: initial;
+    }
+
+    .subscription-card .subscription-information .column3 .subscription-actions {
+        align-items: flex-start;
+    }
+
+    .subscription-card .subscription-information .column3 .subscription-actions .payment-methods-load-error {
+        text-align: initial;
+    }
+
+    .subscription-card figure {
+        width: 90px;
+        border-width: var(--com-c-subscription-card-image-mobile-border-size, 0.25rem);
+    }
+
+    .subscription-card .renew-section {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .subscription-card .renew-section .renew-button {
+        flex-direction: column-reverse;
+        margin-top: 8px;
+    }
+
+    .subscription-card .child-subscriptions {
+        border-top: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+        padding-top: var(--dxp-s-spacing-small, 0.75rem);
+        margin-top: var(--dxp-s-spacing-small, 0.75rem);
+    }
+}
+
+.child-subscriptions lightning-button {
+    margin-left: 0;
+}
+
+.child-subscriptions .toggle-button {
+    background: none;
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+    font-weight: var(--dxp-s-body-text-weight);
+}
+
+.child-subscriptions .toggle-button:focus,
+.child-subscriptions .toggle-button:active,
+.child-subscriptions .toggle-button:focus-visible {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.child-subscriptions .toggle-button .subscriptions-count {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--dxp-g-root-contrast, #000);
+}
+
+.child-subscriptions-error .error-message {
+    color: var(--dxp-g-destructive);
+    font-size: var(--dxp-g-font-size-3);
+}
+
+.cancel-menu-item {
+    --dxp-s-dropdown-text-color: var(--dxp-g-destructive, #da0000);
+    --dxp-s-dropdown-text-color-hover: var(--dxp-g-destructive, #da0000);
+    --dxp-g-root-contrast: #da0000;
+}

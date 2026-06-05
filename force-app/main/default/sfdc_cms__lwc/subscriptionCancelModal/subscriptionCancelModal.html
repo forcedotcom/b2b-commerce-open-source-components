@@ -1,0 +1,49 @@
+<template>
+    <lightning-modal-header label={_labels.headerText}></lightning-modal-header>
+    <lightning-modal-body>
+        <div class="slds-p-vertical_x-large modal-contents">
+            <div lwc:if={_isNotLoading}>
+                <div class="slds-text-heading_small">{_labels.confirmationHeading}</div>
+                <div
+                    lwc:if={_showCancelConfirmationWithNBDMsg}
+                    class="cancel-subscription-warning-msg slds-m-top_small slds-p-left_small slds-p-top_x-small slds-p-bottom_x-small slds-align_absolute-center">
+                    <site-subscription-status
+                        main-text={_cancelConfirmationOnNextBillingDateMsg}
+                        icon-base-path="assets/icons/info-filled.svg#info-filled"
+                        main-text-class="slds-p-left_small slds-p-right_small"></site-subscription-status>
+                </div>
+                <div
+                    lwc:else
+                    class="slds-text-heading_small slds-m-top_small">
+                    {_labels.confirmationDescription}
+                </div>
+            </div>
+            <div
+                lwc:else
+                class="modal-contents">
+                <div class="spinner-container">
+                    <lightning-spinner alternative-text={_labels.spinnerHelpText}></lightning-spinner>
+                </div>
+                <h2 class="slds-text-align_center slds-text-heading_small">{_labels.spinnerHelpText}</h2>
+            </div>
+        </div>
+    </lightning-modal-body>
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <button
+                class="slds-button slds-button_outline-brand"
+                aria-label={_labels.closeButtonLabel}
+                onclick={handleClose}
+                name="closeModalButton">
+                {_labels.closeButtonLabel}
+            </button>
+            <button
+                class="slds-button slds-button_brand"
+                aria-label={_cancelButtonLabel}
+                onclick={handleCancelSubscription}
+                name="cancelSubscriptionButton">
+                {_cancelButtonLabel}
+            </button>
+        </div>
+    </lightning-modal-footer>
+</template>

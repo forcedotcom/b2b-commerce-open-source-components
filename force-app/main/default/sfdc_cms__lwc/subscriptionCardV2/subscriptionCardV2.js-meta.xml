@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <masterLabel>Subscription Card V2</masterLabel>
+  <description>Renders the subscription card UI including pricing, status banners, and child-subscription bundle expansion.</description>
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+</LightningComponentBundle>
