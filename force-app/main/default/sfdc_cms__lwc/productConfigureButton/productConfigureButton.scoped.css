@@ -1,0 +1,5 @@
+.configure-action > site-common-button-ui {
+    height: 2.5rem;
+    width: max-content;
+    margin-right: var(--dxp-g-spacing-small);
+}

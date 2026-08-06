@@ -101,7 +101,25 @@ export default class ProductPurchaseOptions extends LightningElement {
   @api
   secondaryCartCountType;
   @api
+  showOrderTemplateButton;
+  @api
+  showItemCountInDropdown;
+  @api
   outOfStockText;
+  @api
+  configureButtonText;
+  @api
+  configureButtonBackgroundColor;
+  @api
+  configureButtonBackgroundHoverColor;
+  @api
+  configureButtonBorderColor;
+  @api
+  configureButtonBorderRadius;
+  @api
+  configureButtonTextColor;
+  @api
+  configureButtonTextHoverColor;
   get quantity() {
     return Number(this.product?.quantity);
   }
@@ -215,8 +233,11 @@ export default class ProductPurchaseOptions extends LightningElement {
     const inventoryErrors = this.parsedErrors?.filter(err => err?.code === ProductErrors.OUT_OF_STOCK.code);
     return inventoryErrors.length > 0;
   }
-  get displayAddQuantity() {
+  get isProductLoaded() {
     return this.product !== undefined && this.product !== null;
+  }
+  get displayAddQuantity() {
+    return this.isProductLoaded && !this.isConfigurableProduct;
   }
   get displayAddToSecondaryCartMenu() {
     return this.showAddToSecondaryCartMenu !== false && this.product !== undefined && this.product !== null && !this.product?.isConfigurationAllowed;
@@ -226,6 +247,21 @@ export default class ProductPurchaseOptions extends LightningElement {
     const invalidVariant = this.productVariant?.isValid === false;
     const isVariationParent = this.product?.productClass === 'VariationParent';
     return this.isAddToCartButtonDisabled || hasPricing && this.productPricing.error !== undefined || invalidVariant && !isVariationParent;
+  }
+  get displayOrderTemplateButton() {
+    return !!this.showOrderTemplateButton && this.isProductLoaded;
+  }
+  get isAddToOrderTemplateButtonDisabled() {
+    return this.isAddToSecondaryCartMenuDisabled;
+  }
+  get isConfigurableProduct() {
+    return Boolean(this.product?.isConfigurationAllowed);
+  }
+  get orderTemplateProductSellingModelId() {
+    return this.selectedProductSellingModel?.productSellingModelId;
+  }
+  get orderTemplateSubscriptionTerm() {
+    return this.selectedProductSellingModel?.subscriptionTerm;
   }
   get productId() {
     return this.product?.id;

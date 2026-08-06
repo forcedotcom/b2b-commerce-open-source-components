@@ -1,0 +1,16 @@
+<template lwc:render-mode="light">
+    <div
+        class="configure-action"
+        if:true={displayConfigureButton}>
+        <site-common-button-ui
+            data-testid="configure-button"
+            style={configureButtonCssStyles}
+            class="slds-m-vertical_small"
+            variant="primary"
+            disabled={isConfigureButtonDisabled}
+            onclick={handleConfigureButtonClick}
+            assistive-text={computedConfigureButtonText}>
+            {computedConfigureButtonText}
+        </site-common-button-ui>
+    </div>
+</template>

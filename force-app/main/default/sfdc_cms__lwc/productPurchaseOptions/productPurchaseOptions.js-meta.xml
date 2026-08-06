@@ -28,6 +28,13 @@
       <property label="Add to Cart Button Text Hover Color" name="addToCartButtonTextHoverColor" type="Color"></property>
       <property label="Add to Cart Button Processing Text" name="addToCartButtonProcessingText" type="String" default="Adding..." translatable="true"></property>
       <property label="Out of Stock Text" name="outOfStockText" type="String" default="Out of Stock" translatable="true"></property>
+      <property label="Configure Button Text" name="configureButtonText" type="String" translatable="true" default="Configure"></property>
+      <property label="Configure Button Background Color" name="configureButtonBackgroundColor" type="Color"></property>
+      <property label="Configure Button Background Hover Color" name="configureButtonBackgroundHoverColor" type="Color"></property>
+      <property label="Configure Button Border Color" name="configureButtonBorderColor" type="Color"></property>
+      <property label="Configure Button Border Radius" name="configureButtonBorderRadius" type="Integer" min="0" max="50" default="0"></property>
+      <property label="Configure Button Text Color" name="configureButtonTextColor" type="Color"></property>
+      <property label="Configure Button Text Hover Color" name="configureButtonTextHoverColor" type="Color"></property>
       <property label="Button Text" name="addToListButtonText" type="String" translatable="true" default="Add To List"></property>
       <property label="Show Button" name="showAddToListButton" type="Boolean" default="true"></property>
       <property label="Button Text Color" name="addToListButtonTextColor" type="Color"></property>
@@ -37,12 +44,14 @@
       <property label="Button Border Color" name="addToListButtonBorderColor" type="Color"></property>
       <property label="Button Border Radius" name="addToListButtonBorderRadius" type="Integer" min="0" max="50" default="0"></property>
       <property label="Quantity Selector Label" name="quantitySelectorLabel" type="String" translatable="true" default="QTY"></property>
-      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
-      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
-      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example,"></property>
+      <property label="Minimum Text" name="minimumValueGuideText" type="String" translatable="true" default="Minimum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Buy {0} to start&amp;quot;. The text is shown on the product and as hover text for the quantity selector&apos;s information icon."></property>
+      <property label="Maximum Text" name="maximumValueGuideText" type="String" translatable="true" default="Maximum quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Buy up to {0}&amp;quot;. The text is shown on the product and as hover text for the quantity selector&apos;s information icon."></property>
+      <property label="Increment Text" name="incrementValueGuideText" type="String" translatable="true" default="Increment quantity is {0}" description="Display text for this rule. The value for {0} populates from product settings. Place {0}, untranslated, anywhere in the text. For example, &amp;quot;Sold in increments of {0}&amp;quot;. The text is shown on the product and as hover text for the quantity selector&apos;s information icon."></property>
       <property label="Show Add to a Saved Cart" name="showAddToSecondaryCartMenu" type="Boolean" default="false"></property>
       <property label="Show Item Count" name="showSecondaryCartItemCount" type="Boolean" default="true" description="Show the number of items in each cart."></property>
       <property label="Shows the total quantity or the number of unique products in the cart." name="secondaryCartCountType" type="String" translatable="false" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount"></property>
+      <property label="Show Order Template Button" name="showOrderTemplateButton" type="Boolean" default="false"></property>
+      <property label="Show Item Count in Dropdown" name="showItemCountInDropdown" type="Boolean" default="true" description="Show the number of items in each order template."></property>
       <designLayout>
         <designSection name="Add to Cart Button">
           <designLayoutItems>
@@ -55,6 +64,17 @@
             <designLayoutProperty name="addToCartButtonBorderColor"></designLayoutProperty>
             <designLayoutProperty name="addToCartButtonBorderRadius"></designLayoutProperty>
             <designLayoutProperty name="outOfStockText"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Configure Button">
+          <designLayoutItems>
+            <designLayoutProperty name="configureButtonText"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonTextColor"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonTextHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonBackgroundColor"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonBackgroundHoverColor"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonBorderColor"></designLayoutProperty>
+            <designLayoutProperty name="configureButtonBorderRadius"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
         <designSection name="Add to List Button">
@@ -82,6 +102,12 @@
             <designLayoutProperty name="showAddToSecondaryCartMenu"></designLayoutProperty>
             <designLayoutProperty name="showSecondaryCartItemCount" cbVisibleIf="showAddToSecondaryCartMenu=true"></designLayoutProperty>
             <designLayoutProperty name="secondaryCartCountType" cbVisibleIf="showAddToSecondaryCartMenu=true;showSecondaryCartItemCount=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Add to Order Template">
+          <designLayoutItems>
+            <designLayoutProperty name="showOrderTemplateButton"></designLayoutProperty>
+            <designLayoutProperty name="showItemCountInDropdown" cbVisibleIf="showOrderTemplateButton=true"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
         <designSection>
