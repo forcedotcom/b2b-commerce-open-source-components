@@ -64,20 +64,5 @@
                 show-item-count={showSecondaryCartItemCount}
                 count-type={secondaryCartCountType}></site-cart-add-to-secondary-cart>
         </div>
-
-        <!--Add to order template menu-->
-        <div
-            class="order-template-menu slds-p-left_small"
-            if:true={displayOrderTemplateButton}>
-            <site-product-add-to-order-template
-                disabled={isAddToOrderTemplateButtonDisabled}
-                product-id={productId}
-                product-name={productName}
-                quantity={quantity}
-                show-item-count={showItemCountInDropdown}
-                is-configurable-product={isConfigurableProduct}
-                product-selling-model-id={orderTemplateProductSellingModelId}
-                subscription-term={orderTemplateSubscriptionTerm}></site-product-add-to-order-template>
-        </div>
     </div>
 </template>

@@ -101,10 +101,6 @@ export default class ProductPurchaseOptions extends LightningElement {
   @api
   secondaryCartCountType;
   @api
-  showOrderTemplateButton;
-  @api
-  showItemCountInDropdown;
-  @api
   outOfStockText;
   @api
   configureButtonText;
@@ -248,20 +244,8 @@ export default class ProductPurchaseOptions extends LightningElement {
     const isVariationParent = this.product?.productClass === 'VariationParent';
     return this.isAddToCartButtonDisabled || hasPricing && this.productPricing.error !== undefined || invalidVariant && !isVariationParent;
   }
-  get displayOrderTemplateButton() {
-    return !!this.showOrderTemplateButton && this.isProductLoaded;
-  }
-  get isAddToOrderTemplateButtonDisabled() {
-    return this.isAddToSecondaryCartMenuDisabled;
-  }
   get isConfigurableProduct() {
     return Boolean(this.product?.isConfigurationAllowed);
-  }
-  get orderTemplateProductSellingModelId() {
-    return this.selectedProductSellingModel?.productSellingModelId;
-  }
-  get orderTemplateSubscriptionTerm() {
-    return this.selectedProductSellingModel?.subscriptionTerm;
   }
   get productId() {
     return this.product?.id;

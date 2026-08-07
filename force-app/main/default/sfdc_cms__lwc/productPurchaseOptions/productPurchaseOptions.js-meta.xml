@@ -50,8 +50,6 @@
       <property label="Show Add to a Saved Cart" name="showAddToSecondaryCartMenu" type="Boolean" default="false"></property>
       <property label="Show Item Count" name="showSecondaryCartItemCount" type="Boolean" default="true" description="Show the number of items in each cart."></property>
       <property label="Shows the total quantity or the number of unique products in the cart." name="secondaryCartCountType" type="String" translatable="false" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount"></property>
-      <property label="Show Order Template Button" name="showOrderTemplateButton" type="Boolean" default="false"></property>
-      <property label="Show Item Count in Dropdown" name="showItemCountInDropdown" type="Boolean" default="true" description="Show the number of items in each order template."></property>
       <designLayout>
         <designSection name="Add to Cart Button">
           <designLayoutItems>
@@ -102,12 +100,6 @@
             <designLayoutProperty name="showAddToSecondaryCartMenu"></designLayoutProperty>
             <designLayoutProperty name="showSecondaryCartItemCount" cbVisibleIf="showAddToSecondaryCartMenu=true"></designLayoutProperty>
             <designLayoutProperty name="secondaryCartCountType" cbVisibleIf="showAddToSecondaryCartMenu=true;showSecondaryCartItemCount=true"></designLayoutProperty>
-          </designLayoutItems>
-        </designSection>
-        <designSection name="Add to Order Template">
-          <designLayoutItems>
-            <designLayoutProperty name="showOrderTemplateButton"></designLayoutProperty>
-            <designLayoutProperty name="showItemCountInDropdown" cbVisibleIf="showOrderTemplateButton=true"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
         <designSection>
