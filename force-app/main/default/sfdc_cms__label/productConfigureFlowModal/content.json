@@ -1,0 +1,14 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productConfigureFlowModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "spinnerTextForAddingConfigureProductToCart",
+      "value" : "Adding to cart..."
+    }, {
+      "name" : "spinnerTextForLoadingProductConfigurator",
+      "value" : "Loading product configurator..."
+    } ]
+  },
+  "urlName" : "productconfigureflowmodal"
+}

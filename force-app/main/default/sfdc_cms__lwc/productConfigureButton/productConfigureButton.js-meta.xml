@@ -5,7 +5,4 @@
   <masterLabel>Product Configure Button</masterLabel>
   <description>Displays a Configure button for configurable bundle products and launches the product configuration flow. Used
         inside Product Purchase Options.</description>
-  <capabilities>
-    <capability>lightning__ServerRenderableWithHydration</capability>
-  </capabilities>
 </LightningComponentBundle>

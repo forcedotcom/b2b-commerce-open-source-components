@@ -1,6 +1,6 @@
 import { api, LightningElement, wire } from 'lwc';
 import { generateStyleProperties } from 'experience/styling';
-import ProductConfigureFlowModal from 'commerce/productConfigureFlowModal';
+import ProductConfigureFlowModal from 'site/productConfigureFlowModal';
 import { isDesignMode } from 'experience/clientApi';
 import { ProductErrors } from 'site/commerceErrors';
 import { SessionContextAdapter, AppContextAdapter } from 'commerce/contextApi';

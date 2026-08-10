@@ -1,0 +1,18 @@
+<template>
+    <lightning-modal-body class="slds-is-relative">
+        <lightning-flow
+            flow-api-name={flowApiName}
+            flow-input-variables={flowInputVariables}
+            onloading={handleLoading}
+            onproceed={handleCancel}
+            onsave={handleSave}></lightning-flow>
+        <div
+            class="slds-align_absolute-center"
+            if:true={isLoading}>
+            <lightning-spinner
+                alternative-text={spinnerAlternativeText}
+                size="large"
+                variant="brand"></lightning-spinner>
+        </div>
+    </lightning-modal-body>
+</template>

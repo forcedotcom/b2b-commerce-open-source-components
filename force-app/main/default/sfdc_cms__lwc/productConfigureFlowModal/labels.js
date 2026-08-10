@@ -1,0 +1,3 @@
+import spinnerTextForAddingConfigureProductToCart from '@salesforce/label/site.productConfigureFlowModal.spinnerTextForAddingConfigureProductToCart';
+import spinnerTextForLoadingProductConfigurator from '@salesforce/label/site.productConfigureFlowModal.spinnerTextForLoadingProductConfigurator';
+export { spinnerTextForAddingConfigureProductToCart, spinnerTextForLoadingProductConfigurator };

@@ -1,0 +1,5 @@
+:host {
+    --lwc-zIndexDocked: 4;
+    --lwc-tableColorBackgroundHeaderHover: white;
+    --lwc-zIndexDefault: 1;
+}
