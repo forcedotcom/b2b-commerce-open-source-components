@@ -1,0 +1,55 @@
+<template lwc:render-mode="light">
+    <!-- Loading spinner until the first page settles. -->
+    <div
+        lwc:if={_showLoading}
+        class="order-template-list-loading"
+        role="status"
+        aria-live="polite">
+        <lightning-spinner
+            alternative-text={_labels.loadingTemplates}
+            size="medium"></lightning-spinner>
+    </div>
+
+    <!-- Slot-based empty state -->
+    <div lwc:elseif={_showSlotEmptyState}>
+        <div class="slds-align_absolute-center slds-p-top_xx-large slds-p-bottom_medium image-svg">
+            <img
+                src={_emptySvg}
+                alt="" />
+        </div>
+        <div class="empty-list-view-body">
+            <slot name="emptyListView"></slot>
+        </div>
+    </div>
+
+    <!-- Error state when the dispatched ACTION_WISHLISTS_LOAD rejects.
+         role="alert" + aria-live="assertive" so screen readers announce the
+         load failure as soon as it replaces the spinner. Mirrors the shared
+         page-level error layout used by Subscriptions / Order List. -->
+    <div
+        lwc:elseif={_hasError}
+        class="slds-m-around_medium slds-text-align_center"
+        role="alert"
+        aria-live="assertive">
+        <lightning-icon
+            aria-hidden="true"
+            src={_errorSvg}
+            size="large"
+            class="slds-m-bottom_large"></lightning-icon>
+        <h3 class="slds-text-heading_large slds-m-bottom_small">{_labels.errorHeading}</h3>
+        <h5>
+            <lightning-formatted-rich-text value={_labels.errorDescription}></lightning-formatted-rich-text>
+        </h5>
+    </div>
+
+    <!-- Sort dropdown: only visible when templates exist (matches cart list pattern). -->
+    <div
+        lwc:if={_hasTemplates}
+        class={_sortDropdownSlotClasses}
+        data-automation="sortDropdown">
+        <slot name="sortDropdown"></slot>
+    </div>
+
+    <!-- Repeater slot for template list (dxp_content_layout:list injected via metadata) -->
+    <slot name="templatesRepeater"></slot>
+</template>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Template Options</masterLabel>
+  <description>Provides action menu for order template operations including edit and delete</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderTemplateSummaryData" label="Expression" type="String" default="{!OrderTemplateList}"></property>
+      <property name="showTemplateOptions" label="Show Template Options" type="Boolean" default="true" description="Show the template options menu. When disabled, the entire options dropdown is hidden."></property>
+      <property name="optionsDropdownLabel" label="Options Dropdown Text" type="String" default="Options" translatable="true"></property>
+      <property name="variant" label="Button Style" type="String" default="tertiary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="showEditTemplateOption" label="Show Edit Option" type="Boolean" default="true" description="Show the Edit option in the options dropdown. Buyers can update the template name and description."></property>
+      <property name="editTemplateLabel" label="Edit Template Text" type="String" default="Edit" translatable="true"></property>
+      <property name="templateNameLabel" label="Template Name Text" type="String" default="Template Name" translatable="true"></property>
+      <property name="templateDescriptionLabel" label="Template Description Text" type="String" default="Description" translatable="true"></property>
+      <property name="showDeleteTemplateOption" label="Show Delete Option" type="Boolean" default="true" description="Show the Delete option in the options dropdown. Buyers can permanently remove the template."></property>
+      <property name="deleteTemplateLabel" label="Delete Template Text" type="String" default="Delete" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderTemplateSummaryData" cbVisibleIf="orderTemplateSummaryData=hidden"></designLayoutProperty>
+            <designLayoutProperty name="optionsDropdownLabel" cbVisibleIf="showTemplateOptions=true"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="showTemplateOptions"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Edit">
+          <designLayoutItems>
+            <designLayoutProperty name="editTemplateLabel" cbVisibleIf="showEditTemplateOption=true"></designLayoutProperty>
+            <designLayoutProperty name="templateNameLabel" cbVisibleIf="showEditTemplateOption=true"></designLayoutProperty>
+            <designLayoutProperty name="templateDescriptionLabel" cbVisibleIf="showEditTemplateOption=true"></designLayoutProperty>
+            <designLayoutProperty name="showEditTemplateOption"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Delete">
+          <designLayoutItems>
+            <designLayoutProperty name="deleteTemplateLabel" cbVisibleIf="showDeleteTemplateOption=true"></designLayoutProperty>
+            <designLayoutProperty name="showDeleteTemplateOption"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

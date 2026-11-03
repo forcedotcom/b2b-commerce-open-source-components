@@ -1,0 +1,18 @@
+<template lwc:render-mode="light">
+    <site-common-button-ui
+        variant={_variant}
+        size={size}
+        width={_width}
+        assistive-text={_newTemplateButtonLabelText}
+        name="newTemplateButton"
+        onclick={handleOpenCreateTemplate}>
+        <span class="new-template-button-content">
+            <svg
+                class="add-icon"
+                aria-hidden="true">
+                <use href={_addIconUrl}></use>
+            </svg>
+            {_newTemplateButtonLabelText}
+        </span>
+    </site-common-button-ui>
+</template>

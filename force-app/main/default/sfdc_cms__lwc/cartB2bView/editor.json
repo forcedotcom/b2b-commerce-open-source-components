@@ -1,0 +1,174 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:cartB2bView",
+                "type": "component",
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "{!Cart.Details.displayName}",
+                                    "textDisplayInfo": "{\"headingTag\": \"h1\", \"textStyle\": \"heading-large\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "emptyHeaderLabel",
+                        "title": "Empty Header Label",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "Your cart is empty",
+                                    "textDisplayInfo": "{\"headingTag\": \"h1\", \"textStyle\": \"heading-large\"}",
+                                    "textDecoration": "{\"bold\": true}",
+                                    "textAlign": "center"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            },
+                            {
+                                "attributes": {
+                                    "text": "Continue Shopping",
+                                    "url": "/"
+                                },
+                                "definition": "dxp_base:button",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "emptyBody",
+                        "title": "Empty Body",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {},
+                                "definition": "commerce_builder:breadcrumbs",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "emptyStateBreadcrumb",
+                        "title": "Empty State Breadcrumb",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {},
+                                "definition": "commerce_builder:breadcrumbs",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "itemsBreadcrumb",
+                        "title": "Items Breadcrumb",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "{!Cart.Details.displayName}",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-large\"}",
+                                    "textDecoration": "{\"bold\": true}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "itemsHeaderLabel",
+                        "title": "Items Header Label",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "({!Cart.Details.totalProductCount} items)",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"heading-large\"}",
+                                    "textDecoration": "{\"bold\": false}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "itemsHeaderCount",
+                        "title": "Items Header Count",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "{!Cart.Details.displayDescription}",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "itemsDescription",
+                        "title": "Items Description",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "text": "{!Cart.Details.displayDescription}",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}"
+                                },
+                                "definition": "dxp_base:textBlock",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "emptyStateDescription",
+                        "title": "Empty State Description",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {},
+                                "definition": "commerce_builder:promotionDiscountsApproaching",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "promotionDiscountsApproaching",
+                        "title": "Promotion Discounts Approaching",
+                        "type": "region"
+                    },
+                    {
+                        "children": [
+                            {
+                                "attributes": {
+                                    "paginationType": "pages",
+                                    "showRemoveItem": true,
+                                    "showProductImage": true,
+                                    "showProductVariants": true,
+                                    "showPricePerUnit": true,
+                                    "showTotalPrices": true,
+                                    "showOriginalPrice": true,
+                                    "showActualPrice": true,
+                                    "showPromotions": true,
+                                    "showSku": true
+                                },
+                                "definition": "commerce_builder:cartItems",
+                                "type": "component"
+                            }
+                        ],
+                        "name": "itemsBody",
+                        "title": "Items Body",
+                        "type": "region"
+                    }
+                ]
+            }
+        }
+    ]
+}

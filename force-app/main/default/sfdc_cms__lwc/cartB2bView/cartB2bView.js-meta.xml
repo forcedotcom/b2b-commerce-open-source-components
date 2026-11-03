@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>67</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Multiple Carts Detail</masterLabel>
+  <description>A UI control to display the B2B storefront cart view with multi-cart management features.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="displayStates" label="Display States" type="String"></property>
+      <property name="items" label="Cart Items" type="string" default="{!Cart.Items}"></property>
+      <property name="messages" label="Cart Messages" type="string" default="{!Cart.Messages}"></property>
+      <property name="cartDetails" label="Cart Details" type="string" default="{!Cart.Details}"></property>
+      <property name="showSortOptions" label="Show Sort Options" type="boolean" default="true"></property>
+      <property name="newCartButtonLabel" label="New Cart Button Text" type="String" default="New Cart" translatable="true"></property>
+      <property name="cartNameLabel" label="Cart Name Text" type="String" default="Cart Name" translatable="true"></property>
+      <property name="cartDescriptionLabel" label="Cart Description Text" type="String" default="Description" translatable="true"></property>
+      <property name="defaultPillLabel" label="Default Pill Text" type="String" default="Default" translatable="true"></property>
+      <property name="optionsDropdownLabel" label="Options Dropdown Text" type="String" default="View Options" translatable="true"></property>
+      <property name="editCartLabel" label="Edit Cart Text" type="String" default="Edit Cart Details" translatable="true"></property>
+      <property name="markAsDefaultLabel" label="Mark As Default Text" type="String" default="Set As Default" translatable="true"></property>
+      <property name="deleteCartLabel" label="Delete Cart Text" type="String" default="Delete Cart" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="items" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="messages" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="cartDetails" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="showSortOptions"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Create New Cart">
+          <designLayoutItems>
+            <designLayoutProperty name="newCartButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="cartNameLabel"></designLayoutProperty>
+            <designLayoutProperty name="cartDescriptionLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Default Pill Details">
+          <designLayoutItems>
+            <designLayoutProperty name="defaultPillLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Options Dropdown">
+          <designLayoutItems>
+            <designLayoutProperty name="optionsDropdownLabel"></designLayoutProperty>
+            <designLayoutProperty name="editCartLabel"></designLayoutProperty>
+            <designLayoutProperty name="markAsDefaultLabel"></designLayoutProperty>
+            <designLayoutProperty name="deleteCartLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

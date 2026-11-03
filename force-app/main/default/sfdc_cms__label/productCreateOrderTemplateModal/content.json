@@ -1,0 +1,71 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productCreateOrderTemplateModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "modalHeader",
+      "value" : "Create New Template"
+    }, {
+      "name" : "editModalHeader",
+      "value" : "Edit Template"
+    }, {
+      "name" : "templateNameLabel",
+      "value" : "Template Name"
+    }, {
+      "name" : "descriptionLabel",
+      "value" : "Description (Optional)"
+    }, {
+      "name" : "saveButtonLabel",
+      "value" : "Confirm & Save"
+    }, {
+      "name" : "editSaveButtonLabel",
+      "value" : "Save Changes"
+    }, {
+      "name" : "cancelButtonLabel",
+      "value" : "Cancel"
+    }, {
+      "name" : "spinnerHelpText",
+      "value" : "Creating template..."
+    }, {
+      "name" : "editSpinnerHelpText",
+      "value" : "Saving changes..."
+    }, {
+      "name" : "nameRequiredError",
+      "value" : "Template name is required"
+    }, {
+      "name" : "nameInvalidCharsError",
+      "value" : "Template name contains invalid characters"
+    }, {
+      "name" : "nameMaxLengthError",
+      "value" : "Template name cannot exceed {maxLength} characters"
+    }, {
+      "name" : "descInvalidCharsError",
+      "value" : "Description contains invalid characters"
+    }, {
+      "name" : "descMaxLengthError",
+      "value" : "Description cannot exceed {maxLength} characters"
+    }, {
+      "name" : "createSuccessMessage",
+      "value" : "\"{templateName}\" was created."
+    }, {
+      "name" : "createAndAddSuccessToast",
+      "value" : "\"{templateName}\" was created, and {productName} was added to it."
+    }, {
+      "name" : "createFailureMessage",
+      "value" : "We couldn't create \"{templateName}\". Try again."
+    }, {
+      "name" : "editSuccessMessage",
+      "value" : "\"{templateName}\" was updated."
+    }, {
+      "name" : "editFailureMessage",
+      "value" : "We couldn't update \"{templateName}\". Try again."
+    }, {
+      "name" : "addToOrderTemplateSuccessToast",
+      "value" : "{0} added to \"{1}\""
+    }, {
+      "name" : "addToOrderTemplateFailureToast",
+      "value" : "We couldn't add \"{0}\" to \"{1}\". Try again."
+    } ]
+  },
+  "urlName" : "productcreateordertemplatemodal"
+}

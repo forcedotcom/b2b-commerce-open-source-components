@@ -1,0 +1,83 @@
+<template lwc:render-mode="light">
+    <!-- Breadcrumb navigation, anchoring the trail back to the order
+         template list. Authored via the `breadcrumb` region in the page
+         metadata and rendered above the header. -->
+    <div
+        class="order-template-breadcrumb"
+        data-automation="breadcrumb">
+        <slot name="breadcrumb"></slot>
+    </div>
+
+    <!-- Single shared header: the title (which includes the item count) and
+         the action controls. -->
+    <template lwc:if={showHeader}>
+        <header class="order-template-header order-template-header-with-actions">
+            <div class="order-template-header-title">
+                <div
+                    aria-live="polite"
+                    aria-atomic="true"
+                    data-automation="headerLabel">
+                    <slot name="headerLabel"></slot>
+                </div>
+            </div>
+            <div
+                class="order-template-header-actions"
+                data-automation="headerActions"
+                ontemplatedeleted={handleTemplateDeleted}>
+                <div class="order-template-header-action-slot">
+                    <slot name="addAllButton"></slot>
+                </div>
+                <div class="order-template-header-action-slot">
+                    <slot name="options"></slot>
+                </div>
+            </div>
+        </header>
+
+        <!-- Optional template description, rendered beneath the header. -->
+        <div
+            class="order-template-description"
+            data-automation="description">
+            <slot name="description"></slot>
+        </div>
+    </template>
+
+    <!-- Body: the slotted order template items grid, which owns the
+         empty-vs-grid rendering itself. -->
+    <template lwc:if={showBody}>
+        <section
+            class="items"
+            onwishlistaddtocart={handleAddItemToCart}
+            onwishlistremoveitem={handleRemoveItem}>
+            <section data-automation="itemsBody">
+                <slot name="itemsBody"></slot>
+            </section>
+        </section>
+    </template>
+
+    <!-- Error state shown when the order template failed to load
+         (e.g. not found), instead of spinning indefinitely. Mirrors the shared
+         page-level error layout used by Subscriptions / Order List. -->
+    <div
+        lwc:if={hasError}
+        class="order-template-error slds-m-around_medium slds-text-align_center"
+        role="alert"
+        data-automation="errorState">
+        <lightning-icon
+            aria-hidden="true"
+            src={errorSvg}
+            size="large"
+            class="slds-m-bottom_large"></lightning-icon>
+        <h3 class="slds-text-heading_large slds-m-bottom_small">{_labels.errorHeading}</h3>
+        <h5>
+            <lightning-formatted-rich-text value={_labels.errorDescription}></lightning-formatted-rich-text>
+        </h5>
+    </div>
+
+    <!-- Spinner shown when data is loading -->
+    <lightning-spinner
+        lwc:if={showSpinner}
+        class="order-template-spinner"
+        variant="brand"
+        size="large"
+        alternative-text={_labels.alternativeSpinnerText}></lightning-spinner>
+</template>

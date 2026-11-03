@@ -1,0 +1,39 @@
+:host {
+    display: block;
+}
+
+/*
+ * Pin standard inline padding and a themed radius on both render paths (the
+ * single-cart button and the multi-cart menu trigger) via SLDS styling hooks,
+ * so they don't fall back to the heavier raw lightning-button defaults.
+ * Vertical size parity is handled in the unscoped stylesheet.
+ */
+.order-template-add-all-to-cart-button {
+    --sds-c-button-spacing-block: 0;
+    --sds-c-button-spacing-inline: var(--dxp-g-spacing-medium, 1rem);
+    --sds-c-button-spacing-inlinestart: var(--dxp-g-spacing-medium, 1rem);
+    --sds-c-button-spacing-inlineend: var(--dxp-g-spacing-medium, 1rem);
+    --slds-c-button-radius-border: var(--com-c-button-radius-border, var(--dxp-s-button-radius-border));
+}
+
+.menu-content {
+    min-width: 12.5rem;
+}
+
+.menu-info-item {
+    display: flex;
+    align-items: center;
+    gap: var(--dxp-g-spacing-x-small, 0.5rem);
+    padding: var(--dxp-g-spacing-x-small, 0.5rem) var(--dxp-g-spacing-small, 0.75rem);
+    font-size: var(--dxp-g-font-size-3, 0.875rem);
+    color: var(--dxp-g-text-color, #444);
+}
+
+.menu-info-item_loading {
+    justify-content: center;
+}
+
+.menu-info-item_vertical {
+    flex-direction: column;
+    align-items: flex-start;
+}

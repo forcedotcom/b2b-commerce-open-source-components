@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Template Items</masterLabel>
+  <description>Renders order template (wishlist) items as a paginated grid or list of product cards.</description>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="items" type="String" default="{!OrderTemplate.Details.page.items}"></property>
+      <property name="layout" label="Layout" type="String" default="grid"></property>
+      <property name="pageSize" label="Items Per Page" type="Integer" default="12" min="1"></property>
+      <property name="maximumPagesDisplayed" label="Maximum Pages Displayed" type="Integer" default="7" min="1"></property>
+      <property name="showProductImage" label="Show Product Image" type="Boolean" default="true"></property>
+      <property name="showWishlistIcon" label="Show Remove Icon" type="Boolean" default="true"></property>
+      <property name="showSku" label="Show SKU" type="Boolean" default="false"></property>
+      <property name="skuLabel" label="SKU Label" type="String" default="SKU:" translatable="true"></property>
+      <property name="showSeeConfiguration" label="Show View Bundle" type="Boolean" default="false"></property>
+      <property name="getChildrenLabel" label="View Bundle Label" type="String" default="View Details" translatable="true"></property>
+      <property name="quantityLabel" label="Quantity Label" type="String" default="Qty" translatable="true"></property>
+      <property name="modalSkuLabel" label="Configuration SKU Label" type="String" default="SKU" translatable="true"></property>
+      <designLayout>
+        <designSection name="Layout">
+          <designLayoutItems>
+            <designLayoutProperty name="items" cbVisibleIf="items=false"></designLayoutProperty>
+            <designLayoutProperty name="layout"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Grid Settings">
+          <designLayoutItems>
+            <designLayoutProperty name="showProductImage"></designLayoutProperty>
+            <designLayoutProperty name="showWishlistIcon"></designLayoutProperty>
+            <designLayoutProperty name="showSku"></designLayoutProperty>
+            <designLayoutProperty name="skuLabel" cbVisibleIf="showSku=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Bundle Details">
+          <designLayoutItems>
+            <designLayoutProperty name="showSeeConfiguration"></designLayoutProperty>
+            <designLayoutProperty name="getChildrenLabel" cbVisibleIf="showSeeConfiguration=true"></designLayoutProperty>
+            <designLayoutProperty name="quantityLabel" cbVisibleIf="showSeeConfiguration=true"></designLayoutProperty>
+            <designLayoutProperty name="modalSkuLabel" cbVisibleIf="showSeeConfiguration=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Pagination">
+          <designLayoutItems>
+            <designLayoutProperty name="pageSize"></designLayoutProperty>
+            <designLayoutProperty name="maximumPagesDisplayed"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

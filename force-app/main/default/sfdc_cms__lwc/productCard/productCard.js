@@ -3,8 +3,8 @@ import { generateStyleProperties, generateTextDecorationStyle } from 'experience
 import { generateUrl, navigate, NavigationContext } from 'lightning/navigation';
 import { getPrimaryPrice, getSecondaryPrice } from './pricingService';
 import { cartItemAdd, toCommerceError } from 'commerce/checkoutCartApi';
-import { addToCartErrorText, removeErrorText, productQuickViewButtonLabel } from './labels';
-import { getLabelForToast } from './labelTextGenerator';
+import { addToCartErrorText, removeErrorText, productQuickViewButtonLabel, evergreenMonthlySubscriptionTypeText, evergreenAnnualSubscriptionTypeText, termDefinedMonthlySubscriptionTypeText, termDefinedAnnualSubscriptionTypeText } from './labels';
+import { getLabelForToast, getSubscriptionPillText } from './labelTextGenerator';
 import { createCartItemAddDataEvent, createProductRecommendationDataEvent, createWishlistItemAddDataEvent, createWishlistItemRemoveDataEvent, dispatchDataEvent, getAndRemoveSearchCorrelationId, updateSearchCorrelationId } from 'commerce/dataEventApi';
 import Toast from 'site/commonToast';
 import BasePath from '@salesforce/community/basePath';
@@ -65,6 +65,7 @@ export default class ProductCard extends LightningElement {
     this._item = val;
     if (isWishlistItemData(val)) {
       this._normalizedItem = transformWishlistItemData(val);
+      this._wishlistItemId = val.wishlistItemId ?? undefined;
       if (isPreviewMode) {
         this._isOnWishlist = true;
       }
@@ -218,6 +219,10 @@ export default class ProductCard extends LightningElement {
   @api
   showQuantityRulesText = false;
   @api
+  showItemQuantity = false;
+  @api
+  itemQuantityLabel;
+  @api
   showProductQuickView = false;
   @api
   showWishlistInQuickView = false;
@@ -237,6 +242,12 @@ export default class ProductCard extends LightningElement {
   _quantity = 1;
   get isWishlistPage() {
     return isWishlistItemData(this._item);
+  }
+  get _itemQuantity() {
+    if (!isWishlistItemData(this._item)) {
+      return undefined;
+    }
+    return this._item.quantity ?? undefined;
   }
   get isOnWishlist() {
     if (this._isOnWishlistOverride !== undefined) {
@@ -286,6 +297,17 @@ export default class ProductCard extends LightningElement {
   }
   get _subscriptionOptionsLabel() {
     return this.subscriptionOptionsLabel;
+  }
+  get _subscriptionPillText() {
+    if (!this.shouldIncludePSMs(this.appContext?.data)) {
+      return '';
+    }
+    return getSubscriptionPillText(this._normalizedItem?.subscriptionType, this._normalizedItem?.subscriptionTermUnit, this._normalizedItem?.subscriptionTerm, {
+      evergreenMonthlySubscriptionTypeText,
+      evergreenAnnualSubscriptionTypeText,
+      termDefinedMonthlySubscriptionTypeText,
+      termDefinedAnnualSubscriptionTypeText
+    });
   }
   get _sku() {
     return this.showSku ? this._normalizedItem?.sku || '' : '';
@@ -351,11 +373,14 @@ export default class ProductCard extends LightningElement {
   }
   get _wishlistIconVisible() {
     const item = this._normalizedItem;
+    const isLoggedIn = this.sessionContext?.data?.isLoggedIn;
+    if (this.isWishlistPage) {
+      return Boolean(this.showWishlistIcon && isLoggedIn);
+    }
     const isSubscription = this._isSubscriptionProduct;
     const isVariation = item?.productClass === 'VariationParent';
     const isConfigurable = item?.isConfigurationAllowed;
     const isSimpleProduct = !isSubscription && !isVariation && !isConfigurable;
-    const isLoggedIn = this.sessionContext?.data?.isLoggedIn;
     return Boolean(this.showWishlistIcon && isLoggedIn && isSimpleProduct);
   }
   get listPrice() {
@@ -637,6 +662,9 @@ export default class ProductCard extends LightningElement {
     productFields: ['CurrencyIsoCode', 'Description', 'DisplayUrl', 'Family', 'Name', 'ProductCode', 'QuantityUnitOfMeasure', 'StockKeepingUnit', 'ProductClass']
   })
   receiveWishlistData(response) {
+    if (this.isWishlistPage) {
+      return;
+    }
     if (response.loaded && !response.error && response.data) {
       const item = response.data.displayedList?.page?.items?.find(wishlistItem => wishlistItem.productSummary?.productId === this._productId);
       if (item?.wishlistItemId && response.data.displayedList?.summary?.id) {

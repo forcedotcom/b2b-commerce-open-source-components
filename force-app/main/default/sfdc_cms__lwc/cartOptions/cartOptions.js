@@ -3,6 +3,7 @@ import { getCarts, cartReload } from 'commerce/checkoutCartApi';
 import { createCartDeleteAction, createCartMakePrimaryAction, createCartClearAction, dispatchAction } from 'commerce/actionApi';
 import CartOptionsConfirmationModal from 'site/cartOptionsConfirmationModal';
 import CreateCartModal from 'site/cartCreateModal';
+import SaveCartAsTemplateModal from 'site/cartSaveAsTemplateModal';
 import Toast from 'site/commonToast';
 import LABELS from './labels';
 export default class CartOptions extends LightningElement {
@@ -25,6 +26,18 @@ export default class CartOptions extends LightningElement {
   markAsDefaultLabel;
   @api
   deleteCartLabel;
+  @api
+  showSaveAsTemplateOption;
+  @api
+  showGoBackButton;
+  @api
+  templateNameLabel;
+  @api
+  templateDescriptionLabel;
+  @api
+  newTemplateButtonLabel;
+  @api
+  saveAsTemplateCancelLabel;
   isLoading = false;
   get _optionsLabel() {
     return this.optionsDropdownLabel || LABELS.optionsLabel;
@@ -38,6 +51,9 @@ export default class CartOptions extends LightningElement {
   get _markAsDefaultLabel() {
     return this.markAsDefaultLabel || LABELS.setAsDefault;
   }
+  get _saveAsTemplateLabel() {
+    return LABELS.saveAsTemplate;
+  }
   get options() {
     const opts = [{
       label: this._editCartLabel,
@@ -50,6 +66,12 @@ export default class CartOptions extends LightningElement {
       opts.push({
         label: this._markAsDefaultLabel,
         value: 'setAsDefault'
+      });
+    }
+    if (this.showSaveAsTemplateOption !== false) {
+      opts.push({
+        label: this._saveAsTemplateLabel,
+        value: 'saveAsTemplate'
       });
     }
     return opts;
@@ -72,6 +94,9 @@ export default class CartOptions extends LightningElement {
           break;
         case 'setAsDefault':
           await this.handleSetAsDefault();
+          break;
+        case 'saveAsTemplate':
+          await this.handleSaveAsTemplate();
           break;
         default:
           console.warn('[cartOptions] Unknown action:', action);
@@ -99,6 +124,25 @@ export default class CartOptions extends LightningElement {
       }
     } catch (error) {
       console.error('[cartOptions] Error opening edit modal:', error);
+    }
+  }
+  async handleSaveAsTemplate() {
+    if (!this.cartData?.cartId) {
+      return;
+    }
+    try {
+      await SaveCartAsTemplateModal.open({
+        size: 'small',
+        cartId: this.cartData.cartId,
+        cartName: this.cartData.name,
+        showGoBackButton: this.showGoBackButton !== false,
+        templateNameLabel: this.templateNameLabel,
+        templateDescriptionLabel: this.templateDescriptionLabel,
+        newTemplateButtonLabel: this.newTemplateButtonLabel,
+        cancelButtonLabel: this.saveAsTemplateCancelLabel
+      });
+    } catch (error) {
+      console.error('[cartOptions] Error opening save as template modal:', error);
     }
   }
   async handleClear() {

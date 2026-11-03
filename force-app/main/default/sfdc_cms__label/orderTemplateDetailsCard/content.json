@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateDetailsCard",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "itemsLabel",
+      "value" : "Items"
+    } ]
+  },
+  "urlName" : "ordertemplatedetailscard"
+}

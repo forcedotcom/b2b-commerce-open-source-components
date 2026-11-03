@@ -1,0 +1,26 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateView",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "alternativeSpinnerText",
+      "value" : "Loading"
+    }, {
+      "name" : "addToCartError",
+      "value" : "We couldn’t add Product \"{productName}\" to cart. Try again."
+    }, {
+      "name" : "removeError",
+      "value" : "We couldn’t remove Product \"{productName}\" from My List. Try again later."
+    }, {
+      "name" : "loadErrorMessage",
+      "value" : "We couldn't load the templates."
+    }, {
+      "name" : "errorHeading",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Please try again, or contact us for assistance."
+    } ]
+  },
+  "urlName" : "ordertemplateview"
+}

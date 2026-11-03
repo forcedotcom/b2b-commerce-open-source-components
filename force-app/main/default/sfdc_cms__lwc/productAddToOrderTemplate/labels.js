@@ -1,0 +1,13 @@
+import addToOrderTemplate from '@salesforce/label/site.productAddToOrderTemplate.addToOrderTemplate';
+import itemsLabel from '@salesforce/label/site.productAddToOrderTemplate.itemsLabel';
+import itemSingularLabel from '@salesforce/label/site.productAddToOrderTemplate.itemSingularLabel';
+import addToOrderTemplateSuccessToast from '@salesforce/label/site.productAddToOrderTemplate.addToOrderTemplateSuccessToast';
+import addToOrderTemplateFailureToast from '@salesforce/label/site.productAddToOrderTemplate.addToOrderTemplateFailureToast';
+import fetchOrderTemplatesNoResult from '@salesforce/label/site.productAddToOrderTemplate.fetchOrderTemplatesNoResult';
+import fetchOrderTemplatesErrorLine1 from '@salesforce/label/site.productAddToOrderTemplate.fetchOrderTemplatesErrorLine1';
+import fetchOrderTemplatesErrorLine2 from '@salesforce/label/site.productAddToOrderTemplate.fetchOrderTemplatesErrorLine2';
+import fetchOrderTemplatesLoading from '@salesforce/label/site.productAddToOrderTemplate.fetchOrderTemplatesLoading';
+import createNewTemplate from '@salesforce/label/site.productAddToOrderTemplate.createNewTemplate';
+import openModalError from '@salesforce/label/site.productAddToOrderTemplate.openModalError';
+import configurableProductError from '@salesforce/label/site.productAddToOrderTemplate.configurableProductError';
+export { addToOrderTemplate, itemsLabel, itemSingularLabel, addToOrderTemplateSuccessToast, addToOrderTemplateFailureToast, fetchOrderTemplatesNoResult, fetchOrderTemplatesErrorLine1, fetchOrderTemplatesErrorLine2, fetchOrderTemplatesLoading, createNewTemplate, openModalError, configurableProductError };

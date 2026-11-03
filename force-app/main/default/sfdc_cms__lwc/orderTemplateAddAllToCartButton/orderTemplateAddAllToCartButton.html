@@ -1,0 +1,75 @@
+<template lwc:render-mode="light">
+    <!-- Always-in-DOM live regions (content updated dynamically) -->
+    <span
+        class="slds-assistive-text"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true">
+        <template lwc:if={_showAssistiveErrorMirror}>{_fetchCartsErrorLabel}</template>
+    </span>
+    <span
+        class="slds-assistive-text"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true">
+        {_politeStatusText}
+    </span>
+
+    <!-- Multi-cart mode: dropdown listing available carts -->
+    <template lwc:if={isMultiCartEnabled}>
+        <lightning-button-menu
+            class="order-template-add-all-to-cart-button"
+            label={_addAllToCartButtonLabelText}
+            icon-name="utility:chevrondown"
+            menu-alignment="left"
+            variant={_menuVariant}
+            onopen={handleCartMenuOpen}
+            onselect={handleAddAllToCart}>
+            <div class="menu-content">
+                <template lwc:if={_showLoading}>
+                    <li
+                        class="menu-info-item menu-info-item_loading"
+                        role="presentation">
+                        <lightning-spinner
+                            alternative-text={_fetchCartsLoadingLabel}
+                            size="x-small"></lightning-spinner>
+                        <span>{_fetchCartsLoadingLabel}</span>
+                    </li>
+                </template>
+                <template lwc:elseif={_hasCarts}>
+                    <template
+                        for:each={carts}
+                        for:item="cart">
+                        <lightning-menu-item
+                            key={cart.id}
+                            value={cart.id}
+                            label={cart.label}></lightning-menu-item>
+                    </template>
+                </template>
+                <template lwc:elseif={_hasNoCarts}>
+                    <li
+                        class="menu-info-item"
+                        role="presentation">
+                        <span>{_fetchCartsNoResultLabel}</span>
+                    </li>
+                </template>
+                <template lwc:elseif={_showFetchError}>
+                    <li
+                        class="menu-info-item menu-info-item_vertical"
+                        role="presentation">
+                        <span>{_fetchCartsErrorLabel}</span>
+                    </li>
+                </template>
+            </div>
+        </lightning-button-menu>
+    </template>
+
+    <!-- Single-cart mode: plain button, adds directly to active cart -->
+    <template lwc:else>
+        <lightning-button
+            class="order-template-add-all-to-cart-button"
+            label={_addAllToCartButtonLabelText}
+            variant={_buttonVariant}
+            onclick={handleSingleCartClick}></lightning-button>
+    </template>
+</template>

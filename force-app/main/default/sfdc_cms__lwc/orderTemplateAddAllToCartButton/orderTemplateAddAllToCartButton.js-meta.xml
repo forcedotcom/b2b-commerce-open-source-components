@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Template Add All to Cart Button</masterLabel>
+  <description>Button to add all items from an order template to a cart</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderTemplateSummaryData" label="Expression" type="String" default="{!OrderTemplateList}"></property>
+      <property name="addAllToCartButtonLabel" label="Add to Cart Button Text" type="String" default="Add to Cart" translatable="true"></property>
+      <property name="variant" label="Button Style" type="String" default="secondary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <designLayout>
+        <designSection name="Add All to Cart">
+          <designLayoutItems>
+            <designLayoutProperty name="orderTemplateSummaryData" cbVisibleIf="orderTemplateSummaryData=hidden"></designLayoutProperty>
+            <designLayoutProperty name="addAllToCartButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

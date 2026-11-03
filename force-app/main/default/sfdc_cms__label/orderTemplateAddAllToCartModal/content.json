@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateAddAllToCartModal",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addAllToCartModalDefaultHeader",
+      "value" : "Added to cart"
+    }, {
+      "name" : "addAllToCartModalPartialHeader",
+      "value" : "Some items are unavailable"
+    }, {
+      "name" : "addAllToCartModalAllFailedHeader",
+      "value" : "All items are unavailable"
+    }, {
+      "name" : "addAllToCartModalErrorHeader",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "addAllToCartModalViewCartButton",
+      "value" : "View Cart"
+    }, {
+      "name" : "addAllToCartModalContinueShoppingButton",
+      "value" : "Continue Shopping"
+    }, {
+      "name" : "addAllToCartModalCloseButton",
+      "value" : "Close"
+    } ]
+  },
+  "urlName" : "ordertemplateaddalltocartmodal"
+}

@@ -14,6 +14,18 @@
     }, {
       "name" : "productQuickViewButtonLabel",
       "value" : "Quick View"
+    }, {
+      "name" : "evergreenMonthlySubscriptionTypeText",
+      "value" : "Monthly Subscription"
+    }, {
+      "name" : "evergreenAnnualSubscriptionTypeText",
+      "value" : "Annual Subscription"
+    }, {
+      "name" : "termDefinedMonthlySubscriptionTypeText",
+      "value" : "{subscriptionTerm} month subscription"
+    }, {
+      "name" : "termDefinedAnnualSubscriptionTypeText",
+      "value" : "{subscriptionTerm} year subscription"
     } ]
   },
   "urlName" : "productcard"

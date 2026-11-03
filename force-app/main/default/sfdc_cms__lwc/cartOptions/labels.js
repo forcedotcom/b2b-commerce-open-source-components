@@ -21,6 +21,7 @@ import setAsDefaultSuccessMessage from '@salesforce/label/site.cartOptions.setAs
 import setAsDefaultErrorMessage from '@salesforce/label/site.cartOptions.setAsDefaultErrorMessage';
 import deleteCartSpinnerHelpText from '@salesforce/label/site.cartOptions.deleteCartSpinnerHelpText';
 import setAsDefaultSpinnerHelpText from '@salesforce/label/site.cartOptions.setAsDefaultSpinnerHelpText';
+import saveAsTemplate from '@salesforce/label/site.cartOptions.saveAsTemplate';
 export default {
   optionsLabel,
   editCart,
@@ -44,5 +45,6 @@ export default {
   setAsDefaultSuccessMessage,
   setAsDefaultErrorMessage,
   deleteCartSpinnerHelpText,
-  setAsDefaultSpinnerHelpText
+  setAsDefaultSpinnerHelpText,
+  saveAsTemplate
 };
