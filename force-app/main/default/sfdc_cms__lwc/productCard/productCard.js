@@ -37,7 +37,7 @@ function decodeHtmlEntities(value) {
   if (!value) {
     return '';
   }
-  return value.replace(/&quot;/g, '"').replace(/'/g, "'").replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+  return value.replace(/&quot;/g, '"').replace(/\x26#39;/g, "'").replace(/&apos;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 }
 export default class ProductCard extends LightningElement {
   static renderMode = 'light';
