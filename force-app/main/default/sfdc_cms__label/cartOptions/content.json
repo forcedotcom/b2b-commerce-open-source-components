@@ -71,9 +71,6 @@
     }, {
       "name" : "setAsDefaultSpinnerHelpText",
       "value" : "Saving..."
-    }, {
-      "name" : "saveAsTemplate",
-      "value" : "Add to Template"
     } ]
   },
   "urlName" : "cartoptions"
