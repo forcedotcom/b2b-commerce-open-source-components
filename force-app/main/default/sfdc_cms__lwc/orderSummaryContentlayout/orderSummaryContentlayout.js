@@ -53,7 +53,10 @@ export default class OrderSummaryContentlayout extends LightningElement {
     return this.isAuthUser && this.hasError;
   }
   get hasError() {
-    return this.orderSummaryDetails !== undefined && this.orderSummaryDetails?.id === null || (this._errors || []).length > 0;
+    const details = this.orderSummaryDetails;
+    const isNotFoundResponse = details !== undefined && details?.id === null && !details.status;
+    const hasFetchError = (this._errors || []).length > 0;
+    return isNotFoundResponse || hasFetchError;
   }
   get showContent() {
     return !this.showLoader && !this.hasError;

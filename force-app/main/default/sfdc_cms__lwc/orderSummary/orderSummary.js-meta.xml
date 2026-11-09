@@ -22,6 +22,10 @@
       <property name="borderColor" label="Border Color" type="Color" default="#ecebea"></property>
       <property name="imageSize" label="Image Size" type="String" default="contain" datasource="cover,contain"></property>
       <property name="imageAspectRatio" label="Image Aspect Ratio" type="String" default="1"></property>
+      <property name="showTooltip" label="Show Tooltip" type="Boolean" default="true" description="Show an information icon next to the order status for pending and failed orders. On hover, it displays the pending or failed message depending on the order&apos;s state. Completed orders show no icon."></property>
+      <property name="pendingTooltipMessage" label="Pending Tooltip Message" type="String" default="Order awaiting confirmation." translatable="true"></property>
+      <property name="failedTooltipMessage" label="Failed Tooltip Message" type="String" default="Order failed. Please reach out for help." translatable="true"></property>
+      <property name="showOrderFailureMessage" label="Show Order Failure Message" type="Boolean" default="true" description="Show the order&apos;s failure reason beneath the status for failed orders."></property>
       <designLayout>
         <designSection>
           <designLayoutItems>
@@ -31,9 +35,17 @@
             <designLayoutProperty name="viewDetailsLinkLabel"></designLayoutProperty>
             <designLayoutProperty name="showReorderButton"></designLayoutProperty>
             <designLayoutProperty name="reorderButtonLabel" cbVisibleIf="showReorderButton"></designLayoutProperty>
+            <designLayoutProperty name="showOrderFailureMessage"></designLayoutProperty>
             <designLayoutProperty name="imageAspectRatio"></designLayoutProperty>
             <designLayoutProperty name="imageSize"></designLayoutProperty>
             <designLayoutProperty name="orderSummaryFieldMapping"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Tooltip">
+          <designLayoutItems>
+            <designLayoutProperty name="showTooltip"></designLayoutProperty>
+            <designLayoutProperty name="pendingTooltipMessage" cbVisibleIf="showTooltip"></designLayoutProperty>
+            <designLayoutProperty name="failedTooltipMessage" cbVisibleIf="showTooltip"></designLayoutProperty>
           </designLayoutItems>
         </designSection>
       </designLayout>

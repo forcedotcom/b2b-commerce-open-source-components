@@ -14,6 +14,7 @@
     </targetConfig>
     <targetConfig targets="lightningCommunity__Default">
       <property name="orderSummaryId" label="Order Summary ID" type="String" default="{!recordId}"></property>
+      <property name="orderDetails" label="Expression" type="String" default="{!Order.Details}"></property>
       <property name="buttonText" label="Button Text" type="String" default="Start Reorder" translatable="true"></property>
       <property name="variant" label="Button Style" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
       <property name="size" label="Button Size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
@@ -23,6 +24,7 @@
         <designSection>
           <designLayoutItems>
             <designLayoutProperty name="orderSummaryId"></designLayoutProperty>
+            <designLayoutProperty name="orderDetails"></designLayoutProperty>
             <designLayoutProperty name="variant"></designLayoutProperty>
             <designLayoutProperty name="size"></designLayoutProperty>
             <designLayoutProperty name="width"></designLayoutProperty>

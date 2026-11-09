@@ -72,8 +72,15 @@
                                         "type": "region",
                                         "children": [
                                             {
-                                                "definition": "commerce_builder:orderSummary",
+                                                "definition": "site:orderSummary",
                                                 "type": "component",
+                                                "attributes": {
+                                                    "order": "{!OrderSummary}",
+                                                    "showTooltip": true,
+                                                    "showOrderFailureMessage": true,
+                                                    "pendingTooltipMessage": "Order awaiting confirmation.",
+                                                    "failedTooltipMessage": "Order failed. Please reach out for help."
+                                                },
                                                 "children": [
                                                     {
                                                         "name": "orderNumberLabel",

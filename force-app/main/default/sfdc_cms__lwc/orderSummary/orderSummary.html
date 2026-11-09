@@ -1,21 +1,34 @@
 <template lwc:render-mode="light">
     <site-order-summary-ui
-        lwc:if={order}
+        lwc:if={_resolvedOrder}
         style={_customStyles}
-        order-id={order.orderSummaryId}
-        order-number={order.orderNumber}
-        currency-code={order.currencyIsoCode}
-        status={order.status}
-        products={order.products}
+        order-id={_resolvedOrder.orderSummaryId}
+        order-number={_resolvedOrder.orderNumber}
+        currency-code={_resolvedOrder.currencyIsoCode}
+        status={_resolvedOrder.status}
+        status-display-text={_resolvedStatus}
+        products={_resolvedOrder.products}
         product-count={productCount}
         order-detail-url={_orderDetailUrl}
-        ordered-date={order.orderedDate}
+        ordered-date={_resolvedOrder.orderedDate}
         fields={_orderFieldsData}
         view-details-link-label={viewDetailsLinkLabel}
         reorder-button-label={_reorderButtonLabel}
+        show-tooltip={showTooltip}
+        pending-tooltip-message={pendingTooltipMessage}
+        failed-tooltip-message={failedTooltipMessage}
+        sub-status={_subStatus}
+        show-order-failure-message={showOrderFailureMessage}
         onreorder={handleReorder}
         onnavigatetoorderdetail={handleOrderDetailNavigation}>
         <span slot="orderNumberLabel"><slot name="orderNumberLabel"></slot></span>
-        <span slot="orderNumber"><slot name="orderNumber"></slot></span>
+        <span slot="orderNumber">
+            <template lwc:if={_isPreviewMode}>
+                <span class="slds-text-heading_small">{_resolvedOrder.orderNumber}</span>
+            </template>
+            <template lwc:else>
+                <slot name="orderNumber"></slot>
+            </template>
+        </span>
     </site-order-summary-ui>
 </template>

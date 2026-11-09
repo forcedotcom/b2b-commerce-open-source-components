@@ -226,7 +226,7 @@
                                                                 "attributes": {
                                                                     "paddingHorizontal": "none",
                                                                     "paddingVertical": "none",
-                                                                    "text": "{!Order.Details.status}",
+                                                                    "text": "{!Order.Details.fields.Status.text}",
                                                                     "textAlign": "left",
                                                                     "textDecoration": "{\"bold\": true}",
                                                                     "textColor": "#0D825D",

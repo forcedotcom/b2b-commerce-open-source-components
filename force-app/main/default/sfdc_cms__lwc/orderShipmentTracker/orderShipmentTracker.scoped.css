@@ -1,0 +1,13 @@
+.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+}
+.status-tooltip {
+    display: inline-flex;
+    transform: scale(1.3);
+    transform-origin: center;
+}
+
+.order-sub-status {
+    color: var(--com-c-order-shipment-tracker-sub-status-color, #da0000);
+    font-weight: var(--dxp-c-strong-text-weight);
+}

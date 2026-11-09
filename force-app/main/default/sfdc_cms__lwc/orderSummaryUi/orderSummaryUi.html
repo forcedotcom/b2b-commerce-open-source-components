@@ -12,7 +12,7 @@
             <div class="slds-grid slds-grid_align-end slds-grid_vertical-align-center order-actions">
                 <site-common-record-link
                     lwc:if={_showViewDetailsLink}
-                    record-id={orderId}
+                    record-id={_recordIdentifier}
                     label={viewDetailsLinkLabel}
                     object-api-name="OrderSummary"
                     assistive-text={_viewDetailAssistiveText}></site-common-record-link>
@@ -37,9 +37,20 @@
                 onclick={handleReorder}>
                 {reorderButtonLabel}
             </site-common-button-ui>
+            <div class="slds-grid slds-grid_vertical-align-center status-ctn">
+                <lightning-formatted-text
+                    class={_statusClass}
+                    value={_statusText}></lightning-formatted-text>
+                <lightning-helptext
+                    lwc:if={_showTooltipIcon}
+                    icon-name="utility:info_alt"
+                    class="slds-p-left_xx-small slds-p-bottom_xx-small status-tooltip"
+                    content={_tooltipMessage}></lightning-helptext>
+            </div>
             <lightning-formatted-text
-                class="bold slds-text-heading_medium"
-                value={status}></lightning-formatted-text>
+                lwc:if={_showSubStatus}
+                class="bold order-sub-status"
+                value={subStatus}></lightning-formatted-text>
             <site-common-field
                 class="bold slds-text-heading_small"
                 value={orderedDate}
