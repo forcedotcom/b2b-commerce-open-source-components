@@ -19,3 +19,14 @@
 .bold {
     font-weight: var(--dxp-c-strong-text-weight);
 }
+.status-pending-closed {
+    color: var(--com-c-order-summary-status-pending-closed-color, #eab24b);
+}
+.status-tooltip {
+    display: inline-flex;
+    transform: scale(1.8);
+    transform-origin: center;
+}
+.order-sub-status {
+    color: var(--com-c-order-summary-sub-status-color, #da0000);
+}

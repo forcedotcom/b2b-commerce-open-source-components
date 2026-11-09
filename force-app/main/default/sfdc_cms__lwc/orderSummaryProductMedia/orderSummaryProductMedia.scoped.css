@@ -1,0 +1,90 @@
+.image-area {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.4rem;
+}
+.image-area .tile {
+    aspect-ratio: var(--com-c-image-aspect-ratio, 1);
+    display: flex;
+    align-items: center;
+    border-radius: var(--com-c-order-history-images-border-radius, 5px);
+    border: var(--com-c-order-summary-product-media-mobile-border-size, 0.25rem) solid
+        var(--com-c-order-summary-product-media-bg-color, #f7f9fa);
+    background-color: var(--com-c-order-summary-product-media-bg-color, #f7f9fa);
+}
+.image-area .tile .tile-content,
+.image-area .tile svg {
+    width: 100%;
+    height: 100%;
+}
+.image-area .tile experience-picture {
+    object-fit: var(--com-c-order-summary-product-object-fit, contain);
+    display: flex;
+    padding: 0;
+}
+.image-area .tile.last-tile {
+    height: 100%;
+    background-color: initial;
+    border: 1.5px solid #d9dfe7;
+    text-decoration: none;
+    color: initial;
+}
+.image-area .tile.last-tile p {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: grid;
+}
+
+.media-container {
+    container-type: inline-size;
+    container-name: media-container;
+    width: 80%;
+}
+
+@media only screen and (max-width: 64em) {
+    .media-container {
+        width: 100%;
+    }
+}
+@container media-container (max-width: 48em) {
+    .image-area {
+        grid-template-columns: repeat(3, 1fr);
+        width: initial;
+        height: initial;
+        grid-auto-flow: initial;
+    }
+    .image-area figure:nth-child(6) {
+        display: none;
+    }
+    .image-area .last-tile.desktop-count {
+        display: none;
+    }
+    .image-area .last-tile.mobile-count {
+        display: block;
+    }
+}
+@container media-container (min-width: 48.0625em) {
+    .image-area .last-tile.desktop-count {
+        display: block;
+    }
+    .image-area .last-tile.mobile-count {
+        display: none;
+    }
+}
+@media only screen and (min-width: 48em) {
+    .image-area {
+        gap: 0.5rem;
+    }
+    .image-area .tile {
+        border-width: var(--com-c-order-summary-product-media-default-border-size, 0.5rem);
+    }
+}
+@media only screen and (min-width: 64.0625em) {
+    .image-area {
+        gap: 0.75rem;
+    }
+}

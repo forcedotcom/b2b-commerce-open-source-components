@@ -1,4 +1,4 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, api } from 'lwc';
 import { isPreviewMode } from 'experience/clientApi';
 import { errorHeading, errorDescription } from './labels';
 import BasePath from '@salesforce/community/basePath';
@@ -12,6 +12,15 @@ export default class OrderList extends LightningElement {
   static renderMode = 'light';
   static DXP_EVENT_NAME_NEXT_PAGE = 'nextpage';
   static DXP_EVENT_NAME_PREVIOUS_PAGE = 'previouspage';
+  @api
+  get includePendingAndFailedOrders() {
+    return this._includePendingAndFailedOrders;
+  }
+  set includePendingAndFailedOrders(value) {
+    this._includePendingAndFailedOrders = value;
+    this.syncIncludePendingAndFailedOrders();
+  }
+  _includePendingAndFailedOrders = false;
   _ordersCount;
   _error = false;
   _filterRange;
@@ -45,6 +54,7 @@ export default class OrderList extends LightningElement {
     this.addEventListener('filterbydate', this._handleDateFilterChange);
     this.addEventListener('loadingorders', this._handleLoadingOrders);
     this.addEventListener('initfilter', this._handleFilterInit);
+    this.syncIncludePendingAndFailedOrders();
   }
   disconnectedCallback() {
     this.removeEventListener('orderliststatus', this._handleStatus);
@@ -57,6 +67,13 @@ export default class OrderList extends LightningElement {
       this._isInitialFilter = false;
       this.handleDateFilterChange(this._initialFilterEvent);
     }
+    this.syncIncludePendingAndFailedOrders();
+  }
+  syncIncludePendingAndFailedOrders() {
+    const dataProvider = this.querySelector('commerce_data_provider-order-list-data-provider');
+    if (dataProvider) {
+      dataProvider.includePendingAndFailedOrders = this.includePendingAndFailedOrders;
+    }
   }
   handleStatus(event) {
     event.stopPropagation();
@@ -66,6 +83,7 @@ export default class OrderList extends LightningElement {
   handleLoadingOrders(event) {
     event.stopPropagation();
     this._isLoadingOrders = event?.detail?.loading;
+    this.syncIncludePendingAndFailedOrders();
   }
   handleFilterInit(event) {
     event.stopPropagation();
