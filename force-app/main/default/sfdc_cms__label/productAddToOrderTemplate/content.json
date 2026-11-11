@@ -1,0 +1,44 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "productAddToOrderTemplate",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addToOrderTemplate",
+      "value" : "Add to order template"
+    }, {
+      "name" : "itemsLabel",
+      "value" : "Items"
+    }, {
+      "name" : "itemSingularLabel",
+      "value" : "Item"
+    }, {
+      "name" : "addToOrderTemplateSuccessToast",
+      "value" : "{0} added to \"{1}\""
+    }, {
+      "name" : "addToOrderTemplateFailureToast",
+      "value" : "Failed to add {0} to \"{1}\""
+    }, {
+      "name" : "fetchOrderTemplatesNoResult",
+      "value" : "No order templates found"
+    }, {
+      "name" : "fetchOrderTemplatesErrorLine1",
+      "value" : "Something went wrong."
+    }, {
+      "name" : "fetchOrderTemplatesErrorLine2",
+      "value" : "Try again later."
+    }, {
+      "name" : "fetchOrderTemplatesLoading",
+      "value" : "Loading templates..."
+    }, {
+      "name" : "createNewTemplate",
+      "value" : "+ Create new template"
+    }, {
+      "name" : "openModalError",
+      "value" : "Failed to open create template dialog"
+    }, {
+      "name" : "configurableProductError",
+      "value" : "This product requires configuration before it can be added to an order template. Add it to your cart first, then save the cart to an order template."
+    } ]
+  },
+  "urlName" : "productaddtoordertemplate"
+}

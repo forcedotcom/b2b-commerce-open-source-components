@@ -1,0 +1,87 @@
+<template lwc:render-mode="light">
+    <!-- Empty state: shown at runtime when there are no items, and always in the
+         builder canvas (isDesignMode) so authors can preview/style it. Rendered
+         independently of the grid so both can show in design mode. -->
+    <section
+        lwc:if={showEmptyState}
+        class="order-template-empty"
+        data-automation="emptyState">
+        <img
+            class="order-template-empty-image"
+            src={_emptyTemplateImageUrl}
+            width="280"
+            height="206"
+            alt=""
+            aria-hidden="true" />
+        <h3 class="order-template-empty-heading">{_labels.emptyStateHeading}</h3>
+        <p class="order-template-empty-description">{_labels.emptyStateDescription}</p>
+    </section>
+
+    <!-- Items state: grid/list of product cards with paging. -->
+    <template lwc:if={showGrid}>
+        <ul
+            class={layoutContainerClass}
+            aria-label={_labels.itemsListAssistiveText}>
+            <template
+                for:each={pagedItems}
+                for:item="item">
+                <li
+                    key={item.wishlistItemId}
+                    class="order-template-item slds-border_bottom">
+                    <site-product-card
+                        class="order-template-card-item"
+                        card-layout={layout}
+                        item={item}
+                        show-product-image={showProductImage}
+                        show-sku={showSku}
+                        sku-label={skuLabel}
+                        show-wishlist-icon={showWishlistIcon}
+                        show-item-quantity
+                        item-quantity-label={_labels.itemQuantityLabel}></site-product-card>
+                    <!-- Bundle info row: the "View Details" link that opens the
+                         bundle configuration (child items / attributes) modal for
+                         this product. Mirrors the cart's bundle-info treatment
+                         (`commerce_cart/item`). Handler lives here because this
+                         component owns the per-item WishlistItemData. Shown only for
+                         bundle or configurable products (item.showConfigButton)
+                         so products with no configuration don't open an empty modal. The
+                         link label falls back to a coded default when the builder
+                         property is unset (see _getChildrenButtonLabel). -->
+                    <div
+                        lwc:if={item.showConfigButton}
+                        class="order-template-bundle-details">
+                        <site-common-button-ui
+                            class="order-template-get-children-link"
+                            variant="tertiary"
+                            data-item-id={item.wishlistItemId}
+                            onclick={handleGetChildren}>
+                            {_getChildrenButtonLabel}
+                        </site-common-button-ui>
+                    </div>
+                </li>
+            </template>
+        </ul>
+
+        <site-search-paging-control
+            lwc:if={showPagination}
+            class="order-template-paginator slds-p-top_large slds-p-bottom_medium"
+            current-page-number={currentPageNumber}
+            page-size={_pageSize}
+            maximum-pages-displayed={maximumPagesDisplayed}
+            total-item-count={totalItemCount}
+            onpagegoto={handleGotoPage}
+            onpageprevious={handlePreviousPage}
+            onpagenext={handleNextPage}></site-search-paging-control>
+    </template>
+
+    <!-- Overlay spinner shown while a bundle's child products are fetched before
+         the configuration modal opens (mirrors commerce_builder/cartItems). -->
+    <template lwc:if={isLoadingConfiguration}>
+        <div class="order-template-spinner-container">
+            <lightning-spinner
+                variant="brand"
+                size="large"
+                alternative-text={_labels.alternativeSpinnerText}></lightning-spinner>
+        </div>
+    </template>
+</template>

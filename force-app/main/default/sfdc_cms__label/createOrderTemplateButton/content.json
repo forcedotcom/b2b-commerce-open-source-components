@@ -1,0 +1,11 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "createOrderTemplateButton",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "newTemplateButton",
+      "value" : "New Template"
+    } ]
+  },
+  "urlName" : "createordertemplatebutton"
+}

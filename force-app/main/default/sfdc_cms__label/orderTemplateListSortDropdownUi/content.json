@@ -1,0 +1,17 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateListSortDropdownUi",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "sortByLabel",
+      "value" : "Sort By"
+    }, {
+      "name" : "sortDateCreatedNewest",
+      "value" : "Date Created (Newest)"
+    }, {
+      "name" : "sortDateCreatedOldest",
+      "value" : "Date Created (Oldest)"
+    } ]
+  },
+  "urlName" : "ordertemplatelistsortdropdownui"
+}

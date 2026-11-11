@@ -1,0 +1,14 @@
+.footer-content-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--dxp-g-spacing-small, 0.75rem);
+    flex-wrap: nowrap;
+}
+@media (max-width: 64em) {
+    .footer-content-container {
+        flex-direction: column-reverse;
+        justify-content: stretch;
+        align-items: stretch;
+        gap: var(--dxp-g-spacing-small, 0.75rem);
+    }
+}

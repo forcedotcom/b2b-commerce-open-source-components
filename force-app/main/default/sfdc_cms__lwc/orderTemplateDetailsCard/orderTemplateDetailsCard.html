@@ -1,0 +1,51 @@
+<template lwc:render-mode="light">
+    <div class={templateCardStyles}>
+        <!-- Block-link overlay covering the card (see the class JSDoc). Mirrors cartDetailsCardV2. -->
+        <a
+            class="card-link"
+            href={_cardLinkHref}
+            aria-label={_templateAriaLabel}
+            data-card-link
+            onclick={handleCardLinkClick}></a>
+        <div class="template-main">
+            <div class="template-information">
+                <div class="column column1">
+                    <!-- Template name exposed as a heading so assistive tech can
+                         navigate the list of cards by heading (WCAG 1.3.1 / 2.4.6).
+                         Level 3: card titles sit under the page/section headings.
+                         The heading role/level are gated on a non-empty name so a
+                         transient undefined-data render doesn't emit an empty
+                         heading (WCAG 2.4.6). The accessible name uses the FULL
+                         untruncated name (_templateAriaLabel) so a title longer
+                         than the display cap is announced in full, not clipped to
+                         the visible "..." text (WCAG 2.4.6 / 1.4.10). -->
+                    <div
+                        class="bold slds-text-heading_small template-name slds-p-bottom_x-small"
+                        role={_templateNameHeadingRole}
+                        aria-level={_templateNameHeadingLevel}
+                        aria-label={_templateAriaLabel}>
+                        <span>{_templateName}</span>
+                    </div>
+                    <div
+                        class="dxp-text-body items-count slds-p-bottom_x-small"
+                        lwc:if={_showItemCount}>
+                        <span>{_itemsLabel}</span>
+                    </div>
+                    <div
+                        class="dxp-text-body template-description"
+                        lwc:if={_showDescription}>
+                        <p>{_templateDescription}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="template-actions">
+                <div class="template-action-slot template-action-slot_add-all-to-cart">
+                    <slot name="addAllToCart"></slot>
+                </div>
+                <div class="template-action-slot template-action-slot_template-options">
+                    <slot name="templateOptions"></slot>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

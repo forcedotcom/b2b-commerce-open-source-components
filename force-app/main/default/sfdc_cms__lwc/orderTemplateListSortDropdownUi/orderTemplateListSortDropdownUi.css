@@ -1,0 +1,78 @@
+lightning-button-menu.sort-button-menu::part(button) {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    --sds-c-button-spacing-inlineend: 0px;
+    --sds-c-button-spacing-inlinestart: 0px;
+    --slds-s-button-spacing-inline: 0px;
+    font-weight: normal !important;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+}
+lightning-button-menu.sort-button-menu::part(button):hover {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+lightning-button-menu.sort-button-menu::part(button):focus,
+lightning-button-menu.sort-button-menu::part(button):focus-visible {
+    background: transparent !important;
+    outline: 1px solid var(--lwc-colorBorderBrand, #0176d3);
+    outline-offset: 2px;
+    box-shadow: none !important;
+}
+lightning-button-menu.sort-button-menu::part(button):active {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+lightning-button-menu.sort-button-menu .slds-button__label,
+lightning-button-menu.sort-button-menu .slds-button__label *,
+lightning-button-menu.sort-button-menu button,
+lightning-button-menu.sort-button-menu button * {
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    -webkit-text-decoration: none !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+lightning-button-menu.sort-button-menu:hover .slds-button__label,
+lightning-button-menu.sort-button-menu:focus .slds-button__label,
+lightning-button-menu.sort-button-menu:active .slds-button__label,
+lightning-button-menu.sort-button-menu .slds-button__label:hover,
+lightning-button-menu.sort-button-menu .slds-button__label:focus,
+lightning-button-menu.sort-button-menu .slds-button__label:active,
+lightning-button-menu.sort-button-menu:hover button,
+lightning-button-menu.sort-button-menu:focus button,
+lightning-button-menu.sort-button-menu:active button {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    -webkit-text-decoration: none !important;
+    font-weight: 400 !important;
+}
+@media (min-width: 769px) {
+    lightning-button-menu.sort-button-menu .slds-dropdown,
+    lightning-button-menu.sort-button-menu .slds-dropdown_fluid {
+        left: calc(-1 * (var(--lwc-spacingXSmall, 0.5rem) + 3.5rem)) !important;
+    }
+}
+@media (max-width: 768px) {
+    lightning-button-menu.sort-button-menu .slds-dropdown,
+    lightning-button-menu.sort-button-menu .slds-dropdown_fluid {
+        left: 0 !important;
+    }
+}
+lightning-button-menu.sort-button-menu lightning-menu-item.sort-menu-item {
+    font-size: 0.85rem !important;
+}
+lightning-button-menu.sort-button-menu lightning-menu-item.sort-menu-item .slds-truncate {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}

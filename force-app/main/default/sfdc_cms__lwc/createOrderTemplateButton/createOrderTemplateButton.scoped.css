@@ -1,0 +1,18 @@
+/* Light-DOM custom elements default to display: inline. Make the host a block
+   so the container can size it to full width on mobile (matches createCartButton). */
+:host {
+    display: block;
+}
+
+.new-template-button-content {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.add-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    fill: currentColor;
+}

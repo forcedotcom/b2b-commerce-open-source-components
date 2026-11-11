@@ -10,6 +10,7 @@ import { generateStyleProperties } from 'experience/styling';
 import { ProductErrors } from 'site/commerceErrors';
 import { createCartItemAddAction, createProductQuantityUpdateAction, createWishlistItemAddAction, dispatchAction } from 'commerce/actionApi';
 const GUEST_INSUFFICIENT_ACCESS = 'GUEST_INSUFFICIENT_ACCESS';
+const SELLING_MODEL_TYPE_TERM_DEFINED = 'TermDefined';
 
 /**
  * @slot combinedPurchaseQuantityRuleInfo
@@ -101,6 +102,12 @@ export default class ProductPurchaseOptions extends LightningElement {
   @api
   secondaryCartCountType;
   @api
+  showOrderTemplateButton;
+  @api
+  showItemCountInDropdown;
+  @api
+  orderTemplateCountType;
+  @api
   outOfStockText;
   @api
   configureButtonText;
@@ -167,11 +174,14 @@ export default class ProductPurchaseOptions extends LightningElement {
       '--com-c-button-radius-border': this.addToListButtonBorderRadius ? this.addToListButtonBorderRadius + 'px' : 'initial'
     });
   }
+  get isSubscriptionTermMissing() {
+    return this.selectedProductSellingModel?.detail?.sellingModelType === SELLING_MODEL_TYPE_TERM_DEFINED && !this.selectedProductSellingModel?.subscriptionTerm;
+  }
   get isAddToCartButtonDisabled() {
     if (isPreviewMode) {
       return false;
     }
-    return this.isCartProcessing || !this.productPricing || Object.keys(this.productPricing).length === 0 || this.productVariant?.isValid === false || this.product?.productClass === 'VariationParent' || (this.product?.productSellingModels?.length ?? 0) > 0 && !this.selectedProductSellingModel;
+    return this.isCartProcessing || !this.productPricing || Object.keys(this.productPricing).length === 0 || this.productVariant?.isValid === false || this.product?.productClass === 'VariationParent' || (this.product?.productSellingModels?.length ?? 0) > 0 && (!this.selectedProductSellingModel || this.isSubscriptionTermMissing);
   }
   handleAddToCart({
     detail,
@@ -244,8 +254,20 @@ export default class ProductPurchaseOptions extends LightningElement {
     const isVariationParent = this.product?.productClass === 'VariationParent';
     return this.isAddToCartButtonDisabled || hasPricing && this.productPricing.error !== undefined || invalidVariant && !isVariationParent;
   }
+  get displayOrderTemplateButton() {
+    return !!this.showOrderTemplateButton && this.isProductLoaded;
+  }
+  get isAddToOrderTemplateButtonDisabled() {
+    return this.isAddToSecondaryCartMenuDisabled;
+  }
   get isConfigurableProduct() {
     return Boolean(this.product?.isConfigurationAllowed);
+  }
+  get orderTemplateProductSellingModelId() {
+    return this.selectedProductSellingModel?.productSellingModelId;
+  }
+  get orderTemplateSubscriptionTerm() {
+    return this.selectedProductSellingModel?.subscriptionTerm;
   }
   get productId() {
     return this.product?.id;

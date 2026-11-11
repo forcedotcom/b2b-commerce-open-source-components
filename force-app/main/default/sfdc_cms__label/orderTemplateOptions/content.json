@@ -1,0 +1,38 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateOptions",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "optionsMenuLabel",
+      "value" : "Options"
+    }, {
+      "name" : "editTemplateLabel",
+      "value" : "Edit"
+    }, {
+      "name" : "deleteTemplateLabel",
+      "value" : "Delete"
+    }, {
+      "name" : "deleteConfirmTitle",
+      "value" : "Delete Template?"
+    }, {
+      "name" : "deleteConfirmMessage",
+      "value" : "This template will no longer be available in your store. This action cannot be undone."
+    }, {
+      "name" : "deleteConfirmButton",
+      "value" : "Delete"
+    }, {
+      "name" : "cancelButton",
+      "value" : "Cancel"
+    }, {
+      "name" : "deleteSuccessMessage",
+      "value" : "\"{templateName}\" was deleted."
+    }, {
+      "name" : "deleteFailureMessage",
+      "value" : "We couldn't delete \"{templateName}\". Try again."
+    }, {
+      "name" : "deletingTemplate",
+      "value" : "Deleting template..."
+    } ]
+  },
+  "urlName" : "ordertemplateoptions"
+}

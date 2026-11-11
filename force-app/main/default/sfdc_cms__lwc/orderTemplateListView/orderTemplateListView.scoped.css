@@ -1,0 +1,48 @@
+.order-template-list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-template-list-view-item {
+    min-width: 0;
+}
+
+.empty-description {
+    width: 95%;
+}
+
+.image-svg {
+    display: flex;
+    justify-content: center;
+}
+
+/* Fixed, aspect-preserving empty-state illustration (matches cartExportJobListView). */
+.image-svg img {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Normalize the slotted empty-body spacing to 16px (matches cartExportJobListView). */
+.empty-list-view-body {
+    --dxp-c-component-wrapper-spacer-size: 16px;
+}
+
+.error-icon-svg {
+    height: 8%;
+    width: 8%;
+}
+
+.order-template-list-loading {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem;
+}
+
+/* Design-mode only: gap so the empty sort-dropdown drop region stays droppable
+   apart from the first card. Runtime spacing is owned by the dropdown's own
+   margin-bottom. Mirrors cartListViewV2. */
+.order-template-list-sort-dropdown-slot.is-design-mode {
+    margin-bottom: var(--dxp-g-spacing-medium, 1rem);
+}

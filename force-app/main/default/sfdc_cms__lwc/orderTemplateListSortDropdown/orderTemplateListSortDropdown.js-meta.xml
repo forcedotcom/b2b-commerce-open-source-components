@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Template List Sort Dropdown</masterLabel>
+  <description>Sort dropdown for the order template list page. Provides Created Date sort options.</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="label" label="Sort By Option Title" type="String" default="Sort By" translatable="true"></property>
+      <property name="dateCreatedNewestLabel" label="Created Date (Newest First) Label" type="String" default="Created Date (Newest First)" translatable="true"></property>
+      <property name="dateCreatedOldestLabel" label="Created Date (Oldest First) Label" type="String" default="Created Date (Oldest First)" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="label"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Created Date">
+          <designLayoutItems>
+            <designLayoutProperty name="dateCreatedNewestLabel"></designLayoutProperty>
+            <designLayoutProperty name="dateCreatedOldestLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

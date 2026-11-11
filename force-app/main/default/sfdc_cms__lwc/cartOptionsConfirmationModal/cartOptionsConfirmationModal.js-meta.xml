@@ -4,4 +4,7 @@
   <isExposed>true</isExposed>
   <masterLabel>Cart Options Confirmation Modal</masterLabel>
   <description>Reusable confirmation modal for cart actions like delete and set-as-default</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
 </LightningComponentBundle>

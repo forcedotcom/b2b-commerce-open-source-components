@@ -1,0 +1,29 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateItems",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "wishlistPageAssistiveText",
+      "value" : "My List"
+    }, {
+      "name" : "emptyStateHeading",
+      "value" : "Your template is Empty"
+    }, {
+      "name" : "emptyStateDescription",
+      "value" : "When you add products to your template they’ll appear here."
+    }, {
+      "name" : "alternativeSpinnerText",
+      "value" : "Loading"
+    }, {
+      "name" : "productBundleDetails",
+      "value" : "Product details"
+    }, {
+      "name" : "loadErrorMessage",
+      "value" : "We couldn't load the templates."
+    }, {
+      "name" : "quantityLabel",
+      "value" : "Qty"
+    } ]
+  },
+  "urlName" : "ordertemplateitems"
+}

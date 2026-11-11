@@ -1,0 +1,24 @@
+<template lwc:render-mode="light">
+    <site-order-template-view
+        display-states={displayStates}
+        order-template-data={orderTemplateData}>
+        <slot
+            name="breadcrumb"
+            slot="breadcrumb"></slot>
+        <slot
+            name="headerLabel"
+            slot="headerLabel"></slot>
+        <slot
+            name="addAllButton"
+            slot="addAllButton"></slot>
+        <slot
+            name="options"
+            slot="options"></slot>
+        <slot
+            name="description"
+            slot="description"></slot>
+        <slot
+            name="itemsBody"
+            slot="itemsBody"></slot>
+    </site-order-template-view>
+</template>

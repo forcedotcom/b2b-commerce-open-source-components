@@ -1,4 +1,13 @@
 const PRODUCT_UNAVAILABLE_MESSAGE = 'FAILED_LOAD_PRODUCT_DETAILS';
+function toSubscriptionTermUnit(pricingTermUnit) {
+  if (pricingTermUnit === 'Months' || pricingTermUnit === 'Monthly') {
+    return 'Monthly';
+  }
+  if (pricingTermUnit === 'Annual') {
+    return 'Annual';
+  }
+  return null;
+}
 function isPurchasedProductSummaryData(product) {
   return Object.prototype.hasOwnProperty.call(product, 'isAvailable');
 }
@@ -66,6 +75,7 @@ export function transformProductData(product) {
   };
 }
 export function transformWishlistItemData(product) {
+  const subscriptionInfo = product.productSummary?.productSubscriptionInformation;
   return {
     id: product.productSummary?.productId ?? null,
     sku: product.productSummary?.sku ?? null,
@@ -77,7 +87,12 @@ export function transformWishlistItemData(product) {
       attributes: convertToProductAttributeSummary(product.productSummary?.variationAttributes || {})
     },
     purchaseQuantityRule: product.productSummary?.purchaseQuantityRule ?? null,
-    productSellingModelInformation: null,
+    productSellingModelInformation: subscriptionInfo?.sellingModelType ? {
+      isSubscriptionProduct: subscriptionInfo.sellingModelType !== 'OneTime'
+    } : null,
+    subscriptionType: subscriptionInfo?.sellingModelType ?? null,
+    subscriptionTermUnit: toSubscriptionTermUnit(subscriptionInfo?.pricingTermUnit),
+    subscriptionTerm: product.subscriptionTerm ?? null,
     isAvailable: PRODUCT_UNAVAILABLE_MESSAGE !== product?.error?.errorCode,
     currencyIsoCode: product.currencyIsoCode,
     salesPrice: product.salesPrice,

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Order Template Details Card</masterLabel>
+  <description>Displays order template summary information with name, items count, description, and action slots</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderTemplateSummaryData" label="Expression" type="String" default="{!OrderTemplateList}"></property>
+      <property name="showItemCount" label="Show Item Count in Dropdown" type="Boolean" default="true" description="Show the number of items in the template."></property>
+      <property name="countType" label="Shows the total quantity or the number of unique products in the template." type="String" translatable="false" datasource="java://siteforce.customComponent.datasource.B2BCartCountDataSource" default="TotalProductCount"></property>
+      <property name="itemsLabel" label="Items Label" type="String" default="Items" translatable="true"></property>
+      <designLayout>
+        <designSection name="Item Details">
+          <designLayoutItems>
+            <designLayoutProperty name="orderTemplateSummaryData" cbVisibleIf="orderTemplateSummaryData=hidden"></designLayoutProperty>
+            <designLayoutProperty name="itemsLabel" cbVisibleIf="showItemCount=true"></designLayoutProperty>
+            <designLayoutProperty name="showItemCount"></designLayoutProperty>
+            <designLayoutProperty name="countType" cbVisibleIf="showItemCount=true"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

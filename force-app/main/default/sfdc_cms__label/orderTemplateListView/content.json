@@ -1,0 +1,20 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateListView",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "loadingTemplates",
+      "value" : "Loading..."
+    }, {
+      "name" : "loadErrorMessage",
+      "value" : "We couldn't load the templates. Refresh the page and try again."
+    }, {
+      "name" : "errorHeading",
+      "value" : "Something went wrong"
+    }, {
+      "name" : "errorDescription",
+      "value" : "Please try again, or contact us for assistance."
+    } ]
+  },
+  "urlName" : "ordertemplatelistview"
+}

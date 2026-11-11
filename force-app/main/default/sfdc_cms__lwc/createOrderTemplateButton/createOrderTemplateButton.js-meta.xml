@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+  <apiVersion>68</apiVersion>
+  <isExposed>true</isExposed>
+  <masterLabel>Create Order Template Button</masterLabel>
+  <description>Button that opens a modal to create a new order template with name and description</description>
+  <capabilities>
+    <capability>lightning__ServerRenderableWithHydration</capability>
+  </capabilities>
+  <targets>
+    <target>lightningCommunity__Page</target>
+    <target>lightningCommunity__Default</target>
+  </targets>
+  <targetConfigs>
+    <targetConfig targets="lightningCommunity__Page">
+      <paletteSection>Open Code</paletteSection>
+    </targetConfig>
+    <targetConfig targets="lightningCommunity__Default">
+      <property name="orderTemplateListData" label="Expression" type="String" default="{!OrderTemplateList}"></property>
+      <property name="newTemplateButtonLabel" label="Button Text" type="String" default="New Template" translatable="true"></property>
+      <property name="variant" label="Button Style" type="String" default="primary" datasource="java://siteforce.customComponent.datasource.ButtonStyleDataSource"></property>
+      <property name="size" label="Button Size" type="String" default="standard" datasource="java://siteforce.customComponent.datasource.ButtonSizeDataSource"></property>
+      <property name="width" label="Max Button Width" type="String" default="stretch" datasource="java://siteforce.customComponent.datasource.ButtonStretchDataSource"></property>
+      <property name="templateNameLabel" label="Template Name Label" type="String" default="Template Name" translatable="true"></property>
+      <property name="templateDescriptionLabel" label="Description Label" type="String" default="Description (Optional)" translatable="true"></property>
+      <property name="saveButtonLabel" label="Save Button Label" type="String" default="Confirm &amp;amp; Save" translatable="true"></property>
+      <property name="cancelButtonLabel" label="Cancel Button Label" type="String" default="Cancel" translatable="true"></property>
+      <designLayout>
+        <designSection>
+          <designLayoutItems>
+            <designLayoutProperty name="orderTemplateListData" cbVisibleIf="orderTemplateListData=hidden"></designLayoutProperty>
+            <designLayoutProperty name="newTemplateButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="variant"></designLayoutProperty>
+            <designLayoutProperty name="size"></designLayoutProperty>
+            <designLayoutProperty name="width"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+        <designSection name="Create New Template">
+          <designLayoutItems>
+            <designLayoutProperty name="templateNameLabel"></designLayoutProperty>
+            <designLayoutProperty name="templateDescriptionLabel"></designLayoutProperty>
+            <designLayoutProperty name="saveButtonLabel"></designLayoutProperty>
+            <designLayoutProperty name="cancelButtonLabel"></designLayoutProperty>
+          </designLayoutItems>
+        </designSection>
+      </designLayout>
+    </targetConfig>
+  </targetConfigs>
+</LightningComponentBundle>

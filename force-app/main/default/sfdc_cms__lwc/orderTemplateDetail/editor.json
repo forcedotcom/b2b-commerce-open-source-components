@@ -1,0 +1,125 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderTemplateDetail",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "breadcrumb",
+                        "title": "Breadcrumb",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "commerce_builder:breadcrumbs",
+                                "type": "component",
+                                "attributes": {}
+                            }
+                        ]
+                    },
+                    {
+                        "name": "headerLabel",
+                        "title": "Header Label",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!OrderTemplate.Details.summary.name} ({!OrderTemplate.DisplayItemCount})",
+                                    "textDisplayInfo": "{\"headingTag\": \"h2\", \"textStyle\": \"heading-large\"}",
+                                    "textDecoration": "{\"bold\": false}",
+                                    "paddingHorizontal": "none",
+                                    "paddingVertical": "xx-small"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "addAllButton",
+                        "title": "Add All to Cart Button",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderTemplateAddAllToCartButton",
+                                "type": "component",
+                                "attributes": {
+                                    "orderTemplateSummaryData": "{!OrderTemplate.Details.summary}",
+                                    "addAllToCartButtonLabel": "Add to Cart",
+                                    "variant": "secondary"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "options",
+                        "title": "Options",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderTemplateOptions",
+                                "type": "component",
+                                "attributes": {
+                                    "orderTemplateSummaryData": "{!OrderTemplate.Details.summary}",
+                                    "optionsDropdownLabel": "Options",
+                                    "variant": "tertiary",
+                                    "editTemplateLabel": "Edit",
+                                    "deleteTemplateLabel": "Delete",
+                                    "templateNameLabel": "Template Name",
+                                    "templateDescriptionLabel": "Description (Optional)"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "description",
+                        "title": "Description",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "{!OrderTemplate.Details.summary.description}",
+                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}",
+                                    "paddingHorizontal": "none",
+                                    "paddingVertical": "xx-small"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "itemsBody",
+                        "title": "Items Body",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderTemplateItems",
+                                "type": "component",
+                                "attributes": {
+                                    "items": "{!OrderTemplate.Details.page.items}",
+                                    "layout": "grid",
+                                    "pageSize": 12,
+                                    "showProductImage": true,
+                                    "showWishlistIcon": true,
+                                    "skuLabel": "SKU:",
+                                    "getChildrenLabel": "View Details",
+                                    "quantityLabel": "Qty",
+                                    "modalSkuLabel": "SKU"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "dataProviders": [
+                    {
+                        "definition": "sfdc_cms__commerceOrderTemplateDataProvider",
+                        "type": "dataProvider",
+                        "sfdcExpressionKey": "OrderTemplate",
+                        "attributes": {}
+                    }
+                ]
+            }
+        }
+    ]
+}

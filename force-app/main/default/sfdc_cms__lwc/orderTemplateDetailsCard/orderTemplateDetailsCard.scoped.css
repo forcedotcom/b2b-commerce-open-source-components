@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/* Card owns the gap to the next card (repeater is itemSpacing "none"): 24px desktop, 16px mobile. */
+:host {
+    display: block;
+    margin-bottom: var(--dxp-g-spacing-large, 1.5rem);
+}
+
+.order-template-details-card {
+    display: flex;
+    flex-direction: column;
+    /* 24px internal padding on desktop (16px on mobile — see media block). */
+    padding: var(--dxp-g-spacing-large, 1.5rem);
+    border-radius: 16px;
+    box-shadow: none;
+    border: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    /*
+   * z-index AUTO (no stacking context) so the options-menu dropdown can escape
+   * upward and overlap the next card. Mirrors cartDetailsCardV2.
+   */
+    position: relative;
+    /*
+   * Block-link overlay covering the card. Positioned so it paints above the
+   * card body (clicks there navigate); the action slots below are positioned
+   * and later in DOM, so clicks on them reach the button/menu, not the link.
+   */
+    /* Positioned (z-index auto) so clicks land on the slotted button/menu, not the link. */
+}
+.order-template-details-card .card-link {
+    position: absolute;
+    inset: 0;
+    text-decoration: none;
+    color: inherit;
+    border-radius: inherit;
+}
+.order-template-details-card .card-link:focus-visible {
+    outline: 2px solid var(--dxp-s-link-text-color, var(--dxp-g-brand, #0176d3));
+    outline-offset: -2px;
+    border-radius: inherit;
+}
+.order-template-details-card .template-action-slot_add-all-to-cart,
+.order-template-details-card .template-action-slot_template-options {
+    position: relative;
+}
+.order-template-details-card .template-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+.order-template-details-card .template-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding-top: 1px;
+}
+.order-template-details-card .template-action-slot {
+    display: flex;
+    align-items: center;
+    width: max-content;
+}
+.order-template-details-card .template-information {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.75rem;
+    direction: ltr;
+}
+.order-template-details-card .template-information .column1 {
+    flex: 1 1 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: flex-start;
+    text-align: left;
+    direction: ltr;
+    min-width: 0;
+}
+.order-template-details-card .template-information .column1 > * {
+    text-align: left;
+    align-self: flex-start;
+    width: 100%;
+    box-sizing: border-box;
+}
+.order-template-details-card .template-information .column1 .template-name.bold {
+    font-weight: var(--dxp-c-strong-text-weight);
+    font-size: var(--dxp-g-font-size-5, 1rem);
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.order-template-details-card .template-information .column1 .items-count {
+    font-size: var(--dxp-g-font-size-3, 0.875rem);
+    color: var(
+        --com-c-order-template-details-card-detail-font-color,
+        var(--dxp-s-body-text-color, var(--dxp-g-root-contrast))
+    );
+}
+.order-template-details-card .template-information .column1 .template-description {
+    font-size: var(--dxp-g-font-size-3, 0.875rem);
+    color: var(--com-c-order-template-details-card-description-color, var(--dxp-s-body-text-color-muted, #706e6b));
+    margin: 0;
+}
+.order-template-details-card .template-information .column1 .template-description p {
+    margin: 0;
+}
+
+:host(:hover) .order-template-details-card {
+    border-color: var(--dxp-s-body-text-color, #1c1c1c);
+    cursor: pointer;
+}
+
+@media (max-width: 64em) {
+    :host {
+        /* 16px gap between cards on mobile. */
+        margin-bottom: var(--dxp-g-spacing-medium, 1rem);
+    }
+    .order-template-details-card {
+        gap: 0.75rem;
+        /* 16px internal padding on mobile. */
+        padding: var(--dxp-g-spacing-medium, 1rem);
+    }
+    .order-template-details-card .template-information {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        padding-bottom: 0.75rem;
+    }
+    .order-template-details-card .template-information .column1 {
+        flex: 8 0 0%;
+        padding-bottom: 0;
+    }
+    .order-template-details-card .template-actions {
+        justify-content: space-between;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--slds-g-color-border-base-1, #d9dfe7);
+    }
+
+    .order-template-details-card
+        .template-actions:has(.template-action-slot_add-all-to-cart .order-template-add-all-to-cart-button):has(
+            .template-action-slot_template-options lightning-button-menu
+        )
+        .template-action-slot {
+        flex: 1 1 0;
+        min-width: 0;
+        justify-content: center;
+        width: auto;
+    }
+
+    .order-template-details-card
+        .template-actions:not(:has(.template-action-slot_add-all-to-cart .order-template-add-all-to-cart-button)),
+    .order-template-details-card
+        .template-actions:not(:has(.template-action-slot_template-options lightning-button-menu)) {
+        justify-content: flex-end;
+    }
+}

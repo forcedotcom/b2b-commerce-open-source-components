@@ -1,0 +1,77 @@
+<template lwc:render-mode="light">
+    <!-- Assistive live regions for accessibility -->
+    <template lwc:if={_showAssistiveErrorMirror}>
+        <span
+            class="slds-assistive-text"
+            data-add-to-order-template-a11y="assertive"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true">
+            {_assistiveErrorStatusText}
+        </span>
+    </template>
+    <template lwc:elseif={_showAssistivePoliteMirror}>
+        <span
+            class="slds-assistive-text"
+            data-add-to-order-template-a11y="polite"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true">
+            {_assistivePoliteStatusText}
+        </span>
+    </template>
+    <lightning-button-menu
+        label={_addToOrderTemplateLabel}
+        disabled={disabled}
+        icon-name="utility:chevrondown"
+        menu-alignment="left"
+        variant="container"
+        onopen={handleOrderTemplateMenuOpen}
+        onselect={handleMenuSelect}>
+        <div class="menu-content">
+            <template lwc:if={_showLoading}>
+                <li
+                    class="menu-info-item menu-info-item_loading"
+                    role="presentation">
+                    <lightning-spinner
+                        alternative-text={_fetchOrderTemplatesLoadingLabel}
+                        size="x-small"></lightning-spinner>
+                    <span>{_fetchOrderTemplatesLoadingLabel}</span>
+                </li>
+            </template>
+            <template lwc:elseif={_hasOrderTemplates}>
+                <template
+                    for:each={orderTemplates}
+                    for:item="template">
+                    <lightning-menu-item
+                        key={template.id}
+                        value={template.id}
+                        label={template.label}></lightning-menu-item>
+                </template>
+                <lightning-menu-item
+                    value={_createNewTemplateValue}
+                    label={_createNewTemplateLabel}
+                    class="create-new-item"></lightning-menu-item>
+            </template>
+            <template lwc:elseif={_hasNoOrderTemplates}>
+                <li
+                    class="menu-info-item"
+                    role="presentation">
+                    <span>{_fetchOrderTemplatesNoResultLabel}</span>
+                </li>
+                <lightning-menu-item
+                    value={_createNewTemplateValue}
+                    label={_createNewTemplateLabel}
+                    class="create-new-item"></lightning-menu-item>
+            </template>
+            <template lwc:elseif={_showFetchError}>
+                <li
+                    class="menu-info-item menu-info-item_vertical"
+                    role="presentation">
+                    <span>{_fetchOrderTemplatesErrorLine1Label}</span>
+                    <span>{_fetchOrderTemplatesErrorLine2Label}</span>
+                </li>
+            </template>
+        </div>
+    </lightning-button-menu>
+</template>

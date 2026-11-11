@@ -1,0 +1,35 @@
+{
+  "type" : "sfdc_cms__label",
+  "title" : "orderTemplateAddAllToCartModalContents",
+  "contentBody" : {
+    "labels" : [ {
+      "name" : "addAllToCartModalSuccessSubheading",
+      "value" : "All items were added to the cart."
+    }, {
+      "name" : "addAllToCartModalErrorSubheading",
+      "value" : "We couldn't add the items to the cart. Try again. If the issue persists, contact customer support."
+    }, {
+      "name" : "addAllToCartModalItemsAddedItemsUnavailable",
+      "value" : "{0} items were added to the cart. {1} items are unavailable."
+    }, {
+      "name" : "addAllToCartModalItemAddedItemsUnavailable",
+      "value" : "1 item was added to the cart. {0} items are unavailable."
+    }, {
+      "name" : "addAllToCartModalItemsAddedItemUnavailable",
+      "value" : "{0} items were added to the cart. 1 item is unavailable."
+    }, {
+      "name" : "addAllToCartModalItemAddedItemUnavailable",
+      "value" : "1 item was added to the cart. 1 item is unavailable."
+    }, {
+      "name" : "addAllToCartModalNoItemsAvailable",
+      "value" : "We couldn't add the items to the cart. All the items are unavailable."
+    }, {
+      "name" : "addAllToCartModalSpinnerText",
+      "value" : "Adding items to the cart..."
+    }, {
+      "name" : "addAllToCartModalUnavailableItems",
+      "value" : "Unavailable items"
+    } ]
+  },
+  "urlName" : "ordertemplateaddalltocartmodalcontents"
+}

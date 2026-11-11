@@ -1,0 +1,38 @@
+.order-template-list-container {
+    display: block;
+    min-width: 0;
+}
+
+.order-template-list-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.order-template-list-header-left {
+    text-align: left;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.order-template-list-header-right {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* Mobile: stack heading and full-width New Template button (matches cartListContainerV2). */
+@media (max-width: 64em) {
+    .order-template-list-header-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+    .order-template-list-header-right {
+        display: block;
+        width: 100%;
+    }
+}

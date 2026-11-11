@@ -1,0 +1,180 @@
+{
+    "presets": [
+        {
+            "view": {
+                "definition": "site:orderTemplateListContainer",
+                "type": "component",
+                "children": [
+                    {
+                        "name": "heading",
+                        "title": "Heading",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "dxp_base:textBlock",
+                                "type": "component",
+                                "attributes": {
+                                    "text": "Order Templates",
+                                    "textDisplayInfo": "{\"textStyle\": \"heading-large\", \"headingTag\": \"h2\"}",
+                                    "paddingHorizontal": "none",
+                                    "paddingVertical": "xx-small"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "newTemplateButton",
+                        "title": "New Template Button",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:createOrderTemplateButton",
+                                "type": "component",
+                                "attributes": {
+                                    "newTemplateButtonLabel": "New Template",
+                                    "templateNameLabel": "Template Name",
+                                    "templateDescriptionLabel": "Description (Optional)",
+                                    "saveButtonLabel": "Create Template",
+                                    "cancelButtonLabel": "Cancel"
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "templateList",
+                        "title": "Template List",
+                        "type": "region",
+                        "children": [
+                            {
+                                "definition": "site:orderTemplateListView",
+                                "type": "component",
+                                "children": [
+                                    {
+                                        "name": "sortDropdown",
+                                        "title": "Sort Dropdown",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "site:orderTemplateListSortDropdown",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "label": "Sort By",
+                                                    "dateCreatedNewestLabel": "Date Created (Newest)",
+                                                    "dateCreatedOldestLabel": "Date Created (Oldest)"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "emptyListView",
+                                        "title": "emptyListView",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "No order templates yet",
+                                                    "textDisplayInfo": "{\"headingTag\": \"h3\", \"textStyle\": \"heading-medium\"}",
+                                                    "textDecoration": "{\"bold\": true}",
+                                                    "textAlign": "center"
+                                                }
+                                            },
+                                            {
+                                                "definition": "dxp_base:textBlock",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "text": "When you create templates, you'll see them here.",
+                                                    "textDisplayInfo": "{\"headingTag\": \"p\", \"textStyle\": \"body-regular\"}",
+                                                    "textAlign": "center"
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "templatesRepeater",
+                                        "title": "templatesRepeater",
+                                        "type": "region",
+                                        "children": [
+                                            {
+                                                "definition": "dxp_content_layout:list",
+                                                "type": "component",
+                                                "attributes": {
+                                                    "itemSpacing": "none",
+                                                    "listType": "unformatted",
+                                                    "showPagination": true,
+                                                    "autoScrollToMostRecent": true
+                                                },
+                                                "children": [
+                                                    {
+                                                        "name": "sfdcRepeaterItem",
+                                                        "title": "Repeater",
+                                                        "type": "region",
+                                                        "children": [
+                                                            {
+                                                                "definition": "site:orderTemplateDetailsCard",
+                                                                "type": "component",
+                                                                "attributes": {
+                                                                    "orderTemplateSummaryData": "{!OrderTemplateList}",
+                                                                    "itemsLabel": "Items"
+                                                                },
+                                                                "children": [
+                                                                    {
+                                                                        "name": "addAllToCart",
+                                                                        "title": "Add All to Cart",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "site:orderTemplateAddAllToCartButton",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "orderTemplateSummaryData": "{!OrderTemplateList}",
+                                                                                    "addAllToCartButtonLabel": "Add to Cart"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    },
+                                                                    {
+                                                                        "name": "templateOptions",
+                                                                        "title": "Template Options",
+                                                                        "type": "region",
+                                                                        "children": [
+                                                                            {
+                                                                                "definition": "site:orderTemplateOptions",
+                                                                                "type": "component",
+                                                                                "attributes": {
+                                                                                    "orderTemplateSummaryData": "{!OrderTemplateList}",
+                                                                                    "optionsDropdownLabel": "Options",
+                                                                                    "editTemplateLabel": "Edit",
+                                                                                    "deleteTemplateLabel": "Delete",
+                                                                                    "templateNameLabel": "Template Name",
+                                                                                    "templateDescriptionLabel": "Description (Optional)"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ],
+                                                "dataProviders": [
+                                                    {
+                                                        "definition": "sfdc_cms__commerceOrderTemplateListDataProvider",
+                                                        "type": "dataProvider",
+                                                        "sfdcExpressionKey": "OrderTemplateList",
+                                                        "attributes": {}
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

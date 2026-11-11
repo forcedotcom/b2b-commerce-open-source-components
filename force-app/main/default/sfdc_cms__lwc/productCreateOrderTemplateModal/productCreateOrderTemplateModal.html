@@ -1,0 +1,59 @@
+<template>
+    <lightning-modal-header label={_headerLabel}></lightning-modal-header>
+
+    <lightning-modal-body>
+        <div
+            lwc:if={_isNotLoading}
+            class="create-template-modal-body">
+            <lightning-input
+                data-name="name"
+                label={_templateNameLabel}
+                value={name}
+                onchange={handleNameChange}
+                onblur={handleNameBlur}
+                required
+                class="slds-p-bottom_medium"
+                data-validate="true"></lightning-input>
+
+            <lightning-textarea
+                data-name="templateDescription"
+                label={_descriptionLabel}
+                value={templateDescription}
+                onchange={handleDescriptionChange}
+                onblur={handleDescriptionBlur}
+                data-validate="true"></lightning-textarea>
+        </div>
+        <div
+            lwc:else
+            class="modal-contents slds-p-vertical_x-large">
+            <div class="slds-align_absolute-center slds-is-relative spinner-container">
+                <lightning-spinner
+                    aria-hidden="true"
+                    alternative-text={_spinnerHelpText}></lightning-spinner>
+            </div>
+            <h2 class="slds-text-align_center slds-text-heading_small">{_spinnerHelpText}</h2>
+        </div>
+    </lightning-modal-body>
+
+    <lightning-modal-footer lwc:if={_isNotLoading}>
+        <div class="footer-content-container">
+            <site-common-button-ui
+                variant="secondary"
+                width="stretch"
+                assistive-text={_cancelButtonLabel}
+                name="closeModalButton"
+                onclick={handleClose}>
+                {_cancelButtonLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                variant="primary"
+                width="stretch"
+                disabled={_isSaveButtonDisabled}
+                assistive-text={_saveButtonLabel}
+                name="saveTemplateButton"
+                onclick={handleSave}>
+                {_saveButtonLabel}
+            </site-common-button-ui>
+        </div>
+    </lightning-modal-footer>
+</template>

@@ -1,0 +1,41 @@
+<template>
+    <lightning-modal-header label={_modalHeading}></lightning-modal-header>
+    <lightning-modal-body>
+        <site-order-template-add-all-to-cart-modal-contents
+            succeeded-product-count={_succeededProductCount}
+            failed-product-count={_failedProductCount}
+            failed-items={_failedItems}
+            errors={_errors}
+            loading={_isLoading}></site-order-template-add-all-to-cart-modal-contents>
+    </lightning-modal-body>
+    <lightning-modal-footer if:false={_isLoading}>
+        <div class="footer-content-container">
+            <site-common-button-ui
+                variant="secondary"
+                width="stretch"
+                assistive-text={_closeButtonLabel}
+                name="closeModalButton"
+                onclick={handleClose}>
+                {_closeButtonLabel}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:if={_errors}
+                variant="primary"
+                width="stretch"
+                assistive-text={_continueShoppingButtonText}
+                name="continueShoppingButton"
+                onclick={handleClose}>
+                {_continueShoppingButtonText}
+            </site-common-button-ui>
+            <site-common-button-ui
+                lwc:else
+                variant="primary"
+                width="stretch"
+                assistive-text={_viewCartButtonText}
+                name="viewCartButton"
+                onclick={handleViewCart}>
+                {_viewCartButtonText}
+            </site-common-button-ui>
+        </div>
+    </lightning-modal-footer>
+</template>
