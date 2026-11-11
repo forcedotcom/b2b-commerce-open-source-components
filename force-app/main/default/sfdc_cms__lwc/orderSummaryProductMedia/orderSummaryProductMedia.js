@@ -41,19 +41,11 @@ export default class OrderSummaryProductMediaUi extends LightningElement {
     return {
       available: Boolean(productMedia.url),
       id: productMedia.id,
-      alternateText: productMedia.alternateText,
+      alternateText: productMedia.alternateText || labels.productImageAssistiveText,
       url: resolve(url, false, {
         width: 460
       }),
       images: createImageDataMap(url, this._imageSizes)
     };
-  }
-  handleTileClick(event) {
-    event.stopPropagation();
-    event.preventDefault();
-    this.dispatchEvent(new CustomEvent('navigatetoorderdetail', {
-      bubbles: true,
-      composed: true
-    }));
   }
 }

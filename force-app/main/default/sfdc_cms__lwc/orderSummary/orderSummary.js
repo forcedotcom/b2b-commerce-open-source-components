@@ -1,9 +1,13 @@
-import { LightningElement, api, wire } from 'lwc';
+import { LightningElement, api, track, wire } from 'lwc';
 import ReorderModal from 'site/reorderModal';
 import { NavigationContext, generateUrl, navigate } from 'lightning/navigation';
+import { isPreviewMode } from 'experience/clientApi';
 import { generateStyleProperties } from 'experience/styling';
 import { getDefaultOrderFields } from './constants';
+import { ORDER_SUMMARY_PREVIEW_VARIANTS } from './previewData';
 import { getOrderFields } from './orderSummaryDataProcessor';
+const ORDER_SUMMARY_TAG = 'site-order-summary';
+const ORDER_LIST_TAG = 'site-order-list';
 const CART_PAGE_REF = {
   type: 'comm__namedPage',
   attributes: {
@@ -43,6 +47,14 @@ export default class OrderSummary extends LightningElement {
   @api
   reorderButtonLabel;
   @api
+  showTooltip = false;
+  @api
+  pendingTooltipMessage;
+  @api
+  failedTooltipMessage;
+  @api
+  showOrderFailureMessage = false;
+  @api
   headerBgColor;
   @api
   borderColor;
@@ -54,6 +66,26 @@ export default class OrderSummary extends LightningElement {
   _cartUrl;
   _order;
   _orderDetailUrl;
+  @track
+  _previewRowIndex = 0;
+  @track
+  _previewIncludePendingAndFailedOrders = false;
+  _previewObserver;
+  get _resolvedOrder() {
+    if (isPreviewMode) {
+      return this._previewOrder;
+    }
+    return this._order;
+  }
+  get _isPreviewMode() {
+    return isPreviewMode;
+  }
+  get _previewOrder() {
+    if (!this._previewIncludePendingAndFailedOrders || this._previewRowIndex >= ORDER_SUMMARY_PREVIEW_VARIANTS.length) {
+      return ORDER_SUMMARY_PREVIEW_VARIANTS[0];
+    }
+    return ORDER_SUMMARY_PREVIEW_VARIANTS[this._previewRowIndex];
+  }
   @wire(NavigationContext)
   navigationContextHandler(navContext) {
     if (navContext) {
@@ -65,8 +97,14 @@ export default class OrderSummary extends LightningElement {
   get _reorderButtonLabel() {
     return this.showReorderButton ? this.reorderButtonLabel : '';
   }
+  get _resolvedStatus() {
+    return this._resolvedOrder?.fields?.Status?.text || this._resolvedOrder?.status;
+  }
+  get _subStatus() {
+    return this._resolvedOrder?.fields?.SubStatus?.text ?? undefined;
+  }
   get _orderFieldsData() {
-    return getOrderFields(this._order?.fields, this._orderInputFields);
+    return getOrderFields(this._resolvedOrder?.fields, this._orderInputFields);
   }
   get _orderInputFields() {
     if (this.orderSummaryFieldMapping && this.orderSummaryFieldMapping !== '[]') {
@@ -83,7 +121,7 @@ export default class OrderSummary extends LightningElement {
     });
   }
   get productCount() {
-    return this._order?.orderProductTopLevelLineCount;
+    return this._resolvedOrder?.orderProductTopLevelLineCount;
   }
   async handleReorder(event) {
     await ReorderModal.open({
@@ -107,5 +145,49 @@ export default class OrderSummary extends LightningElement {
       ORDER_DETAIL_PAGE_REF.attributes.recordId = this._order.orderSummaryId;
       navigate(this._navContext, ORDER_DETAIL_PAGE_REF);
     }
+  }
+  renderedCallback() {
+    this.setupPreview();
+  }
+  disconnectedCallback() {
+    this._previewObserver?.disconnect();
+    this._previewObserver = undefined;
+  }
+  setupPreview() {
+    if (!isPreviewMode || this._previewObserver) {
+      return;
+    }
+    const host = this.getHostElement();
+    if (!host) {
+      return;
+    }
+    const list = host.closest(ORDER_LIST_TAG);
+    if (!list) {
+      this.applyPreviewResolution(0, false);
+      return;
+    }
+    this.recomputePreview(host, list);
+    this._previewObserver = new MutationObserver(() => this.recomputePreview(host, list));
+    this._previewObserver.observe(list, {
+      childList: true,
+      subtree: true
+    });
+  }
+  recomputePreview(host, list) {
+    const rows = Array.from(list.querySelectorAll(ORDER_SUMMARY_TAG));
+    const index = Math.max(rows.indexOf(host), 0);
+    this.applyPreviewResolution(index, Boolean(list.includePendingAndFailedOrders));
+  }
+  applyPreviewResolution(rowIndex, includePendingAndFailedOrders) {
+    if (this._previewRowIndex !== rowIndex) {
+      this._previewRowIndex = rowIndex;
+    }
+    if (this._previewIncludePendingAndFailedOrders !== includePendingAndFailedOrders) {
+      this._previewIncludePendingAndFailedOrders = includePendingAndFailedOrders;
+    }
+  }
+  getHostElement() {
+    const rendered = this.querySelector('*');
+    return rendered ? rendered.parentElement : null;
   }
 }

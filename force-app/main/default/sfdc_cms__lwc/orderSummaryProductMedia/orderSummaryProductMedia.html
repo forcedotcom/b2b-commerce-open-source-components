@@ -5,18 +5,25 @@
                 class="tile"
                 for:each={images}
                 for:item="image"
-                key={image.id}>
-                <a
-                    href={orderDetailUrl}
-                    onclick={handleTileClick}>
+                key={image.id}
+                role="img"
+                aria-label={image.alternateText}>
+                <span class="tile-content">
+                    <!--
+                        The wrapping figure carries role="img" + aria-label, so the inner
+                        picture is decorative (alternative-text=""). This avoids screen
+                        readers announcing the product title twice (WCAG 4.1.2).
+                    -->
                     <experience-picture
                         lwc:if={image.available}
                         url={image.url}
                         images={image.images}
-                        alternative-text={image.alternateText}></experience-picture>
+                        alternative-text=""></experience-picture>
 
                     <svg
                         lwc:else
+                        aria-hidden="true"
+                        focusable="false"
                         viewBox="0 0 100 100"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -39,22 +46,18 @@
                             </clipPath>
                         </defs>
                     </svg>
-                </a>
+                </span>
             </figure>
-            <a
+            <div
                 lwc:if={displayLastTileInDesktop}
-                href={orderDetailUrl}
-                class="tile last-tile desktop-count"
-                onclick={handleTileClick}>
+                class="tile last-tile desktop-count">
                 <p class="slds-p-around_xx-small">{lastTileTextForDesktop}</p>
-            </a>
-            <a
+            </div>
+            <div
                 lwc:if={displayLastTileInMobile}
-                href={orderDetailUrl}
-                class="tile last-tile mobile-count"
-                onclick={handleTileClick}>
+                class="tile last-tile mobile-count">
                 <p class="slds-p-around_xx-small">{lastTileTextForMobile}</p>
-            </a>
+            </div>
         </div>
     </div>
 </template>

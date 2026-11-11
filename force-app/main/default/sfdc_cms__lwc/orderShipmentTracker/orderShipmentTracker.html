@@ -5,7 +5,23 @@
         current-status={orderStatus}
         icon-base-path={iconBasePath}
         style={trackerCustomCssStyles}></site-order-shipment-tracker-ui>
-    <template lwc:if={showStatusText}>
-        <slot name="orderStatus"></slot>
-    </template>
+    <div
+        lwc:if={showStatusText}
+        class="slds-grid slds-grid_vertical">
+        <div class="slds-grid slds-grid_vertical-align-center status-ctn">
+            <span class={statusTextClass}>
+                <slot name="orderStatus">{_statusDisplayText}</slot>
+            </span>
+            <lightning-helptext
+                lwc:if={showStatusTooltip}
+                icon-name="utility:info_alt"
+                class="slds-p-left_xx-small slds-p-bottom_xx-small status-tooltip"
+                content={_tooltipMessage}></lightning-helptext>
+        </div>
+        <span
+            lwc:if={showSubStatus}
+            class="order-sub-status">
+            {subStatus}
+        </span>
+    </div>
 </template>

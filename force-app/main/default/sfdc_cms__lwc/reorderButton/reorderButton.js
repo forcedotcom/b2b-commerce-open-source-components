@@ -2,6 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import { generateButtonVariantClass, generateButtonSizeClass, generateButtonStretchClass } from 'experience/styling';
 import ReorderModal from 'site/reorderModal';
 import { CurrentPageReference, NavigationContext, generateUrl, navigate } from 'lightning/navigation';
+import { isDesignMode } from 'experience/clientApi';
 export const MODAL_SIZE = 'small';
 const CART_PAGE_REF = {
   type: 'comm__namedPage',
@@ -9,6 +10,7 @@ const CART_PAGE_REF = {
     name: 'Current_Cart'
   }
 };
+const ORDER_SUMMARY_KEY_PREFIX = '1Os';
 function generateAlignmentClass(alignment) {
   if (alignment === 'center') {
     return 'slds-grid_align-center';
@@ -31,6 +33,15 @@ export default class ReorderButton extends LightningElement {
   alignment;
   @api
   buttonText;
+  @api
+  orderDetails;
+  get showReorderButton() {
+    if (isDesignMode) {
+      return true;
+    }
+    const orderSummaryId = this.orderDetails === undefined ? this.orderSummaryId : this.orderDetails?.orderSummaryId;
+    return !!orderSummaryId?.startsWith(ORDER_SUMMARY_KEY_PREFIX);
+  }
   _cartUrl;
   _accessToken;
   _navContext;

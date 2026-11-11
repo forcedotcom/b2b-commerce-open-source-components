@@ -1,17 +1,24 @@
 {
-  "type" : "sfdc_cms__label",
-  "title" : "orderSummaryUi",
-  "contentBody" : {
-    "labels" : [ {
-      "name" : "detailsAssistiveText",
-      "value" : "View details of {orderNumber}."
-    }, {
-      "name" : "keyValueSeparatorWithSpace",
-      "value" : ":&nbsp;"
-    }, {
-      "name" : "startReorderAssistiveText",
-      "value" : "Start reorder for {orderNumber}."
-    } ]
-  },
-  "urlName" : "ordersummaryui"
+  "type": "sfdc_cms__label",
+  "title": "orderSummaryUi",
+  "contentBody": {
+    "labels": [
+      {
+        "name": "detailsAssistiveText",
+        "value": "View details of {orderNumber}."
+      },
+      {
+        "name": "keyValueSeparatorWithSpace",
+        "value": ":&nbsp;"
+      },
+      {
+        "name": "startReorderAssistiveText",
+        "value": "Start reorder for {orderNumber}."
+      },
+      {
+        "name": "productImageAssistiveText",
+        "value": "Product image"
+      }
+    ]
+  }
 }

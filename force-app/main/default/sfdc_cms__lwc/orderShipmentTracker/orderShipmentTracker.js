@@ -2,6 +2,7 @@ import { LightningElement, api, wire } from 'lwc';
 import { AppContextAdapter } from 'commerce/contextApi';
 import basePath from '@salesforce/community/basePath';
 import { isPreviewMode } from 'experience/clientApi';
+import { ORDER_STATUS, STATUS_TEXT_CLASS_BASE } from './constants';
 
 /**
  * @slot orderStatus
@@ -12,6 +13,24 @@ export default class OrderShipmentTracker extends LightningElement {
   designSubstituteStatuses;
   @api
   orderStatus;
+  @api
+  statusDisplayText;
+  get _statusDisplayText() {
+    return this.statusDisplayText || this.orderStatus;
+  }
+  @api
+  subStatus;
+  @api
+  showOrderFailureMessage = false;
+  get showSubStatus() {
+    return this.showOrderFailureMessage && !!this.subStatus;
+  }
+  @api
+  showTooltip = false;
+  @api
+  pendingTooltipMessage;
+  @api
+  failedTooltipMessage;
   @api
   trackerCardBorderColor;
   @api
@@ -34,10 +53,33 @@ export default class OrderShipmentTracker extends LightningElement {
     return (this.designSubstituteStatuses !== undefined ? this.designSubstituteStatuses : this._statuses) ?? [];
   }
   get showTracker() {
-    return isPreviewMode || this._showTracker;
+    return !this.isCartBackedOrder && (isPreviewMode || this._showTracker);
+  }
+  get isCartBackedOrder() {
+    return this.orderStatus === ORDER_STATUS.PENDING || this.orderStatus === ORDER_STATUS.FAILED;
   }
   get showStatusText() {
-    return isPreviewMode || !this._showTracker;
+    return this.isCartBackedOrder || isPreviewMode || !this._showTracker;
+  }
+  get statusTextClass() {
+    if (!this.isCartBackedOrder) {
+      return STATUS_TEXT_CLASS_BASE;
+    }
+    const colorClass = this.orderStatus === ORDER_STATUS.FAILED ? 'order-creation-failed' : 'order-creation-pending';
+    return `${STATUS_TEXT_CLASS_BASE} ${colorClass}`;
+  }
+  get _tooltipMessage() {
+    switch (this.orderStatus) {
+      case ORDER_STATUS.PENDING:
+        return this.pendingTooltipMessage || '';
+      case ORDER_STATUS.FAILED:
+        return this.failedTooltipMessage || '';
+      default:
+        return '';
+    }
+  }
+  get showStatusTooltip() {
+    return this.showTooltip && this._tooltipMessage.length > 0;
   }
   get iconBasePath() {
     return basePath;

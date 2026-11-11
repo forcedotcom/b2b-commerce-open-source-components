@@ -1,0 +1,16 @@
+/*
+ * A cart-backed order (pending/failed status) renders its status text in the
+ * `orderStatus` slot. The fallback content is a bare text node on the span itself,
+ * while slotted content (e.g. a dxp_base/textBlock) sets its color inline (#0D825D).
+ * Color both the element and any descendants with !important so the override wins
+ * in either case.
+ */
+.order-creation-pending,
+.order-creation-pending * {
+    color: var(--dxp-g-warning, #eab24b) !important;
+}
+
+.order-creation-failed,
+.order-creation-failed * {
+    color: var(--dxp-g-destructive, #da0000) !important;
+}
